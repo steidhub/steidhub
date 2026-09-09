@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steid Hub — Marketing inmobiliario que vende proyectos</title>
+<meta name="description" content="Steid Hub es la agencia de marketing para real estate: producción audiovisual, drone 4K, branding, web, CRM con IA y campañas digitales para desarrolladores e inmobiliarias.">
+<meta name="theme-color" content="#111111">
+<meta property="og:title" content="Steid Hub — Marketing for Spaces">
+<meta property="og:description" content="Contenido que conecta, estrategias que convierten. Producción visual y marketing integral para proyectos inmobiliarios.">
+<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<link rel="icon" href="assets/logos/steidhub-mark-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="#hero" aria-label="Steid Hub — inicio">
+      <img src="assets/logos/steidhub-lockup-white.png" alt="Steid Hub, marketing for spaces" width="900" height="240">
+    </a>
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#produccion">Producción</a>
+      <a href="#integral">Solución integral</a>
+      <a href="#marketing">Marketing</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#equipo">Equipo</a>
+    </nav>
+    <div class="nav__end">
+      <a class="btn btn--primary nav__cta" href="#contacto">Agenda una llamada</a>
+      <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <a href="#produccion">Producción</a>
+  <a href="#integral">Solución integral</a>
+  <a href="#marketing">Marketing</a>
+  <a href="#portafolio">Portafolio</a>
+  <a href="#equipo">Equipo</a>
+  <a class="btn btn--primary btn--lg" href="#contacto">Agenda una llamada</a>
+</div>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__media">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata"
+           poster="assets/img/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="hero__center">
+    <div class="wrap">
+      <p class="hero__tag reveal"><i aria-hidden="true"></i> Marketing inmobiliario</p>
+      <h1 class="display reveal" data-d="1">
+        Contenido<br>
+        que <span class="accent">conecta,</span><br>
+        <span class="outline">estrategias</span><br>
+        que convierten
+      </h1>
+      <div class="reveal" data-d="2">
+        <p class="lead hero__lead">
+          Acompañamos a <strong>desarrolladores e inmobiliarias</strong> en todo el proceso:
+          desde la identidad del proyecto hasta el lanzamiento y la comercialización.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#contacto">
+            Hablemos de tu proyecto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#portafolio">Ver portafolio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__stats">
+    <div class="wrap">
+      <dl class="stats">
+        <div class="stat"><dd class="stat__n" data-count="90" data-prefix="+">+90</dd><dt class="stat__l">Grabaciones</dt></div>
+        <div class="stat"><dd class="stat__n" data-count="100" data-prefix="+">+100</dd><dt class="stat__l">Videos</dt></div>
+        <div class="stat"><dd class="stat__n" data-count="1500" data-prefix="+">+1500</dd><dt class="stat__l">Fotografías</dt></div>
+        <div class="stat"><dd class="stat__n" data-count="5">5</dd><dt class="stat__l">Provincias</dt></div>
+        <div class="stat"><dd class="stat__n" data-count="3">3</dd><dt class="stat__l">Proyectos</dt></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 · PRODUCCIÓN ============ -->
+<section class="section" id="produccion">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <p class="eyebrow">01 — Qué hacemos</p>
+        <h2 class="h2">Producción visual<br>completa para<br>real&nbsp;estate</h2>
+      </div>
+      <p class="lead reveal" data-d="1">
+        Cada inmueble merece una narrativa a la altura. Cubrimos toda la producción,
+        de la primera toma al entregable final, con contenido pensado para scrollear y detenerse.
+      </p>
+    </div>
+  </div>
+
+  <div class="reveal" data-d="2">
+    <div class="carousel" data-carousel data-autoplay="3200"
+         role="group" aria-roledescription="carrusel" aria-label="Servicios de producción">
+      <ul class="carousel__track" id="prodTrack">
+        <li class="slide">
+          <img src="assets/img/thegrand-comedor.jpg" alt="Comedor del proyecto The Grand captado para video inmobiliario" loading="lazy" width="1800" height="1200">
+          <div class="slide__body">
+            <span class="slide__n">01</span>
+            <h3>Video inmobiliario</h3>
+            <p>Tours cinematográficos y verticales para redes. Recorridos, videos promocionales y campañas publicitarias diseñadas para detener el scroll.</p>
+          </div>
+          <a class="slide__cta" href="#contacto">
+            <span>Agendar reunión
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </li>
+        <li class="slide">
+          <img src="assets/img/playa-carmen.jpg" alt="Toma aérea panorámica del condominio en Playa del Carmen, Chincha" loading="lazy" width="1800" height="1200">
+          <div class="slide__body">
+            <span class="slide__n">02</span>
+            <h3>Drone 4K</h3>
+            <p>Volamos con licencia y equipo cinematográfico para capturar el entorno completo del inmueble. Perspectivas que venden ubicación.</p>
+          </div>
+          <a class="slide__cta" href="#contacto">
+            <span>Agendar reunión
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </li>
+        <li class="slide">
+          <img src="assets/img/sala-sanborja.jpg" alt="Sala de un triplex en San Borja con composición editorial" loading="lazy" width="1800" height="1200">
+          <div class="slide__body">
+            <span class="slide__n">03</span>
+            <h3>Fotografía profesional</h3>
+            <p>Composiciones editoriales con luz natural y post-producción de galería. Cada espacio, en su mejor ángulo.</p>
+          </div>
+          <a class="slide__cta" href="#contacto">
+            <span>Agendar reunión
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </li>
+        <li class="slide">
+          <img src="assets/img/grafico-1.jpg" alt="Piezas para redes sociales del proyecto Sol y Campo en distintos formatos" loading="lazy" width="1800" height="1200">
+          <div class="slide__body">
+            <span class="slide__n">04</span>
+            <h3>Contenido para redes</h3>
+            <p>Reels, historias, publicaciones, banners y campañas: piezas orientadas a generar visibilidad, interés y nuevas oportunidades comerciales.</p>
+          </div>
+          <a class="slide__cta" href="#contacto">
+            <span>Agendar reunión
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </li>
+        <li class="slide">
+          <img src="assets/img/miraflores.jpg" alt="Toma con drone del puente de Miraflores con color de post-producción" loading="lazy" width="1800" height="1200">
+          <div class="slide__body">
+            <span class="slide__n">05</span>
+            <h3>Post-producción</h3>
+            <p>Color, edición y entrega multi-formato lista para web, portales, redes y pauta publicitaria.</p>
+          </div>
+          <a class="slide__cta" href="#contacto">
+            <span>Agendar reunión
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <button class="carousel__arrow carousel__arrow--prev" data-prev aria-label="Servicio anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="carousel__arrow carousel__arrow--next" data-next aria-label="Servicio siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <div class="carousel__ctrl">
+        <div class="carousel__dots" data-dots></div>
+        <button class="carousel__pause" data-pause aria-label="Pausar el carrusel" aria-pressed="false">
+          <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg>
+          <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- carrusel continuo de trabajo -->
+  <div class="reveal" data-d="3">
+    <p class="kicker showcase__kicker">Nuestro trabajo</p>
+    <div class="showcase" data-showcase aria-label="Muestras de nuestro trabajo">
+      <div class="showcase__track">
+        <img src="assets/img/golf-drone.jpg" alt="Vista aérea del campo de golf junto al desarrollo" loading="lazy">
+        <img src="assets/img/praderas.jpg" alt="Vista aérea del proyecto de lotes Praderas del Sur" loading="lazy">
+        <img src="assets/img/foto-sala.jpg" alt="Sala fotografiada con luz natural" loading="lazy">
+        <img src="assets/img/playa-1.jpg" alt="Condominio de Playa del Carmen desde el aire" loading="lazy">
+        <img src="assets/img/golf-pano.jpg" alt="Panorámica aérea del campo de golf" loading="lazy">
+        <img src="assets/img/thegrand-cocina.jpg" alt="Cocina del proyecto The Grand" loading="lazy">
+        <img src="assets/img/landscape.jpg" alt="Toma aérea del entorno natural del desarrollo" loading="lazy">
+        <img src="assets/img/playa-2.jpg" alt="Playa del Carmen vista desde el aire" loading="lazy">
+        <img src="assets/img/golf-2.jpg" alt="Campo de golf junto al proyecto" loading="lazy">
+        <img src="assets/img/hero-drone.jpg" alt="Panorámica aérea de la ciudad al atardecer" loading="lazy">
+        <img src="assets/img/thegrand-comedor2.jpg" alt="Comedor del proyecto The Grand" loading="lazy">
+        <img src="assets/img/miraflores.jpg" alt="Puente de Miraflores captado con drone" loading="lazy">
+      </div>
+
+      <button class="carousel__arrow carousel__arrow--prev" data-sc-prev aria-label="Imagen anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="carousel__arrow carousel__arrow--next" data-sc-next aria-label="Imagen siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div class="wrap carousel__ctrl">
+      <div class="carousel__dots" data-sc-dots></div>
+      <button class="carousel__pause" data-sc-pause aria-label="Pausar el carrusel" aria-pressed="false">
+        <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg>
+        <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · SOLUCIÓN INTEGRAL ============ -->
+<section class="section section--line" id="integral">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <p class="eyebrow">02 — Solución integral</p>
+        <h2 class="h2">Del concepto<br>a la venta</h2>
+      </div>
+      <p class="lead reveal" data-d="1">
+        Seis etapas, un solo equipo. Cada entregable se conecta con el siguiente para que el
+        proyecto llegue al mercado con una historia coherente y herramientas que cierran ventas.
+      </p>
+    </div>
+
+    <ol class="flow">
+      <li class="flow__step reveal">
+        <div class="flow__media">
+          <img src="assets/img/brochure-2.jpg" alt="Masterplan aéreo del proyecto Sol y Campo con su mensaje de marca" loading="lazy" width="1800" height="1200">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">01</span>
+          <h3 class="h3">Estrategia y planificación</h3>
+          <p>Objetivos, mercado y ruta comercial. Analizamos precios por m², absorción, ticket promedio y competencia para que cada decisión tenga fundamento.</p>
+          <ul class="tags">
+            <li>Investigación de mercado</li>
+            <li>Estudio de demanda</li>
+            <li>Comparativa competitiva</li>
+            <li>Reporte ejecutivo</li>
+            <li>Masterplan</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="flow__step reveal">
+        <div class="flow__media flow__media--screen">
+          <img src="assets/img/branding-hb.jpg" alt="Sistema de identidad visual Haut Bâtiment: logotipo, papelería y aplicaciones" loading="lazy" width="1672" height="942">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">02</span>
+          <h3 class="h3">Branding e imagen de marca</h3>
+          <p>De proyecto inmobiliario a marca reconocible: logotipo, manual de marca, sistema cromático, tipografías y todas sus aplicaciones.</p>
+          <ul class="tags">
+            <li>Diseño de logotipo</li>
+            <li>Manual de marca</li>
+            <li>Paleta y tipografías</li>
+            <li>Papelería y señalética</li>
+            <li>Aplicaciones de marca</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="flow__step reveal">
+        <div class="flow__media flow__media--screen">
+          <img src="assets/img/web-1.jpg" alt="Página web desarrollada para el proyecto Alquileres Top" loading="lazy" width="1800" height="1012">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">03</span>
+          <h3 class="h3">Ecosistema digital y automatización</h3>
+          <p>Web con información completa, beneficios, ubicación, lotes y renders. Formularios que crean tu base de leads, CRM centralizado y un asistente IA en WhatsApp que atiende 24/7.</p>
+          <ul class="tags">
+            <li>Página web y SEO</li>
+            <li>Recorrido virtual 360</li>
+            <li>CRM centralizado</li>
+            <li>Asistente IA en WhatsApp</li>
+            <li>Segmentación de leads</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="flow__step reveal">
+        <div class="flow__media">
+          <img src="assets/img/thegrand-cocina.jpg" alt="Cocina del proyecto The Grand fotografiada para el material del proyecto" loading="lazy" width="1800" height="1200">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">04</span>
+          <h3 class="h3">Producción de contenido</h3>
+          <p>Foto, video, drone y renders listos para publicar. Todo el material visual que el proyecto necesita para presentarse al mercado.</p>
+          <ul class="tags">
+            <li>Fotografía y video</li>
+            <li>Drone 4K</li>
+            <li>Renders y planos 3D</li>
+            <li>Reels e historias</li>
+            <li>Contenido estratégico</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="flow__step reveal">
+        <div class="flow__media">
+          <img src="assets/img/brochure-1.jpg" alt="Papelería y tarjetas comerciales del proyecto Sol y Campo" loading="lazy" width="1800" height="1200">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">05</span>
+          <h3 class="h3">Herramientas comerciales</h3>
+          <p>Todo lo que el equipo de ventas necesita para presentar mejor el proyecto, resolver dudas y apoyar cada oportunidad de venta.</p>
+          <ul class="tags">
+            <li>Brochure</li>
+            <li>Ficha comercial</li>
+            <li>Plano de distribución y lotes</li>
+            <li>Presentación de pitch</li>
+            <li>Banners y publicaciones</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="flow__step reveal">
+        <div class="flow__media">
+          <img src="assets/img/solycampo.jpg" alt="Pieza publicitaria del proyecto Sol y Campo" loading="lazy" width="1800" height="1200">
+        </div>
+        <div class="flow__body">
+          <span class="flow__n">06</span>
+          <h3 class="h3">Campañas y comercialización</h3>
+          <p>Publicidad, generación de leads calificados y seguimiento con IA y métricas para sostener la velocidad de venta hasta el cierre.</p>
+          <ul class="tags">
+            <li>Campañas digitales</li>
+            <li>Pauta en redes sociales</li>
+            <li>Embudos de conversión</li>
+            <li>Reportes de rendimiento</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
+    <p class="note reveal">
+      Las piezas mostradas forman parte del trabajo desarrollado por Steid Hub para los proyectos
+      Sol y Campo, Haut Bâtiment y Alquileres Top. Se incluyen como referencia del estándar
+      creativo y de ejecución.
+    </p>
+
+    <div class="tools reveal" data-d="1">
+      <div>
+        <h3>Programas y plataformas</h3>
+        <ul class="tags tags--soft">
+          <li>Premiere Pro</li><li>After Effects</li><li>Illustrator</li><li>Photoshop</li>
+          <li>Kling 3.0</li><li>Nano Banana</li><li>Metricool</li><li>Funnelytics</li>
+          <li>Google Analytics</li><li>Meta Ads</li><li>HubSpot</li><li>Webflow</li>
+          <li>WordPress</li><li>GitHub</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Equipamiento</h3>
+        <ul class="tags tags--soft">
+          <li>DJI Air 3S</li><li>Sony A7R V</li><li>DJI Mic Mini</li>
+          <li>Ronin RS4 Mini</li><li>Iluminación profesional</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-band reveal">
+      <div>
+        <h3 class="h3">¿Tienes un proyecto por lanzar?</h3>
+        <p class="muted" style="margin:8px 0 0">Te mostramos casos y definimos el alcance ideal en 5 minutos.</p>
+      </div>
+      <a class="btn btn--primary btn--lg" href="#contacto">
+        Agenda una llamada
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · MARKETING ============ -->
+<section class="section section--line section--photo section--photo-mkt" id="marketing">
+  <div class="section__bg" aria-hidden="true">
+    <img src="assets/img/grafico-1.jpg" alt="" loading="lazy" width="1800" height="1200">
+  </div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <p class="eyebrow">03 — Marketing inmobiliario</p>
+        <h2 class="h2">Marketing<br>que vende<br>proyectos</h2>
+      </div>
+      <p class="lead reveal" data-d="1">
+        Estrategias digitales diseñadas para captar compradores calificados, acelerar decisiones
+        y maximizar la velocidad de venta de cada unidad. Con resultados medibles: leads calificados,
+        costo por adquisición optimizado y velocidad de venta.
+      </p>
+    </div>
+
+    <div class="mkt reveal" data-d="2">
+      <article class="mkt__card">
+        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+        <span class="mkt__n">01</span>
+        <h3>Campañas digitales</h3>
+        <p>Diseñamos, lanzamos y optimizamos campañas en Meta, Google y TikTok con segmentación por comportamiento e intención real de compra.</p>
+        <ul class="tags tags--mkt">
+          <li>Meta Ads</li><li>Google</li><li>TikTok</li><li>Pauta en redes</li>
+        </ul>
+      </article>
+      <article class="mkt__card">
+        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3Z"/></svg></span>
+        <span class="mkt__n">02</span>
+        <h3>Embudos de conversión</h3>
+        <p>Flujos automatizados de email, WhatsApp y retargeting, con landing pages optimizadas y alertas al equipo comercial en el momento exacto.</p>
+        <ul class="tags tags--mkt">
+          <li>Landing pages</li><li>Retargeting</li><li>Segmentación de leads</li>
+        </ul>
+      </article>
+      <article class="mkt__card">
+        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H3V3"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
+        <span class="mkt__n">03</span>
+        <h3>Reportes de rendimiento</h3>
+        <p>Dashboard en tiempo real y reportes ejecutivos con costo por lead, tasa de conversión, ROI por canal y velocidad de venta por unidad.</p>
+        <ul class="tags tags--mkt">
+          <li>Costo por lead</li><li>ROI por canal</li><li>Reporte ejecutivo</li>
+        </ul>
+      </article>
+      <article class="mkt__card">
+        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+        <span class="mkt__n">04</span>
+        <h3>Investigación de mercado</h3>
+        <p>Precios por m², absorción, ticket promedio y benchmarking de proyectos similares. Cada recomendación soportada por datos verificables.</p>
+        <ul class="tags tags--mkt">
+          <li>Absorción</li><li>Benchmarking</li><li>Estudio de demanda</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ 04 · PORTAFOLIO ============ -->
+<section class="section section--line" id="portafolio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <p class="eyebrow">04 — Confían en nosotros</p>
+        <h2 class="h2">Proyectos<br>documentados</h2>
+      </div>
+      <p class="lead reveal" data-d="1">
+        No partimos de cero. Ya hemos desarrollado soluciones de marketing, contenido y herramientas
+        comerciales para proyectos de lotes y desarrollos inmobiliarios en cinco provincias.
+      </p>
+    </div>
+
+    <div class="cases reveal" data-d="2">
+      <article class="case case--lead">
+        <img src="assets/img/thegrand-comedor2.jpg" alt="Interiores del proyecto The Grand en Pezet y Portillo" loading="lazy">
+        <div class="case__body">
+          <p class="case__k">Lima</p>
+          <h3>The Grand — Pezet &amp; Portillo</h3>
+          <p>Fotografía de interiores, video y material comercial para un proyecto residencial de altura.</p>
+        </div>
+      </article>
+      <article class="case">
+        <img src="assets/img/playa-1.jpg" alt="Condominio en Playa del Carmen, Chincha, visto desde el aire" loading="lazy">
+        <div class="case__body">
+          <p class="case__k">Chincha</p>
+          <h3>Condominio Playa del Carmen</h3>
+          <p>Drone, fotografía, video, renders e implementación de IA.</p>
+        </div>
+      </article>
+      <article class="case">
+        <img src="assets/img/solycampo.jpg" alt="Piezas gráficas del proyecto de lotes Sol y Campo" loading="lazy">
+        <div class="case__body">
+          <p class="case__k">Pisco</p>
+          <h3>Sol y Campo</h3>
+          <p>Branding, brochure, web, masterplan y campañas digitales.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="reveal" data-d="3" style="margin-top:var(--sp-5)">
+      <p class="kicker" style="text-align:center">Colaboraciones y más</p>
+      <div class="marquee">
+        <div class="marquee__track" id="marqueeTrack" aria-hidden="true"></div>
+      </div>
+      <p class="sr-only">
+        Hemos colaborado con Century 21, RE/MAX, Domicis, Grupo Santa María, Pietro Estate,
+        Ponte di Pietro, Riga House, Kassa, Meztai, HZN Inmobiliaria, SC Inmobiliaria,
+        Canoli Bienes Raíces, Clausen House, Dream House Pro, Bay Drive, It's Time Perú,
+        Karina Matheus, Paola Benites, Arvia, Haut Bâtiment, M&amp;E y Marca.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · EQUIPO ============ -->
+<section class="section section--line" id="equipo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <p class="eyebrow">05 — Por qué nosotros</p>
+        <h2 class="h2">Un equipo<br>coordinado</h2>
+      </div>
+      <p class="lead reveal" data-d="1">
+        Seis perfiles trabajando de forma coordinada en estrategia, producción, edición, branding,
+        web, CRM, IA y experiencias interactivas. Integramos todo bajo un mismo estándar.
+      </p>
+    </div>
+
+    <div class="team reveal" data-d="2">
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/michael-philipps.jpg" alt="Michael Philipps" loading="lazy"></div>
+        <h3>Michael Philipps</h3>
+        <p class="member__role">Socio · Dirección estratégica y producción audiovisual</p>
+        <p class="member__bio">Dirección estratégica de proyectos y marca, gestión de medios pagados, creación de contenido y fotografía. Administrador, MBA, especialista en marketing digital y piloto DGAC.</p>
+      </article>
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/valia-suarez.jpg" alt="Valia Suárez" loading="lazy"></div>
+        <h3>Valia Suárez</h3>
+        <p class="member__role">Socia · Estrategia y contenido</p>
+        <p class="member__bio">Estrategia de marketing, planificación de contenidos, comunicación y gestión comercial. Administradora, Mg. en Comercio Exterior, con experiencia en gestión comercial.</p>
+      </article>
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/mafer-arbe.jpg" alt="María Arbe" loading="lazy"></div>
+        <h3>María Arbe</h3>
+        <p class="member__role">Dirección creativa e identidad visual</p>
+        <p class="member__bio">Creación, desarrollo y gestión del concepto de marca e identidad visual. Diseñadora gráfica, Mg. en Marketing y E-commerce.</p>
+      </article>
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/bryan-cortez.jpg" alt="Bryan Cortez" loading="lazy"></div>
+        <h3>Bryan Cortez</h3>
+        <p class="member__role">Postproducción</p>
+        <p class="member__bio">Edición audiovisual, animaciones, motion graphics, integración de renders y herramientas de IA. Productor audiovisual y especialista en dirección y postproducción.</p>
+      </article>
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/katherine-pacheco.jpg" alt="Katherine Pacheco" loading="lazy"></div>
+        <h3>Katherine Pacheco</h3>
+        <p class="member__role">Programación Full Stack, CRM e IA</p>
+        <p class="member__bio">Desarrollo web, implementación de CRM, automatizaciones, integraciones y asistente de IA en WhatsApp. Programadora Full-Stack y productora especialista en experiencias inmersivas.</p>
+      </article>
+      <article class="member">
+        <div class="member__ph"><img src="assets/team/darie-macazana.jpg" alt="Darie Macazana" loading="lazy"></div>
+        <h3>Darie Macazana</h3>
+        <p class="member__role">Arquitectura y visualización</p>
+        <p class="member__bio">Desarrollo de proyectos inmobiliarios y retail, elaboración de planos arquitectónicos, modelado 3D, renders y coordinación de obra. Arquitecto especializado en desarrollo y representación de espacios inmobiliarios y comerciales.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="section section--line section--photo" id="contacto">
+  <div class="section__bg" aria-hidden="true">
+    <img src="assets/img/contacto-bg.jpg" alt="" loading="lazy" width="2200" height="1650">
+  </div>
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__info reveal">
+        <p class="eyebrow">Agenda una llamada</p>
+        <h2 class="h2">Hablemos de<br>tu próximo<br>proyecto</h2>
+        <p class="lead" style="margin-top:24px">
+          5 minutos, sin compromiso. Te mostramos casos y definimos el alcance ideal para tu proyecto.
+        </p>
+        <dl>
+          <div>
+            <dt>WhatsApp / Teléfono</dt>
+            <dd><a href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n">+51 983 595 390</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:steidhub@gmail.com">steidhub@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Instagram</dt>
+            <dd><a href="https://instagram.com/steidhub" rel="noopener">@steidhub</a></dd>
+          </div>
+          <div>
+            <dt>TikTok</dt>
+            <dd><a href="https://tiktok.com/@steidhub.pe" rel="noopener">@steidhub.pe</a></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="reveal form__panel" data-d="1">
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__summary" id="formSummary" tabindex="-1" role="alert">
+            <strong>Revisa los siguientes campos:</strong>
+            <ul id="formSummaryList"></ul>
+          </div>
+
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="nombre">Nombre y apellido <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required
+                     aria-describedby="nombre-err" placeholder="Ej. María Fernández">
+              <span class="err" id="nombre-err">Ingresa tu nombre completo.</span>
+            </div>
+            <div class="field">
+              <label for="empresa">Empresa o proyecto</label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Ej. Inmobiliaria Andina">
+            </div>
+          </div>
+
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required
+                     inputmode="email" aria-describedby="email-err" placeholder="nombre@empresa.com">
+              <span class="err" id="email-err">Ingresa un email válido, por ejemplo nombre@empresa.com.</span>
+            </div>
+            <div class="field">
+              <label for="telefono">WhatsApp <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required
+                     inputmode="tel" aria-describedby="telefono-hint telefono-err" placeholder="+51 999 999 999">
+              <span class="hint" id="telefono-hint">Incluye el código de país.</span>
+              <span class="err" id="telefono-err">Ingresa un número de al menos 9 dígitos.</span>
+            </div>
+          </div>
+
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label for="servicio">¿Qué necesitas? <span class="req" aria-hidden="true">*</span></label>
+              <select id="servicio" name="servicio" required aria-describedby="servicio-err">
+                <option value="">Selecciona una opción</option>
+                <option>Producción audiovisual y drone</option>
+                <option>Branding e imagen de marca</option>
+                <option>Página web y SEO</option>
+                <option>Campañas y captación de leads</option>
+                <option>CRM y automatización con IA</option>
+                <option>Lanzamiento integral del proyecto</option>
+              </select>
+              <span class="err" id="servicio-err">Selecciona el servicio que te interesa.</span>
+            </div>
+            <div class="field">
+              <label for="etapa">Etapa del proyecto</label>
+              <select id="etapa" name="etapa">
+                <option value="">Selecciona una opción</option>
+                <option>En planificación</option>
+                <option>Por lanzar</option>
+                <option>En comercialización</option>
+                <option>Necesito asesoría</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Cuéntanos sobre el proyecto</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Ubicación, número de unidades, plazos, objetivos comerciales…"></textarea>
+          </div>
+
+          <label class="form__consent" for="consent">
+            <input type="checkbox" id="consent" name="consent" required aria-describedby="consent-err">
+            <span>Autorizo a Steid Hub a contactarme por email o WhatsApp para atender esta consulta.
+              <span class="err" id="consent-err" style="margin-top:4px">Necesitamos tu autorización para poder responderte.</span>
+            </span>
+          </label>
+
+          <label class="form__consent" for="datos">
+            <input type="checkbox" id="datos" name="datos" required aria-describedby="datos-err">
+            <span>Autorizo el tratamiento de mis datos personales conforme a la
+              <a href="https://drive.google.com/file/d/1i9qlP-c7zxRzGWlqiz-5Qmx7Aqz8kLBv/view?usp=drive_link" target="_blank" rel="noopener">política de privacidad</a>.
+              <span class="err" id="datos-err" style="margin-top:4px">Necesitamos tu autorización para tratar tus datos.</span>
+            </span>
+          </label>
+
+          <div class="form__submit">
+            <button class="btn btn--primary btn--lg" type="submit" id="submitBtn">
+              <span class="btn__label">Enviar solicitud</span>
+              <span class="spinner" aria-hidden="true"></span>
+              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <div class="form__status" id="formStatus" role="status" aria-live="polite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span id="formStatusText"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="assets/logos/steidhub-lockup-white.png" alt="Steid Hub" width="900" height="240">
+        <p class="muted" style="max-width:40ch;font-size:.875rem;margin:0">
+          Marketing for spaces. Producción, tecnología y estrategia para proyectos inmobiliarios.
+        </p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#produccion">Producción audiovisual</a></li>
+          <li><a href="#integral">Solución integral</a></li>
+          <li><a href="#marketing">Marketing inmobiliario</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n">+51 983 595 390</a></li>
+          <li><a href="mailto:steidhub@gmail.com">steidhub@gmail.com</a></li>
+          <li><a href="https://instagram.com/steidhub" rel="noopener">Instagram @steidhub</a></li>
+          <li><a href="https://tiktok.com/@steidhub.pe" rel="noopener">TikTok @steidhub.pe</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>&copy; <span id="year">2026</span> Steid Hub · Philipps Suárez Capital Group S.A.C. — RUC 20615410994</span>
+      <span>Marketing for Spaces</span>
+    </div>
+  </div>
+</footer>
+
+<div class="wa">
+  <div class="wa__panel" role="note">
+    <div class="wa__head">
+      <span class="wa__avatar" aria-hidden="true">
+        <img src="assets/logos/steidhub-mark-white.png" alt="" width="400" height="356">
+      </span>
+      <span class="wa__who">
+        <strong>Steid Hub</strong>
+        <small>Normalmente responde en minutos</small>
+      </span>
+    </div>
+    <div class="wa__body">
+      <p class="wa__msg">¡Hola! ¿De qué proyecto desearías conversar?</p>
+    </div>
+    <a class="wa__send" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" rel="noopener">Enviar mensaje</a>
+  </div>
+
+  <a class="wa__btn" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" rel="noopener">
+    <span class="wa__dot" aria-hidden="true"></span>
+    <span class="wa__ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.24-8.24 8.24Z"/></svg>
+    </span>
+    <span class="wa__label">Contáctanos ahora</span>
+  </a>
+</div>
+
+<div class="popup" id="popup" hidden>
+  <div class="popup__scrim" data-popup-close></div>
+  <div class="popup__box" role="dialog" aria-modal="true" aria-label="Asesoría y diagnóstico gratis">
+    <a class="popup__link" href="https://wa.me/51983595390?text=Deseo%20agendar%20mi%20reuni%C3%B3n%20gratuita%20de%20diagn%C3%B3stico" rel="noopener">
+      <img src="assets/img/popup-diagnostico.png"
+           alt="¿Inviertes en ads pero no vendes? Obtén una asesoría y diagnóstico gratis para TikTok Ads, Meta Ads y Google Ads. Agenda tu reunión ahora."
+           width="800" height="1000">
+    </a>
+    <button class="popup__close" type="button" data-popup-close aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
