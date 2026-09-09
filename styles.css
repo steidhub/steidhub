@@ -246,7 +246,10 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
    del propio <video>, así que ocultándolo desaparece con él. */
 .hero__media{background:center/cover no-repeat url('assets/img/hero-poster.webp')}
 .hero__media video{transition:opacity .35s var(--ease)}
-.hero__media.is-poster video{opacity:0}
+/* display:none, no opacity:0. iOS compone los controles del vídeo en una capa
+   aparte que no hereda la opacidad: con el elemento sólo transparente, su botón
+   de play seguía viéndose sobre el póster. */
+.hero__media.is-poster video{display:none}
 /* iOS y Safari dibujan un botón de play sobre el vídeo cuando no está reproduciendo.
    Sólo se ve en móvil; en escritorio estas reglas no tienen ningún efecto. */
 .hero__media video::-webkit-media-controls,
@@ -1033,8 +1036,6 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
      El primero y el último se anclan a su borde, porque no hay espacio fuera de
      la tira para llevarlos al centro y con "center" no llegarían a asentarse. */
   .video-sales__grid>.video-phone{scroll-snap-align:center}
-  .video-sales__grid>.video-phone:first-child{scroll-snap-align:start}
-  .video-sales__grid>.video-phone:last-child{scroll-snap-align:end}
   .video-sales__grid{scroll-padding-inline:0}
   .member__ph{max-width:160px;margin-inline:auto;margin-bottom:14px}
   .member h3{font-size:18px}

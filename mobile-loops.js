@@ -52,9 +52,9 @@
     // centro exacto. El anclaje nativo no siempre asienta en iOS y el vídeo se
     // quedaba a un lado justo al ir a reproducirlo.
     if (root.classList.contains('video-sales__grid')) {
-      let settleTimer;
+      let settleTimer, restoreTimer, settling = false;
       const settle = () => {
-        if (!mobile.matches || adjusting) return;
+        if (!mobile.matches || adjusting || settling) return;
         const rootRect = root.getBoundingClientRect();
         const mid = rootRect.left + rootRect.width / 2;
         let best = null, bd = Infinity;
@@ -64,11 +64,21 @@
           if (d < bd) { bd = d; best = item; }
         }
         if (!best || bd < 2) return;              // ya está centrada
+        // El anclaje se apaga durante el ajuste: si no, iOS lo reinterpreta a mitad
+        // de la animación y la tarjeta vuelve a quedarse a un lado.
+        settling = true;
+        root.style.scrollSnapType = 'none';
         root.scrollTo({ left: centerOf(best), behavior: 'smooth' });
+        clearTimeout(restoreTimer);
+        restoreTimer = setTimeout(() => {
+          root.style.scrollSnapType = '';
+          settling = false;
+        }, 420);
       };
       root.addEventListener('scroll', () => {
+        if (settling) return;                     // no reaccionamos a nuestra propia animación
         clearTimeout(settleTimer);
-        settleTimer = setTimeout(settle, 130);
+        settleTimer = setTimeout(settle, 140);
       }, { passive: true });
     }
 
