@@ -340,6 +340,8 @@
       const dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
       last = t;
 
+      // Comprobar también cada fotograma: el scroll puede ocurrir en un contenedor.
+      if (zoomed && !canZoomShowcase()) { zoomFollow = false; reset(); }
       let llegada = false;
       if (target !== null) {
         // acercamiento suave al destino elegido con flechas o puntos
@@ -429,6 +431,14 @@
         zoomed.src = photos[i].src;
         zoomed.alt = photos[i].alt;
         zoomedIdx = i;
+        // El marco ampliado permanece fijo; la tira muestra sus vecinos actuales.
+        const anchor = [...track.children].indexOf(zoomed);
+        [...track.children].forEach((image, position) => {
+          if (image === zoomed) return;
+          const photo = photos[((i + position - anchor) % n + n) % n];
+          image.src = photo.src;
+          image.alt = photo.alt;
+        });
         if (photoOverlay) {
           const overlay = photoOverlay;
           photoAnimation = overlay.animate([{ opacity: 1 }, { opacity: 0 }],
@@ -512,8 +522,10 @@
       photoVersion++;
       clearPhotoFade();
       if (zoomOriginal && zoomed) {
-        zoomed.src = zoomOriginal.src;
-        zoomed.alt = zoomOriginal.alt;
+        [...track.children].forEach((image, position) => {
+          image.src = photos[position % n].src;
+          image.alt = photos[position % n].alt;
+        });
         zoomOriginal = null;
         offset = nearest(centerOffsetFor(zoomedIdx));
         target = null;
@@ -523,14 +535,30 @@
       if (zoomed) targetIndex = null;
       restoreArrows();
       if (!zoomed) return;
+      // Cerrar inmediatamente evita que la transición de salida tape los videos.
+      zoomed.style.transition = 'none';
       zoomed.style.transform = '';
       zoomed.style.width = '';
       zoomed.style.height = '';
       zoomed.classList.remove('is-zoomed');
+      void zoomed.offsetWidth;
+      zoomed.style.transition = '';
       zoomed = null;
     };
+    let lastShowcaseScroll = -Infinity;
+    const canZoomShowcase = () => {
+      // Medimos la tira original, no la foto que puede sobresalir al ampliarse.
+      const videos = document.querySelector('.video-sales');
+      if (videos && videos.getBoundingClientRect().top < innerHeight) return false;
+      const r = sc.getBoundingClientRect();
+      const middle = innerHeight / 2;
+      const visibleHeight = Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0));
+      return r.top <= middle && r.bottom >= middle &&
+        visibleHeight >= Math.min(r.height, innerHeight) * 0.6 &&
+        performance.now() - lastShowcaseScroll > 180;
+    };
     const zoom = (img) => {
-      if (reduce.matches || img === zoomed) return;
+      if (reduce.matches || img === zoomed || !canZoomShowcase()) return;
       reset();
       // Medidas sin la transformación anterior, que aún puede estar animándose.
       const tr = track.getBoundingClientRect();
@@ -561,11 +589,15 @@
     track.addEventListener('pointerover', (e) => {
       if (e.pointerType === 'touch' || !finePointer.matches || target !== null) return;
       const img = e.target.closest('img');
-      if (img && track.contains(img)) zoom(img);
+      if (img && track.contains(img) && !zoomed) zoom(img);
     });
     sc.addEventListener('pointerenter', () => { hovering = true; });
     sc.addEventListener('pointerleave', () => { hovering = false; zoomFollow = false; reset(); });
-    addEventListener('scroll', reset, { passive: true });
+    addEventListener('scroll', () => {
+      lastShowcaseScroll = performance.now();
+      zoomFollow = false;
+      reset();
+    }, { passive: true });
     addEventListener('resize', reset);
 
     if ('IntersectionObserver' in window) {

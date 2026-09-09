@@ -825,3 +825,33 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   .marquee__track{animation:none;transform:none}
   .wa__btn,.wa__dot::after{animation:none}
 }
+
+/* Ubicación de cada fotografía, sobre su borde inferior. */
+.showcase__caption{
+  position:absolute;transform:translateY(-100%);pointer-events:none;
+  padding:40px clamp(18px,2.4vw,36px) clamp(18px,2vw,28px);
+  color:var(--bone);font-family:var(--ff);font-size:clamp(14px,1.3vw,20px);
+  font-weight:500;line-height:1.5;text-align:left;text-wrap:pretty;
+  text-shadow:0 1px 5px rgba(0,0,0,.7);
+  background:linear-gradient(transparent,rgba(0,0,0,.65));
+  border-radius:0 0 10px 10px;
+}
+.showcase__caption[hidden]{display:none}
+
+/* Videos que venden: marcos de celular, sin alterar las otras secciones. */
+.video-sales{padding-block:32px var(--sp-6)}
+.video-sales__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,6vw,88px);max-width:1060px;margin:auto;padding-inline:8px}
+.video-phone{position:relative;aspect-ratio:9/16;padding:0;border:0;outline:2px solid #777;border-radius:42px;background:linear-gradient(135deg,#858585,#181818 12%,#080808 70%,#555);box-shadow:inset 0 0 0 3px #080808,0 20px 40px #0005}
+.video-phone::before{content:"";position:absolute;left:-5px;top:22%;height:15%;width:3px;border-radius:3px;background:#555}
+.video-phone__screen{position:absolute;inset:16px 9px;border-radius:31px;overflow:hidden;background:#080808}
+.video-phone__screen::after{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:30%;height:18px;border-radius:20px;background:#050505;pointer-events:none}
+.video-phone video{display:block;width:100%;height:100%;object-fit:contain}
+.video-phone__play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:72px;height:72px;border:1px solid #ffffff60;border-radius:50%;background:#111a;color:var(--bone);cursor:pointer;backdrop-filter:blur(4px)}
+.video-phone__play svg{width:32px;height:32px;margin-left:3px}
+.video-phone__play:hover{background:#111d}
+.video-phone__play[hidden]{display:none}
+.video-sales__title{margin:36px 0 0}
+@media(max-width:640px){.video-sales__grid{grid-template-columns:1fr;max-width:310px;gap:32px}.video-sales{padding-bottom:64px}}
+
+/* El contenido inicial se muestra sin esperar a una animación de entrada. */
+.hero .reveal{opacity:1;transform:none;transition:none}
