@@ -81,16 +81,15 @@ hay que conocer y fijar el desplazamiento en cada momento.
 Tiene flechas en los extremos, barra de puntos y botón de pausa. Se detiene al pasar el cursor
 (necesario para la ampliación), al salir de pantalla y con `prefers-reduced-motion`.
 
-Las flechas parten del **índice redondeado**, el mismo que marcan los puntos. Con `floor`/`ceil`
-aparecía un fallo: si la tira había avanzado unos píxeles más allá de un límite, «anterior»
-volvía a la misma imagen en vez de retroceder una. Los puntos saltan por el camino más corto,
-sin recorrer el juego entero.
+Las flechas y los puntos llevan la imagen elegida directamente al centro de la ventana.
+El indicador sigue esa selección, y los clics consecutivos parten del destino pendiente.
+Durante el desplazamiento se ignora la ampliación por hover para evitar que una imagen
+que cruza bajo el cursor cambie de posición a mitad del movimiento.
 
-**Con una imagen ampliada**, las flechas y los puntos cambian de comportamiento: se quita la
-ampliación, se calcula el desplazamiento que deja la siguiente imagen centrada en pantalla
-(`centerOffsetFor`) y, al llegar, se amplía la que quedó en el centro. Sin esto la imagen
-ampliada conservaba el desplazamiento calculado desde su posición anterior y se quedaba a
-medias, dejando además un hueco en la tira.
+**Con una imagen ampliada**, las flechas y los puntos sustituyen únicamente la fotografía
+manteniendo el mismo elemento, tamaño, posición y controles. La siguiente foto se carga y
+decodifica antes del cambio; los clics rápidos respetan la última selección. Al salir de la
+vista ampliada se restaura la imagen original de la tira y se centra la última seleccionada.
 
 Además, **las flechas se recolocan sobre los bordes laterales de la imagen ampliada**
 (`placeArrows`, 18 px hacia dentro, centradas en vertical). Si se quedan en los extremos de la
@@ -137,19 +136,25 @@ Redes: Instagram **@steidhub** y TikTok **@steidhub.pe**.
 
 ## Conectar el formulario
 
-El formulario valida en cliente y hoy **simula** el envío. Para conectarlo,
-reemplaza el bloque `setTimeout` al final de `main.js` (marcado con un comentario)
-por la llamada real:
+El formulario envía JSON a `POST /api/leads`. La función en
+`functions/api/leads.js` valida los datos y las dos autorizaciones y guarda el
+registro mediante el binding `DB` en la tabla `leads` de `steidhub-leads`.
+Solo muestra éxito después de confirmar el guardado; ante errores conserva los datos.
+Si Google Analytics está instalado, registra `generate_lead` sin datos personales.
 
-```js
-fetch('/api/contacto', { method: 'POST', body: new FormData(form) })
-  .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(() => { /* mostrar formStatus como ahora */ })
-  .catch(() => { /* mostrar error y permitir reintento */ });
-```
+### Despliegue
 
-Servicios sin backend que funcionan con `FormData`: Formspree, Basin o Web3Forms
-(basta con cambiar la URL del `fetch`).
+La raíz del repositorio es esta carpeta `site` (contiene `.git`). Mantener
+`functions` en esta raíz. Cloudflare Pages debe publicar los archivos de esta raíz,
+con el binding de producción `DB` apuntando a `steidhub-leads`.
+La tabla existente debe contener: `id`, `nombre`, `empresa`, `email`, `whatsapp`,
+`necesidad`, `etapa`, `proyecto`, `consentimiento_contacto`,
+`consentimiento_privacidad`, `ip`, `user_agent`, `created_at`.
+`id` es autoincremental y `created_at` usa `DEFAULT CURRENT_TIMESTAMP`.
+
+Publicar los cambios mediante el repositorio conectado a Cloudflare Pages.
+Después del despliegue, enviar una solicitud de prueba desde el dominio y confirmar
+que aparece en D1. Las comprobaciones locales no prueban el binding de producción.
 
 ## Accesibilidad y rendimiento
 
@@ -199,7 +204,7 @@ que enlaza a la política de privacidad alojada en Google Drive.
 
 ## Pendientes para producción
 
-- Conectar el formulario a un backend o servicio de formularios.
+- Verificar un envío real y su registro en D1 después del despliegue.
 - Confirmar el enlace real de Instagram (`@steidhub`).
 - La foto `assets/team/dayana-diaz.jpg` quedó sin usar: la lista de perfiles entregada
   tiene seis personas y no la incluye. Si debe aparecer, indícanos su cargo y descripción.

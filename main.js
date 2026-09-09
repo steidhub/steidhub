@@ -275,6 +275,7 @@
     const track = sc.querySelector('.showcase__track');
     if (!track) return;
 
+    const photos = [...track.children].map((img) => ({ src: img.getAttribute('src'), alt: img.alt }));
     const n = track.children.length;                 // imágenes originales
     track.innerHTML += track.innerHTML;              // 2 juegos para el bucle
     track.querySelectorAll('img').forEach((im, i, all) => {
@@ -289,6 +290,7 @@
     const SPEED = 34;               // px por segundo del desplazamiento continuo
     let offset = 0;                 // px desplazados
     let target = null;              // destino al usar flechas o puntos
+    let targetIndex = null;         // conserva la selección durante clics consecutivos
     let userPaused = false;
     let hovering = false;
     let onScreen = true;
@@ -315,7 +317,9 @@
     }
     let shown = -1;
     const syncDots = () => {
-      const i = ((Math.round(offset / stepW()) % n) + n) % n;
+      const centered = offset + innerWidth / 2 - sc.getBoundingClientRect().left
+        - track.children[0].offsetLeft - track.children[0].offsetWidth / 2;
+      const i = targetIndex ?? ((Math.round(centered / stepW()) % n) + n) % n;
       if (i === shown) return;
       shown = i;
       dots.forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
@@ -340,9 +344,9 @@
       if (target !== null) {
         // acercamiento suave al destino elegido con flechas o puntos
         const d = target - offset;
-        if (Math.abs(d) < 0.6) { offset = target; target = null; llegada = true; }
+        if (reduce.matches || Math.abs(d) < 0.6) { offset = target; target = null; targetIndex = null; llegada = true; }
         else offset += d * Math.min(1, dt * 7);
-      } else if (!userPaused && !hovering && onScreen && !reduce.matches) {
+      } else if (!userPaused && !hovering && !zoomed && onScreen && !reduce.matches) {
         offset += SPEED * dt;
       }
 
@@ -382,25 +386,66 @@
     };
 
     const go = (dir) => {
-      const w = stepW();
+      const current = targetIndex ?? (zoomed ? zoomedIdx : shown);
+      goTo(((current + dir) % n + n) % n);
+    };
+    // Flechas y puntos usan siempre el centro, incluso sin una imagen ampliada.
+    const goTo = async (i) => {
       if (zoomed) {
-        // con una imagen ampliada, la flecha trae la siguiente al centro y la amplía;
-        // si no, la ampliada conservaba su desplazamiento anterior y quedaba a medias
-        const ni = ((zoomedIdx + dir) % n + n) % n;
-        reset();
-        target = nearest(centerOffsetFor(ni));
-        zoomFollow = true;
+        if (photoAnimation?.playState === 'running') return;
+        // Conservamos el mismo elemento ampliado y las flechas en su posición.
+        // La nueva foto se decodifica antes de sustituir la anterior.
+        const currentImage = zoomed;
+        const version = ++photoVersion;
+        photoAnimation?.cancel();
+        targetIndex = i;
+        syncDots();
+        const incoming = new Image();
+        incoming.src = photos[i].src;
+        try { await incoming.decode(); } catch {
+          if (version === photoVersion) { targetIndex = zoomedIdx; syncDots(); }
+          return;
+        }
+        if (version !== photoVersion || zoomed !== currentImage) return;
+        // La foto anterior cubre la nueva durante el fundido: nunca se ve el fondo.
+        clearPhotoFade();
+        if (!reduce.matches) {
+          const r = currentImage.getBoundingClientRect();
+          const sr = sc.getBoundingClientRect();
+          photoOverlay = document.createElement('img');
+          photoOverlay.src = currentImage.src;
+          photoOverlay.alt = '';
+          photoOverlay.setAttribute('aria-hidden', 'true');
+          photoOverlay.style.cssText = `position:absolute;pointer-events:none;z-index:7;
+            left:${r.left - sr.left}px;top:${r.top - sr.top}px;
+            width:${r.width}px;height:${r.height}px;object-fit:cover;
+            border-radius:${getComputedStyle(currentImage).borderRadius};`;
+          sc.appendChild(photoOverlay);
+        }
+        zoomOriginal ||= { src: zoomed.getAttribute('src'), alt: zoomed.alt };
+        // Fijar ambas dimensiones evita saltos por la proporción de cada archivo.
+        currentImage.style.width = currentImage.offsetWidth + 'px';
+        currentImage.style.height = currentImage.offsetHeight + 'px';
+        zoomed.src = photos[i].src;
+        zoomed.alt = photos[i].alt;
+        zoomedIdx = i;
+        if (photoOverlay) {
+          const overlay = photoOverlay;
+          photoAnimation = overlay.animate([{ opacity: 1 }, { opacity: 0 }],
+            { duration: 240, easing: 'ease-in-out', fill: 'forwards' });
+          photoAnimation.finished.then(() => {
+            overlay.remove();
+            if (photoOverlay === overlay) { photoOverlay = null; photoAnimation = null; }
+          }).catch(() => overlay.remove());
+        }
         return;
       }
-      const base = target !== null ? target : offset;
-      target = (Math.round(base / w) + dir) * w;
-    };
-    // salta al punto elegido por el camino más corto, sin recorrer el juego entero
-    const goTo = (i) => {
-      const wasZoomed = !!zoomed;
+      const follow = !!zoomed || zoomFollow;
       reset();
-      target = wasZoomed ? nearest(centerOffsetFor(i)) : nearest(i * stepW());
-      zoomFollow = wasZoomed;
+      target = nearest(centerOffsetFor(i));
+      targetIndex = i;
+      zoomFollow = follow;
+      syncDots();
     };
     prev && prev.addEventListener('click', () => go(-1));
     next && next.addEventListener('click', () => go(1));
@@ -418,6 +463,16 @@
     // con una escala calculada para que quepa entera. Se detiene el avance: si no,
     // la imagen ampliada se seguiría moviendo y habría que esperar a verla.
     let zoomed = null;
+    let zoomOriginal = null;
+    let photoVersion = 0;
+    let photoAnimation = null;
+    let photoOverlay = null;
+    const clearPhotoFade = () => {
+      photoAnimation?.cancel();
+      photoAnimation = null;
+      photoOverlay?.remove();
+      photoOverlay = null;
+    };
     let zoomedIdx = 0;
     let zoomFollow = false;
     // imagen (de cualquiera de los dos juegos) cuyo centro está más cerca del de la ventana
@@ -454,16 +509,33 @@
     };
 
     const reset = () => {
+      photoVersion++;
+      clearPhotoFade();
+      if (zoomOriginal && zoomed) {
+        zoomed.src = zoomOriginal.src;
+        zoomed.alt = zoomOriginal.alt;
+        zoomOriginal = null;
+        offset = nearest(centerOffsetFor(zoomedIdx));
+        target = null;
+        wrap();
+        track.style.transform = `translateX(${-offset}px)`;
+      }
+      if (zoomed) targetIndex = null;
       restoreArrows();
       if (!zoomed) return;
       zoomed.style.transform = '';
+      zoomed.style.width = '';
+      zoomed.style.height = '';
       zoomed.classList.remove('is-zoomed');
       zoomed = null;
     };
     const zoom = (img) => {
       if (reduce.matches || img === zoomed) return;
       reset();
-      const r = img.getBoundingClientRect();
+      // Medidas sin la transformación anterior, que aún puede estar animándose.
+      const tr = track.getBoundingClientRect();
+      const r = { left: tr.left + img.offsetLeft, top: tr.top + img.offsetTop,
+        width: img.offsetWidth, height: img.offsetHeight };
       if (!r.width) return;
       const scale = Math.min(innerWidth * 0.92 / r.width,
                              innerHeight * 0.85 / r.height,
@@ -487,12 +559,12 @@
     // pointerleave, así que la imagen se quedaría ampliada y tapando la sección
     const finePointer = matchMedia('(hover:hover) and (pointer:fine)');
     track.addEventListener('pointerover', (e) => {
-      if (e.pointerType === 'touch' || !finePointer.matches) return;
+      if (e.pointerType === 'touch' || !finePointer.matches || target !== null) return;
       const img = e.target.closest('img');
       if (img && track.contains(img)) zoom(img);
     });
     sc.addEventListener('pointerenter', () => { hovering = true; });
-    sc.addEventListener('pointerleave', () => { hovering = false; reset(); });
+    sc.addEventListener('pointerleave', () => { hovering = false; zoomFollow = false; reset(); });
     addEventListener('scroll', reset, { passive: true });
     addEventListener('resize', reset);
 
@@ -586,8 +658,9 @@
     if (el.type === 'checkbox') el.addEventListener('change', () => mark(el, validate(el)));
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (btn.disabled) return;
     const required = [...form.querySelectorAll('[required]')];
     const invalid = required.filter((el) => { const ok = validate(el); mark(el, ok); return !ok; });
 
@@ -609,16 +682,42 @@
     btn.setAttribute('aria-busy', 'true');
     btn.querySelector('.btn__label').textContent = 'Enviando…';
 
-    // Sin backend todavía: simulamos el envío y dejamos el hook listo.
-    // Reemplaza este bloque por fetch('/api/contacto', {method:'POST', body:new FormData(form)})
-    setTimeout(() => {
-      btn.removeAttribute('aria-busy');
-      btn.querySelector('.btn__label').textContent = 'Enviar solicitud';
+    btn.disabled = true;
+    status.classList.remove('is-visible');
+    const fields = new FormData(form);
+    const payload = {
+      nombre: fields.get('nombre'), empresa: fields.get('empresa'),
+      email: fields.get('email'), whatsapp: fields.get('telefono'),
+      necesidad: fields.get('servicio'), etapa: fields.get('etapa'),
+      proyecto: fields.get('mensaje'),
+      consentimiento_contacto: fields.has('consent'),
+      consentimiento_privacidad: fields.has('datos')
+    };
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error('Submission failed');
       statusText.textContent = '¡Gracias! Recibimos tu solicitud. Te escribimos dentro de las próximas 24 horas hábiles.';
-      status.classList.add('is-visible');
+      status.querySelector('svg').style.display = '';
       form.reset();
       form.querySelectorAll('.is-invalid').forEach((f) => f.classList.remove('is-invalid'));
+      form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+      if (typeof window.gtag === 'function') {
+        try { window.gtag('event', 'generate_lead'); } catch { /* El lead ya está guardado. */ }
+      }
+    } catch {
+      statusText.textContent = 'No pudimos confirmar el envío. Tus datos siguen aquí; vuelve a intentarlo en unos minutos o contáctanos por WhatsApp.';
+      status.querySelector('svg').style.display = 'none';
+    } finally {
+      btn.disabled = false;
+      btn.removeAttribute('aria-busy');
+      btn.querySelector('.btn__label').textContent = 'Enviar solicitud';
+      status.classList.add('is-visible');
       status.scrollIntoView({ block: 'center', behavior: reduce.matches ? 'auto' : 'smooth' });
-    }, 900);
+    }
   });
 })();
