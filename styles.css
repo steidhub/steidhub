@@ -1108,6 +1108,13 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
      el carrusel lateral no se podía desplazar hasta dar play. La tarjeta
      completa recibe el toque para reproducir (ver video-sales.js). */
   .video-phone__play{pointer-events:none;touch-action:pan-x pan-y pinch-zoom}
+  /* Capa transparente sobre el vídeo: en iOS el elemento <video> se queda el gesto
+     aunque tenga pointer-events:none, así que el carrusel sólo se dejaba desplazar
+     agarrando los bordes. Al reproducir desaparece para no tapar los controles. */
+  .video-phone:not(.is-playing) .video-phone__screen::before{
+    content:"";position:absolute;inset:0;z-index:3;
+    touch-action:pan-x pan-y pinch-zoom;
+  }
 }
 
 @media(max-width:767px){

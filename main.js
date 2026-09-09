@@ -122,6 +122,10 @@
   const lightHero = false;
   if (video && !lightHero && !reduce.matches) {
     const source = video.querySelector('source[data-src]');
+    // iOS ignora con frecuencia un <source> al que se le asigna el src por JS y se
+    // queda sin fuente reproducible: se muestra el póster con su botón de play.
+    // Asignar video.src directamente sí lo respeta.
+    video.src = source.dataset.src;
     source.src = source.dataset.src;
     // Como propiedades, no sólo como atributos: iOS exige ambas para el autoplay
     // silencioso y, si lo bloquea, pinta su propio botón de play sobre el vídeo.
@@ -129,11 +133,20 @@
     video.playsInline = true;
     video.load();
     const intentarPlay = () => video.play().catch(() => {});
-    video.addEventListener('loadeddata', intentarPlay, { once: true });
+    video.addEventListener('loadeddata', intentarPlay);
+    video.addEventListener('canplay', intentarPlay);
     intentarPlay();
-    // En modo de bajo consumo iOS bloquea el autoplay: se reintenta al primer gesto
+    // En modo de bajo consumo iOS bloquea el autoplay. Se reintenta con cada gesto
+    // hasta que arranca; el listener se retira solo cuando ya está reproduciendo.
+    const reintento = () => {
+      if (!video.paused) {
+        ['touchstart', 'click'].forEach((ev) => removeEventListener(ev, reintento));
+        return;
+      }
+      intentarPlay();
+    };
     ['touchstart', 'click'].forEach((ev) =>
-      addEventListener(ev, intentarPlay, { once: true, passive: true }));
+      addEventListener(ev, reintento, { passive: true }));
   }
   if (video) {
     if (reduce.matches || lightHero) { video.pause(); video.removeAttribute('autoplay'); }
