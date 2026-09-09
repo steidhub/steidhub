@@ -9,7 +9,7 @@ document.querySelectorAll('.video-phone').forEach((phone) => {
     video.controls = true;
     try { await video.play(); } catch { button.hidden = false; }
   });
-  video.addEventListener('play', () => { button.hidden = true; });
-  video.addEventListener('pause', () => { button.hidden = false; });
+  video.addEventListener('play', () => { button.hidden = true; phone.classList.add('is-playing'); });
+  video.addEventListener('pause', () => { button.hidden = false; phone.classList.remove('is-playing'); });
   video.addEventListener('ended', () => { button.hidden = false; video.controls = false; });
 });

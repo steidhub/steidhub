@@ -93,6 +93,13 @@
     const release = () => { touching = false; resumeAt = performance.now() + 3000; };
     strip.addEventListener('touchend', release, { passive: true });
     strip.addEventListener('touchcancel', release, { passive: true });
+    strip.addEventListener('scroll', () => {
+      if (!mobilePartners.matches) return;
+      const cycle = track.children[PARTNERS.length].offsetLeft - track.children[0].offsetLeft;
+      if (!cycle) return;
+      if (strip.scrollLeft >= cycle) strip.scrollLeft -= cycle;
+      else if (strip.scrollLeft <= 0) strip.scrollLeft = cycle - 1;
+    }, { passive: true });
     const movePartners = (now) => {
       const elapsed = previousFrame ? Math.min(now - previousFrame, 50) : 0;
       previousFrame = now;
@@ -112,7 +119,7 @@
 
   /* ---------- Pausar el video del hero fuera de pantalla ---------- */
   const video = document.getElementById('heroVideo');
-  const lightHero = matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData;
+  const lightHero = false;
   if (video && !lightHero && !reduce.matches) {
     const source = video.querySelector('source[data-src]');
     source.src = source.dataset.src;
