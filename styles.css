@@ -241,6 +241,12 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
 .hero__media{position:absolute;inset:0;z-index:0}
 .hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover}
+/* Respaldo: si la reproducción no arranca (iOS en bajo consumo, autoplay bloqueado),
+   se oculta el vídeo y queda el póster. El botón de play que dibuja iOS forma parte
+   del propio <video>, así que ocultándolo desaparece con él. */
+.hero__media{background:center/cover no-repeat url('assets/img/hero-poster.webp')}
+.hero__media video{transition:opacity .35s var(--ease)}
+.hero__media.is-poster video{opacity:0}
 /* iOS y Safari dibujan un botón de play sobre el vídeo cuando no está reproduciendo.
    Sólo se ve en móvil; en escritorio estas reglas no tienen ningún efecto. */
 .hero__media video::-webkit-media-controls,
@@ -1023,6 +1029,13 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   .video-sales{padding-block:24px 36px}
   .team,.video-sales__grid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:86%;max-width:none;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:0;padding:0 0 14px;scrollbar-width:thin;scrollbar-color:var(--terra) var(--ink-2);align-items:start}
   .team>.member,.video-sales__grid>.video-phone{scroll-snap-align:start;min-width:0}
+  /* El teléfono se ancla al centro: si no, al soltar quedaba pegado a un lado.
+     El primero y el último se anclan a su borde, porque no hay espacio fuera de
+     la tira para llevarlos al centro y con "center" no llegarían a asentarse. */
+  .video-sales__grid>.video-phone{scroll-snap-align:center}
+  .video-sales__grid>.video-phone:first-child{scroll-snap-align:start}
+  .video-sales__grid>.video-phone:last-child{scroll-snap-align:end}
+  .video-sales__grid{scroll-padding-inline:0}
   .member__ph{max-width:160px;margin-inline:auto;margin-bottom:14px}
   .member h3{font-size:18px}
   .member__role{font-size:10px;margin-block:8px;line-height:1.5}

@@ -147,6 +147,19 @@
     };
     ['touchstart', 'click'].forEach((ev) =>
       addEventListener(ev, reintento, { passive: true }));
+
+    // Vigilante: si a los 2,5 s el vídeo no ha avanzado, se muestra sólo el póster.
+    // iOS dibuja su botón de play dentro del propio <video>, así que atenuarlo es
+    // la única forma segura de que ese botón no aparezca nunca sobre el hero.
+    const media = video.closest('.hero__media');
+    const marcarEstado = () => {
+      if (!media) return;
+      media.classList.toggle('is-poster', video.paused || video.readyState < 3);
+    };
+    setTimeout(marcarEstado, 2500);
+    video.addEventListener('playing', () => media && media.classList.remove('is-poster'));
+    video.addEventListener('stalled', marcarEstado);
+    video.addEventListener('error', marcarEstado);
   }
   if (video) {
     if (reduce.matches || lightHero) { video.pause(); video.removeAttribute('autoplay'); }
