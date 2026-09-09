@@ -1062,3 +1062,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   .marquee{overflow-x:auto;touch-action:pan-x pan-y pinch-zoom;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--terra) var(--ink-2)}
   .marquee__track{animation:none;transform:none}
 }
+@media(max-width:767px){
+  .wa:hover .wa__panel,.wa:focus-within .wa__panel{opacity:0;visibility:hidden;pointer-events:none}
+  .wa.is-panel-open .wa__panel{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+}
