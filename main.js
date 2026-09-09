@@ -90,8 +90,14 @@
 
   /* ---------- Pausar el video del hero fuera de pantalla ---------- */
   const video = document.getElementById('heroVideo');
+  const lightHero = matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData;
+  if (video && !lightHero && !reduce.matches) {
+    const source = video.querySelector('source[data-src]');
+    source.src = source.dataset.src;
+    video.load();
+  }
   if (video) {
-    if (reduce.matches) { video.pause(); video.removeAttribute('autoplay'); }
+    if (reduce.matches || lightHero) { video.pause(); video.removeAttribute('autoplay'); }
     else if ('IntersectionObserver' in window) {
       new IntersectionObserver((es) => es.forEach((e) => {
         e.isIntersecting ? video.play().catch(() => {}) : video.pause();
@@ -99,7 +105,7 @@
     }
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) video.pause();
-      else if (!reduce.matches) video.play().catch(() => {});
+      else if (!reduce.matches && !lightHero) video.play().catch(() => {});
     });
   }
 
@@ -174,7 +180,7 @@
     const DUR = 500;                                  // igual que la transición del CSS
 
     // margen mínimo: sólo el sitio que ocupa la flecha, para que no quede hueco negro
-    const gutter = () => (viewport.clientWidth >= 768 ? 104 : 76);
+    const gutter = () => (viewport.clientWidth >= 768 ? 104 : Math.max(0, (viewport.clientWidth - real[0].getBoundingClientRect().width) / 2));
     // la diapositiva activa arranca en el margen izquierdo (no centrada)
     const offsetFor = (i) => {
       const sl = track.children[i];
@@ -277,10 +283,41 @@
 
     const photos = [...track.children].map((img) => ({ src: img.getAttribute('src'), alt: img.alt }));
     const n = track.children.length;                 // imágenes originales
-    track.innerHTML += track.innerHTML;              // 2 juegos para el bucle
+    const originalSlides = track.innerHTML;
+    track.innerHTML = originalSlides.repeat(3);       // copia a ambos lados del juego central
     track.querySelectorAll('img').forEach((im, i, all) => {
-      if (i >= all.length / 2) im.setAttribute('aria-hidden', 'true');
+      if (i >= n) im.setAttribute('aria-hidden', 'true');
     });
+
+    // Preparar las fotos antes de que el carrusel entre en pantalla.
+    const readyPhotos = new Map();
+    const preparePhoto = (index) => {
+      const src = photos[(index + n) % n].src;
+      if (!readyPhotos.has(src)) {
+        const image = new Image();
+        image.src = src;
+        const ready = image.decode().then(() => image).catch((error) => {
+          readyPhotos.delete(src);
+          throw error;
+        });
+        readyPhotos.set(src, ready);
+      }
+      return readyPhotos.get(src);
+    };
+    const warmImages = () => {
+      if (matchMedia('(max-width:767px)').matches) {
+        [n - 1, 0, 1].forEach((i) => { preparePhoto(i).catch(() => {}); });
+      } else {
+        track.querySelectorAll('img').forEach((image) => { image.loading = 'eager'; });
+        photos.forEach((_, i) => { preparePhoto(i).catch(() => {}); });
+      }
+    };
+    if ('IntersectionObserver' in window) {
+      const preloadObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) { warmImages(); preloadObserver.disconnect(); }
+      }, { rootMargin: '900px' });
+      preloadObserver.observe(sc);
+    } else warmImages();
 
     const prev = sc.querySelector('[data-sc-prev]');
     const next = sc.querySelector('[data-sc-next]');
@@ -288,7 +325,7 @@
     const pauseBtn = sc.parentElement.querySelector('[data-sc-pause]');
 
     const SPEED = 34;               // px por segundo del desplazamiento continuo
-    let offset = 0;                 // px desplazados
+    let offset = track.children[n].offsetLeft - track.children[0].offsetLeft;
     let target = null;              // destino al usar flechas o puntos
     let targetIndex = null;         // conserva la selección durante clics consecutivos
     let userPaused = false;
@@ -328,18 +365,19 @@
     const wrap = () => {
       const w = setW();
       if (!w) return;
-      if (offset >= w) { offset -= w; if (target !== null) target -= w; }
-      else if (offset < 0) { offset += w; if (target !== null) target += w; }
+      if (offset >= 2 * w) { offset -= w; if (target !== null) target -= w; }
+      else if (offset < w) { offset += w; if (target !== null) target += w; }
     };
 
     // estado inicial pintado ya, sin esperar al primer frame
-    track.style.transform = 'translateX(0px)';
+    track.style.transform = `translateX(${-offset}px)`;
     syncDots();
 
     const frame = (t) => {
       const dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
       last = t;
 
+      if (!onScreen && !zoomed && target === null) { requestAnimationFrame(frame); return; }
       // Comprobar también cada fotograma: el scroll puede ocurrir en un contenedor.
       if (zoomed && !canZoomShowcase()) { zoomFollow = false; reset(); }
       let llegada = false;
@@ -402,9 +440,7 @@
         photoAnimation?.cancel();
         targetIndex = i;
         syncDots();
-        const incoming = new Image();
-        incoming.src = photos[i].src;
-        try { await incoming.decode(); } catch {
+        try { await Promise.all([preparePhoto(i), preparePhoto((i + 1) % n), preparePhoto((i + n - 1) % n)]); } catch {
           if (version === photoVersion) { targetIndex = zoomedIdx; syncDots(); }
           return;
         }

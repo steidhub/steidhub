@@ -26,7 +26,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 <link rel="preload" as="image" href="assets/img/hero-poster.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20260909-performance">
+<link rel="stylesheet" href="styles.css?v=20260909-mobile">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Steid Hub","url":"https://www.steidhub.com/","logo":"https://www.steidhub.com/assets/logos/steidhub-lockup-white.png","description":"Producción audiovisual y marketing inmobiliario para desarrolladores e inmobiliarias."}
+</script>
 </head>
 <body>
 
@@ -70,7 +73,7 @@
   <div class="hero__media">
     <video id="heroVideo" autoplay muted loop playsinline preload="metadata"
            poster="assets/img/hero-poster.webp" aria-hidden="true" tabindex="-1">
-      <source src="assets/video/hero.mp4" type="video/mp4">
+      <source data-src="assets/video/hero.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -254,7 +257,8 @@
 
 <!-- Videos que venden -->
 <section class="video-sales wrap" aria-labelledby="video-sales-title">
-  <div class="video-sales__grid">
+  <p class="mobile-swipe-hint">Desliza para ver más videos →</p>
+  <div class="video-sales__grid" tabindex="0" aria-label="Videos de nuestro trabajo">
     <div class="video-phone">
       <div class="video-phone__screen">
         <video id="sales-video-1" playsinline preload="none" poster="assets/video/ventas-1.webp" aria-label="Video de nuestro trabajo 1">
@@ -468,7 +472,8 @@
       </p>
     </div>
 
-    <div class="mkt reveal" data-d="2">
+    <p class="mobile-swipe-hint">Desliza para explorar nuestros servicios →</p>
+    <div class="mkt reveal" data-d="2" tabindex="0" aria-label="Servicios de marketing">
       <article class="mkt__card">
         <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
         <span class="mkt__n">01</span>
@@ -580,7 +585,8 @@
       </p>
     </div>
 
-    <div class="team reveal" data-d="2">
+    <p class="mobile-swipe-hint">Desliza para conocer al equipo →</p>
+    <div class="team reveal" data-d="2" tabindex="0" aria-label="Integrantes del equipo">
       <article class="member">
         <div class="member__ph"><img src="assets/team/michael-philipps.webp" alt="Michael Philipps" loading="lazy"></div>
         <h3>Michael Philipps</h3>
@@ -641,7 +647,7 @@
           </div>
           <div>
             <dt>Email</dt>
-            <dd><a href="mailto:steidhub@gmail.com">steidhub@gmail.com</a></dd>
+            <dd><a href="mailto:informes@steidhub.com">informes@steidhub.com</a></dd>
           </div>
           <div>
             <dt>Instagram</dt>
@@ -664,26 +670,26 @@
           <div class="form__row form__row--2">
             <div class="field">
               <label for="nombre">Nombre y apellido <span class="req" aria-hidden="true">*</span></label>
-              <input type="text" id="nombre" name="nombre" autocomplete="name" required
+              <input type="text" id="nombre" name="nombre" autocomplete="name" autocapitalize="words" enterkeyhint="next" required
                      aria-describedby="nombre-err" placeholder="Ej. María Fernández">
               <span class="err" id="nombre-err">Ingresa tu nombre completo.</span>
             </div>
             <div class="field">
               <label for="empresa">Empresa o proyecto</label>
-              <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Ej. Inmobiliaria Andina">
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" enterkeyhint="next" placeholder="Ej. Inmobiliaria Andina">
             </div>
           </div>
 
           <div class="form__row form__row--2">
             <div class="field">
               <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input type="email" id="email" name="email" autocomplete="email" required
+              <input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="next" required
                      inputmode="email" aria-describedby="email-err" placeholder="nombre@empresa.com">
               <span class="err" id="email-err">Ingresa un email válido, por ejemplo nombre@empresa.com.</span>
             </div>
             <div class="field">
               <label for="telefono">WhatsApp <span class="req" aria-hidden="true">*</span></label>
-              <input type="tel" id="telefono" name="telefono" autocomplete="tel" required
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" enterkeyhint="next" required
                      inputmode="tel" aria-describedby="telefono-hint telefono-err" placeholder="+51 999 999 999">
               <span class="hint" id="telefono-hint">Incluye el código de país.</span>
               <span class="err" id="telefono-err">Ingresa un número de al menos 9 dígitos.</span>
@@ -779,7 +785,7 @@
         <h4>Contacto</h4>
         <ul>
           <li><a href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n">+51 983 595 390</a></li>
-          <li><a href="mailto:steidhub@gmail.com">steidhub@gmail.com</a></li>
+          <li><a href="mailto:informes@steidhub.com">informes@steidhub.com</a></li>
           <li><a href="https://instagram.com/steidhub" rel="noopener">Instagram @steidhub</a></li>
           <li><a href="https://tiktok.com/@steidhub.pe" rel="noopener">TikTok @steidhub.pe</a></li>
         </ul>
@@ -832,7 +838,7 @@
   </div>
 </div>
 
-<script src="main.js?v=20260909-performance"></script>
+<script src="main.js?v=20260909-mobile"></script>
 <script src="showcase-captions.js"></script>
 <script src="video-sales.js"></script>
 </body>
