@@ -241,6 +241,18 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
 .hero__media{position:absolute;inset:0;z-index:0}
 .hero__media video,.hero__media img{width:100%;height:100%;object-fit:cover}
+/* iOS y Safari dibujan un botón de play sobre el vídeo cuando no está reproduciendo.
+   Sólo se ve en móvil; en escritorio estas reglas no tienen ningún efecto. */
+.hero__media video::-webkit-media-controls,
+.hero__media video::-webkit-media-controls-enclosure,
+.hero__media video::-webkit-media-controls-panel,
+.hero__media video::-webkit-media-controls-overlay-play-button,
+.hero__media video::-webkit-media-controls-start-playback-button{
+  display:none !important;
+  -webkit-appearance:none;
+  opacity:0;
+  pointer-events:none;
+}
 .hero__media::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(17,17,17,.82) 0%,rgba(17,17,17,.62) 32%,rgba(17,17,17,.72) 58%,rgba(17,17,17,.94) 86%,var(--ink) 100%);
@@ -1091,7 +1103,11 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   #heroVideo{pointer-events:none}
   #heroVideo::-webkit-media-controls{display:none!important}
   .video-phone:not(.is-playing) video{pointer-events:none}
-  .video-phone__play{touch-action:pan-x pan-y pinch-zoom}
+  /* El botón queda sólo como indicador visual. Era lo único que desaparecía al
+     empezar la reproducción, y mientras estaba presente capturaba el gesto:
+     el carrusel lateral no se podía desplazar hasta dar play. La tarjeta
+     completa recibe el toque para reproducir (ver video-sales.js). */
+  .video-phone__play{pointer-events:none;touch-action:pan-x pan-y pinch-zoom}
 }
 
 @media(max-width:767px){

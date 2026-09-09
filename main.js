@@ -123,7 +123,17 @@
   if (video && !lightHero && !reduce.matches) {
     const source = video.querySelector('source[data-src]');
     source.src = source.dataset.src;
+    // Como propiedades, no sólo como atributos: iOS exige ambas para el autoplay
+    // silencioso y, si lo bloquea, pinta su propio botón de play sobre el vídeo.
+    video.muted = true;
+    video.playsInline = true;
     video.load();
+    const intentarPlay = () => video.play().catch(() => {});
+    video.addEventListener('loadeddata', intentarPlay, { once: true });
+    intentarPlay();
+    // En modo de bajo consumo iOS bloquea el autoplay: se reintenta al primer gesto
+    ['touchstart', 'click'].forEach((ev) =>
+      addEventListener(ev, intentarPlay, { once: true, passive: true }));
   }
   if (video) {
     if (reduce.matches || lightHero) { video.pause(); video.removeAttribute('autoplay'); }

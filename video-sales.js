@@ -1,8 +1,12 @@
-/* Los videos solo arrancan al pulsar su botón. */
+/* Los videos solo arrancan al pulsar (el botón en escritorio, la tarjeta en móvil). */
 document.querySelectorAll('.video-phone').forEach((phone) => {
   const video = phone.querySelector('video');
   const button = phone.querySelector('.video-phone__play');
-  button.addEventListener('click', async () => {
+  // El listener va en la tarjeta, no en el botón: en móvil el botón queda con
+  // pointer-events:none para que no capture el gesto de desplazamiento lateral.
+  // Un arrastre no dispara click, así que deslizar sigue funcionando.
+  phone.addEventListener('click', async () => {
+    if (!video.paused) return;
     document.querySelectorAll('.video-phone video').forEach((other) => {
       if (other !== video) other.pause();
     });
