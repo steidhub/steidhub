@@ -86,6 +86,28 @@
     const build = () => PARTNERS.map(([f, n]) =>
       `<span class="marquee__item"><img src="assets/partners/${f}.png" alt="${n}" loading="lazy"></span>`).join('');
     track.innerHTML = build() + build(); // duplicado para loop continuo
+    const strip = track.parentElement;
+    const mobilePartners = matchMedia('(max-width:767px)');
+    let touching = false, resumeAt = 0, previousFrame = 0;
+    strip.addEventListener('touchstart', () => { touching = true; }, { passive: true });
+    const release = () => { touching = false; resumeAt = performance.now() + 3000; };
+    strip.addEventListener('touchend', release, { passive: true });
+    strip.addEventListener('touchcancel', release, { passive: true });
+    const movePartners = (now) => {
+      const elapsed = previousFrame ? Math.min(now - previousFrame, 50) : 0;
+      previousFrame = now;
+      if (mobilePartners.matches && !reduce.matches && !touching && now > resumeAt && !document.hidden) {
+        const bounds = strip.getBoundingClientRect();
+        if (bounds.bottom > 0 && bounds.top < innerHeight) {
+          const cycle = track.children[PARTNERS.length].offsetLeft - track.children[0].offsetLeft;
+          strip.scrollLeft += cycle * elapsed / 52000;
+          if (cycle && strip.scrollLeft >= cycle) strip.scrollLeft -= cycle;
+        }
+      }
+      requestAnimationFrame(movePartners);
+    };
+    requestAnimationFrame(movePartners);
+
   }
 
   /* ---------- Pausar el video del hero fuera de pantalla ---------- */

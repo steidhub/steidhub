@@ -1058,3 +1058,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
 @media(prefers-reduced-motion:no-preference){
   .marquee__track{animation-duration:52s}
 }
+@media(max-width:767px){
+  .marquee{overflow-x:auto;touch-action:pan-x pan-y pinch-zoom;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--terra) var(--ink-2)}
+  .marquee__track{animation:none;transform:none}
+}
