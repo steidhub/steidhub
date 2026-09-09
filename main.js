@@ -74,7 +74,7 @@
     ['century-21', 'Century 21'], ['remax', 'RE/MAX'], ['domicis', 'Domicis'],
     ['grupo-santa-maria', 'Grupo Santa María'], ['pietro-estate', 'Pietro Estate'],
     ['ponte-di-pietro', 'Ponte di Pietro'], ['riga-house', 'Riga House'],
-    ['kassa', 'Kassa'], ['meztai', 'Meztai'], ['hzn-inmobiliaria', 'HZN Inmobiliaria'],
+    ['kassa-nuevo', 'Kassa.PE'], ['meztai', 'Meztai'], ['hzn-inmobiliaria', 'HZN Inmobiliaria'],
     ['sc-inmobiliaria', 'SC Inmobiliaria'], ['canoli-bienes-raices', 'Canoli Bienes Raíces'],
     ['clausen-house', 'Clausen House'], ['dream-house-pro', 'Dream House Pro'],
     ['bay-drive-sac', 'Bay Drive'], ['its-time-peru', "It's Time Perú"],
@@ -133,6 +133,37 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ---------- Carrusel de servicios: bucle infinito ---------- */
+  // Bloqueo de eje: el gesto vertical sigue desplazando la página.
+  const touchDrag = (surface, handlers) => {
+    let gesture = null;
+    surface.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1 || e.target.closest('button,a,input,select,textarea')) return;
+      const t = e.touches[0];
+      gesture = { x: t.clientX, y: t.clientY, dx: 0, horizontal: false };
+      handlers.start();
+    }, { passive: true });
+    surface.addEventListener('touchmove', (e) => {
+      if (!gesture) return;
+      const t = e.touches[0];
+      const dx = t.clientX - gesture.x, dy = t.clientY - gesture.y;
+      if (!gesture.horizontal) {
+        if (Math.max(Math.abs(dx), Math.abs(dy)) < 8) return;
+        if (Math.abs(dy) >= Math.abs(dx)) { handlers.end(0); gesture = null; return; }
+        gesture.horizontal = true;
+      }
+      if (e.cancelable) e.preventDefault();
+      gesture.dx = dx;
+      handlers.move(dx);
+    }, { passive: false });
+    const end = (cancelled) => {
+      if (!gesture) return;
+      handlers.end(cancelled ? 0 : gesture.dx);
+      gesture = null;
+    };
+    surface.addEventListener('touchend', () => end(false), { passive: true });
+    surface.addEventListener('touchcancel', () => end(true), { passive: true });
+  };
+
   document.querySelectorAll('[data-carousel]').forEach((root) => {
     const track = root.querySelector('.carousel__track');
     const dots = root.querySelector('[data-dots]');
@@ -243,6 +274,17 @@
     };
     const restart = () => { if (!userPaused) start(); };
 
+    let dragOrigin = 0;
+    touchDrag(viewport, {
+      start() { stop(); snapBack(); dragOrigin = offsetFor(index); track.classList.remove('is-animating'); },
+      move(dx) { track.style.transform = `translateX(${dragOrigin + dx}px)`; },
+      end(dx) {
+        if (Math.abs(dx) > 35) { dx < 0 ? forward() : backward(); }
+        else paint(true);
+        restart();
+      }
+    });
+
     prev && prev.addEventListener('click', () => { backward(); restart(); });
     next && next.addEventListener('click', () => { forward(); restart(); });
 
@@ -326,6 +368,7 @@
 
     const SPEED = 34;               // px por segundo del desplazamiento continuo
     let offset = track.children[n].offsetLeft - track.children[0].offsetLeft;
+    let dragging = false;
     let target = null;              // destino al usar flechas o puntos
     let targetIndex = null;         // conserva la selección durante clics consecutivos
     let userPaused = false;
@@ -381,7 +424,8 @@
       // Comprobar también cada fotograma: el scroll puede ocurrir en un contenedor.
       if (zoomed && !canZoomShowcase()) { zoomFollow = false; reset(); }
       let llegada = false;
-      if (target !== null) {
+      if (dragging) { /* La posición la controla el dedo. */ }
+      else if (target !== null) {
         // acercamiento suave al destino elegido con flechas o puntos
         const d = target - offset;
         if (reduce.matches || Math.abs(d) < 0.6) { offset = target; target = null; targetIndex = null; llegada = true; }
@@ -390,7 +434,7 @@
         offset += SPEED * dt;
       }
 
-      wrap();
+      if (!dragging) wrap();
       track.style.transform = `translateX(${-offset.toFixed(2)}px)`;
       syncDots();
 
@@ -493,6 +537,16 @@
       zoomFollow = follow;
       syncDots();
     };
+    let dragOffset = 0, dragIndex = 0;
+    touchDrag(sc, {
+      start() { dragging = true; target = null; targetIndex = null; dragOffset = offset; dragIndex = shown; },
+      move(dx) { offset = dragOffset - dx; },
+      end(dx) {
+        dragging = false;
+        const direction = Math.abs(dx) > 35 ? (dx < 0 ? 1 : -1) : 0;
+        goTo((dragIndex + direction + n) % n);
+      }
+    });
     prev && prev.addEventListener('click', () => go(-1));
     next && next.addEventListener('click', () => go(1));
 

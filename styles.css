@@ -1046,3 +1046,15 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   .footer{padding-block:20px}
   .footer__bottom{font-size:11px;gap:8px;padding-top:0;border-top:0}
 }
+[data-carousel] .carousel__viewport,[data-showcase]{touch-action:pan-y pinch-zoom}
+@media(max-width:767px){
+  .team,.mkt,.video-sales__grid{touch-action:pan-x pan-y pinch-zoom;-webkit-overflow-scrolling:touch}
+}
+
+@media(max-width:767px){
+  .popup__box{width:min(82vw,340px,54svh);max-height:82svh}
+  .popup__close{width:44px;height:44px;top:8px;left:8px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .marquee__track{animation-duration:52s}
+}
