@@ -1,0 +1,81 @@
+"""Static regression checks: python3 scripts/check_seo.py."""
+from pathlib import Path
+from html.parser import HTMLParser
+from urllib.parse import urlsplit,unquote
+import json,xml.etree.ElementTree as ET
+ROOT=Path(__file__).resolve().parents[1]
+ORIGIN='https://steidhub.com'
+class Document(HTMLParser):
+ def __init__(self,text):
+  super().__init__();self.tags=[];self.json=[];self.capture=False;self.buffer='';self.feed(text)
+ def handle_starttag(self,t,a):
+  a=dict(a);self.tags.append((t,a))
+  if t=='script' and a.get('type')=='application/ld+json':self.capture=True;self.buffer=''
+ def handle_data(self,d):
+  if self.capture:self.buffer+=d
+ def handle_endtag(self,t):
+  if t=='script' and self.capture:self.json.append(json.loads(self.buffer));self.capture=False
+ def select(self,tag,**attrs):return [a for t,a in self.tags if t==tag and all(a.get(k)==v for k,v in attrs.items())]
+urls=[x.text for x in ET.parse(ROOT/'sitemap.xml').findall('.//{*}loc')]
+assert len(urls)==len(set(urls))
+docs={}
+for url in urls:
+ assert url.startswith(ORIGIN+'/')
+ path=urlsplit(url).path
+ file=ROOT/path.strip('/')/'index.html'
+ assert file.exists(),file
+ docs[path]=Document(file.read_text())
+for path,doc in docs.items():
+ assert len(doc.select('h1'))==1,(path,'H1')
+ assert len(doc.select('main'))==1
+ assert doc.select('html')[0]['lang']=='es-PE'
+ assert doc.select('link',rel='canonical')==[{'rel':'canonical','href':ORIGIN+path}]
+ assert len(doc.select('title'))==1
+ for name in ['description','twitter:card','twitter:title','twitter:description','twitter:image','twitter:image:alt']:
+  assert len(doc.select('meta',name=name))==1,(path,name)
+ for prop in ['og:title','og:description','og:url','og:image','og:image:alt']:
+  assert len(doc.select('meta',property=prop))==1,(path,prop)
+ assert doc.select('meta',property='og:url')[0]['content']==ORIGIN+path
+ assert doc.json and len(doc.json)==1
+ graph=doc.json[0]['@graph'];assert any(x['@type']=='Organization' for x in graph)
+ assert all('www.steidhub.com' not in json.dumps(x) for x in graph)
+ ids=[a['id'] for t,a in doc.tags if 'id' in a];assert len(ids)==len(set(ids)),(path,'duplicate id')
+ last=0
+ for tag,a in doc.tags:
+  if tag in ['h1','h2','h3','h4','h5','h6']:
+   level=int(tag[1]);assert level<=last+1,(path,'heading jump',last,level);last=level
+  if tag=='img':assert all(x in a for x in ['alt','width','height']),(path,a)
+  values=[]
+  if tag=='a':values.append(a.get('href',''))
+  if tag in ['img','script','source']:values.append(a.get('src',a.get('data-src','')))
+  if tag=='link':values.append(a.get('href',''))
+  if tag=='video':values.append(a.get('poster',''))
+  for value in values:
+   if not value:continue
+   u=urlsplit(value)
+   if u.scheme or u.netloc:continue
+   target=(path+u.path if not u.path.startswith('/') else u.path) if u.path else path
+   target=unquote(target)
+   local=ROOT/target.lstrip('/')
+   assert local.exists(),(path,value,'missing target')
+   if u.fragment:
+    dest=docs.get(target)
+    assert dest and any(a.get('id')==u.fragment for t,a in dest.tags),(path,value,'missing fragment')
+   if tag=='a' and local.is_dir():assert target in docs,(path,target,'not in sitemap')
+# Every indexable page can be reached by following real home links.
+visited=set();pending=['/']
+while pending:
+ path=pending.pop()
+ if path in visited:continue
+ visited.add(path)
+ for a in docs[path].select('a'):
+  link=urlsplit(a.get('href','')).path
+  if link in docs and link not in visited:pending.append(link)
+assert visited==set(docs),('orphan routes',set(docs)-visited)
+keywords=json.loads((ROOT/'seo/keyword-map.json').read_text())
+assert 100<=len(keywords)<=200
+assert len({x['keyword'].casefold() for x in keywords})==len(keywords)
+assert all(x['url'] in docs for x in keywords)
+assert 'noindex' in (ROOT/'404.html').read_text()
+assert 'Sitemap: '+ORIGIN+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
+print(f'PASS: {len(docs)} routes, {len(keywords)} unique keyword candidates, metadata, schema, headings, images, links, anchors and reachability.')

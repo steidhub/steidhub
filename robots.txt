@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://www.steidhub.com/sitemap.xml
+Sitemap: https://steidhub.com/sitemap.xml

@@ -1,0 +1,23 @@
+/* Scoped additions: the original landing page design stays in styles.css. */
+.seo-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px;border-bottom:1px solid var(--line)}
+.seo-header img{width:190px;height:auto}
+.seo-header nav,.seo-footer-links{display:flex;align-items:center;flex-wrap:wrap;gap:24px}
+.seo-page a:not(.btn):hover,.seo-page a:not(.btn):focus-visible{text-decoration:underline;text-underline-offset:5px}
+.seo-breadcrumbs{display:flex;flex-wrap:wrap;gap:10px;padding-block:28px;color:var(--fg-muted);font-size:.875rem}
+.seo-intro{padding-block:36px 56px;max-width:940px}
+.seo-intro h1{font-size:clamp(2rem,5vw,4.5rem);line-height:1.08;text-transform:uppercase;overflow-wrap:break-word}
+.seo-intro>p:not(.eyebrow){max-width:75ch}
+.seo-section{padding-block:48px;border-top:1px solid var(--line)}
+.seo-section h2{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;margin-bottom:24px}
+.seo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;padding:0}
+.seo-card{padding:28px;background:var(--ink-2);border:1px solid var(--line)}
+.seo-card h3{font-size:1.25rem;line-height:1.25}
+.seo-card p{color:var(--fg-muted);margin-bottom:0}
+.seo-related{display:flex;gap:16px 28px;flex-wrap:wrap;list-style:none;padding:0}
+.seo-related a{text-decoration:underline;text-underline-offset:5px}
+.seo-footer-links{margin-top:20px}
+@media(max-width:767px){.seo-header{align-items:flex-start;flex-direction:column;gap:18px}.seo-header nav{gap:18px}.seo-grid{grid-template-columns:1fr}.seo-intro{padding-top:20px}}
+/* Preserve the existing hero badge and slogan after semantic tag changes. */
+h1.hero__tag{line-height:1.65;font-weight:600}
+p.display{margin-top:0;margin-inline:0}
+.footer .footer__heading{font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-muted);margin:0 0 var(--sp-2)}
