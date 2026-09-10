@@ -31,6 +31,23 @@
       if (!items.some((el) => el.classList.contains('is-in'))) showAll();
       else showIfOnScreen();
     }, 2000);
+
+    /* Segundo respaldo: si el observer se queda mudo pero algo ya se reveló,
+       el failsafe de arriba no salta y el resto quedaría oculto al bajar. El
+       scroll lo cubre; se desengancha solo cuando ya no queda nada por mostrar. */
+    let ultimo = 0;
+    const alScroll = () => {
+      // límite por tiempo, no por frame: requestAnimationFrame no corre en
+      // contextos donde el pintado está suspendido, y ahí perderíamos el rescate
+      const ahora = Date.now();
+      if (ahora - ultimo < 120) return;
+      ultimo = ahora;
+      showIfOnScreen();
+      if (items.every((el) => el.classList.contains('is-in'))) {
+        removeEventListener('scroll', alScroll);
+      }
+    };
+    addEventListener('scroll', alScroll, { passive: true });
   }
 
   /* ---------- Contador de cifras ---------- */
@@ -130,6 +147,113 @@
     addEventListener('scroll', pedir, { passive: true });
     addEventListener('resize', pedir);
   }
+
+  /* ---------- Video de fondo ----------
+     La fuente va en data-src: así el mp4 sólo se descarga cuando la sección
+     se acerca, y no compite con el LCP del hero. */
+  const film = document.querySelector('.lp-film__video');
+  if (film && !reduce.matches) {
+    let cargado = false;
+    const cargar = () => {
+      if (cargado) return;
+      cargado = true;
+      film.querySelectorAll('source[data-src]').forEach((f) => { f.src = f.dataset.src; });
+      film.load();
+    };
+    const reproducir = (si) => { if (si) { cargar(); film.play().catch(() => {}); } else film.pause(); };
+    const seccion = film.closest('section');
+    const aLaVista = () => {
+      const r = seccion.getBoundingClientRect();
+      return r.top < innerHeight + 200 && r.bottom > -200;
+    };
+    /* Respaldo por si el observer no llega a disparar (pasa en algunos
+       webviews): se comprueba la posición real al cargar y al hacer scroll. */
+    const revisar = () => { if (aLaVista()) reproducir(true); };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((es) => es.forEach((e) => reproducir(e.isIntersecting)),
+        { rootMargin: '200px 0px', threshold: 0.01 }).observe(seccion);
+    }
+    addEventListener('load', revisar);
+    addEventListener('scroll', revisar, { passive: true });
+    setTimeout(revisar, 1200);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) film.pause(); });
+  }
+
+  /* ---------- Carrusel de galería ----------
+     Sobre el scroll nativo, que ya da inercia y scroll-snap: las flechas
+     sólo desplazan una lámina, y el avance automático se detiene en cuanto
+     el usuario interviene. */
+  document.querySelectorAll('[data-lp-carousel]').forEach((root) => {
+    const pista = root.querySelector('.lp-gallery');
+    const prev = root.querySelector('[data-lp-prev]');
+    const next = root.querySelector('[data-lp-next]');
+    const barra = root.querySelector('.lp-carousel__bar i');
+    if (!pista || !pista.children.length) return;
+
+    const paso = () => {
+      const a = pista.children[0], b = pista.children[1];
+      return b ? b.offsetLeft - a.offsetLeft : a.getBoundingClientRect().width;
+    };
+    const maxScroll = () => pista.scrollWidth - pista.clientWidth;
+
+    const pintar = () => {
+      const max = maxScroll();
+      const p = max > 0 ? pista.scrollLeft / max : 0;
+      if (barra) {
+        const visible = pista.clientWidth / pista.scrollWidth;   // qué porción se ve
+        barra.style.width = `${(visible * 100).toFixed(2)}%`;
+        barra.style.marginLeft = `${(p * (1 - visible) * 100).toFixed(2)}%`;
+      }
+      if (prev) prev.disabled = pista.scrollLeft < 4;
+      if (next) next.disabled = pista.scrollLeft > max - 4;
+    };
+
+    /* Safari por debajo de 15.4 ignora behavior:'smooth' en contenedores.
+       Si a los 300 ms no se movió nada, se salta de golpe. */
+    const mover = (dir) => {
+      const desde = pista.scrollLeft;
+      const destino = Math.max(0, Math.min(maxScroll(), desde + dir * paso()));
+      if (reduce.matches) { pista.scrollLeft = destino; pintar(); return; }
+      pista.scrollBy({ left: dir * paso(), behavior: 'smooth' });
+      // no dependemos del evento scroll para refrescar flechas y barra
+      setTimeout(() => {
+        if (pista.scrollLeft === desde && desde !== destino) pista.scrollLeft = destino;
+        pintar();
+      }, 300);
+      setTimeout(pintar, 700);
+    };
+    prev && prev.addEventListener('click', () => { detener(); mover(-1); });
+    next && next.addEventListener('click', () => { detener(); mover(1); });
+    pista.addEventListener('scroll', pintar, { passive: true });
+
+    /* Avance automático: sólo mientras el carrusel está a la vista, la pestaña
+       activa y el usuario no ha tocado nada. */
+    let timer = null, detenido = false;
+    const avanzar = () => {
+      if (detenido || document.hidden) return;
+      if (pista.scrollLeft >= maxScroll() - 4) {
+        const desde = pista.scrollLeft;
+        pista.scrollTo({ left: 0, behavior: 'smooth' });
+        setTimeout(() => { if (pista.scrollLeft === desde) pista.scrollLeft = 0; }, 300);
+      }
+      else mover(1);
+    };
+    const arrancar = () => { if (!detenido && !timer && !reduce.matches) timer = setInterval(avanzar, 4500); };
+    const detener = () => { detenido = true; clearInterval(timer); timer = null; };
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach((ev) =>
+      pista.addEventListener(ev, detener, { passive: true, once: true }));
+    root.addEventListener('mouseenter', () => { clearInterval(timer); timer = null; });
+    root.addEventListener('mouseleave', arrancar);
+    root.addEventListener('focusin', detener);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting ? arrancar() : (clearInterval(timer), timer = null)),
+        { threshold: 0.35 }).observe(root);
+    } else arrancar();
+
+    pintar();
+    addEventListener('resize', pintar);
+  });
 
   /* ---------- Formulario (sólo en las páginas que lo llevan) ---------- */
   const form = document.getElementById('contactForm');

@@ -47,7 +47,7 @@ body.lp-page::before{
   padding:124px 0 80px;overflow:hidden;
 }
 .lp-hero__media{position:absolute;inset:0;z-index:-2}
-.lp-hero__media img{width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(1.02) contrast(1.06)}
+.lp-hero__media img{width:100%;height:100%;object-fit:cover;opacity:.78;filter:saturate(1.05) contrast(1.04)}
 .lp-hero::after{
   content:"";position:absolute;inset:0;z-index:-1;
   background:
@@ -336,17 +336,16 @@ body.lp-page::before{
 .lp-crumbs a:hover{color:var(--terra-soft)}
 .lp-crumbs [aria-current]{color:var(--sand)}
 
-/* ---------- Bloque de tono claro: alterna con los oscuros ---------- */
-.lp-section--light{
-  background:linear-gradient(180deg,var(--sand),#E4DACF);
-  color:#1A1613;
+/* ---------- Bloque oscuro con matiz: da ritmo sin saltar a un tono claro ----------
+   El paso de negro a beige resultaba brusco, así que la alternancia ahora es
+   entre dos profundidades del mismo negro cálido. */
+.lp-section--deep{
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(196,107,60,.09),transparent 62%),
+    linear-gradient(180deg,#191715 0%,#141312 45%,#171514 100%);
+  box-shadow:inset 0 1px 0 rgba(237,229,220,.06),inset 0 -1px 0 rgba(237,229,220,.06);
 }
-.lp-section--light .h2,.lp-section--light > .wrap > .lp-head h3{color:#12100E}
-.lp-section--light .lead,.lp-section--light > .wrap > .lp-head p{color:#463D35}
-.lp-section--light .eyebrow{color:#8F4622}
-.lp-section--light .eyebrow::before{background:#8F4622}
-.lp-section--light .kicker{color:#5C5249}
-.lp-section--light::before{display:none}
+.lp-section--deep::before{display:none}
 
 /* ---------- Timeline de proceso ---------- */
 .lp-timeline{list-style:none;margin:0;padding:0;display:grid;gap:0}
@@ -371,9 +370,6 @@ body.lp-page::before{
 .lp-timeline li:hover .lp-timeline__n{background:var(--terra);color:#fff;transform:scale(1.06)}
 .lp-timeline h3{margin:10px 0 0;font-size:1.15rem;line-height:1.25;letter-spacing:-.02em}
 .lp-timeline p{margin:8px 0 0;color:#BDB8B1;font-size:.94rem;line-height:1.7}
-.lp-section--light .lp-timeline__n{background:transparent;border-color:#A2542C;color:#A2542C}
-.lp-section--light .lp-timeline li::before{background:linear-gradient(180deg,#A2542C,transparent)}
-.lp-section--light .lp-timeline p{color:#4A423B}
 
 /* ---------- Rejilla de casos de uso / pastillas ---------- */
 .lp-uses{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:0;margin:0}
@@ -386,9 +382,6 @@ body.lp-page::before{
 }
 .lp-uses li:hover{transform:translateY(-4px);border-color:rgba(217,140,95,.6);background:rgba(196,107,60,.09)}
 .lp-uses svg{width:18px;height:18px;flex:none;color:var(--terra-soft)}
-.lp-section--light .lp-uses li{background:rgba(17,17,17,.05);border-color:rgba(17,17,17,.12);color:#3A332D}
-.lp-section--light .lp-uses li:hover{background:rgba(162,84,44,.1);border-color:rgba(162,84,44,.45)}
-.lp-section--light .lp-uses svg{color:#A2542C}
 
 /* ---------- Galería ---------- */
 .lp-gallery figure{
@@ -439,9 +432,6 @@ body.lp-page::before{
 .lp-faq details[open] summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
 .lp-faq summary:hover{color:var(--terra-soft)}
 .lp-faq__a{padding:0 22px 20px;margin:0;color:#BDB8B1;font-size:.94rem;line-height:1.75}
-.lp-section--light .lp-faq details{background:rgba(17,17,17,.04);border-color:rgba(17,17,17,.14)}
-.lp-section--light .lp-faq summary{color:#12100E}
-.lp-section--light .lp-faq__a{color:#4A423B}
 
 /* ---------- Parallax suave del fondo de sección ---------- */
 .lp-parallax{will-change:transform}
@@ -480,24 +470,7 @@ body.lp-page .reveal{opacity:1;transform:none}
 html.has-js body.lp-page .reveal{opacity:0;transform:translateY(22px)}
 html.has-js body.lp-page .reveal.is-in{opacity:1;transform:none}
 
-/* Las tarjetas oscuras dentro de un bloque claro conservan su propio texto:
-   sin esto heredaban el gris oscuro de la sección y quedaban ilegibles. */
-.lp-section--light .lp-problems article,
-.lp-section--light .lp-method article,
-.lp-section--light .lp-metrics article{
-  background:linear-gradient(180deg,#242424,#171717);
-  border-color:rgba(237,229,220,.24);
-  box-shadow:0 18px 40px rgba(26,18,12,.24);
-}
-.lp-section--light .lp-problems h3,
-.lp-section--light .lp-method h3,
-.lp-section--light .lp-metrics strong{color:var(--bone)}
-.lp-section--light .lp-problems p,
-.lp-section--light .lp-method p,
-.lp-section--light .lp-metrics p{color:#D2CCC5}
-.lp-section--light .lp-problems span,
-.lp-section--light .lp-metrics span{color:var(--terra-soft)}
-.lp-section--light .lp-method span{border-color:var(--terra);color:var(--terra-soft);background:#1B1B1B}
+
 
 /* ---------- Icono de tarjeta ---------- */
 .lp-page .lp-card__ic{
@@ -511,31 +484,31 @@ html.has-js body.lp-page .reveal.is-in{opacity:1;transform:none}
 .lp-problems article:hover .lp-card__ic{
   background:var(--terra);color:#fff;border-color:var(--terra);transform:translateY(-2px) scale(1.04);
 }
-.lp-page .lp-section--light .lp-card__ic{border-color:rgba(217,140,95,.45)}
 
 /* ---------- Galería en carrusel ---------- */
 .lp-gallery{
   display:grid;grid-template-columns:none;
-  grid-auto-flow:column;grid-auto-columns:min(72%,700px);
+  grid-auto-flow:column;grid-auto-columns:min(84%,980px);
   gap:16px;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;scroll-padding-inline:0;
   padding:0 0 16px;margin:0;
   scrollbar-width:thin;scrollbar-color:var(--terra) var(--ink-2);
 }
 .lp-gallery figure{scroll-snap-align:start;min-width:0}
-.lp-gallery img{aspect-ratio:16/10}
+.lp-gallery img{aspect-ratio:16/9}
 .lp-gallery figcaption{
   padding:40px 20px 18px;font-size:.8rem;letter-spacing:.14em;
   background:linear-gradient(180deg,transparent,rgba(8,8,8,.92));
   color:var(--bone);
 }
-.lp-gallery--tall img{aspect-ratio:16/10}
+.lp-gallery--tall img{aspect-ratio:16/9}
 .lp-gallery__hint{
   margin:0 0 16px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--fg-muted);
 }
 @media(max-width:767px){
   .lp-gallery{grid-auto-columns:88%;gap:12px}
+  .lp-gallery img{aspect-ratio:4/3}
   .lp-gallery__hint{font-size:10px}
 }
 
@@ -580,3 +553,113 @@ body.lp-page .footer ul a{color:#D8D1C9}
 body.lp-page .muted{color:#B4AEA7}
 .lp-nav__links a{opacity:.92}
 .btn--ghost{border-color:rgba(237,229,220,.5);color:var(--bone)}
+
+/* ---------- Hero a una columna: sin mockup flotante ---------- */
+.lp-hero__grid--solo{grid-template-columns:minmax(0,1fr);max-width:none}
+.lp-hero__grid--solo .lp-hero__copy{max-width:44rem}
+.lp-hero__grid--solo .display{max-width:17ch}
+.lp-hero__grid--solo .lp-hero__lead{max-width:48ch}
+/* con la foto más presente, el velo se concentra a la izquierda para
+   sostener la legibilidad del texto sin apagar la imagen */
+.lp-hero:has(.lp-hero__grid--solo)::after{
+  background:
+    linear-gradient(90deg,rgba(17,17,17,.93) 0,rgba(17,17,17,.8) 38%,rgba(17,17,17,.42) 68%,rgba(17,17,17,.5) 100%),
+    linear-gradient(180deg,rgba(17,17,17,.55),rgba(17,17,17,.12) 42%,var(--ink) 100%);
+}
+@supports not (selector(:has(*))){
+  .lp-hero::after{background:
+    linear-gradient(90deg,rgba(17,17,17,.93) 0,rgba(17,17,17,.8) 38%,rgba(17,17,17,.45) 100%),
+    linear-gradient(180deg,rgba(17,17,17,.55),rgba(17,17,17,.12) 42%,var(--ink) 100%);}
+}
+@media(max-width:767px){
+  .lp-hero__grid--solo .lp-hero__copy{max-width:none}
+  .lp-hero__grid--solo .display{max-width:none}
+}
+
+/* ---------- Carrusel de galería: flechas y barra de avance ---------- */
+.lp-carousel{position:relative}
+.lp-carousel .lp-gallery{scrollbar-width:none}
+.lp-carousel .lp-gallery::-webkit-scrollbar{display:none}
+.lp-carousel__nav{
+  position:absolute;top:calc(50% - 26px);translate:0 -50%;z-index:3;
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;
+  border:1px solid rgba(237,229,220,.5);background:rgba(17,17,17,.72);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:var(--bone);
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),opacity .25s var(--ease);
+}
+.lp-carousel__nav:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.lp-carousel__nav svg{width:22px;height:22px}
+.lp-carousel__nav--prev{left:14px}
+.lp-carousel__nav--next{right:14px}
+.lp-carousel__nav[disabled]{opacity:.28;pointer-events:none}
+.lp-carousel__bar{
+  height:3px;border-radius:99px;background:rgba(237,229,220,.14);
+  margin-top:6px;overflow:hidden;
+}
+.lp-carousel__bar i{
+  display:block;height:100%;border-radius:99px;background:var(--terra);
+  transition:width .3s var(--ease),margin-left .3s var(--ease);
+}
+/* el aviso de deslizar sólo tiene sentido donde se desliza con el dedo */
+@media(min-width:768px){.lp-gallery__hint{display:none}}
+@media(max-width:767px){.lp-carousel__nav{display:none}}
+
+/* ---------- Sección con video de fondo ---------- */
+.lp-section--film{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(96px,12vw,150px)}
+.lp-film__media{position:absolute;inset:0;z-index:-2}
+.lp-film__video{width:100%;height:100%;object-fit:cover;opacity:.5}
+.lp-section--film::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(90deg,rgba(17,17,17,.95) 0,rgba(17,17,17,.78) 44%,rgba(17,17,17,.45) 100%),
+    linear-gradient(180deg,var(--ink),rgba(17,17,17,.25) 30%,rgba(17,17,17,.35) 70%,var(--ink));
+}
+.lp-section--film::before{display:none}
+.lp-film__copy{position:relative;z-index:1}
+.lp-film__copy .lp-head{max-width:46rem}
+.lp-film__copy .h2{max-width:18ch}
+.lp-film__list{
+  list-style:none;margin:38px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;max-width:62rem;
+}
+.lp-film__list li{
+  padding:20px 22px;border-radius:14px;
+  border:1px solid rgba(237,229,220,.24);
+  background:rgba(17,17,17,.55);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+}
+.lp-film__list li:hover{transform:translateY(-5px);border-color:rgba(217,140,95,.7);background:rgba(28,22,18,.72)}
+.lp-film__list strong{display:block;font-size:1.05rem;font-weight:600;color:var(--bone);letter-spacing:-.015em}
+.lp-film__list span{display:block;margin-top:6px;font-size:.86rem;color:#CFC9C2;line-height:1.55}
+.lp-film__note{
+  margin:32px 0 0;max-width:60ch;font-size:.9rem;line-height:1.7;color:#BDB8B1;
+  padding-left:16px;border-left:2px solid rgba(196,107,60,.6);
+}
+@media(max-width:767px){
+  .lp-section--film{padding-block:76px}
+  .lp-film__video{opacity:.34}
+  .lp-section--film::after{
+    background:linear-gradient(180deg,var(--ink),rgba(17,17,17,.72) 24%,rgba(17,17,17,.82) 70%,var(--ink));
+  }
+  .lp-film__list{grid-template-columns:1fr;gap:10px;margin-top:28px}
+  .lp-film__list li{padding:16px 18px}
+  .lp-film__list strong{font-size:15px}
+  .lp-film__list span{font-size:13px}
+  .lp-film__note{font-size:13px;margin-top:24px}
+}
+@media(prefers-reduced-motion:reduce){.lp-film__video{display:none}}
+
+/* En móvil el hero es de una columna centrada: el velo debe ir de arriba
+   abajo, no lateral, o el texto sobre el cielo pierde contraste. */
+@media(max-width:767px){
+  .lp-hero:has(.lp-hero__grid--solo)::after,
+  .lp-hero::after{
+    background:
+      linear-gradient(180deg,rgba(17,17,17,.8) 0,rgba(17,17,17,.62) 30%,rgba(17,17,17,.86) 72%,var(--ink) 100%),
+      linear-gradient(90deg,rgba(17,17,17,.45),rgba(17,17,17,.3));
+  }
+  .lp-hero__media img{opacity:.66}
+}
