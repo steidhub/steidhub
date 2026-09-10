@@ -110,4 +110,32 @@
     requestAnimationFrame(movePartners);
   }
 
+  /* ---------- WhatsApp flotante ----------
+     En escritorio la burbuja sale al pasar el cursor (CSS). En móvil no hay
+     hover, así que el primer toque abre el panel y el segundo va a WhatsApp.
+     Aquí no se usa el "is-over-hero" de la principal: esa landing eleva el
+     botón sobre la franja de cifras del hero, que en esta página no existe. */
+  const wa = document.querySelector('.wa');
+  if (wa) {
+    const waBtn = wa.querySelector('.wa__btn');
+    const panel = wa.querySelector('.wa__panel');
+    panel.id = 'whatsapp-panel';
+    waBtn.setAttribute('aria-controls', panel.id);
+    waBtn.setAttribute('aria-expanded', 'false');
+    const closePanel = () => {
+      wa.classList.remove('is-panel-open');
+      waBtn.setAttribute('aria-expanded', 'false');
+    };
+    waBtn.addEventListener('click', (e) => {
+      if (!matchMedia('(max-width:767px)').matches) return;
+      if (wa.classList.contains('is-panel-open')) return; // segundo toque: deja pasar el enlace
+      e.preventDefault();
+      wa.classList.add('is-panel-open');
+      waBtn.setAttribute('aria-expanded', 'true');
+    });
+    document.addEventListener('click', (e) => { if (!wa.contains(e.target)) closePanel(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+    wa.classList.add('is-ready');
+  }
+
 })();
