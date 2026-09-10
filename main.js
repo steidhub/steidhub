@@ -174,44 +174,6 @@
     });
   }
 
-  /* ---------- WhatsApp flotante: visible al pasar el hero ---------- */
-  const wa = document.querySelector('.wa');
-  if (wa) {
-    const whatsappButton = wa.querySelector('.wa__btn');
-    const panel = wa.querySelector('.wa__panel');
-    panel.id = 'whatsapp-panel';
-    whatsappButton.setAttribute('aria-controls', panel.id);
-    whatsappButton.setAttribute('aria-expanded', 'false');
-    const closePanel = () => {
-      wa.classList.remove('is-panel-open');
-      whatsappButton.setAttribute('aria-expanded', 'false');
-    };
-    whatsappButton.addEventListener('click', (e) => {
-      if (!matchMedia('(max-width:767px)').matches) return;
-      e.preventDefault();
-      const opened = wa.classList.toggle('is-panel-open');
-      whatsappButton.setAttribute('aria-expanded', String(opened));
-    });
-    document.addEventListener('click', (e) => { if (!wa.contains(e.target)) closePanel(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
-    const heroStats = document.querySelector('.hero__stats');
-    // Mientras se ve el hero, el botón se eleva justo por encima de la franja de cifras.
-    // Se recalcula con la posición real en pantalla: la franja cambia de alto según el
-    // ancho (5 columnas / 2 columnas) y el alto del hero no siempre iguala a innerHeight.
-    const update = () => {
-      const overHero = window.scrollY < innerHeight * 0.7;
-      wa.classList.toggle('is-over-hero', overHero);
-      if (overHero && heroStats) {
-        const top = heroStats.getBoundingClientRect().top;
-        wa.style.setProperty('--wa-lift', `${Math.max(24, Math.round(innerHeight - top + 24))}px`);
-      }
-    };
-    update();
-    requestAnimationFrame(() => wa.classList.add('is-ready'));
-    addEventListener('scroll', update, { passive: true });
-    addEventListener('resize', update);
-  }
-
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ---------- Carrusel de servicios: bucle infinito ---------- */
