@@ -208,3 +208,7 @@ que enlaza a la política de privacidad alojada en Google Drive.
 - Confirmar el enlace real de Instagram (`@steidhub`).
 - La foto `assets/team/dayana-diaz.jpg` quedó sin usar: la lista de perfiles entregada
   tiene seis personas y no la incluye. Si debe aparecer, indícanos su cargo y descripción.
+
+## Arquitectura SEO
+
+La web incluye páginas estáticas de servicios y sector, además de la landing original. Consulta [la auditoría, mapa de 132 keywords y mantenimiento SEO](seo/README.md). Regenera con `python3 scripts/build_seo.py` y verifica con `python3 scripts/check_seo.py`; los HTML resultantes se incluyen en Git y el despliegue continúa sin build obligatorio.

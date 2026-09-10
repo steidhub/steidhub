@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<<<<<<< HEAD
   <url><loc>https://www.steidhub.com/</loc></url>
   <url><loc>https://www.steidhub.com/google-ads.html</loc></url>
+=======
+  <url><loc>https://steidhub.com/</loc></url>
+  <url><loc>https://steidhub.com/servicios/</loc></url>
+  <url><loc>https://steidhub.com/sectores/</loc></url>
+  <url><loc>https://steidhub.com/servicios/performance-marketing/</loc></url>
+  <url><loc>https://steidhub.com/servicios/google-ads/</loc></url>
+  <url><loc>https://steidhub.com/servicios/meta-ads/</loc></url>
+  <url><loc>https://steidhub.com/servicios/tiktok-ads/</loc></url>
+  <url><loc>https://steidhub.com/servicios/generacion-de-leads/</loc></url>
+  <url><loc>https://steidhub.com/servicios/landing-pages/</loc></url>
+  <url><loc>https://steidhub.com/servicios/crm-automatizacion/</loc></url>
+  <url><loc>https://steidhub.com/servicios/produccion-audiovisual/</loc></url>
+  <url><loc>https://steidhub.com/servicios/branding-inmobiliario/</loc></url>
+  <url><loc>https://steidhub.com/sectores/marketing-inmobiliario/</loc></url>
+>>>>>>> 2da60f20000f50e74dcef8f6a211b5f6dcebed6d
 </urlset>

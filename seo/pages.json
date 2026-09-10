@@ -1,0 +1,432 @@
+[
+  {
+    "path": "/servicios/performance-marketing/",
+    "kind": "service",
+    "label": "Performance marketing",
+    "title": "Agencia de performance marketing en Perú | Steid Hub",
+    "h1": "Agencia de performance marketing en Perú",
+    "description": "Estrategia de inversión y medición para conectar campañas, captación y seguimiento comercial.",
+    "intro": "Coordinamos los canales digitales con los objetivos del negocio. Antes de distribuir el presupuesto, revisamos qué se considera una oportunidad comercial y cómo se registra el avance desde el primer contacto hasta la venta.",
+    "sections": [
+      {
+        "title": "Planificación de inversión",
+        "body": "Definimos objetivos, canales y una distribución inicial de presupuesto según la etapa del proyecto."
+      },
+      {
+        "title": "Medición del embudo",
+        "body": "Relacionamos los anuncios con consultas, oportunidades y resultados comerciales para interpretar el costo de adquisición."
+      },
+      {
+        "title": "Optimización continua",
+        "body": "Revisamos creatividades, segmentación y páginas de destino con los datos disponibles, sin prometer un retorno fijo."
+      }
+    ],
+    "related": [
+      "/servicios/google-ads/",
+      "/servicios/meta-ads/",
+      "/servicios/generacion-de-leads/"
+    ],
+    "keywords": [
+      "agencia performance marketing Perú",
+      "performance marketing Lima",
+      "agencia de performance",
+      "marketing de resultados",
+      "publicidad de performance",
+      "estrategia de performance marketing",
+      "agencia de marketing de resultados",
+      "optimización de campañas digitales",
+      "medición de campañas publicitarias",
+      "gestión de inversión publicitaria",
+      "consultoría performance marketing",
+      "marketing orientado a conversiones"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/google-ads/",
+    "kind": "service",
+    "label": "Google Ads",
+    "title": "Agencia Google Ads en Perú | Steid Hub",
+    "h1": "Agencia Google Ads en Perú",
+    "description": "Campañas de Google Ads con anuncios, páginas de destino y medición orientados a consultas relevantes para tu negocio.",
+    "intro": "La búsqueda permite conectar una oferta con personas que ya expresan una necesidad. Trabajamos la relación entre términos de búsqueda, mensajes y página de destino para que el clic tenga una continuidad clara.",
+    "sections": [
+      {
+        "title": "Intención de búsqueda",
+        "body": "Organizamos los grupos de anuncios por servicio y necesidad, revisando términos que no representan a tu cliente."
+      },
+      {
+        "title": "Anuncios y destino",
+        "body": "Alineamos el mensaje con la oferta, la ubicación y una página que facilite consultar por el proyecto."
+      },
+      {
+        "title": "Seguimiento de conversiones",
+        "body": "Definimos las consultas que se medirán y revisamos su calidad junto con el equipo comercial."
+      }
+    ],
+    "related": [
+      "/servicios/performance-marketing/",
+      "/servicios/landing-pages/",
+      "/servicios/generacion-de-leads/"
+    ],
+    "keywords": [
+      "agencia Google Ads Perú",
+      "agencia Google Ads Lima",
+      "gestión Google Ads",
+      "campañas Google Ads Perú",
+      "publicidad en Google Perú",
+      "Google Ads para empresas",
+      "agencia SEM Perú",
+      "gestión de campañas SEM",
+      "consultoría Google Ads",
+      "Google Ads inmobiliarias",
+      "anuncios de búsqueda Google",
+      "optimización Google Ads"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/meta-ads/",
+    "kind": "service",
+    "label": "Meta Ads",
+    "title": "Agencia Meta Ads en Perú | Steid Hub",
+    "h1": "Agencia Meta Ads en Perú",
+    "description": "Campañas de Facebook e Instagram Ads con creatividades y segmentación conectadas a la captación de leads.",
+    "intro": "Las campañas en Meta necesitan una propuesta comprensible y piezas adaptadas al formato. Coordinamos mensaje, audiencia y seguimiento para evaluar qué consultas pueden convertirse en oportunidades.",
+    "sections": [
+      {
+        "title": "Creatividades por audiencia",
+        "body": "Adaptamos las piezas visuales y el mensaje a la oferta y a las preguntas del comprador."
+      },
+      {
+        "title": "Captación y retargeting",
+        "body": "Definimos si la campaña dirige a un formulario, a WhatsApp o a una landing page según el proceso comercial."
+      },
+      {
+        "title": "Calidad de los contactos",
+        "body": "Revisamos con ventas qué contactos corresponden al perfil buscado para orientar las siguientes pruebas."
+      }
+    ],
+    "related": [
+      "/servicios/generacion-de-leads/",
+      "/servicios/produccion-audiovisual/",
+      "/servicios/landing-pages/"
+    ],
+    "keywords": [
+      "agencia Meta Ads Perú",
+      "agencia Facebook Ads Lima",
+      "publicidad Facebook Perú",
+      "publicidad Instagram Perú",
+      "gestión Meta Ads",
+      "campañas Facebook Ads",
+      "campañas Instagram Ads",
+      "Facebook Lead Ads",
+      "Meta Ads inmobiliarias",
+      "anuncios Instagram para empresas",
+      "retargeting Meta Ads",
+      "agencia publicidad Facebook"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/tiktok-ads/",
+    "kind": "service",
+    "label": "TikTok Ads",
+    "title": "Agencia TikTok Ads en Perú | Steid Hub",
+    "h1": "Agencia TikTok Ads en Perú",
+    "description": "Publicidad en TikTok con videos adaptados al canal, pruebas creativas y objetivos de captación definidos.",
+    "intro": "Un anuncio en TikTok debe explicar la propuesta desde los primeros segundos. Combinamos producción vertical y planificación de campañas para presentar el proyecto con un mensaje adecuado al canal.",
+    "sections": [
+      {
+        "title": "Videos para el canal",
+        "body": "Desarrollamos ideas, guiones y formatos verticales que muestran el inmueble y su propuesta."
+      },
+      {
+        "title": "Pruebas creativas",
+        "body": "Comparamos enfoques de mensaje y piezas para aprender qué despierta interés en la audiencia."
+      },
+      {
+        "title": "Recorrido de captación",
+        "body": "Conectamos el anuncio con el destino de consulta y revisamos las oportunidades que llegan al equipo."
+      }
+    ],
+    "related": [
+      "/servicios/produccion-audiovisual/",
+      "/servicios/performance-marketing/",
+      "/servicios/generacion-de-leads/"
+    ],
+    "keywords": [
+      "agencia TikTok Ads Perú",
+      "publicidad TikTok Perú",
+      "campañas TikTok Ads",
+      "TikTok Ads inmobiliarias",
+      "agencia TikTok Lima",
+      "anuncios TikTok empresas",
+      "gestión TikTok Ads",
+      "videos publicitarios TikTok",
+      "marketing TikTok inmobiliario",
+      "publicidad vertical TikTok",
+      "estrategia TikTok Ads",
+      "captación de leads TikTok"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/generacion-de-leads/",
+    "kind": "service",
+    "label": "Generación de leads",
+    "title": "Generación de leads en Perú | Steid Hub",
+    "h1": "Generación de leads en Perú",
+    "description": "Captación de leads con campañas, formularios y seguimiento comercial para empresas y proyectos inmobiliarios.",
+    "intro": "Conseguir contactos es solo una parte del proceso. Diseñamos el recorrido para que la consulta llegue con contexto al equipo comercial y pueda evaluarse según interés, necesidad y etapa de compra.",
+    "sections": [
+      {
+        "title": "Perfil y oferta",
+        "body": "Acordamos qué información permite reconocer una oportunidad y qué propuesta motiva la consulta."
+      },
+      {
+        "title": "Puntos de captación",
+        "body": "Conectamos campañas y formularios con una oferta clara, evitando pedir datos que no ayudan al seguimiento."
+      },
+      {
+        "title": "Entrega a ventas",
+        "body": "Organizamos la clasificación y el seguimiento de consultas para identificar pérdidas entre contacto y atención."
+      }
+    ],
+    "related": [
+      "/servicios/landing-pages/",
+      "/servicios/crm-automatizacion/",
+      "/servicios/performance-marketing/"
+    ],
+    "keywords": [
+      "generación de leads Perú",
+      "agencia generación de leads",
+      "captación de clientes potenciales",
+      "leads inmobiliarios",
+      "captación de leads inmobiliarios",
+      "leads calificados inmobiliarios",
+      "embudo de ventas inmobiliario",
+      "campañas captación de leads",
+      "generación de prospectos",
+      "marketing de captación",
+      "leads para inmobiliarias",
+      "captación digital de clientes"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/landing-pages/",
+    "kind": "service",
+    "label": "Landing pages",
+    "title": "Landing pages para campañas en Perú | Steid Hub",
+    "h1": "Landing pages para campañas en Perú",
+    "description": "Diseño de landing pages que presentan tu oferta y facilitan la captación de consultas desde campañas digitales.",
+    "intro": "Una página de campaña debe resolver las dudas necesarias para dar el siguiente paso. Ordenamos la propuesta, las pruebas visuales y el contacto para que la visita encuentre continuidad con el anuncio.",
+    "sections": [
+      {
+        "title": "Contenido de la oferta",
+        "body": "Priorizamos beneficios, ubicación y características relevantes para quien llega desde la campaña."
+      },
+      {
+        "title": "Diseño y formulario",
+        "body": "Adaptamos la lectura a móvil y definimos un formulario alineado con el proceso de atención."
+      },
+      {
+        "title": "Medición y evolución",
+        "body": "Revisamos eventos y conversiones para detectar puntos de fricción y mejorar el recorrido."
+      }
+    ],
+    "related": [
+      "/servicios/google-ads/",
+      "/servicios/generacion-de-leads/",
+      "/servicios/crm-automatizacion/"
+    ],
+    "keywords": [
+      "landing pages Perú",
+      "diseño landing page Lima",
+      "landing page inmobiliaria",
+      "landing pages para campañas",
+      "página de captación de leads",
+      "diseño web inmobiliario",
+      "web para proyectos inmobiliarios",
+      "páginas de aterrizaje Perú",
+      "landing page Google Ads",
+      "landing page Meta Ads",
+      "desarrollo web inmobiliarias",
+      "optimización landing pages"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/crm-automatizacion/",
+    "kind": "service",
+    "label": "CRM y automatización",
+    "title": "CRM y automatización inmobiliaria en Perú | Steid Hub",
+    "h1": "CRM y automatización inmobiliaria en Perú",
+    "description": "Organización de leads, seguimiento comercial y automatización para acompañar cada oportunidad inmobiliaria.",
+    "intro": "El seguimiento necesita información centralizada y responsabilidades claras. Conectamos los puntos de captación con un proceso comercial que permita saber quién atiende cada consulta y cuál es su siguiente paso.",
+    "sections": [
+      {
+        "title": "Proceso comercial",
+        "body": "Ordenamos las etapas del contacto y los datos que necesita el equipo para dar seguimiento."
+      },
+      {
+        "title": "Integración de consultas",
+        "body": "Definimos cómo llegan los formularios y canales de contacto al CRM, según las herramientas del proyecto."
+      },
+      {
+        "title": "Automatización y atención",
+        "body": "Planteamos alertas y flujos de seguimiento. Los asistentes en WhatsApp se adaptan al alcance acordado."
+      }
+    ],
+    "related": [
+      "/servicios/generacion-de-leads/",
+      "/servicios/landing-pages/",
+      "/servicios/performance-marketing/"
+    ],
+    "keywords": [
+      "CRM inmobiliario Perú",
+      "automatización inmobiliaria",
+      "CRM para inmobiliarias",
+      "automatización de leads",
+      "seguimiento de leads inmobiliarios",
+      "WhatsApp inmobiliario IA",
+      "automatización marketing inmobiliario",
+      "integración CRM formularios",
+      "embudo CRM inmobiliario",
+      "asistente IA inmobiliarias",
+      "gestión de contactos inmobiliarios",
+      "automatización comercial Perú"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/produccion-audiovisual/",
+    "kind": "service",
+    "label": "Producción audiovisual",
+    "title": "Producción audiovisual inmobiliaria en Perú | Steid Hub",
+    "h1": "Producción audiovisual inmobiliaria en Perú",
+    "description": "Fotografía, video inmobiliario y drone para mostrar espacios, ubicación y propuesta de valor de cada proyecto.",
+    "intro": "El material visual ayuda a entender un espacio antes de visitarlo. Planificamos la producción según las piezas que necesita el proyecto para su web, sus anuncios y la presentación comercial.",
+    "sections": [
+      {
+        "title": "Fotografía de espacios",
+        "body": "Definimos encuadres y ambientes que permitan mostrar distribución, acabados y usos del inmueble."
+      },
+      {
+        "title": "Video y drone",
+        "body": "Creamos recorridos y tomas de entorno, coordinando las condiciones de producción de cada ubicación."
+      },
+      {
+        "title": "Piezas para difusión",
+        "body": "Adaptamos los entregables a formatos de redes, campañas y herramientas comerciales."
+      }
+    ],
+    "related": [
+      "/servicios/meta-ads/",
+      "/servicios/tiktok-ads/",
+      "/servicios/branding-inmobiliario/"
+    ],
+    "keywords": [
+      "producción audiovisual inmobiliaria",
+      "video inmobiliario Perú",
+      "fotografía inmobiliaria Lima",
+      "drone inmobiliario Perú",
+      "videos para inmobiliarias",
+      "fotografía de interiores Lima",
+      "videos de proyectos inmobiliarios",
+      "reels inmobiliarios",
+      "contenido audiovisual inmobiliario",
+      "tours en video de inmuebles",
+      "filmación drone inmobiliaria",
+      "productora audiovisual inmobiliaria"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/servicios/branding-inmobiliario/",
+    "kind": "service",
+    "label": "Branding inmobiliario",
+    "title": "Branding inmobiliario en Perú | Steid Hub",
+    "h1": "Branding inmobiliario en Perú",
+    "description": "Identidad visual y materiales de marca para presentar proyectos inmobiliarios de forma coherente en cada canal.",
+    "intro": "Una identidad de proyecto debe sostenerse desde la primera presentación hasta el material de venta. Trabajamos el sistema visual para que los distintos entregables compartan una misma propuesta.",
+    "sections": [
+      {
+        "title": "Identidad visual",
+        "body": "Desarrollamos logotipo, sistema cromático y tipografías alineados con la personalidad del proyecto."
+      },
+      {
+        "title": "Manual y aplicaciones",
+        "body": "Documentamos criterios de uso y los trasladamos a papelería, señalética y piezas digitales."
+      },
+      {
+        "title": "Material comercial",
+        "body": "Coordinamos la identidad con brochures, fichas y presentaciones que utiliza el equipo de ventas."
+      }
+    ],
+    "related": [
+      "/servicios/produccion-audiovisual/",
+      "/servicios/landing-pages/",
+      "/servicios/performance-marketing/"
+    ],
+    "keywords": [
+      "branding inmobiliario Perú",
+      "branding para inmobiliarias",
+      "identidad visual inmobiliaria",
+      "diseño logo inmobiliaria",
+      "marca proyecto inmobiliario",
+      "manual de marca inmobiliaria",
+      "brochure inmobiliario",
+      "diseño brochure inmobiliario",
+      "agencia branding inmobiliario",
+      "imagen corporativa inmobiliaria",
+      "diseño gráfico inmobiliario",
+      "material comercial inmobiliario"
+    ],
+    "resources": []
+  },
+  {
+    "path": "/sectores/marketing-inmobiliario/",
+    "kind": "sector",
+    "label": "Marketing inmobiliario",
+    "title": "Agencia de marketing inmobiliario en Perú | Steid Hub",
+    "h1": "Agencia de marketing inmobiliario en Perú",
+    "description": "Marketing para inmobiliarias y desarrolladores: identidad, producción visual, campañas y captación conectadas al proceso comercial.",
+    "intro": "Acompañamos el proyecto desde su identidad hasta el lanzamiento y la comercialización. La estrategia reúne información del mercado, contenido visual y canales de captación para dar al equipo de ventas un recorrido coherente.",
+    "sections": [
+      {
+        "title": "Planificación y lanzamiento",
+        "body": "Ordenamos público, propuesta, piezas y canales según la ubicación y la etapa del proyecto."
+      },
+      {
+        "title": "Presentación del proyecto",
+        "body": "Coordinamos marca, fotografía, video y web para explicar los espacios y sus beneficios."
+      },
+      {
+        "title": "Comercialización y seguimiento",
+        "body": "Conectamos campañas con captación y seguimiento para revisar consultas, oportunidades y avances."
+      }
+    ],
+    "related": [
+      "/servicios/branding-inmobiliario/",
+      "/servicios/produccion-audiovisual/",
+      "/servicios/generacion-de-leads/"
+    ],
+    "keywords": [
+      "marketing inmobiliario Perú",
+      "agencia marketing inmobiliario",
+      "marketing inmobiliario Lima",
+      "publicidad inmobiliaria Perú",
+      "marketing para inmobiliarias",
+      "marketing para desarrolladores inmobiliarios",
+      "estrategia marketing inmobiliario",
+      "lanzamiento proyectos inmobiliarios",
+      "publicidad proyectos inmobiliarios",
+      "marketing digital inmobiliario",
+      "agencia publicidad inmobiliaria",
+      "comercialización digital inmobiliaria"
+    ],
+    "resources": []
+  }
+]

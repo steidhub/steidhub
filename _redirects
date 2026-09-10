@@ -1,0 +1,2 @@
+# The apex domain is canonical. DNS/TLS for www must remain configured in Cloudflare.
+https://www.steidhub.com/* https://steidhub.com/:splat 301
