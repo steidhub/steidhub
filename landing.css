@@ -663,3 +663,71 @@ body.lp-page .muted{color:#B4AEA7}
   }
   .lp-hero__media img{opacity:.66}
 }
+
+/* ---------- Panel de indicadores ----------
+   Dos usos distintos y deliberadamente diferenciados:
+   .lp-kpi--meta  -> rangos objetivo de mejora (llevan la nota legal)
+   .lp-kpi--dato  -> hechos operativos verificables (entrega, cobertura, volumen) */
+.lp-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.lp-kpi article{
+  position:relative;overflow:hidden;
+  padding:28px 24px;border-radius:16px;
+  border:1px solid var(--line-strong);
+  background:linear-gradient(180deg,rgba(33,33,33,.92),rgba(20,20,20,.95));
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+  transition:transform .32s var(--ease),border-color .32s var(--ease),box-shadow .32s var(--ease);
+}
+.lp-kpi article::before{
+  content:"";position:absolute;inset:0 0 auto;height:2px;
+  background:linear-gradient(90deg,var(--terra),transparent);
+}
+.lp-kpi article:hover{
+  transform:translateY(-6px);border-color:rgba(217,140,95,.7);
+  box-shadow:0 0 0 1px rgba(196,107,60,.28),0 24px 58px rgba(0,0,0,.42);
+}
+.lp-kpi__label{
+  margin:0;font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--terra-soft);
+}
+.lp-kpi__n{
+  margin:14px 0 0;display:flex;align-items:baseline;gap:2px;
+  font-size:clamp(2.4rem,4.4vw,3.4rem);font-weight:700;line-height:1;
+  letter-spacing:-.045em;color:var(--bone);font-variant-numeric:tabular-nums;
+}
+.lp-kpi__n em{font-style:normal;font-size:.5em;font-weight:600;letter-spacing:-.02em}
+.lp-kpi__range{
+  margin:10px 0 0;font-size:.78rem;letter-spacing:.03em;color:#B4AEA7;
+}
+.lp-kpi__bar{
+  margin-top:16px;height:4px;border-radius:99px;
+  background:rgba(237,229,220,.12);overflow:hidden;
+}
+.lp-kpi__bar i{
+  display:block;height:100%;width:var(--v,50%);border-radius:99px;
+  background:linear-gradient(90deg,var(--terra),var(--terra-soft));
+  transform-origin:left;transform:scaleX(0);
+  transition:transform 1.1s var(--ease) .15s;
+}
+.reveal.is-in .lp-kpi__bar i,
+.lp-kpi.is-in .lp-kpi__bar i{transform:scaleX(1)}
+html:not(.has-js) .lp-kpi__bar i{transform:scaleX(1)}
+.lp-kpi__note{
+  margin:16px 0 0;font-size:.88rem;line-height:1.65;color:#CFC9C2;
+}
+.lp-kpi__pie{
+  margin:20px 0 0;font-size:.78rem;line-height:1.6;color:#A6A29C;
+  padding-left:14px;border-left:2px solid rgba(196,107,60,.55);max-width:72ch;
+}
+@media(max-width:767px){
+  .lp-kpi{grid-template-columns:1fr;gap:12px}
+  .lp-kpi article{padding:22px 20px}
+  .lp-kpi__label{font-size:10px}
+  .lp-kpi__n{font-size:34px;margin-top:12px}
+  .lp-kpi__range{font-size:11.5px}
+  .lp-kpi__note{font-size:13.5px;margin-top:12px}
+  .lp-kpi__pie{font-size:11.5px;margin-top:16px}
+}
+@media(min-width:768px) and (max-width:1180px){
+  .lp-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.lp-kpi__bar i{transition:none;transform:scaleX(1)}}

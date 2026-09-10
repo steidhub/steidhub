@@ -60,14 +60,21 @@
     el.textContent = prefix + '0';
     const DUR = 1400;
     const t0 = performance.now();
+    let listo = false;
+    const cerrar = () => { listo = true; el.textContent = prefix + fmt(target); };
     const tick = (now) => {
+      if (listo) return;
       const p = Math.min((now - t0) / DUR, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       el.textContent = prefix + fmt(Math.round(target * eased));
       if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = prefix + fmt(target);
+      else cerrar();
     };
     requestAnimationFrame(tick);
+    /* Si requestAnimationFrame se detiene (pestaña en segundo plano, ahorro de
+       energía, pintado suspendido) la cifra quedaría congelada a medias y
+       mostraría un dato falso: "−4" en lugar de "−40". Este seguro la cierra. */
+    setTimeout(() => { if (!listo) cerrar(); }, DUR + 900);
   };
   if (!('IntersectionObserver' in window)) {
     nums.forEach(runCount);
