@@ -1,7 +1,7 @@
 /* Steid Hub — landing Google Ads (reveal, cifras, colaboradores y formulario) */
 (() => {
   'use strict';
-  window.__adsReady = true; // desarma el watchdog del <head>
+  window.__lpReady = true; // desarma el watchdog del <head>
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- Reveal al hacer scroll ---------- */
@@ -136,6 +136,133 @@
     document.addEventListener('click', (e) => { if (!wa.contains(e.target)) closePanel(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
     wa.classList.add('is-ready');
+  }
+
+  /* ---------- Parallax suave en fondos de sección ---------- */
+  const layers = [...document.querySelectorAll('.lp-parallax')];
+  if (layers.length && !reduce.matches) {
+    let ticking = false;
+    const move = () => {
+      layers.forEach((el) => {
+        const host = el.closest('section') || el.parentElement;
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        // desplazamiento corto: el fondo se mueve un 12% de lo que avanza la sección
+        const avance = (innerHeight - r.top) / (innerHeight + r.height);
+        el.style.transform = `translate3d(0,${((avance - 0.5) * 12).toFixed(2)}%,0)`;
+      });
+      ticking = false;
+    };
+    const pedir = () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } };
+    move();
+    addEventListener('scroll', pedir, { passive: true });
+    addEventListener('resize', pedir);
+  }
+
+  /* ---------- Formulario (sólo en las páginas que lo llevan) ---------- */
+  const form = document.getElementById('contactForm');
+  if (form) {
+    const summary = document.getElementById('formSummary');
+    const summaryList = document.getElementById('formSummaryList');
+    const status = document.getElementById('formStatus');
+    const statusText = document.getElementById('formStatusText');
+    const btn = document.getElementById('submitBtn');
+
+    const LABELS = {
+      nombre: 'Nombre y apellido', email: 'Email', telefono: 'WhatsApp',
+      servicio: '¿Qué necesitas?', consent: 'Autorización de contacto',
+      datos: 'Tratamiento de datos personales'
+    };
+
+    const validate = (el) => {
+      const v = (el.value || '').trim();
+      if (el.type === 'checkbox') return el.checked;
+      if (!el.required && !v) return true;
+      if (!v) return false;
+      if (el.type === 'email') return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
+      if (el.type === 'tel') return (v.match(/\d/g) || []).length >= 9;
+      return v.length >= 2;
+    };
+
+    const mark = (el, ok) => {
+      const field = el.closest('.field') || el.closest('.form__consent');
+      if (field) field.classList.toggle('is-invalid', !ok);
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+    };
+
+    form.querySelectorAll('input,select,textarea').forEach((el) => {
+      el.addEventListener('blur', () => { if (el.required || el.value.trim()) mark(el, validate(el)); });
+      el.addEventListener('input', () => {
+        const f = el.closest('.field');
+        if (f && f.classList.contains('is-invalid') && validate(el)) mark(el, true);
+      });
+      if (el.type === 'checkbox') el.addEventListener('change', () => mark(el, validate(el)));
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (btn.disabled) return;
+      const required = [...form.querySelectorAll('[required]')];
+      const invalid = required.filter((el) => { const ok = validate(el); mark(el, ok); return !ok; });
+
+      if (invalid.length) {
+        summaryList.innerHTML = invalid.map((el) =>
+          `<li><a href="#${el.id}">${LABELS[el.name] || el.name}</a></li>`).join('');
+        summary.classList.add('is-visible');
+        status.classList.remove('is-visible');
+        summary.focus();
+        summaryList.querySelectorAll('a').forEach((a) => a.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          const t = document.getElementById(a.getAttribute('href').slice(1));
+          t.focus(); t.scrollIntoView({ block: 'center', behavior: reduce.matches ? 'auto' : 'smooth' });
+        }));
+        return;
+      }
+
+      summary.classList.remove('is-visible');
+      btn.setAttribute('aria-busy', 'true');
+      btn.querySelector('.btn__label').textContent = 'Enviando…';
+      btn.disabled = true;
+      status.classList.remove('is-visible');
+
+      const fields = new FormData(form);
+      const payload = {
+        nombre: fields.get('nombre'), empresa: fields.get('empresa'),
+        email: fields.get('email'), whatsapp: fields.get('telefono'),
+        necesidad: fields.get('servicio'), etapa: fields.get('etapa'),
+        proyecto: fields.get('mensaje'),
+        // de qué landing vino el lead, para atribuir en el CRM
+        origen: document.body.dataset.landing || 'landing',
+        consentimiento_contacto: fields.has('consent'),
+        consentimiento_privacidad: fields.has('datos')
+      };
+      try {
+        const response = await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || result.success !== true) throw new Error('Submission failed');
+        statusText.textContent = '¡Gracias! Recibimos tu solicitud. Te escribimos dentro de las próximas 24 horas hábiles.';
+        status.querySelector('svg').style.display = '';
+        form.reset();
+        form.querySelectorAll('.is-invalid').forEach((f) => f.classList.remove('is-invalid'));
+        form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+        if (typeof window.gtag === 'function') {
+          try { window.gtag('event', 'generate_lead'); } catch { /* El lead ya está guardado. */ }
+        }
+      } catch {
+        statusText.textContent = 'No pudimos confirmar el envío. Tus datos siguen aquí; vuelve a intentarlo en unos minutos o contáctanos por WhatsApp.';
+        status.querySelector('svg').style.display = 'none';
+      } finally {
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        btn.querySelector('.btn__label').textContent = 'Enviar solicitud';
+        status.classList.add('is-visible');
+        status.scrollIntoView({ block: 'center', behavior: reduce.matches ? 'auto' : 'smooth' });
+      }
+    });
   }
 
 })();
