@@ -219,9 +219,13 @@
        Si a los 300 ms no se movió nada, se salta de golpe. */
     const mover = (dir) => {
       const desde = pista.scrollLeft;
-      const destino = Math.max(0, Math.min(maxScroll(), desde + dir * paso()));
+      const slides = [...pista.children];
+      const actual = slides.reduce((best, el, i) =>
+        Math.abs(el.offsetLeft - desde) < Math.abs(slides[best].offsetLeft - desde) ? i : best, 0);
+      const destinoIndex = Math.max(0, Math.min(slides.length - 1, actual + dir));
+      const destino = Math.max(0, Math.min(maxScroll(), slides[destinoIndex].offsetLeft));
       if (reduce.matches) { pista.scrollLeft = destino; pintar(); return; }
-      pista.scrollBy({ left: dir * paso(), behavior: 'smooth' });
+      pista.scrollTo({ left: destino, behavior: 'smooth' });
       // no dependemos del evento scroll para refrescar flechas y barra
       setTimeout(() => {
         if (pista.scrollLeft === desde && desde !== destino) pista.scrollLeft = destino;
