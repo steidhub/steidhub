@@ -305,3 +305,9 @@ body.ads-page::before{
   /* el separador entre secciones, más estrecho que el ancho de texto */
   .ads-section + .ads-section::before{width:min(320px,64vw)}
 }
+
+/* "Colaboraciones y más" centrado sobre el carrusel de logos */
+.ads-section--proof .kicker{text-align:center}
+
+/* Variante de eyebrow sin la rayita del ::before */
+.ads-page .eyebrow--plain::before{display:none}
