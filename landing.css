@@ -43,24 +43,25 @@ body.lp-page::before{
 .lp-page .btn:focus-visible::after{opacity:1;transform:none}
 
 .lp-hero{
-  position:relative;min-height:100vh;isolation:isolate;display:grid;align-items:center;
-  padding:128px 0 72px;overflow:hidden;
+  position:relative;min-height:92vh;isolation:isolate;display:grid;align-items:center;
+  padding:124px 0 80px;overflow:hidden;
 }
 .lp-hero__media{position:absolute;inset:0;z-index:-2}
-.lp-hero__media img{width:100%;height:100%;object-fit:cover;opacity:.5;filter:saturate(.9) contrast(1.08)}
+.lp-hero__media img{width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(1.02) contrast(1.06)}
 .lp-hero::after{
   content:"";position:absolute;inset:0;z-index:-1;
   background:
-    linear-gradient(90deg,rgba(17,17,17,.96) 0,rgba(17,17,17,.74) 48%,rgba(17,17,17,.46) 100%),
-    linear-gradient(180deg,rgba(17,17,17,.18),var(--ink) 100%);
+    radial-gradient(90% 75% at 18% 45%,rgba(17,17,17,.94),rgba(17,17,17,.55) 62%,transparent 100%),
+    linear-gradient(90deg,rgba(17,17,17,.9) 0,rgba(17,17,17,.5) 55%,rgba(17,17,17,.28) 100%),
+    linear-gradient(180deg,rgba(17,17,17,.3),rgba(17,17,17,.1) 40%,var(--ink) 100%);
 }
 .lp-hero__grid{
   display:grid;grid-template-columns:minmax(0,.92fr) minmax(420px,.78fr);
   gap:clamp(44px,6vw,86px);align-items:center;
 }
 .lp-hero__copy{max-width:840px}
-.lp-hero .display{max-width:11ch;font-size:clamp(3rem,6.3vw,6.2rem);line-height:.94}
-.lp-hero__lead{margin:28px 0 0;max-width:62ch}
+.lp-hero .display{max-width:15ch;font-size:clamp(2.3rem,4vw,3.9rem);line-height:1.02;letter-spacing:-.03em}
+.lp-hero__lead{margin:22px 0 0;max-width:52ch;font-size:1.02rem;color:#D6D0C8}
 .lp-hero .hero__actions{margin-top:34px}
 .lp-hero__mock{
   margin:0;position:relative;border-radius:26px;padding:10px;
@@ -90,7 +91,7 @@ body.lp-page::before{
 .lp-head .lead{margin:0;max-width:60ch}
 .lp-head--center{justify-items:center;text-align:center;margin-inline:auto}
 .lp-head--center .eyebrow{justify-content:center}
-.lp-problems{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.lp-problems{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
 .lp-problems article,
 .lp-method article,
 .lp-metrics article{
@@ -186,6 +187,10 @@ body.lp-page::before{
 }
 .lp-cta .lp-head{margin-bottom:0}
 
+@media(max-width:1180px) and (min-width:981px){
+  .lp-problems{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 @media(max-width:980px){
   .lp-split .lp-head{position:static;top:auto}
   .lp-nav__links{display:none}
@@ -196,7 +201,7 @@ body.lp-page::before{
   .lp-cta{grid-template-columns:1fr}
   .lp-hero__mock{max-width:620px;margin-inline:auto}
   .lp-problems,
-  .lp-metrics{grid-template-columns:1fr}
+  .lp-metrics{grid-auto-flow:row;grid-template-columns:1fr}
   .lp-cta .btn{justify-self:start}
 }
 
@@ -336,11 +341,11 @@ body.lp-page::before{
   background:linear-gradient(180deg,var(--sand),#E4DACF);
   color:#1A1613;
 }
-.lp-section--light .h2,.lp-section--light h3,.lp-section--light strong{color:#12100E}
-.lp-section--light .lead,.lp-section--light p{color:#4A423B}
-.lp-section--light .eyebrow{color:#A2542C}
-.lp-section--light .eyebrow::before{background:#A2542C}
-.lp-section--light .kicker{color:#6B6058}
+.lp-section--light .h2,.lp-section--light > .wrap > .lp-head h3{color:#12100E}
+.lp-section--light .lead,.lp-section--light > .wrap > .lp-head p{color:#463D35}
+.lp-section--light .eyebrow{color:#8F4622}
+.lp-section--light .eyebrow::before{background:#8F4622}
+.lp-section--light .kicker{color:#5C5249}
 .lp-section--light::before{display:none}
 
 /* ---------- Timeline de proceso ---------- */
@@ -371,10 +376,11 @@ body.lp-page::before{
 .lp-section--light .lp-timeline p{color:#4A423B}
 
 /* ---------- Rejilla de casos de uso / pastillas ---------- */
-.lp-uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.lp-uses{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:0;margin:0}
 .lp-uses li{
   list-style:none;display:flex;align-items:center;gap:12px;
-  padding:16px 18px;border:1px solid var(--line);border-radius:12px;
+  flex:0 1 auto;min-width:190px;
+  padding:16px 20px;border:1px solid var(--line);border-radius:12px;
   background:rgba(247,247,245,.04);color:#D7D0C8;font-size:.9rem;
   transition:transform .28s var(--ease),border-color .28s var(--ease),background .28s var(--ease);
 }
@@ -385,7 +391,6 @@ body.lp-page::before{
 .lp-section--light .lp-uses svg{color:#A2542C}
 
 /* ---------- Galería ---------- */
-.lp-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .lp-gallery figure{
   position:relative;margin:0;overflow:hidden;border-radius:14px;
   box-shadow:0 18px 46px rgba(0,0,0,.4),0 0 0 1px var(--line);
@@ -453,7 +458,6 @@ body.lp-page::before{
   .lp-timeline p{font-size:13.5px;line-height:1.7}
   .lp-uses{grid-template-columns:1fr;gap:10px}
   .lp-uses li{font-size:13.5px;padding:14px 16px}
-  .lp-gallery{grid-template-columns:1fr;gap:12px}
   .lp-gallery figcaption{font-size:10px}
   .lp-faq summary{padding:16px 18px;font-size:14.5px}
   .lp-faq__a{padding:0 18px 16px;font-size:13.5px}
@@ -475,3 +479,104 @@ body.lp-page::before{
 body.lp-page .reveal{opacity:1;transform:none}
 html.has-js body.lp-page .reveal{opacity:0;transform:translateY(22px)}
 html.has-js body.lp-page .reveal.is-in{opacity:1;transform:none}
+
+/* Las tarjetas oscuras dentro de un bloque claro conservan su propio texto:
+   sin esto heredaban el gris oscuro de la sección y quedaban ilegibles. */
+.lp-section--light .lp-problems article,
+.lp-section--light .lp-method article,
+.lp-section--light .lp-metrics article{
+  background:linear-gradient(180deg,#242424,#171717);
+  border-color:rgba(237,229,220,.24);
+  box-shadow:0 18px 40px rgba(26,18,12,.24);
+}
+.lp-section--light .lp-problems h3,
+.lp-section--light .lp-method h3,
+.lp-section--light .lp-metrics strong{color:var(--bone)}
+.lp-section--light .lp-problems p,
+.lp-section--light .lp-method p,
+.lp-section--light .lp-metrics p{color:#D2CCC5}
+.lp-section--light .lp-problems span,
+.lp-section--light .lp-metrics span{color:var(--terra-soft)}
+.lp-section--light .lp-method span{border-color:var(--terra);color:var(--terra-soft);background:#1B1B1B}
+
+/* ---------- Icono de tarjeta ---------- */
+.lp-page .lp-card__ic{
+  display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;
+  border-radius:13px;border:1px solid rgba(196,107,60,.42);
+  background:linear-gradient(150deg,rgba(196,107,60,.22),rgba(196,107,60,.04));
+  color:var(--terra-soft);
+  transition:background .32s var(--ease),color .32s var(--ease),transform .32s var(--ease);
+}
+.lp-page .lp-card__ic svg{width:22px;height:22px}
+.lp-problems article:hover .lp-card__ic{
+  background:var(--terra);color:#fff;border-color:var(--terra);transform:translateY(-2px) scale(1.04);
+}
+.lp-page .lp-section--light .lp-card__ic{border-color:rgba(217,140,95,.45)}
+
+/* ---------- Galería en carrusel ---------- */
+.lp-gallery{
+  display:grid;grid-template-columns:none;
+  grid-auto-flow:column;grid-auto-columns:min(72%,700px);
+  gap:16px;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-padding-inline:0;
+  padding:0 0 16px;margin:0;
+  scrollbar-width:thin;scrollbar-color:var(--terra) var(--ink-2);
+}
+.lp-gallery figure{scroll-snap-align:start;min-width:0}
+.lp-gallery img{aspect-ratio:16/10}
+.lp-gallery figcaption{
+  padding:40px 20px 18px;font-size:.8rem;letter-spacing:.14em;
+  background:linear-gradient(180deg,transparent,rgba(8,8,8,.92));
+  color:var(--bone);
+}
+.lp-gallery--tall img{aspect-ratio:16/10}
+.lp-gallery__hint{
+  margin:0 0 16px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fg-muted);
+}
+@media(max-width:767px){
+  .lp-gallery{grid-auto-columns:88%;gap:12px}
+  .lp-gallery__hint{font-size:10px}
+}
+
+/* ---------- Método con imagen de apoyo ---------- */
+.lp-method--media article{position:relative;grid-template-columns:132px 1fr;gap:6px 22px;align-items:center}
+.lp-method--media .lp-method__ph{
+  grid-row:1 / span 2;align-self:stretch;
+  overflow:hidden;border-radius:12px;min-height:104px;
+  box-shadow:0 0 0 1px var(--line);
+}
+.lp-method--media .lp-method__ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.lp-method--media article:hover .lp-method__ph img{transform:scale(1.07)}
+.lp-method--media > article > span{
+  grid-row:auto;position:absolute;top:14px;right:16px;width:34px;height:34px;
+  background:rgba(17,17,17,.82);backdrop-filter:blur(4px);font-size:.68rem;
+}
+@media(max-width:900px){
+  .lp-method--media article{grid-template-columns:96px 1fr;gap:4px 16px}
+  .lp-method--media .lp-method__ph{min-height:88px}
+}
+@media(max-width:767px){
+  .lp-method--media article{grid-template-columns:1fr;gap:14px}
+  .lp-method--media .lp-method__ph{grid-row:auto;min-height:0;aspect-ratio:16/9}
+  .lp-method--media > article > span{position:static;width:34px;height:34px;margin-bottom:0}
+}
+
+/* ---------- Contraste general del texto sobre #111111 ----------
+   El fondo no es negro puro, así que los grises heredados quedaban justos.
+   Se suben un escalón para que el cuerpo de texto se lea bien en móvil. */
+body.lp-page .lead{color:#C8C2BA}
+body.lp-page .lp-problems p,
+body.lp-page .lp-method p,
+body.lp-page .lp-metrics p,
+body.lp-page .lp-timeline p,
+body.lp-page .lp-cluster p,
+body.lp-page .lp-faq__a{color:#CFC9C2}
+body.lp-page .lp-uses li{color:#E2DCD5}
+body.lp-page .lp-checks li{color:#E2DCD5}
+body.lp-page .contact__info dd{color:var(--bone)}
+body.lp-page .lp-crumbs ol{color:#B4AEA7}
+body.lp-page .footer ul a{color:#D8D1C9}
+body.lp-page .muted{color:#B4AEA7}
+.lp-nav__links a{opacity:.92}
+.btn--ghost{border-color:rgba(237,229,220,.5);color:var(--bone)}
