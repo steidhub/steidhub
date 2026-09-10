@@ -26,8 +26,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 <link rel="preload" as="image" href="assets/img/google-ads-system.webp" fetchpriority="high">
+<script>/* Oculta las animaciones sólo mientras google-ads.js siga vivo. Si ese archivo
+   no carga (bloqueado, 404, error), soltamos la clase y la pagina se ve entera. */
+(function(d){d.classList.add("has-js");setTimeout(function(){
+  if(!window.__adsReady)d.classList.remove("has-js");},3000);})(document.documentElement)</script>
 <link rel="stylesheet" href="styles.css?v=20260909-ios-video3">
-<link rel="stylesheet" href="google-ads.css?v=20260910-ux3">
+<link rel="stylesheet" href="google-ads.css?v=20260910-ux6">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"Google Ads inmobiliario y landing page","provider":{"@type":"Organization","name":"Steid Hub","url":"https://www.steidhub.com/"},"areaServed":"PE","serviceType":"Publicidad digital inmobiliaria","description":"Google Ads para inmobiliarias y desarrolladores con landing page, CRM, WhatsApp, GA4 y optimización de leads calificados."}
 </script>
@@ -237,7 +241,7 @@
             </div>
             <div>
               <dt>Email</dt>
-              <dd><a href="mailto:informes@steidhub.com">informes@steidhub.com</a></dd>
+              <dd><!--email_off--><a href="mailto:informes@steidhub.com">informes@steidhub.com</a><!--/email_off--></dd>
             </div>
             <div>
               <dt>Instagram</dt>
@@ -275,7 +279,7 @@
                 <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
                 <input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" spellcheck="false" enterkeyhint="next" required
                        inputmode="email" aria-describedby="email-err" placeholder="nombre@empresa.com">
-                <span class="err" id="email-err">Ingresa un email válido, por ejemplo nombre@empresa.com.</span>
+                <span class="err" id="email-err">Ingresa un email válido, por ejemplo <!--email_off-->nombre@empresa.com<!--/email_off-->.</span>
               </div>
               <div class="field">
                 <label for="telefono">WhatsApp <span class="req" aria-hidden="true">*</span></label>
@@ -391,7 +395,7 @@
         <h4>Contacto</h4>
         <ul>
           <li><a href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n">+51 983 595 390</a></li>
-          <li><a href="mailto:informes@steidhub.com">informes@steidhub.com</a></li>
+          <li><!--email_off--><a href="mailto:informes@steidhub.com">informes@steidhub.com</a><!--/email_off--></li>
           <li><a href="https://instagram.com/steidhub" rel="noopener">Instagram @steidhub</a></li>
           <li><a href="https://tiktok.com/@steidhub" rel="noopener">TikTok @steidhub</a></li>
         </ul>
@@ -403,6 +407,6 @@
   </div>
 </footer>
 
-<script src="google-ads.js?v=20260910-ux3" defer></script>
+<script src="google-ads.js?v=20260910-ux6" defer></script>
 </body>
 </html>

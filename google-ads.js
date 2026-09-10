@@ -1,12 +1,15 @@
 /* Steid Hub — landing Google Ads (reveal, cifras, colaboradores y formulario) */
 (() => {
   'use strict';
+  window.__adsReady = true; // desarma el watchdog del <head>
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- Reveal al hacer scroll ---------- */
-  const items = document.querySelectorAll('.reveal');
+  const items = [...document.querySelectorAll('.reveal')];
+  const showAll = () => items.forEach((el) => el.classList.add('is-in'));
+
   if (reduce.matches || !('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('is-in'));
+    showAll();
   } else {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
@@ -14,6 +17,20 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     items.forEach((el) => io.observe(el));
+
+    /* Red de seguridad: lo que ya está en pantalla debe verse aunque el
+       observer no dispare (pasa en algunos webviews y navegadores embebidos).
+       Si a los 2 s no se reveló nada, damos el observer por muerto y
+       mostramos la página completa. */
+    const showIfOnScreen = () => items.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in');
+    });
+    addEventListener('load', showIfOnScreen);
+    setTimeout(() => {
+      if (!items.some((el) => el.classList.contains('is-in'))) showAll();
+      else showIfOnScreen();
+    }, 2000);
   }
 
   /* ---------- Contador de cifras ---------- */

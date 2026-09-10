@@ -274,3 +274,13 @@ body.ads-page::before{
 /* esta sección trae su propio degradado: sin separador */
 .ads-section--contact::before,
 .ads-section--contact + .ads-section::before{display:none}
+
+
+/* ---------- Failsafe de animaciones ----------
+   styles.css oculta .reveal con opacity:0 y lo revela por JS.
+   Si el JS no llega a correr (bloqueado, error de red, observer inerte),
+   la landing quedaría en blanco bajo el hero. Aquí invertimos el default:
+   visible siempre, y sólo se oculta cuando el <head> confirmó que hay JS. */
+body.ads-page .reveal{opacity:1;transform:none}
+html.has-js body.ads-page .reveal{opacity:0;transform:translateY(22px)}
+html.has-js body.ads-page .reveal.is-in{opacity:1;transform:none}
