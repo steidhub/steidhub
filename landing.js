@@ -211,8 +211,8 @@
         barra.style.width = `${(visible * 100).toFixed(2)}%`;
         barra.style.marginLeft = `${(p * (1 - visible) * 100).toFixed(2)}%`;
       }
-      if (prev) prev.disabled = pista.scrollLeft < 4;
-      if (next) next.disabled = pista.scrollLeft > max - 4;
+      if (prev) prev.disabled = false;
+      if (next) next.disabled = false;
     };
 
     /* Safari por debajo de 15.4 ignora behavior:'smooth' en contenedores.
@@ -222,8 +222,18 @@
       const slides = [...pista.children];
       const actual = slides.reduce((best, el, i) =>
         Math.abs(el.offsetLeft - desde) < Math.abs(slides[best].offsetLeft - desde) ? i : best, 0);
-      const destinoIndex = Math.max(0, Math.min(slides.length - 1, actual + dir));
-      const destino = Math.max(0, Math.min(maxScroll(), slides[destinoIndex].offsetLeft));
+      const alInicio = desde < 4;
+      const alFinal = desde > maxScroll() - 4;
+      const destinoIndex = dir > 0 && alFinal
+        ? 0
+        : dir < 0 && alInicio
+          ? slides.length - 1
+          : Math.max(0, Math.min(slides.length - 1, actual + dir));
+      const destino = dir > 0 && alFinal
+        ? 0
+        : dir < 0 && alInicio
+          ? maxScroll()
+          : Math.max(0, Math.min(maxScroll(), slides[destinoIndex].offsetLeft));
       if (reduce.matches) { pista.scrollLeft = destino; pintar(); return; }
       pista.scrollTo({ left: destino, behavior: 'smooth' });
       // no dependemos del evento scroll para refrescar flechas y barra
