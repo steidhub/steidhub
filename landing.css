@@ -338,13 +338,15 @@ body[data-landing="google-ads"] .lp-faq__a{padding:0 26px 24px;line-height:1.8}
 }
 
 /* Contenido: cada problema y beneficio muestra una evidencia visual real. */
-body[data-landing="contenido"] .lp-problems--portfolio article{padding-top:168px}
-body[data-landing="contenido"] .lp-problems--portfolio article::after{opacity:.82;inset:0 0 auto;height:128px;border-radius:0;background-size:cover;background-position:center;filter:saturate(.85)}
-body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(1)::after{background-image:url('assets/img/contenido-foto-celular.webp')}
-body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(2)::after{background-image:url('assets/img/contenido-sin-contexto.webp')}
-body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(3)::after{background-image:url('assets/img/contenido-formato-unico.webp')}
-body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(4)::after{background-image:url('assets/img/contenido-inconsistencia.webp')}
-body[data-landing="contenido"] .lp-problems--portfolio .lp-card__ic{position:absolute;top:98px;left:24px;z-index:2;background:rgba(17,17,17,.88)}
+body[data-landing="contenido"] .lp-problems--portfolio article{display:flex;flex-direction:column;padding:0 26px 32px;overflow:hidden}
+body[data-landing="contenido"] .lp-problems--portfolio article::after{display:none}
+body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(1)::after{background-image:url('assets/img/contenido-beneficio-1.jpg')}
+body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(2)::after{background-image:url('assets/img/contenido-beneficio-2.jpg')}
+body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(3)::after{background-image:url('assets/img/contenido-beneficio-3.jpg')}
+body[data-landing="contenido"] .lp-problems--portfolio article:nth-child(4)::after{background-image:url('assets/img/contenido-beneficio-4.jpg')}
+body[data-landing="contenido"] .lp-problems--portfolio .lp-card-visual{position:relative;margin:0 -26px;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid rgba(237,229,220,.12);background:#171717}
+body[data-landing="contenido"] .lp-problems--portfolio .lp-card-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+body[data-landing="contenido"] .lp-problems--portfolio .lp-card__ic{position:relative;top:auto;left:auto;z-index:2;margin:-24px 0 22px;background:rgba(17,17,17,.94);backdrop-filter:blur(8px)}
 body[data-landing="contenido"] .lp-problems--benefits article:nth-child(1)::after{background-image:url('assets/img/thegrand-cocina.webp')}
 body[data-landing="contenido"] .lp-problems--benefits article:nth-child(2)::after{background-image:url('assets/img/sala-sanborja.webp')}
 body[data-landing="contenido"] .lp-problems--benefits article:nth-child(3)::after{background-image:url('assets/img/brochure-1.jpg')}
