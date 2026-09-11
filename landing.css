@@ -1396,3 +1396,100 @@ body[data-landing="drone"] #incluye .drone-usecases>.eyebrow{justify-content:fle
   .drone-license__list{grid-template-columns:1fr}
   .drone-license__list li{font-size:13px}
 }
+
+/* ==========================================================================
+   Drone · lectura más corrida: menos aire entre secciones desde la 2.ª
+   (galería) hasta el formulario. Antes ~288 px entre bloques, ahora ~128.
+   ========================================================================== */
+body[data-landing="drone"] #incluye{padding-bottom:clamp(40px,4.4vw,64px)}
+body[data-landing="drone"] #galeria,
+body[data-landing="drone"] #galeria ~ .lp-section:not(#contacto){padding-block:clamp(40px,4.4vw,64px)}
+body[data-landing="drone"] #contacto{padding-top:clamp(56px,5.6vw,80px)}
+@media(max-width:767px){
+  body[data-landing="drone"] #incluye{padding-bottom:36px}
+  body[data-landing="drone"] #galeria,
+  body[data-landing="drone"] #galeria ~ .lp-section:not(#contacto){padding-block:36px}
+  body[data-landing="drone"] #contacto{padding-top:52px}
+}
+
+/* ==========================================================================
+   Drone · "Qué incluye": más contraste en las tarjetas.
+   Fondo más plano y oscuro, sin el halo naranja detrás del texto, y
+   título en blanco y con más peso.
+   ========================================================================== */
+body[data-landing="drone"] .drone-includes article{
+  background:linear-gradient(160deg,#2A2320 0%,#1A1817 55%,#151515 100%);
+  border-color:rgba(217,140,95,.5);
+}
+body[data-landing="drone"] .drone-includes article::after{opacity:.35}
+body[data-landing="drone"] .drone-includes h3{color:#FFFFFF;font-weight:700;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+body[data-landing="drone"] .drone-includes .lp-card__ic{
+  background:linear-gradient(145deg,rgba(196,107,60,.42),rgba(196,107,60,.16));
+  color:#F2B48D;box-shadow:inset 0 0 0 1px rgba(217,140,95,.7),0 10px 22px rgba(0,0,0,.3);
+}
+body[data-landing="drone"] .drone-includes article:hover{border-color:rgba(217,140,95,.9)}
+
+/* ==========================================================================
+   Drone · banda de licencia DGAC animada.
+   Brillo que recorre la banda, sello con pulso, escudo que se dibuja y
+   puntos de la lista que entran en cascada al aparecer.
+   ========================================================================== */
+.drone-license::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,214,186,.14) 50%,transparent 65%);
+  background-size:250% 100%;background-position:130% 0;
+  animation:dgacSheen 5.5s var(--ease) infinite;
+}
+.drone-license > *{position:relative;z-index:1}
+@keyframes dgacSheen{0%,35%{background-position:130% 0}75%,100%{background-position:-30% 0}}
+
+.drone-license__badge{position:relative}
+.drone-license__badge::after{
+  content:"";position:absolute;inset:-6px;border-radius:24px;border:2px solid rgba(217,140,95,.55);
+  animation:dgacPulse 2.6s var(--ease) infinite;
+}
+@keyframes dgacPulse{0%{transform:scale(.92);opacity:.9}70%{transform:scale(1.18);opacity:0}100%{opacity:0}}
+
+/* el escudo y el check se dibujan al entrar */
+.drone-license__badge path{stroke-dasharray:80;stroke-dashoffset:80}
+.drone-license.is-in .drone-license__badge path{animation:dgacDraw 1.2s var(--ease) .25s forwards}
+.drone-license.is-in .drone-license__badge path + path{animation-delay:.9s}
+@keyframes dgacDraw{to{stroke-dashoffset:0}}
+
+/* "DGAC" con un subrayado que crece */
+.drone-license__copy h3 strong{position:relative;white-space:nowrap}
+.drone-license__copy h3 strong::after{
+  content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;
+  background:var(--terra-soft);transform:scaleX(0);transform-origin:left;
+  transition:transform .8s var(--ease) .6s;
+}
+.drone-license.is-in .drone-license__copy h3 strong::after{transform:scaleX(1)}
+
+/* lista en cascada */
+.drone-license__list li{opacity:0;transform:translateX(18px);transition:opacity .5s var(--ease),transform .5s var(--ease),border-color .3s var(--ease),background .3s var(--ease)}
+.drone-license.is-in .drone-license__list li{opacity:1;transform:none}
+.drone-license.is-in .drone-license__list li:nth-child(1){transition-delay:.35s}
+.drone-license.is-in .drone-license__list li:nth-child(2){transition-delay:.5s}
+.drone-license.is-in .drone-license__list li:nth-child(3){transition-delay:.65s}
+.drone-license.is-in .drone-license__list li:nth-child(4){transition-delay:.8s}
+.drone-license__list li:hover{border-color:rgba(217,140,95,.6);background:rgba(196,107,60,.12)}
+
+/* sin JS o sin animaciones: todo visible y quieto */
+html:not(.has-js) .drone-license__list li{opacity:1;transform:none}
+html:not(.has-js) .drone-license__badge path{stroke-dashoffset:0}
+@media(prefers-reduced-motion:reduce){
+  .drone-license::before,.drone-license__badge::after{animation:none;display:none}
+  .drone-license__badge path{stroke-dasharray:none;stroke-dashoffset:0;animation:none!important}
+  .drone-license__list li{opacity:1;transform:none;transition:none}
+  .drone-license__copy h3 strong::after{transform:scaleX(1);transition:none}
+}
+/* textos secundarios de "Qué incluye": más grandes y claros */
+body[data-landing="drone"] .drone-gear__specs span{font-size:.82rem;color:#DAD4CD}
+body[data-landing="drone"] .drone-gear__specs strong{color:#FFFFFF}
+body[data-landing="drone"] .drone-gear__head p:not(.eyebrow){font-size:.94rem;color:#DCD6CF}
+body[data-landing="drone"] .drone-gear__head h3{color:#FFFFFF}
+body[data-landing="drone"] #incluye .drone-usecases li{font-weight:600;color:#FFFFFF}
+@media(max-width:767px){
+  body[data-landing="drone"] .drone-gear__specs span{font-size:12px}
+  body[data-landing="drone"] .drone-gear__head p:not(.eyebrow){font-size:14px}
+}
