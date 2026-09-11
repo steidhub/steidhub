@@ -162,6 +162,13 @@
 .tabla tbody tr:last-child>*{border-bottom:0}
 .tabla tbody tr:nth-child(even){background:rgba(237,229,220,.45)}
 
+/* "Término explicado": glosario dentro del texto */
+.termino{padding:18px 22px 20px;border:1px solid var(--rule);border-radius:14px;background:linear-gradient(135deg,rgba(196,107,60,.08),var(--card) 55%)}
+.termino p{margin:0;font-size:1rem;line-height:1.7}
+.termino__label{color:var(--accent);font-size:.68rem!important;font-weight:700;letter-spacing:.16em;text-transform:uppercase;line-height:1.4!important}
+.termino__t{margin-top:4px!important;color:#111;font-size:1.12rem!important;font-weight:600}
+.termino p+p:not(.termino__t){margin-top:8px}
+
 /* "Lee también": puente hacia el resto del ecosistema */
 .post-read a{
   display:grid;grid-template-columns:112px 1fr;gap:18px;align-items:center;padding:12px;
@@ -274,6 +281,9 @@
   .post__body h3{font-size:1.1rem}
   .ficha dt,.ficha dd{font-size:.94rem}
   .ejemplo{padding:14px 16px}
+  .termino{padding:16px 18px}
+  .termino p{font-size:.94rem}
+  .termino__t{font-size:1.02rem!important}
   .ejemplo p{font-size:.97rem}
   .tabla table{font-size:.88rem}
   .tabla th,.tabla td{padding:11px 14px}

@@ -9,6 +9,7 @@ Marcado ligero del cuerpo (una línea por bloque, bloques separados por línea e
   > texto             -> cita / ejemplo destacado
   | a | b | c |       -> tabla (la primera fila es la cabecera)
   !leer slug          -> tarjeta "Lee también" hacia otro artículo del blog
+  ~ Término           -> recuadro "Término explicado" (1.ª línea: término; siguientes "~ ": explicación)
 Dentro del texto:
   **negrita**, [texto](url) enlace, [[Fuente|url]] cita a una fuente externa
 """
@@ -784,6 +785,629 @@ Una campaña para vender propiedades en Facebook, Instagram y TikTok debe unir t
 El contenido atrae. La pauta distribuye. WhatsApp convierte. El CRM ordena. La optimización mejora.
 
 Cuando esas piezas trabajan juntas, las redes sociales dejan de ser una vitrina y se convierten en un canal real de ventas inmobiliarias.
+""",
+},
+]
+
+# ===========================================================================
+# Segunda tanda: 5 artículos más del ecosistema
+# ===========================================================================
+POSTS += [
+# ---------------------------------------------------------------------------
+{
+"slug": "por-que-nadie-pregunta-por-mi-propiedad",
+"title": "¿Por qué nadie pregunta por mi propiedad? 7 errores que espantan compradores antes del primer WhatsApp",
+"seo_title": "Por qué no se vende mi propiedad: 7 errores",
+"description": "Por qué no se vende tu propiedad: 7 errores de fotos, anuncios, video, ubicación, WhatsApp y medición que espantan compradores y cómo corregirlos.",
+"excerpt": "Buena ubicación, buen metraje, precio razonable… y ninguna consulta. Siete errores de presentación y atención que alejan compradores antes del primer mensaje.",
+"intent": "Propiedad sin consultas",
+"keyword": "por qué no se vende mi propiedad",
+"keywords": ["vender propiedad rápido", "errores al vender una propiedad", "publicidad inmobiliaria", "fotos inmobiliarias", "anuncios inmobiliarios", "marketing inmobiliario"],
+"cover": ("/assets/img/foto-sala.webp", 1536, 1024, "Sala de departamento fotografiada con luz natural y perspectiva corregida"),
+"services": ["contenido", "meta", "google"],
+"related": ["contenido-inmobiliario-que-vende", "whatsapp-inmobiliario-convertir-consultas-en-ventas", "como-vender-una-propiedad-en-redes-sociales"],
+"cta_title": "¿Tu propiedad no recibe consultas?",
+"cta": "En Steid Hub ayudamos a propietarios, agentes e inmobiliarias a mejorar la presentación de sus propiedades con fotografía, video, drone, pauta digital y estrategia comercial.",
+"body": """
+Una propiedad puede estar bien ubicada, tener buen metraje y un precio razonable, pero aun así no recibir consultas. En el mercado inmobiliario, esto suele generar una conclusión apresurada: “el precio está mal”. A veces sí. Pero muchas veces el problema no está en la propiedad, sino en cómo se presenta, dónde se publica y cómo se atiende al interesado.
+
+Hoy el comprador inmobiliario no espera llegar a una visita para decidir si una propiedad le interesa. Decide mucho antes: cuando ve la primera foto, lee el título, revisa el video, compara con otras opciones y evalúa si vale la pena escribir por WhatsApp.
+
+La National Association of Realtors encontró que, entre compradores que usaron internet, las fotos fueron consideradas una de las funciones más útiles durante la búsqueda de vivienda. Esto confirma algo clave: **antes de vender metros cuadrados, vendes confianza visual.** [[NAR|https://www.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
+
+## 1. Fotos oscuras, torcidas o poco profesionales
+
+El primer error es publicar imágenes que no hacen justicia a la propiedad. Una foto oscura puede hacer que un departamento parezca más pequeño. Una foto tomada con mal ángulo puede deformar los espacios. Una imagen sin orden puede transmitir descuido.
+
+En inmobiliaria, la [fotografía](/contenido-inmobiliario) no es solo estética. Es información. Ayuda al comprador a entender amplitud, distribución, iluminación, acabados y estado del inmueble.
+
+~ Valor percibido
+~ El valor percibido es la impresión de valor que una persona construye antes de conocer todos los detalles técnicos. Una propiedad puede valer lo mismo, pero si se presenta mejor, se percibe más atractiva, más seria y más confiable.
+
+!leer contenido-inmobiliario-que-vende
+
+## 2. Publicar sin una propuesta clara
+
+Muchos anuncios dicen: “Vendo departamento en excelente ubicación”. Pero casi todos dicen lo mismo. El usuario necesita entender rápidamente por qué esa propiedad merece atención.
+
+Un buen anuncio debe responder:
+
+- ¿Qué tiene de especial?
+- ¿Para quién es ideal?
+- ¿Qué problema resuelve?
+- ¿Qué diferencia tiene frente a otras propiedades similares?
+
+No es lo mismo decir “Departamento en San Miguel” que decir: “Departamento ideal para primera vivienda, cerca de avenidas principales, con distribución funcional y bajo mantenimiento”.
+
+## 3. Usar textos genéricos que no generan confianza
+
+Palabras como “ocasión”, “remate”, “urgente” o “precio de locura” pueden funcionar en ciertos contextos, pero usadas en exceso dañan la percepción de valor. En ventas inmobiliarias, la urgencia debe estar respaldada por información concreta.
+
+Mejor que decir “ocasión única” es explicar:
+
+- Precio por debajo del promedio de la zona.
+- Documentación lista.
+- Entrega inmediata.
+- Buena rentabilidad para alquiler.
+- Ubicación estratégica.
+- Alta demanda del distrito.
+
+## 4. No tener video recorrido
+
+La foto atrae. El video aclara. Un video recorrido permite que el usuario entienda cómo se conectan los espacios, cómo entra la luz, qué tan amplio se siente el inmueble y qué experiencia tendría al visitarlo.
+
+Wyzowl reportó que el video ayuda a generar leads, incrementar ventas y aumentar el tiempo que los usuarios permanecen en una web. También encontró que la calidad del video influye en la confianza hacia una marca. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
+
+En inmobiliaria, esto es decisivo. Una propiedad no solo debe verse bonita; debe sentirse real.
+
+## 5. No explicar bien la ubicación
+
+La ubicación no se comunica solo poniendo el distrito. Un comprador quiere saber qué hay cerca, qué avenidas conectan, cómo es la zona, qué servicios tiene alrededor y por qué esa ubicación mejora la vida o la inversión.
+
++ Departamentos: conviene mencionar cercanía a parques, avenidas, supermercados, colegios, universidades o centros empresariales.
++ Terrenos: se debe explicar acceso, zonificación, vías principales, crecimiento de la zona y potencial de desarrollo.
++ Locales comerciales: es clave mostrar flujo peatonal, exposición, estacionamientos y negocios cercanos.
+
+!leer como-vender-terrenos-y-lotes-por-internet
+
+## 6. Responder tarde por WhatsApp
+
+Una campaña puede traer buenos leads, pero si la respuesta llega horas después, el comprador ya pudo contactar a otra inmobiliaria.
+
+El anuncio abre la puerta, pero la conversación define la oportunidad. Meta ha reforzado sus soluciones de generación de leads precisamente para conectar anuncios con formularios, llamadas o conversaciones directas, incluyendo WhatsApp e integración con CRM. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
+
+~ CRM
+~ Un CRM es una herramienta para ordenar contactos, registrar conversaciones, programar seguimientos y medir en qué etapa está cada cliente. No sirve solo para empresas grandes; también ayuda a agentes e inmobiliarias pequeñas a no perder oportunidades.
+
+!leer whatsapp-inmobiliario-convertir-consultas-en-ventas
+
+## 7. Publicar sin medir resultados
+
+El último error es publicar en todas partes sin saber qué funciona. Una propiedad puede recibir vistas en TikTok, consultas por Facebook, búsquedas por [Google](/google-ads) y referencias por WhatsApp. Si no se mide, no se aprende.
+
+Los indicadores mínimos deberían ser:
+
+- Consultas recibidas.
+- Consultas calificadas.
+- Visitas agendadas.
+- Visitas realizadas.
+- Ofertas recibidas.
+- Tiempo promedio de respuesta.
+- Costo por oportunidad.
+
+## Conclusión
+
+Cuando nadie pregunta por una propiedad, el problema no siempre es el inmueble. Muchas veces es la presentación, el contenido, el canal, el mensaje o la atención comercial.
+
+Vender una propiedad exige más que publicar. Exige construir una primera impresión confiable, explicar el valor con claridad y facilitar el siguiente paso.
+""",
+},
+# ---------------------------------------------------------------------------
+{
+"slug": "como-vender-terrenos-y-lotes-por-internet",
+"title": "Cómo vender terrenos y lotes por internet: la estrategia que combina drone, ubicación y pauta digital",
+"seo_title": "Cómo vender terrenos y lotes por internet",
+"description": "Cómo vender terrenos y lotes por internet: drone para mostrar escala y accesos, anuncios con datos, redes sociales, Google Ads y seguimiento por WhatsApp.",
+"excerpt": "Un terreno no se vende por sus acabados, sino por su potencial. Cómo mostrar contexto, accesos y escala con drone, y convertir ese interés en compradores.",
+"intent": "Vender terrenos",
+"keyword": "cómo vender terrenos por internet",
+"keywords": ["vender lotes", "publicidad para terrenos", "drone inmobiliario", "video drone inmobiliario", "fotografía aérea inmobiliaria", "terrenos en venta Lima", "marketing inmobiliario"],
+"cover": ("/assets/img/golf-drone.webp", 1800, 1016, "Toma aérea con drone de lotes y accesos en un proyecto residencial"),
+"services": ["drone", "contenido", "google"],
+"related": ["contenido-inmobiliario-que-vende", "google-meta-tiktok-vender-propiedades", "por-que-nadie-pregunta-por-mi-propiedad"],
+"cta_title": "Muestra tu terreno desde el aire",
+"cta": "En Steid Hub producimos videos con drone desde S/300 + IGV para terrenos, propiedades y proyectos inmobiliarios, integrando contenido visual con campañas digitales orientadas a leads reales.",
+"body": """
+Vender un terreno no es igual que vender un departamento. Un departamento se entiende por sus ambientes, acabados y distribución. Un terreno, en cambio, exige explicar algo más abstracto: **potencial.**
+
+El comprador necesita imaginar qué se puede construir, cómo se accede, qué hay alrededor, cuál es el crecimiento de la zona y por qué ese espacio puede convertirse en una buena inversión.
+
+Por eso, los terrenos y lotes necesitan una estrategia distinta: contenido visual, contexto territorial, pauta segmentada y seguimiento comercial.
+
+## El terreno se vende desde el contexto
+
+Una foto tomada desde la calle puede mostrar el lote, pero rara vez explica su verdadero valor. En terrenos, el contexto vale tanto como el metraje.
+
+Un comprador necesita entender:
+
+- Dónde está.
+- Cómo se llega.
+- Qué avenidas conectan.
+- Qué desarrollos existen alrededor.
+- Qué comercios, viviendas o industrias hay cerca.
+- Qué potencial tiene la zona.
+
+Ahí el [drone](/servicio-drone-inmobiliario) cumple un rol comercial importante. No solo muestra una vista bonita; permite comprender escala, entorno y ubicación.
+
+La encuesta tecnológica 2025 de la National Association of Realtors reportó que el 52% de los agentes inmobiliarios encuestados usa fotografía o video con drone, mientras que el 75% usa redes sociales como herramienta de trabajo. Esto muestra que el contenido visual aéreo ya forma parte del estándar competitivo del sector. [[NAR|https://www.nar.realtor/research-and-statistics/research-reports/realtor-technology-survey]]
+
+## Por qué el drone ayuda a vender terrenos
+
+El drone resuelve tres problemas.
+
+1. **Muestra dimensión.** Un terreno grande puede perder impacto en fotos horizontales tradicionales. Desde el aire, el comprador entiende proporciones.
+1. **Muestra accesos.** Para terrenos urbanos, industriales o de playa, los accesos son un argumento de venta.
+1. **Muestra entorno.** La cercanía a avenidas, playas, parques, zonas industriales o proyectos vecinos puede elevar el interés.
+
+~ Plusvalía
+~ La plusvalía es el aumento de valor de un inmueble o terreno con el tiempo. Puede depender de infraestructura, desarrollo urbano, demanda, ubicación, accesos y crecimiento económico de la zona.
+
+!leer contenido-inmobiliario-que-vende
+
+## Cómo estructurar un anuncio para vender terrenos
+
+Un buen anuncio de terreno debe tener menos adjetivos y más datos.
+
+Debe incluir:
+
+- Área total.
+- Frente y fondo.
+- Ubicación referencial.
+- Zonificación, si aplica.
+- Accesos principales.
+- Servicios disponibles.
+- Documentación.
+- Precio.
+- Usos posibles.
+- Video o toma aérea.
+- CTA directo a WhatsApp.
+
+Un mal anuncio dice:
+
+> “Vendo terreno excelente oportunidad”.
+
+Un buen anuncio dice:
+
+> “Terreno de 1,000 m² con acceso rápido desde avenida principal, ideal para desarrollo residencial o inversión de mediano plazo”.
+
+## Qué contenido usar para redes sociales
+
+Para [Facebook e Instagram](/meta-ads-inmobiliarias), funcionan bien carruseles con mapas, fotos aéreas, beneficios y CTA a WhatsApp.
+
+Para [TikTok](/servicios/tiktok-ads/), funcionan mejor videos cortos con gancho directo:
+
+> “¿Invertirías en un terreno en esta zona?”
+> “Así se ve este lote desde el aire”.
+> “3 razones por las que este terreno puede ser una buena inversión”.
+> “Lo que debes revisar antes de comprar un lote”.
+
+TikTok recomienda que las campañas inmobiliarias trabajen con objetivos claros, videos cortos, segmentación local y medición por leads, citas o cierres, no solo por vistas. [[TikTok For Business|https://ads.tiktok.com/business/en/guides/real-estate-advertising-guide]]
+
+## Google Ads para terrenos: cuando el comprador ya está buscando
+
+[Google Ads](/google-ads) es útil cuando existe demanda activa. Es decir, cuando las personas ya buscan términos como “terrenos en venta”, “lotes en Lima”, “terrenos industriales”, “terrenos en playa” o búsquedas similares.
+
+La ventaja es que el usuario no está simplemente navegando. Está investigando.
+
+La campaña debe enviar a una landing específica del terreno o proyecto, no a una página general. Esa landing debe incluir ubicación, fotos, video, plano, beneficios, preguntas frecuentes y botón visible de WhatsApp.
+
+!leer google-meta-tiktok-vender-propiedades
+
+## Meta y TikTok Ads: cuando hay que crear deseo
+
+No todos los compradores buscan terrenos todos los días. Muchas veces la inversión se activa cuando una persona ve una oportunidad bien presentada.
+
+Ahí Meta y TikTok cumplen un rol importante. Permiten mostrar el terreno a públicos interesados en inversión, vivienda, playa, desarrollo, negocios o zonas específicas.
+
+En Perú, DataReportal reportó 28.3 millones de identidades activas en redes sociales en octubre de 2025. Esto muestra que Facebook, Instagram y TikTok son canales relevantes para llegar a compradores potenciales, siempre que la campaña esté bien segmentada y el contenido sea claro. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
+
+## Conclusión
+
+Vender terrenos por internet exige mostrar más que el terreno. Hay que mostrar contexto, accesos, escala, potencial y confianza.
+
+La combinación más efectiva suele ser: drone para explicar visualmente, redes sociales para generar interés, Google Ads para captar búsquedas activas y WhatsApp para calificar compradores.
+""",
+},
+# ---------------------------------------------------------------------------
+{
+"slug": "whatsapp-inmobiliario-convertir-consultas-en-ventas",
+"title": "WhatsApp inmobiliario: cómo convertir consultas en visitas y visitas en ventas",
+"seo_title": "WhatsApp inmobiliario: de consultas a ventas",
+"description": "WhatsApp inmobiliario: qué responder en el primer mensaje, qué preguntas califican al lead, cómo hacer seguimiento sin incomodar y qué métricas medir.",
+"excerpt": "Muchas campañas no fracasan en el anuncio, sino después. Mensajes, preguntas de calificación, seguimiento y métricas para que WhatsApp venda.",
+"intent": "WhatsApp comercial",
+"keyword": "WhatsApp inmobiliario",
+"keywords": ["cómo responder leads inmobiliarios", "mensajes para vender propiedades", "seguimiento de clientes inmobiliarios", "atención comercial inmobiliaria", "generación de leads inmobiliarios"],
+"cover": ("/assets/img/google-landing-conversion-lima.webp", 1672, 941, "Landing inmobiliaria conectada a WhatsApp para agendar visitas"),
+"services": ["meta", "leads", "google"],
+"related": ["mejores-leads-inmobiliarios", "campana-vender-propiedades-facebook-instagram-tiktok", "como-captar-clientes-inmobiliarios"],
+"cta_title": "¿Tus consultas no llegan a visita?",
+"cta": "En Steid Hub no solo generamos leads. Ayudamos a ordenar el proceso comercial para que las consultas se conviertan en visitas y las visitas en oportunidades reales de venta.",
+"body": """
+Muchas campañas inmobiliarias no fracasan por los anuncios. Fracasan después del anuncio.
+
+El usuario escribe, pregunta por precio, pide información o manda una captura. Pero si la respuesta es lenta, genérica o desordenada, la oportunidad se enfría.
+
+WhatsApp es uno de los puntos más importantes del embudo inmobiliario. No es solo un canal de atención. Es el espacio donde se califica, se persuade, se resuelven objeciones y se agenda la visita.
+
+Meta ha desarrollado herramientas de generación de leads que permiten conectar anuncios con formularios, llamadas y conversaciones directas, además de integraciones con CRM. En campañas con optimización hacia leads de calidad, Meta reportó reducciones promedio en el costo por lead calificado y mejoras en la conversión de lead a lead calificado. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
+
+## El primer mensaje define el tono de la venta
+
+Un error común es responder únicamente: “Hola, sí está disponible”. Esa respuesta no vende, no califica y no guía.
+
+Una mejor respuesta sería:
+
+> “Hola, gracias por tu interés. Te comparto la información completa de la propiedad: ubicación referencial, metraje, distribución, precio y video. Para orientarte mejor, ¿Estás buscando para vivir, invertir o alquilar?”
+
+Ese mensaje hace tres cosas. Primero, responde. Segundo, ordena. Tercero, abre una pregunta de calificación.
+
+## Qué preguntas debe hacer un asesor inmobiliario
+
+No se trata de interrogar al cliente. Se trata de entender si la propiedad encaja con su necesidad.
+
+Preguntas útiles:
+
+- ¿Qué tipo de propiedad estás buscando?
+- ¿En qué zona te gustaría comprar o alquilar?
+- ¿Es para vivir, invertir o negocio?
+- ¿Tienes un presupuesto aproximado?
+- ¿Buscas compra al contado o con financiamiento?
+- ¿Cuándo te gustaría visitar?
+
+~ Lead calificado
+~ Un lead calificado es un contacto que cumple condiciones mínimas para avanzar comercialmente. Por ejemplo: tiene presupuesto, interés real, zona definida y disposición para visitar.
+
+!leer mejores-leads-inmobiliarios
+
+## Cómo evitar perder tiempo con curiosos
+
+No todos los mensajes serán compradores reales. Eso es normal. El problema aparece cuando el equipo comercial invierte el mismo tiempo en todos los contactos.
+
+Por eso, el flujo debe filtrar sin sonar frío.
+
+Ejemplo:
+
+> “Perfecto. Para enviarte opciones que realmente encajen contigo, ¿Me confirmas tu presupuesto aproximado y si buscas para vivir o invertir?”
+
+Si la persona no responde, se puede hacer seguimiento. Si responde con información clara, se puede avanzar.
+
+## Cuándo enviar ficha, video, ubicación y precio
+
+El orden importa.
+
+1. Responde con información base.
+1. Pregunta la necesidad.
+1. Envía la ficha o el video.
+1. Invita a una visita.
+1. Registra el seguimiento.
+
+Una ficha bien hecha debe incluir:
+
+- Fotos.
+- Video.
+- Metraje.
+- Distribución.
+- Precio.
+- Mantenimiento, si aplica.
+- Ubicación referencial.
+- Beneficios principales.
+- Condiciones.
+- Botón o mensaje de visita.
+
+!leer contenido-inmobiliario-que-vende
+
+## Cómo hacer seguimiento sin incomodar
+
+El seguimiento comercial no debe sonar desesperado. Debe sonar útil.
+
+**Ejemplo 1:**
+
+> “Hola, quería saber si pudiste revisar el video de la propiedad. Si te interesa, puedo ayudarte a coordinar una visita esta semana”.
+
+**Ejemplo 2:**
+
+> “Te escribo para comentarte que la propiedad sigue disponible. Por ubicación y características, podría encajar bien con lo que estabas buscando”.
+
+**Ejemplo 3:**
+
+> “Si esta opción no es exactamente lo que buscas, puedo enviarte alternativas similares en la misma zona”.
+
+## Métricas que debe medir WhatsApp
+
+Un equipo serio no solo mide cuántos mensajes llegaron.
+
+Debe medir:
+
+- Tiempo promedio de primera respuesta.
+- Porcentaje de leads respondidos.
+- Porcentaje de leads calificados.
+- Porcentaje de visitas agendadas.
+- Porcentaje de visitas realizadas.
+- Motivos de descarte.
+- Costo por visita.
+- Costo por venta.
+
+~ Tasa de conversión
+~ La tasa de conversión mide qué porcentaje de personas avanza de una etapa a otra. Por ejemplo, de consulta a visita, o de visita a oferta.
+
+!leer campana-vender-propiedades-facebook-instagram-tiktok
+
+## Conclusión
+
+WhatsApp puede ser el mejor aliado de una inmobiliaria o su mayor fuga de ventas. Todo depende del proceso.
+
+**Un buen anuncio atrae. Una buena conversación convierte. Un buen seguimiento cierra.**
+""",
+},
+# ---------------------------------------------------------------------------
+{
+"slug": "marca-personal-agente-inmobiliario",
+"title": "No vendas solo propiedades: conviértete en el agente inmobiliario que todos quieren contactar",
+"seo_title": "Marca personal inmobiliaria para agentes",
+"description": "Marca personal inmobiliaria: cómo un agente construye autoridad con especialización, contenido educativo, video profesional, testimonios y redes sociales.",
+"excerpt": "El cliente evalúa al asesor antes de escribirle. Los cinco pilares de una marca personal inmobiliaria y qué publicar cada semana para generar confianza.",
+"intent": "Marca personal",
+"keyword": "marca personal inmobiliaria",
+"keywords": ["agente inmobiliario", "marketing para agentes inmobiliarios", "redes sociales para agentes inmobiliarios", "cómo conseguir clientes inmobiliarios", "contenido inmobiliario"],
+"cover": ("/assets/img/branding-hb.webp", 1672, 942, "Piezas de marca de una inmobiliaria para redes sociales"),
+"services": ["contenido", "meta", "tiktok"],
+"related": ["como-captar-clientes-inmobiliarios", "contenido-inmobiliario-que-vende", "como-vender-una-propiedad-en-redes-sociales"],
+"cta_title": "Construye una marca que te recomienden",
+"cta": "En Steid Hub ayudamos a agentes inmobiliarios a construir marca personal, contenido profesional y campañas digitales que convierten visibilidad en oportunidades reales.",
+"body": """
+Durante mucho tiempo, el agente inmobiliario dependió de tres cosas: referidos, letreros y portales. Hoy eso ya no basta.
+
+El cliente no solo evalúa la propiedad. También evalúa al asesor. Antes de escribir, revisa el perfil, mira publicaciones, observa cómo se comunica y decide si transmite confianza.
+
+Por eso, la marca personal dejó de ser un tema de imagen para convertirse en una herramienta comercial.
+
+Un agente inmobiliario con buena marca personal no solo publica propiedades. Construye autoridad, especialización y recordación.
+
+## Qué es una marca personal inmobiliaria
+
+La marca personal es la percepción que el mercado tiene de ti antes de hablar contigo.
+
+No es solo un logo. No es solo una foto profesional. No es solo tener Instagram.
+
+Es la suma de:
+
+- Cómo comunicas.
+- Qué propiedades muestras.
+- Qué zonas conoces.
+- Qué tan claro explicas.
+- Qué tan confiable pareces.
+- Qué valor entregas incluso antes de vender.
+
+En el sector inmobiliario, la confianza es un activo. El cliente está tomando una decisión económica importante, por lo que necesita sentir que está hablando con alguien serio.
+
+## Por qué publicar propiedades no es suficiente
+
+Muchos agentes solo publican inmuebles. Foto, precio, ubicación y número de contacto.
+
+Eso puede informar, pero no necesariamente diferencia.
+
+La pregunta es: **¿Por qué deberían contactar a ese agente y no a otro?**
+
+La diferencia puede estar en el contenido educativo, en el análisis de zonas, en la claridad al explicar procesos, en la calidad audiovisual o en la constancia.
+
+Semrush recomienda trabajar con keywords long-tail (de cola larga) en SEO inmobiliario porque suelen estar conectadas a búsquedas más específicas y motivadas dentro de mercados locales. Este mismo principio aplica al contenido de marca personal: mientras más específico el posicionamiento, más fácil es atraer al cliente correcto. [[Semrush|https://www.semrush.com/blog/real-estate-seo/]]
+
+!leer como-captar-clientes-inmobiliarios
+
+## Los cinco pilares de una marca personal inmobiliaria sólida
+
+### 1. Especialización
+
+Un agente que vende “de todo en todos lados” puede parecer menos experto que uno especializado.
+
+Ejemplos:
+
+- Especialista en departamentos de Lima Moderna.
+- Especialista en terrenos industriales.
+- Especialista en alquiler corporativo.
+- Especialista en propiedades familiares en San Borja.
+- Especialista en inversión inmobiliaria.
+
+La especialización facilita que el cliente recuerde por qué contactarte.
+
+### 2. Contenido educativo
+
+El agente debe enseñar, no solo vender.
+
+Temas útiles:
+
+- Errores al comprar una propiedad.
+- Cómo evaluar un precio inmobiliario.
+- Qué revisar antes de separar un departamento.
+- Diferencias entre compra para vivir e inversión.
+- Qué documentos pedir antes de comprar.
+- Cómo preparar una propiedad para venderla.
+
+### 3. Contenido visual profesional
+
+La imagen del agente se construye también con la imagen de sus propiedades. Si las fotos son descuidadas, la percepción de profesionalismo baja. Por eso conviene invertir en [fotografía, video](/contenido-inmobiliario) y tomas con [drone](/servicio-drone-inmobiliario).
+
+La encuesta tecnológica de NAR muestra que las redes sociales y el drone forman parte del trabajo habitual de muchos agentes inmobiliarios modernos. [[NAR|https://www.nar.realtor/news/economists-outlook/tech-with-a-human-touch-how-realtors-are-using-tech-tools-in-todays-real-estate-market]]
+
+### 4. Testimonios y casos reales
+
+Los testimonios reducen incertidumbre. No tienen que ser exagerados. Basta con mostrar procesos reales: propiedad vendida, visita realizada, cliente asesorado, operación cerrada, entrega documentaria.
+
+### 5. Seguimiento profesional
+
+La marca personal no termina en redes. También se nota en cómo respondes, cómo agendas, cómo envías información y cómo haces seguimiento.
+
+!leer whatsapp-inmobiliario-convertir-consultas-en-ventas
+
+## Qué debería publicar un agente inmobiliario cada semana
+
+Una estructura básica podría ser:
+
+- 2 videos educativos.
+- 2 publicaciones de propiedades.
+- 1 análisis de zona.
+- 1 historia de proceso o detrás de cámaras.
+- 1 testimonio o caso real.
+- Stories diarias mostrando actividad comercial.
+
+No se trata de publicar por publicar. Se trata de repetir señales de confianza.
+
+## Cómo usar cada red social
+
++ Instagram: ideal para estética, confianza, propiedades, testimonios y cercanía.
++ TikTok: ideal para alcance, educación rápida, recorridos, mitos y errores.
++ LinkedIn: ideal para clientes corporativos, inversionistas, networking y autoridad profesional.
++ Facebook: útil para públicos locales, comunidades, grupos y campañas de mensajes.
+
+!leer como-vender-una-propiedad-en-redes-sociales
+
+## Conclusión
+
+El agente inmobiliario que gana no es necesariamente el que tiene más propiedades. Es el que logra ser recordado como especialista, genera confianza antes del primer contacto y convierte su presencia digital en una ventaja comercial.
+""",
+},
+# ---------------------------------------------------------------------------
+{
+"slug": "como-captar-clientes-inmobiliarios",
+"title": "Cómo conseguir más clientes inmobiliarios sin depender solo de referidos ni portales",
+"seo_title": "Cómo captar clientes inmobiliarios sin portales",
+"description": "Cómo captar clientes inmobiliarios de forma constante: compradores y propietarios, contenido, Google Ads, Meta Ads, TikTok, WhatsApp, CRM y métricas.",
+"excerpt": "Meses con movimiento y meses en silencio. Cómo pasar de depender de referidos y portales a un sistema que capta compradores y propietarios todo el año.",
+"intent": "Captar clientes",
+"keyword": "cómo captar clientes inmobiliarios",
+"keywords": ["cómo conseguir clientes inmobiliarios", "captar clientes inmobiliarios", "clientes para inmobiliaria", "generación de leads inmobiliarios", "marketing inmobiliario", "publicidad inmobiliaria"],
+"cover": ("/assets/img/meta-audience-lima.webp", 1672, 941, "Segmentación de audiencias para captar clientes inmobiliarios en Lima"),
+"services": ["google", "meta", "tiktok"],
+"related": ["marca-personal-agente-inmobiliario", "mejores-leads-inmobiliarios", "maquina-digital-para-vender-propiedades"],
+"cta_title": "Deja de perseguir clientes",
+"cta": "En Steid Hub ayudamos a agentes e inmobiliarias a captar clientes con estrategia digital, contenido profesional, campañas en Google, Meta y TikTok, y procesos comerciales diseñados para convertir consultas en oportunidades reales.",
+"body": """
+Todo agente o inmobiliaria conoce el mismo problema: hay meses con movimiento y meses en silencio. Un referido aparece, una publicación funciona, un portal trae consultas. Luego, nada.
+
+Ese ciclo de abundancia y escasez es uno de los grandes dolores comerciales del sector inmobiliario.
+
+TikTok For Business describe justamente este problema: sin una estrategia constante de generación de leads, los profesionales inmobiliarios pueden caer en ciclos impredecibles de muchos contactos en un momento y pocos en otro. [[TikTok For Business|https://ads.tiktok.com/business/en/guides/real-estate-lead-generation]]
+
+**Captar clientes inmobiliarios no debería depender de la suerte. Debe ser un sistema.**
+
+## Primero: define qué tipo de cliente quieres captar
+
+Un agente inmobiliario necesita captar dos tipos de clientes:
+
+- Compradores o arrendatarios que buscan una propiedad.
+- Propietarios que quieren vender o alquilar su inmueble.
+
+Ambos son clientes, pero no se atraen igual.
+
++ El comprador: quiere opciones, precio, ubicación y confianza.
++ El propietario: quiere saber si puedes vender mejor, más rápido y con menos riesgo.
+
+Por eso, una estrategia seria debe crear mensajes distintos para cada público.
+
+## Cómo captar compradores inmobiliarios
+
+Para compradores, la estrategia debe combinar búsqueda, contenido y conversación.
+
+[Google Ads](/google-ads) permite aparecer cuando alguien busca activamente una propiedad. [Meta Ads](/meta-ads-inmobiliarias) ayuda a generar interés y remarketing. [TikTok](/servicios/tiktok-ads/) permite captar atención con videos cortos de propiedades, zonas y consejos.
+
+En Perú, la escala digital justifica esta mezcla: DataReportal reportó 28.3 millones de identidades activas en redes sociales y un alcance publicitario relevante en plataformas como Facebook, Instagram y TikTok. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
+
+Ejemplos de contenido para captar compradores:
+
+> “3 departamentos ideales para primera vivienda”.
+> “Errores al comprar tu primer depa”.
+> “Así se ve este departamento en San Miguel”.
+> “¿Comprarías un terreno en esta zona?”
+> “Lo que debes revisar antes de firmar una minuta”.
+
+!leer google-meta-tiktok-vender-propiedades
+
+## Cómo captar propietarios que quieren vender
+
+Este público es distinto. El propietario no busca cualquier agente. Busca a alguien que le dé confianza.
+
+Para atraer propietarios, funcionan contenidos como:
+
+> “Por qué tu propiedad no recibe consultas”.
+> “Cómo saber si tu inmueble está bien valorizado”.
+> “Errores que bajan el valor percibido de una propiedad”.
+> “Qué debe tener una estrategia digital para vender tu departamento”.
+> “Cómo preparamos una propiedad antes de publicarla”.
+
+Aquí el objetivo no es mostrar inventario. Es demostrar criterio.
+
+!leer por-que-nadie-pregunta-por-mi-propiedad
+
+## Por qué no deberías depender solo de portales
+
+Los portales inmobiliarios pueden ser útiles, pero tienen una limitación: normalmente alquilas visibilidad. Cuando dejas de pagar, desapareces de los primeros lugares.
+
+Una estrategia propia construye activos:
+
+- Base de datos.
+- Audiencias de remarketing.
+- Marca personal.
+- Posicionamiento SEO.
+- Contenido reutilizable.
+- Seguidores.
+- Casos de éxito.
+- Reputación.
+
+No se trata de abandonar portales. Se trata de no depender únicamente de ellos.
+
+## El sistema ideal para captar clientes inmobiliarios
+
+Un sistema completo debería verse así:
+
+> Contenido profesional → anuncios → landing o WhatsApp → calificación → visita → seguimiento → cierre.
+
+Cada parte cumple una función:
+
++ El contenido: genera confianza.
++ Los anuncios: distribuyen.
++ La landing: ordena la información.
++ WhatsApp: convierte.
++ El CRM: evita perder oportunidades.
++ El seguimiento: aumenta los cierres.
+
+Google recomienda crear contenido útil, confiable y pensado primero para personas, no solo para buscadores. Esto es importante para el SEO inmobiliario, porque los artículos deben responder dudas reales del cliente, no solo repetir keywords. [[Google Search Central|https://developers.google.com/search/docs/fundamentals/creating-helpful-content]]
+
+!leer marca-personal-agente-inmobiliario
+
+## Métricas que debe revisar un agente o inmobiliaria
+
+No basta con preguntar “¿Cuántos leads llegaron?”.
+
+Hay que medir:
+
+- Costo por lead.
+- Costo por lead calificado.
+- Tasa de respuesta.
+- Tasa de visita.
+- Costo por visita.
+- Tasa de cierre.
+- Tiempo promedio hasta la venta.
+- Fuente de cada oportunidad.
+
+~ Costo por lead calificado
+~ Es cuánto cuesta conseguir un contacto que realmente cumple con el perfil comercial mínimo. Es más útil que el CPL general porque filtra curiosos o contactos sin presupuesto.
+
+## Conclusión
+
+Captar clientes inmobiliarios no debe depender solo de referidos, portales o publicaciones ocasionales. La captación moderna combina contenido, pauta digital, SEO, redes sociales, WhatsApp y seguimiento comercial.
+
+El agente o inmobiliaria que logra construir ese sistema deja de perseguir oportunidades y empieza a generarlas de manera constante.
 """,
 },
 ]

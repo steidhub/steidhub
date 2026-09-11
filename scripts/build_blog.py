@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260910-blog9"
+V = "20260910-blog10"
 POSTS = {p["slug"]: p for p in B.POSTS}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
@@ -72,7 +72,7 @@ def render_body(src):
         if head.startswith("## "):
             title = head[3:].strip()
             hid = slugify(title)
-            toc.append((hid, title))
+            toc.append((hid, re.sub(r"^\d+\.\s*", "", title)))
             out.append(f'<h2 id="{hid}">{inline(title)}</h2>')
         elif head.startswith("### "):
             out.append(f"<h3>{inline(head[4:].strip())}</h3>")
@@ -92,6 +92,10 @@ def render_body(src):
                 else:
                     rows.append(f'<div class="is-solo"><dt>{inline(body.strip().rstrip("."))}</dt></div>')
             out.append('<dl class="ficha">' + "".join(rows) + "</dl>")
+        elif all(l.startswith("~ ") for l in lines):
+            term, *txt = [l[2:] for l in lines]
+            out.append('<aside class="termino"><p class="termino__label">Término explicado</p>'
+                       f'<p class="termino__t">{inline(term)}</p>' + "".join(f"<p>{inline(t)}</p>" for t in txt) + "</aside>")
         elif all(l.startswith("> ") for l in lines):
             out.append('<blockquote class="ejemplo">' + "".join(f"<p>{inline(l[2:])}</p>" for l in lines) + "</blockquote>")
         elif all(l.startswith("|") for l in lines):
@@ -492,7 +496,9 @@ def build_index():
         words = render_body(p["body"])[2]
         mins = max(1, math.ceil(words / 220))
         s, w, h, a = p["cover"]
-        cards.append(f"""        <a class="post-card{' post-card--feature' if i == 0 else ''}" href="/blog/{p['slug']}">
+        # la primera va destacada; si la última queda sola en su fila, también se destaca
+        feature = i == 0 or (i == len(B.POSTS) - 1 and (len(B.POSTS) - 1) % 3 == 1)
+        cards.append(f"""        <a class="post-card{' post-card--feature' if feature else ''}" href="/blog/{p['slug']}">
           <img src="{s}" alt="{esc(a)}" width="{w}" height="{h}"{' fetchpriority="high"' if i == 0 else ' loading="lazy"'}>
           <span class="post-card__tag">{esc(p['intent'])}</span>
           <h2>{esc(p['title'])}</h2>
