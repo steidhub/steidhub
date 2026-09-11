@@ -6,13 +6,16 @@
    - En escritorio y en móvil (antes sólo salía en escritorio).
    - Se marca como visto al mostrarse, así no vuelve a salir al pasar de una
      página a otra en la misma visita.
+   - Cada oferta lleva su propia cuenta, con data-popup-key en el marcado.
    - Para probarlo sin esperar 7 días: añade ?popup=1 a la URL. */
 (() => {
   'use strict';
   const popup = document.getElementById('popup');
   if (!popup) return;
 
-  const CLAVE = 'steidhub_popup_visto';
+  // una clave por oferta: el pop-up de Ads y el del descuento se cuentan
+  // por separado, para que ver uno no oculte el otro durante 7 días
+  const CLAVE = 'steidhub_popup_' + (popup.dataset.popupKey || 'general');
   const DIAS = 7;
   const DEMORA = matchMedia('(max-width:767px)').matches ? 6000 : 3000;
 
