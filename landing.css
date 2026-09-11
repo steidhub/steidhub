@@ -264,6 +264,18 @@ body[data-landing="google-ads"] #resultados .lp-kpi{margin-top:32px}
 }
 
 /* ---------- Google Ads: más aire entre secciones y textos ---------- */
+/* objetivos: card destacada a todo el ancho debajo de las tres */
+body[data-landing="google-ads"] .lp-metrics__wide{
+  grid-column:1 / -1;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(28px,4vw,56px);
+  padding:clamp(30px,3.4vw,44px);border-color:rgba(217,140,95,.5);
+  background:linear-gradient(120deg,rgba(196,107,60,.2),rgba(33,33,33,.92) 46%,rgba(20,20,20,.95));
+}
+body[data-landing="google-ads"] .lp-metrics__wide span{margin-top:0}
+body[data-landing="google-ads"] .lp-metrics__wide p{max-width:62ch}
+@media(max-width:767px){
+  body[data-landing="google-ads"] .lp-metrics__wide{grid-template-columns:1fr;gap:0;padding:26px 22px}
+  body[data-landing="google-ads"] .lp-metrics__wide span{margin-top:10px}
+}
 body[data-landing="google-ads"] .lp-section{padding-block:clamp(96px,10vw,144px)}
 body[data-landing="google-ads"] .lp-section--comparison{padding-top:clamp(112px,11vw,156px)}
 body[data-landing="google-ads"] .lp-head{gap:22px;margin-bottom:clamp(52px,5.6vw,80px)}
