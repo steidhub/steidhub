@@ -796,7 +796,7 @@ POSTS += [
 # ---------------------------------------------------------------------------
 {
 "slug": "por-que-nadie-pregunta-por-mi-propiedad",
-"title": "¿Por qué nadie pregunta por mi propiedad? 7 errores que espantan compradores antes del primer WhatsApp",
+"title": "¿Por qué nadie pregunta por mi propiedad? 7 errores que espantan a los compradores antes del primer WhatsApp",
 "seo_title": "Por qué no se vende mi propiedad: 7 errores",
 "description": "Por qué no se vende tu propiedad: 7 errores de fotos, anuncios, video, ubicación, WhatsApp y medición que espantan compradores y cómo corregirlos.",
 "excerpt": "Buena ubicación, buen metraje, precio razonable… y ninguna consulta. Siete errores de presentación y atención que alejan compradores antes del primer mensaje.",
@@ -813,7 +813,7 @@ Una propiedad puede estar bien ubicada, tener buen metraje y un precio razonable
 
 Hoy el comprador inmobiliario no espera llegar a una visita para decidir si una propiedad le interesa. Decide mucho antes: cuando ve la primera foto, lee el título, revisa el video, compara con otras opciones y evalúa si vale la pena escribir por WhatsApp.
 
-La National Association of Realtors encontró que, entre compradores que usaron internet, las fotos fueron consideradas una de las funciones más útiles durante la búsqueda de vivienda. Esto confirma algo clave: **antes de vender metros cuadrados, vendes confianza visual.** [[NAR|https://www.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
+La National Association of Realtors encontró que, entre compradores que usaron internet, las fotos fueron consideradas uno de los recursos más útiles durante la búsqueda de vivienda. Esto confirma algo clave: **antes de vender metros cuadrados, vendes confianza visual.** [[NAR|https://www.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
 
 ## 1. Fotos oscuras, torcidas o poco profesionales
 
@@ -837,11 +837,11 @@ Un buen anuncio debe responder:
 - ¿Qué problema resuelve?
 - ¿Qué diferencia tiene frente a otras propiedades similares?
 
-No es lo mismo decir “Departamento en San Miguel” que decir: “Departamento ideal para primera vivienda, cerca de avenidas principales, con distribución funcional y bajo mantenimiento”.
+No es lo mismo decir “Departamento en San Miguel” que decir “Departamento ideal para primera vivienda, cerca de avenidas principales, con distribución funcional y bajo mantenimiento”.
 
 ## 3. Usar textos genéricos que no generan confianza
 
-Palabras como “ocasión”, “remate”, “urgente” o “precio de locura” pueden funcionar en ciertos contextos, pero usadas en exceso dañan la percepción de valor. En ventas inmobiliarias, la urgencia debe estar respaldada por información concreta.
+Palabras como “ocasión”, “remate”, “urgente” o “precio de locura” pueden funcionar en ciertos contextos, pero, usadas en exceso, dañan la percepción de valor. En ventas inmobiliarias, la urgencia debe estar respaldada por información concreta.
 
 Mejor que decir “ocasión única” es explicar:
 
@@ -856,7 +856,7 @@ Mejor que decir “ocasión única” es explicar:
 
 La foto atrae. El video aclara. Un video recorrido permite que el usuario entienda cómo se conectan los espacios, cómo entra la luz, qué tan amplio se siente el inmueble y qué experiencia tendría al visitarlo.
 
-Wyzowl reportó que el video ayuda a generar leads, incrementar ventas y aumentar el tiempo que los usuarios permanecen en una web. También encontró que la calidad del video influye en la confianza hacia una marca. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
+Wyzowl reportó que el video ayuda a generar leads, incrementar las ventas y aumentar el tiempo que los usuarios permanecen en una web. También encontró que la calidad del video influye en la confianza hacia una marca. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
 
 En inmobiliaria, esto es decisivo. Una propiedad no solo debe verse bonita; debe sentirse real.
 
@@ -864,17 +864,17 @@ En inmobiliaria, esto es decisivo. Una propiedad no solo debe verse bonita; debe
 
 La ubicación no se comunica solo poniendo el distrito. Un comprador quiere saber qué hay cerca, qué avenidas conectan, cómo es la zona, qué servicios tiene alrededor y por qué esa ubicación mejora la vida o la inversión.
 
-+ Departamentos: conviene mencionar cercanía a parques, avenidas, supermercados, colegios, universidades o centros empresariales.
-+ Terrenos: se debe explicar acceso, zonificación, vías principales, crecimiento de la zona y potencial de desarrollo.
-+ Locales comerciales: es clave mostrar flujo peatonal, exposición, estacionamientos y negocios cercanos.
++ Departamentos: conviene mencionar la cercanía a parques, avenidas, supermercados, colegios, universidades o centros empresariales.
++ Terrenos: se deben explicar el acceso, la zonificación, las vías principales, el crecimiento de la zona y el potencial de desarrollo.
++ Locales comerciales: es clave mostrar el flujo peatonal, la exposición, los estacionamientos y los negocios cercanos.
 
 !leer como-vender-terrenos-y-lotes-por-internet
 
 ## 6. Responder tarde por WhatsApp
 
-Una campaña puede traer buenos leads, pero si la respuesta llega horas después, el comprador ya pudo contactar a otra inmobiliaria.
+Una campaña puede traer buenos leads, pero si la respuesta llega horas después, el comprador ya pudo haber contactado a otra inmobiliaria.
 
-El anuncio abre la puerta, pero la conversación define la oportunidad. Meta ha reforzado sus soluciones de generación de leads precisamente para conectar anuncios con formularios, llamadas o conversaciones directas, incluyendo WhatsApp e integración con CRM. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
+El anuncio abre la puerta, pero la conversación define la oportunidad. Meta ha reforzado sus soluciones de generación de leads precisamente para conectar anuncios con formularios, llamadas o conversaciones directas, como WhatsApp, además de la integración con CRM. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
 
 ~ CRM
 ~ Un CRM es una herramienta para ordenar contactos, registrar conversaciones, programar seguimientos y medir en qué etapa está cada cliente. No sirve solo para empresas grandes; también ayuda a agentes e inmobiliarias pequeñas a no perder oportunidades.
@@ -918,7 +918,7 @@ Vender una propiedad exige más que publicar. Exige construir una primera impres
 "cta_title": "Muestra tu terreno desde el aire",
 "cta": "En Steid Hub producimos videos con drone desde S/300 + IGV para terrenos, propiedades y proyectos inmobiliarios, integrando contenido visual con campañas digitales orientadas a leads reales.",
 "body": """
-Vender un terreno no es igual que vender un departamento. Un departamento se entiende por sus ambientes, acabados y distribución. Un terreno, en cambio, exige explicar algo más abstracto: **potencial.**
+Vender un terreno no es igual que vender un departamento. Un departamento se entiende por sus ambientes, acabados y distribución. Un terreno, en cambio, exige explicar algo más abstracto: **su potencial.**
 
 El comprador necesita imaginar qué se puede construir, cómo se accede, qué hay alrededor, cuál es el crecimiento de la zona y por qué ese espacio puede convertirse en una buena inversión.
 
@@ -974,7 +974,7 @@ Debe incluir:
 
 Un mal anuncio dice:
 
-> “Vendo terreno excelente oportunidad”.
+> “Vendo terreno, excelente oportunidad”.
 
 Un buen anuncio dice:
 
@@ -982,9 +982,9 @@ Un buen anuncio dice:
 
 ## Qué contenido usar para redes sociales
 
-Para [Facebook e Instagram](/meta-ads-inmobiliarias), funcionan bien carruseles con mapas, fotos aéreas, beneficios y CTA a WhatsApp.
+En [Facebook e Instagram](/meta-ads-inmobiliarias) funcionan bien los carruseles con mapas, fotos aéreas, beneficios y CTA a WhatsApp.
 
-Para [TikTok](/servicios/tiktok-ads/), funcionan mejor videos cortos con gancho directo:
+En [TikTok](/servicios/tiktok-ads/) funcionan mejor los videos cortos con un gancho directo:
 
 > “¿Invertirías en un terreno en esta zona?”
 > “Así se ve este lote desde el aire”.
@@ -999,7 +999,7 @@ TikTok recomienda que las campañas inmobiliarias trabajen con objetivos claros,
 
 La ventaja es que el usuario no está simplemente navegando. Está investigando.
 
-La campaña debe enviar a una landing específica del terreno o proyecto, no a una página general. Esa landing debe incluir ubicación, fotos, video, plano, beneficios, preguntas frecuentes y botón visible de WhatsApp.
+La campaña debe dirigir a una landing específica del terreno o proyecto, no a una página general. Esa landing debe incluir ubicación, fotos, video, plano, beneficios, preguntas frecuentes y un botón de WhatsApp bien visible.
 
 !leer google-meta-tiktok-vender-propiedades
 
@@ -1015,7 +1015,7 @@ En Perú, DataReportal reportó 28.3 millones de identidades activas en redes so
 
 Vender terrenos por internet exige mostrar más que el terreno. Hay que mostrar contexto, accesos, escala, potencial y confianza.
 
-La combinación más efectiva suele ser: drone para explicar visualmente, redes sociales para generar interés, Google Ads para captar búsquedas activas y WhatsApp para calificar compradores.
+La combinación más efectiva suele ser: el drone para explicar visualmente, las redes sociales para generar interés, Google Ads para captar búsquedas activas y WhatsApp para calificar a los compradores.
 """,
 },
 # ---------------------------------------------------------------------------
@@ -1036,7 +1036,7 @@ La combinación más efectiva suele ser: drone para explicar visualmente, redes 
 "body": """
 Muchas campañas inmobiliarias no fracasan por los anuncios. Fracasan después del anuncio.
 
-El usuario escribe, pregunta por precio, pide información o manda una captura. Pero si la respuesta es lenta, genérica o desordenada, la oportunidad se enfría.
+El usuario escribe, pregunta por el precio, pide información o manda una captura. Pero si la respuesta es lenta, genérica o desordenada, la oportunidad se enfría.
 
 WhatsApp es uno de los puntos más importantes del embudo inmobiliario. No es solo un canal de atención. Es el espacio donde se califica, se persuade, se resuelven objeciones y se agenda la visita.
 
@@ -1060,7 +1060,7 @@ Preguntas útiles:
 
 - ¿Qué tipo de propiedad estás buscando?
 - ¿En qué zona te gustaría comprar o alquilar?
-- ¿Es para vivir, invertir o negocio?
+- ¿Es para vivir, invertir o poner un negocio?
 - ¿Tienes un presupuesto aproximado?
 - ¿Buscas compra al contado o con financiamiento?
 - ¿Cuándo te gustaría visitar?
@@ -1072,7 +1072,7 @@ Preguntas útiles:
 
 ## Cómo evitar perder tiempo con curiosos
 
-No todos los mensajes serán compradores reales. Eso es normal. El problema aparece cuando el equipo comercial invierte el mismo tiempo en todos los contactos.
+No todos los mensajes vendrán de compradores reales. Eso es normal. El problema aparece cuando el equipo comercial invierte el mismo tiempo en todos los contactos.
 
 Por eso, el flujo debe filtrar sin sonar frío.
 
@@ -1080,7 +1080,7 @@ Ejemplo:
 
 > “Perfecto. Para enviarte opciones que realmente encajen contigo, ¿Me confirmas tu presupuesto aproximado y si buscas para vivir o invertir?”
 
-Si la persona no responde, se puede hacer seguimiento. Si responde con información clara, se puede avanzar.
+Si la persona no responde, se puede hacer un seguimiento. Si responde con información clara, se puede avanzar.
 
 ## Cuándo enviar ficha, video, ubicación y precio
 
@@ -1103,7 +1103,7 @@ Una ficha bien hecha debe incluir:
 - Ubicación referencial.
 - Beneficios principales.
 - Condiciones.
-- Botón o mensaje de visita.
+- Botón o mensaje para agendar la visita.
 
 !leer contenido-inmobiliario-que-vende
 
@@ -1123,7 +1123,7 @@ El seguimiento comercial no debe sonar desesperado. Debe sonar útil.
 
 > “Si esta opción no es exactamente lo que buscas, puedo enviarte alternativas similares en la misma zona”.
 
-## Métricas que debe medir WhatsApp
+## Métricas que se deben medir en WhatsApp
 
 Un equipo serio no solo mide cuántos mensajes llegaron.
 
@@ -1139,7 +1139,7 @@ Debe medir:
 - Costo por venta.
 
 ~ Tasa de conversión
-~ La tasa de conversión mide qué porcentaje de personas avanza de una etapa a otra. Por ejemplo, de consulta a visita, o de visita a oferta.
+~ La tasa de conversión mide qué porcentaje de personas avanza de una etapa a otra. Por ejemplo, de consulta a visita o de visita a oferta.
 
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
@@ -1168,7 +1168,7 @@ WhatsApp puede ser el mejor aliado de una inmobiliaria o su mayor fuga de ventas
 "body": """
 Durante mucho tiempo, el agente inmobiliario dependió de tres cosas: referidos, letreros y portales. Hoy eso ya no basta.
 
-El cliente no solo evalúa la propiedad. También evalúa al asesor. Antes de escribir, revisa el perfil, mira publicaciones, observa cómo se comunica y decide si transmite confianza.
+El cliente no solo evalúa la propiedad. También evalúa al asesor. Antes de escribir, revisa su perfil, mira sus publicaciones, observa cómo se comunica y decide si transmite confianza.
 
 Por eso, la marca personal dejó de ser un tema de imagen para convertirse en una herramienta comercial.
 
@@ -1193,7 +1193,7 @@ En el sector inmobiliario, la confianza es un activo. El cliente está tomando u
 
 ## Por qué publicar propiedades no es suficiente
 
-Muchos agentes solo publican inmuebles. Foto, precio, ubicación y número de contacto.
+Muchos agentes solo publican inmuebles: foto, precio, ubicación y número de contacto.
 
 Eso puede informar, pero no necesariamente diferencia.
 
@@ -1201,7 +1201,7 @@ La pregunta es: **¿Por qué deberían contactar a ese agente y no a otro?**
 
 La diferencia puede estar en el contenido educativo, en el análisis de zonas, en la claridad al explicar procesos, en la calidad audiovisual o en la constancia.
 
-Semrush recomienda trabajar con keywords long-tail (de cola larga) en SEO inmobiliario porque suelen estar conectadas a búsquedas más específicas y motivadas dentro de mercados locales. Este mismo principio aplica al contenido de marca personal: mientras más específico el posicionamiento, más fácil es atraer al cliente correcto. [[Semrush|https://www.semrush.com/blog/real-estate-seo/]]
+Semrush recomienda trabajar con keywords long-tail (de cola larga) en SEO inmobiliario porque suelen estar conectadas a búsquedas más específicas y motivadas dentro de mercados locales. Este mismo principio se aplica al contenido de marca personal: cuanto más específico sea el posicionamiento, más fácil será atraer al cliente correcto. [[Semrush|https://www.semrush.com/blog/real-estate-seo/]]
 
 !leer como-captar-clientes-inmobiliarios
 
@@ -1242,7 +1242,7 @@ La encuesta tecnológica de NAR muestra que las redes sociales y el drone forman
 
 ### 4. Testimonios y casos reales
 
-Los testimonios reducen incertidumbre. No tienen que ser exagerados. Basta con mostrar procesos reales: propiedad vendida, visita realizada, cliente asesorado, operación cerrada, entrega documentaria.
+Los testimonios reducen la incertidumbre. No tienen que ser exagerados. Basta con mostrar procesos reales: propiedad vendida, visita realizada, cliente asesorado, operación cerrada, entrega documentaria.
 
 ### 5. Seguimiento profesional
 
@@ -1259,7 +1259,7 @@ Una estructura básica podría ser:
 - 1 análisis de zona.
 - 1 historia de proceso o detrás de cámaras.
 - 1 testimonio o caso real.
-- Stories diarias mostrando actividad comercial.
+- Stories diarias que muestren tu actividad comercial.
 
 No se trata de publicar por publicar. Se trata de repetir señales de confianza.
 
@@ -1319,7 +1319,7 @@ Por eso, una estrategia seria debe crear mensajes distintos para cada público.
 
 Para compradores, la estrategia debe combinar búsqueda, contenido y conversación.
 
-[Google Ads](/google-ads) permite aparecer cuando alguien busca activamente una propiedad. [Meta Ads](/meta-ads-inmobiliarias) ayuda a generar interés y remarketing. [TikTok](/servicios/tiktok-ads/) permite captar atención con videos cortos de propiedades, zonas y consejos.
+[Google Ads](/google-ads) permite aparecer cuando alguien busca activamente una propiedad. [Meta Ads](/meta-ads-inmobiliarias) ayuda a generar interés y a hacer remarketing. [TikTok](/servicios/tiktok-ads/) permite captar atención con videos cortos de propiedades, zonas y consejos.
 
 En Perú, la escala digital justifica esta mezcla: DataReportal reportó 28.3 millones de identidades activas en redes sociales y un alcance publicitario relevante en plataformas como Facebook, Instagram y TikTok. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
 
@@ -1401,13 +1401,13 @@ Hay que medir:
 - Fuente de cada oportunidad.
 
 ~ Costo por lead calificado
-~ Es cuánto cuesta conseguir un contacto que realmente cumple con el perfil comercial mínimo. Es más útil que el CPL general porque filtra curiosos o contactos sin presupuesto.
+~ Indica cuánto cuesta conseguir un contacto que realmente cumple el perfil comercial mínimo. Es más útil que el CPL general porque filtra curiosos o contactos sin presupuesto.
 
 ## Conclusión
 
 Captar clientes inmobiliarios no debe depender solo de referidos, portales o publicaciones ocasionales. La captación moderna combina contenido, pauta digital, SEO, redes sociales, WhatsApp y seguimiento comercial.
 
-El agente o inmobiliaria que logra construir ese sistema deja de perseguir oportunidades y empieza a generarlas de manera constante.
+El agente o la inmobiliaria que logra construir ese sistema deja de perseguir oportunidades y empieza a generarlas de manera constante.
 """,
 },
 ]

@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260910-blog10"
+V = "20260910-blog12"
 POSTS = {p["slug"]: p for p in B.POSTS}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
@@ -105,7 +105,9 @@ def render_body(src):
                             "".join(f"<td>{inline(c)}</td>" for c in r[1:]) + "</tr>" for r in rows[1:])
             out.append(f'<div class="tabla"><table><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
         else:
-            cls = ' class="post__intro"' if first_p else ""
+            text = ' '.join(lines)
+            # la frase que presenta una lista o un ejemplo ("Debe incluir:") queda pegada a lo que presenta
+            cls = ' class="post__intro"' if first_p else (' class="lead-in"' if text.rstrip("*").endswith(":") else "")
             first_p = False
             out.append(f"<p{cls}>{inline(' '.join(lines))}</p>")
     html_body = "\n".join(out)
