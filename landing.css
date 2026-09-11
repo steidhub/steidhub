@@ -206,7 +206,6 @@ body.lp-page::before{
 .lp-method--mock article{grid-template-columns:54px 1fr minmax(90px,150px)}.lp-method--mock article::after{content:"";position:static;grid-column:3;grid-row:1 / span 2;width:100%;height:72px;border-radius:10px;opacity:1;background:linear-gradient(135deg,rgba(196,107,60,.55),rgba(22,50,79,.65)),url('assets/img/google-ads-dashboard.webp') center/cover;align-self:center}.lp-method--mock article:nth-child(2)::after{background:linear-gradient(135deg,rgba(17,17,17,.15),rgba(196,107,60,.25)),url('assets/img/google-ads-landing-mockup.webp') center/cover}.lp-method--mock article:nth-child(3)::after{background:linear-gradient(135deg,rgba(17,17,17,.1),rgba(196,107,60,.28)),url('assets/img/grafico-1.webp') center/cover}.lp-method--mock article:nth-child(4)::after{background:linear-gradient(135deg,rgba(22,50,79,.25),rgba(196,107,60,.25)),url('assets/img/branding-hb.webp') center/cover}
 
 /* Google Ads: visuales individuales y un ritmo vertical más limpio. */
-body[data-landing="google-ads"] .lp-hero{min-height:clamp(620px,78vh,760px)}
 body[data-landing="google-ads"] .lp-hero__media img{object-position:center 44%}
 body[data-landing="google-ads"] .lp-crumbs{padding-top:24px}
 body[data-landing="google-ads"] .lp-section{padding-block:clamp(54px,4.8vw,70px)}
@@ -253,7 +252,7 @@ body[data-landing="google-ads"] #resultados .lp-kpi{margin-top:32px}
   body[data-landing="google-ads"] .lp-method--mock article{grid-template-columns:48px minmax(0,1fr) 150px}
 }
 @media(max-width:767px){
-  body[data-landing="google-ads"] .lp-hero{min-height:600px;padding-block:70px}
+  body[data-landing="google-ads"] .lp-hero{min-height:max(660px,88svh);padding-block:72px}
   body[data-landing="google-ads"] .lp-crumbs{padding-top:22px}
   body[data-landing="google-ads"] .lp-section{padding-block:58px}
   body[data-landing="google-ads"] .lp-section--comparison{padding-top:42px}
@@ -262,6 +261,68 @@ body[data-landing="google-ads"] #resultados .lp-kpi{margin-top:32px}
   body[data-landing="google-ads"] .lp-method--mock article{grid-template-columns:1fr;gap:12px;padding:24px 22px}
   body[data-landing="google-ads"] .lp-method--mock article::after{grid-column:1;grid-row:auto;min-height:0;height:auto;aspect-ratio:16/9;margin-top:8px}
   body[data-landing="google-ads"] #resultados .lp-kpi{margin-top:26px}
+}
+
+/* ---------- Google Ads: más aire entre secciones y textos ---------- */
+body[data-landing="google-ads"] .lp-section{padding-block:clamp(96px,10vw,144px)}
+body[data-landing="google-ads"] .lp-section--comparison{padding-top:clamp(112px,11vw,156px)}
+body[data-landing="google-ads"] .lp-head{gap:22px;margin-bottom:clamp(52px,5.6vw,80px)}
+body[data-landing="google-ads"] .lp-head .lead{line-height:1.8}
+body[data-landing="google-ads"] .lp-cta .lp-head,
+body[data-landing="google-ads"] .lp-visual__copy .lp-head{margin-bottom:0}
+body[data-landing="google-ads"] .lp-compare{gap:24px}
+body[data-landing="google-ads"] .lp-compare article{padding:32px 30px}
+body[data-landing="google-ads"] .lp-compare p{line-height:1.75}
+body[data-landing="google-ads"] .source-note{margin-top:30px}
+body[data-landing="google-ads"] .lp-problems{gap:24px}
+body[data-landing="google-ads"] .lp-problems--mock article{padding-bottom:34px}
+body[data-landing="google-ads"] .lp-problems--mock .lp-card__ic{margin-bottom:24px}
+body[data-landing="google-ads"] .lp-problems span{margin-bottom:12px}
+body[data-landing="google-ads"] .lp-problems p{margin-top:16px;line-height:1.78}
+body[data-landing="google-ads"] .lp-method{gap:22px}
+body[data-landing="google-ads"] .lp-method--mock article{padding:30px}
+body[data-landing="google-ads"] .lp-method--mock p{margin-top:12px;line-height:1.75}
+body[data-landing="google-ads"] #resultados .lp-kpi{gap:22px;margin-top:44px}
+body[data-landing="google-ads"] .lp-kpi{gap:24px}
+body[data-landing="google-ads"] .lp-kpi article{padding:32px 28px 34px}
+body[data-landing="google-ads"] .lp-kpi__n{margin-top:18px}
+body[data-landing="google-ads"] .lp-kpi__range{margin-top:12px}
+body[data-landing="google-ads"] .lp-kpi__bar{margin-top:20px}
+body[data-landing="google-ads"] .lp-kpi__note{margin-top:22px;line-height:1.75}
+body[data-landing="google-ads"] .lp-kpi__pie{margin-top:40px;line-height:1.7}
+body[data-landing="google-ads"] .lp-section--proof .stat{padding:32px 24px}
+body[data-landing="google-ads"] .lp-section--proof .marquee{margin-top:36px}
+body[data-landing="google-ads"] .lp-cluster{gap:24px}
+body[data-landing="google-ads"] .lp-cluster a{gap:14px;padding:32px 30px}
+body[data-landing="google-ads"] .lp-cluster p{line-height:1.75}
+body[data-landing="google-ads"] #servicios{padding-block:clamp(72px,7.4vw,108px)}
+body[data-landing="google-ads"] #servicios .lp-head{margin-bottom:clamp(40px,4.2vw,58px)}
+body[data-landing="google-ads"] .lp-faq{gap:14px}
+body[data-landing="google-ads"] .lp-faq summary{padding:24px 26px}
+body[data-landing="google-ads"] .lp-faq__a{padding:0 26px 24px;line-height:1.8}
+@media(max-width:767px){
+  body[data-landing="google-ads"] .lp-section{padding-block:84px}
+  body[data-landing="google-ads"] .lp-section--comparison{padding-top:96px}
+  body[data-landing="google-ads"] .lp-head{gap:18px;margin-bottom:40px}
+  body[data-landing="google-ads"] .lp-compare{gap:18px}
+  body[data-landing="google-ads"] .lp-compare article{padding:28px 24px}
+  body[data-landing="google-ads"] .lp-problems{gap:18px}
+  body[data-landing="google-ads"] .lp-problems--mock article{padding-bottom:30px}
+  body[data-landing="google-ads"] .lp-method{gap:18px}
+  body[data-landing="google-ads"] .lp-method--mock article{padding:26px 22px}
+  body[data-landing="google-ads"] #resultados .lp-kpi{margin-top:36px}
+  body[data-landing="google-ads"] .lp-kpi{gap:18px}
+  body[data-landing="google-ads"] .lp-kpi article{padding:28px 24px 30px}
+  body[data-landing="google-ads"] .lp-kpi__pie{margin-top:32px}
+  body[data-landing="google-ads"] .lp-section--proof .stat{padding:26px 18px}
+  body[data-landing="google-ads"] .lp-section--proof .marquee{margin-top:26px}
+  body[data-landing="google-ads"] .lp-cluster{gap:18px}
+  body[data-landing="google-ads"] .lp-cluster a{padding:28px 24px}
+  body[data-landing="google-ads"] #servicios{padding-block:68px}
+  body[data-landing="google-ads"] #servicios .lp-head{margin-bottom:34px}
+  body[data-landing="google-ads"] .lp-faq{gap:12px}
+  body[data-landing="google-ads"] .lp-faq summary{padding:22px 22px}
+  body[data-landing="google-ads"] .lp-faq__a{padding:0 22px 22px}
 }
 
 /* Contenido: cada problema y beneficio muestra una evidencia visual real. */
@@ -382,6 +443,12 @@ body[data-landing="meta-ads"] .lp-kpi__bar{margin-top:20px}
 body[data-landing="meta-ads"] .lp-kpi__note{margin-top:22px;line-height:1.75}
 body[data-landing="meta-ads"] .lp-kpi__pie{margin-top:40px;line-height:1.7}
 body[data-landing="meta-ads"] .lp-use-gallery{gap:24px}
+/* casos de uso: todas las filas del mismo alto */
+body[data-landing="meta-ads"] .lp-use-gallery article{aspect-ratio:4/3;min-height:0}
+body[data-landing="meta-ads"] .lp-use-gallery img{position:absolute;inset:0;min-height:0}
+/* "Sigue explorando": un poco menos de aire */
+body[data-landing="meta-ads"] #servicios{padding-block:clamp(72px,7.4vw,108px)}
+body[data-landing="meta-ads"] #servicios .lp-head{margin-bottom:clamp(40px,4.2vw,58px)}
 body[data-landing="meta-ads"] .lp-cluster{gap:24px}
 body[data-landing="meta-ads"] .lp-cluster a{gap:14px;padding:32px 30px}
 body[data-landing="meta-ads"] .lp-cluster p{line-height:1.75}
@@ -405,6 +472,8 @@ body[data-landing="meta-ads"] .contact__info dl{gap:22px}
   body[data-landing="meta-ads"] #resultados .lp-kpi article{padding:28px 24px 30px}
   body[data-landing="meta-ads"] .lp-kpi__pie{margin-top:32px}
   body[data-landing="meta-ads"] .lp-use-gallery{gap:18px}
+  body[data-landing="meta-ads"] #servicios{padding-block:68px}
+  body[data-landing="meta-ads"] #servicios .lp-head{margin-bottom:34px}
   body[data-landing="meta-ads"] .lp-cluster{gap:18px}
   body[data-landing="meta-ads"] .lp-cluster a{padding:28px 24px}
   body[data-landing="meta-ads"] .lp-faq{gap:12px}
@@ -985,4 +1054,56 @@ html:not(.has-js) .lp-kpi__bar i{transform:scaleX(1)}
   .lp-timeline--cards,.lp-compare{grid-template-columns:1fr}
   .video-showcase{grid-template-columns:repeat(3,72vw);justify-content:start;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 8vw 20px;margin-inline:-6vw}
   .video-showcase article{scroll-snap-align:center}
+}
+
+/* ==========================================================================
+   Google Ads + Meta Ads: fondo continuo y animado, sin líneas entre secciones
+   ========================================================================== */
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]){background:var(--ink)}
+/* dos capas de luz fijas al viewport: el difuminado nunca termina al hacer scroll */
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before,
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{
+  content:"";position:fixed;inset:-25vmax;z-index:-1;pointer-events:none;will-change:transform;
+}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before{
+  background:
+    radial-gradient(36vmax 26vmax at 70% 26%,rgba(196,107,60,.22),transparent 70%),
+    radial-gradient(40vmax 30vmax at 22% 40%,rgba(22,50,79,.36),transparent 70%),
+    radial-gradient(32vmax 24vmax at 62% 74%,rgba(196,107,60,.15),transparent 70%),
+    radial-gradient(38vmax 28vmax at 30% 80%,rgba(22,50,79,.26),transparent 70%);
+  animation:lpAuroraA 36s ease-in-out infinite alternate;
+}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{
+  background:
+    radial-gradient(28vmax 22vmax at 42% 52%,rgba(217,140,95,.10),transparent 70%),
+    radial-gradient(32vmax 24vmax at 80% 58%,rgba(22,50,79,.24),transparent 70%),
+    radial-gradient(26vmax 20vmax at 18% 22%,rgba(196,107,60,.08),transparent 70%);
+  animation:lpAuroraB 48s ease-in-out infinite alternate;
+}
+@keyframes lpAuroraA{
+  0%{transform:translate3d(-5%,-3%,0) rotate(0deg) scale(1)}
+  50%{transform:translate3d(4%,3%,0) rotate(9deg) scale(1.08)}
+  100%{transform:translate3d(6%,-2%,0) rotate(-5deg) scale(1.02)}
+}
+@keyframes lpAuroraB{
+  0%{transform:translate3d(5%,4%,0) rotate(0deg) scale(1.05)}
+  50%{transform:translate3d(-4%,-2%,0) rotate(-10deg) scale(.96)}
+  100%{transform:translate3d(-6%,3%,0) rotate(6deg) scale(1.06)}
+}
+/* sin divisores ni bandas: todas las secciones sobre el mismo fondo */
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-section + .lp-section::before{display:none}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-section--deep,
+body[data-landing="meta-ads"] #resultados{background:transparent;box-shadow:none}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .footer{border-top:0;background:transparent}
+/* la foto del hero y la de contacto se funden con el fondo en vez de cortar en negro */
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-hero__media,
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-hero::after{
+  -webkit-mask-image:linear-gradient(180deg,#000 38%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.45) 78%,rgba(0,0,0,.14) 92%,transparent);mask-image:linear-gradient(180deg,#000 38%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.45) 78%,rgba(0,0,0,.14) 92%,transparent);
+}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .section__bg{
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent);mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent);
+}
+@media(prefers-reduced-motion:reduce){
+  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before,
+  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{animation:none}
 }
