@@ -57,6 +57,8 @@
       else el.textContent = prefix + fmt(target);
     };
     requestAnimationFrame(tick);
+    // si requestAnimationFrame se detiene, la cifra no debe quedar a medias
+    setTimeout(() => { el.textContent = prefix + fmt(target); }, DUR + 900);
   };
   if (!('IntersectionObserver' in window)) {
     nums.forEach(runCount);

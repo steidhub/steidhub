@@ -1292,3 +1292,77 @@ body.home #marketing .section__bg::after{
 body.home #portafolio{padding-bottom:clamp(24px,3vw,40px)}
 body.home #equipo{padding-top:clamp(64px,7vw,96px)}
 @media(prefers-reduced-motion:reduce){body.home::before,body.home::after{animation:none}}
+
+/* ==========================================================================
+   Home · 02 Resultados esperados
+   Sin fondo propio: se ve el fondo animado de body.home. Mismo padding que
+   el resto de secciones (.section). Tres cifras, poco texto.
+   ========================================================================== */
+.results__head{text-align:center;max-width:none;margin:0 auto clamp(48px,6vw,80px)}
+.results__head .eyebrow{justify-content:center}
+.results__title{
+  font-size:clamp(2.8rem,7.4vw,6.6rem);line-height:.95;letter-spacing:-.045em;
+  margin:0 auto;text-shadow:0 12px 50px rgba(0,0,0,.35);
+}
+.results__title .accent{color:var(--terra-soft)}
+.results__title .outline{-webkit-text-stroke:1.5px var(--bone);color:transparent;text-shadow:none}
+
+.results__grid{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.results__item{
+  position:relative;padding:12px clamp(20px,3vw,44px) 8px;text-align:center;
+}
+/* divisor vertical que se desvanece en los extremos, en vez de una línea dura */
+.results__item + .results__item::before{
+  content:"";position:absolute;left:0;top:8%;bottom:8%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(237,229,220,.2) 30%,rgba(237,229,220,.2) 70%,transparent);
+}
+.results__n{
+  position:relative;display:inline-flex;align-items:baseline;justify-content:center;
+  margin:0;font-size:clamp(3.6rem,8vw,7.2rem);font-weight:700;line-height:.9;
+  letter-spacing:-.06em;color:var(--bone);font-variant-numeric:tabular-nums;
+  transition:transform .45s var(--ease),text-shadow .45s var(--ease);
+}
+.results__n em{font-style:normal;font-size:.46em;font-weight:600;letter-spacing:-.02em;color:var(--terra-soft);margin-left:.04em}
+/* halo cálido detrás de la cifra */
+.results__n::after{
+  content:"";position:absolute;inset:-30% -18%;z-index:-1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(196,107,60,.26),transparent);
+  opacity:.55;transition:opacity .45s var(--ease),transform .45s var(--ease);
+}
+.results__item:hover .results__n{transform:translateY(-6px);text-shadow:0 18px 40px rgba(196,107,60,.25)}
+.results__item:hover .results__n::after{opacity:1;transform:scale(1.12)}
+.results__k{
+  margin:22px 0 0;font-size:.8rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--terra-soft);
+}
+.results__d{margin:10px auto 0;max-width:28ch;font-size:.95rem;line-height:1.6;color:#C8C2BA}
+/* barra que se dibuja al entrar la cifra */
+.results__k::before{
+  content:"";display:block;width:46px;height:2px;margin:0 auto 18px;border-radius:2px;
+  background:linear-gradient(90deg,var(--terra),var(--terra-soft));
+  transform:scaleX(0);transition:transform .9s var(--ease) .35s;
+}
+.results__item.is-in .results__k::before{transform:scaleX(1)}
+.results__foot{margin:clamp(40px,5vw,64px) auto 0;text-align:center;font-size:.78rem;color:#9E9A94}
+
+@media(max-width:767px){
+  body:not(.ads-page) .results__title{font-size:40px;line-height:1}
+  .results__head{margin-bottom:40px}
+  .results__grid{grid-template-columns:1fr;gap:44px}
+  .results__item{padding:0}
+  .results__item + .results__item::before{
+    left:50%;top:-22px;bottom:auto;width:60px;height:1px;translate:-50% 0;
+    background:linear-gradient(90deg,transparent,rgba(237,229,220,.24),transparent);
+  }
+  .results__n{font-size:64px}
+  .results__k{font-size:10.5px;margin-top:16px}
+  .results__k::before{margin-bottom:14px}
+  .results__d{font-size:13.5px}
+  .results__foot{font-size:11px;margin-top:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  .results__k::before{transform:none;transition:none}
+}
