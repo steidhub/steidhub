@@ -279,11 +279,13 @@ body[data-landing="contenido"] .lp-problems--benefits article:nth-child(4)::afte
 
 /* Proceso y resultados de Meta con más ritmo visual. */
 .lp-timeline--cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.lp-timeline--cards li{display:grid;grid-template-columns:48px 1fr;padding:24px;border:1px solid var(--line-strong);border-radius:16px;background:linear-gradient(160deg,rgba(35,31,28,.96),rgba(18,18,18,.96));box-shadow:0 18px 38px rgba(0,0,0,.22)}.lp-timeline--cards li::before{display:none}.lp-timeline--cards .lp-timeline__n{width:38px;height:38px}.lp-timeline--cards h3{margin:7px 0 0}.lp-timeline--cards p{grid-column:1 / -1;margin-top:20px}.lp-timeline--cards li:hover{border-color:rgba(217,140,95,.65);transform:translateY(-4px)}
-body[data-landing="meta-ads"] .lp-hero{min-height:clamp(620px,78vh,760px)}
-body[data-landing="meta-ads"] .lp-hero__media img{object-position:center 53%}
+/* foto de Av. Brasil: arriba para que entre el horizonte con el mar */
+body[data-landing="meta-ads"] .lp-hero__media img{object-position:center 12%}
 body[data-landing="meta-ads"] .lp-crumbs{padding-top:24px}
 body[data-landing="meta-ads"] .lp-section{padding-block:clamp(56px,5vw,76px)}
-body[data-landing="meta-ads"] .lp-section--comparison{padding-top:48px}
+body[data-landing="meta-ads"] .lp-section--comparison{padding-top:clamp(84px,8vw,116px)}
+/* título en 2 líneas: "Construye una marca," / "no dependas de un portal" */
+@media(min-width:768px){body[data-landing="meta-ads"] .lp-section--comparison .lp-head{max-width:none}body[data-landing="meta-ads"] .lp-section--comparison .lp-head .h2{max-width:none}}
 body[data-landing="meta-ads"] .lp-head{margin-bottom:clamp(30px,3.7vw,46px)}
 
 body[data-landing="meta-ads"] .lp-channel-compare article{min-height:390px;padding:26px}
@@ -293,7 +295,13 @@ body[data-landing="meta-ads"] .lp-channel-compare h3{margin-top:26px}
 body[data-landing="meta-ads"] .lp-channel-compare p{font-size:.94rem}
 body[data-landing="meta-ads"] .lp-channel-compare strong{display:flex;align-items:baseline;gap:9px;margin-top:auto;padding-top:30px;color:#fff;font-size:clamp(2.2rem,3.4vw,3.5rem);line-height:1;letter-spacing:-.045em}
 body[data-landing="meta-ads"] .lp-channel-compare strong small{max-width:110px;color:var(--terra-soft);font-size:.68rem;line-height:1.35;letter-spacing:.08em;text-transform:uppercase}
-body[data-landing="meta-ads"] .lp-organic-mark{display:grid;place-items:center;width:70px;height:70px;border-radius:18px;background:linear-gradient(145deg,#2b313b,#191b20);border:1px solid rgba(255,255,255,.14);color:var(--terra-soft);font-size:3.4rem;line-height:1}
+/* La etiqueta reserva siempre dos líneas: con una sola («visitas/mes») el bloque del
+   KPI era más bajo y su número quedaba 11 px por debajo de los de las otras tarjetas. */
+body[data-landing="meta-ads"] .lp-channel-compare strong small{min-height:2.7em}
+/* «Tu marca» ocupa el mismo hueco de 70 px que los logos de Meta y Urbania, para
+   que los títulos de las tres tarjetas queden a la misma altura. Lleva la clase de
+   la tarjeta en el selector para ganarle a la regla genérica de los párrafos. */
+body[data-landing="meta-ads"] .lp-channel-compare .lp-brand-mark{display:flex;align-items:center;height:70px;margin:0;color:#fff;font-size:clamp(2rem,2.6vw,2.6rem);font-weight:700;line-height:1;letter-spacing:-.035em}
 
 body[data-landing="meta-ads"] .lp-problems--mock article{display:flex;flex-direction:column;padding:0 26px 28px;overflow:hidden}
 body[data-landing="meta-ads"] .lp-problems--mock article::after{display:none}
@@ -333,10 +341,11 @@ body[data-landing="meta-ads"] #resultados .lp-kpi__n{font-size:clamp(3rem,5vw,4.
   .lp-use-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:767px){
-  body[data-landing="meta-ads"] .lp-hero{min-height:610px;padding-block:72px}
+  body[data-landing="meta-ads"] .lp-hero{min-height:max(660px,88svh);padding-block:72px}
   body[data-landing="meta-ads"] .lp-hero__media img{object-position:46% 50%}
   body[data-landing="meta-ads"] .lp-crumbs{padding-top:22px}
   body[data-landing="meta-ads"] .lp-section{padding-block:58px}
+  body[data-landing="meta-ads"] .lp-section--comparison{padding-top:80px}
   body[data-landing="meta-ads"] .lp-channel-compare article{min-height:350px}
   body[data-landing="meta-ads"] .lp-problems--mock article{padding:0 22px 26px}
   body[data-landing="meta-ads"] .lp-card-visual{margin-inline:-22px}
@@ -346,6 +355,62 @@ body[data-landing="meta-ads"] #resultados .lp-kpi__n{font-size:clamp(3rem,5vw,4.
   body[data-landing="meta-ads"] #resultados .lp-kpi{margin-top:26px}
   .lp-use-gallery{grid-template-columns:1fr;gap:14px}
   .lp-use-gallery article,.lp-use-gallery img{min-height:230px}
+}
+
+/* ---------- Meta Ads: más aire entre secciones y textos (listo para publicar) ---------- */
+body[data-landing="meta-ads"] .lp-section{padding-block:clamp(96px,10vw,144px)}
+body[data-landing="meta-ads"] .lp-section--comparison{padding-top:clamp(112px,11vw,156px)}
+body[data-landing="meta-ads"] .lp-head{gap:22px;margin-bottom:clamp(52px,5.6vw,80px)}
+body[data-landing="meta-ads"] .lp-head .lead{line-height:1.8}
+body[data-landing="meta-ads"] .lp-cta .lp-head{margin-bottom:0}
+body[data-landing="meta-ads"] .lp-channel-compare{gap:24px}
+body[data-landing="meta-ads"] .lp-channel-compare article{padding:30px}
+body[data-landing="meta-ads"] .lp-channel-compare p{line-height:1.75}
+body[data-landing="meta-ads"] .lp-problems{gap:24px}
+body[data-landing="meta-ads"] .lp-problems--mock article{padding-bottom:34px}
+body[data-landing="meta-ads"] .lp-problems--mock .lp-card__ic{margin-bottom:24px}
+body[data-landing="meta-ads"] .lp-problems span{margin-bottom:12px}
+body[data-landing="meta-ads"] .lp-problems p{margin-top:16px;line-height:1.78}
+body[data-landing="meta-ads"] .lp-timeline--cards{gap:24px}
+body[data-landing="meta-ads"] .lp-timeline--cards li{min-height:236px;padding:32px 30px}
+body[data-landing="meta-ads"] .lp-timeline--cards p{margin-top:26px;line-height:1.75}
+body[data-landing="meta-ads"] #resultados .lp-kpi{gap:24px;margin-top:0}
+body[data-landing="meta-ads"] #resultados .lp-kpi article{padding:32px 28px 34px}
+body[data-landing="meta-ads"] .lp-kpi__n{margin-top:18px}
+body[data-landing="meta-ads"] .lp-kpi__range{margin-top:12px}
+body[data-landing="meta-ads"] .lp-kpi__bar{margin-top:20px}
+body[data-landing="meta-ads"] .lp-kpi__note{margin-top:22px;line-height:1.75}
+body[data-landing="meta-ads"] .lp-kpi__pie{margin-top:40px;line-height:1.7}
+body[data-landing="meta-ads"] .lp-use-gallery{gap:24px}
+body[data-landing="meta-ads"] .lp-cluster{gap:24px}
+body[data-landing="meta-ads"] .lp-cluster a{gap:14px;padding:32px 30px}
+body[data-landing="meta-ads"] .lp-cluster p{line-height:1.75}
+body[data-landing="meta-ads"] .lp-faq{gap:14px}
+body[data-landing="meta-ads"] .lp-faq summary{padding:24px 26px}
+body[data-landing="meta-ads"] .lp-faq__a{padding:0 26px 24px;line-height:1.8}
+body[data-landing="meta-ads"] .contact__info .lp-head{margin-bottom:40px}
+body[data-landing="meta-ads"] .contact__info dl{gap:22px}
+@media(max-width:767px){
+  body[data-landing="meta-ads"] .lp-section{padding-block:84px}
+  body[data-landing="meta-ads"] .lp-section--comparison{padding-top:96px}
+  body[data-landing="meta-ads"] .lp-head{gap:18px;margin-bottom:40px}
+  body[data-landing="meta-ads"] .lp-channel-compare{gap:18px}
+  body[data-landing="meta-ads"] .lp-channel-compare article{padding:26px 24px}
+  body[data-landing="meta-ads"] .lp-problems{gap:18px}
+  body[data-landing="meta-ads"] .lp-problems--mock article{padding-bottom:30px}
+  body[data-landing="meta-ads"] .lp-timeline--cards{gap:18px}
+  body[data-landing="meta-ads"] .lp-timeline--cards li{min-height:0;padding:28px 24px}
+  body[data-landing="meta-ads"] .lp-timeline--cards p{margin-top:18px}
+  body[data-landing="meta-ads"] #resultados .lp-kpi{gap:18px}
+  body[data-landing="meta-ads"] #resultados .lp-kpi article{padding:28px 24px 30px}
+  body[data-landing="meta-ads"] .lp-kpi__pie{margin-top:32px}
+  body[data-landing="meta-ads"] .lp-use-gallery{gap:18px}
+  body[data-landing="meta-ads"] .lp-cluster{gap:18px}
+  body[data-landing="meta-ads"] .lp-cluster a{padding:28px 24px}
+  body[data-landing="meta-ads"] .lp-faq{gap:12px}
+  body[data-landing="meta-ads"] .lp-faq summary{padding:22px 22px}
+  body[data-landing="meta-ads"] .lp-faq__a{padding:0 22px 22px}
+  body[data-landing="meta-ads"] .contact__info .lp-head{margin-bottom:32px}
 }
 
 .lp-section--proceso .lp-kpi--dato{margin-top:clamp(42px,6vw,72px)}
