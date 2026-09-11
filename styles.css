@@ -1372,3 +1372,7 @@ body.home #equipo{padding-top:clamp(64px,7vw,96px)}
 .results__foot strong{color:var(--sand);font-weight:600}
 @media(max-width:767px){.results__foot{font-size:12px}}
 @media(max-width:767px){.results__title-sub{font-size:1.06em}}
+/* nota al pie en líneas largas en vez de una columna estrecha */
+.results__foot{max-width:min(100%,960px)}
+.results__foot-note{display:block;margin-top:6px;font-size:.88em;color:#9E9A94}
+@media(max-width:767px){.results__foot{max-width:none}}
