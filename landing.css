@@ -1220,3 +1220,30 @@ body[data-landing="meta-ads"] #resultados{background:transparent;box-shadow:none
   :is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body[data-landing="contenido"],body.blog-page)::before,
   :is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body[data-landing="contenido"],body.blog-page)::after{animation:none}
 }
+
+/* Google Ads · método: icono en lugar de la miniatura de fondo.
+   Va con el prefijo body[data-landing] para ganar a las reglas de columnas
+   que reservaban 150-190 px para la miniatura. */
+body[data-landing="google-ads"] .lp-method--icons article::after{display:none}
+body[data-landing="google-ads"] .lp-method--icons article{grid-template-columns:54px minmax(0,1fr) 56px;align-items:center}
+.lp-method__ico{
+  grid-column:3;grid-row:1 / span 2;justify-self:end;align-self:center;
+  width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
+  border:1px solid rgba(196,107,60,.42);
+  background:linear-gradient(150deg,rgba(196,107,60,.22),rgba(196,107,60,.04));
+  color:var(--terra-soft);
+  transition:background .32s var(--ease),color .32s var(--ease),border-color .32s var(--ease),transform .32s var(--ease);
+}
+.lp-method__ico svg{width:26px;height:26px}
+.lp-method--icons article:hover .lp-method__ico{background:var(--terra);border-color:var(--terra);color:#fff;transform:translateY(-2px) scale(1.04)}
+@media(max-width:980px){
+  body[data-landing="google-ads"] .lp-method--icons article{grid-template-columns:48px minmax(0,1fr) 52px}
+}
+@media(max-width:767px){
+  body[data-landing="google-ads"] .lp-method--icons article{grid-template-columns:minmax(0,1fr) auto;gap:10px 14px}
+  body[data-landing="google-ads"] .lp-method--icons article > span{grid-column:1;grid-row:1}
+  body[data-landing="google-ads"] .lp-method--icons article > h3,
+  body[data-landing="google-ads"] .lp-method--icons article > p{grid-column:1 / -1}
+  .lp-method__ico{grid-column:2;grid-row:1;width:44px;height:44px;border-radius:12px}
+  .lp-method__ico svg{width:21px;height:21px}
+}
