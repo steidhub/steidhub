@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260910-blog3"
+V = "20260910-blog9"
 POSTS = {p["slug"]: p for p in B.POSTS}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
@@ -303,7 +303,18 @@ WEBSITE = {"@type": "WebSite", "@id": ORIGIN + "/#website", "url": ORIGIN + "/",
            "inLanguage": "es-PE", "publisher": {"@id": ORIGIN + "/#organization"}}
 PERSON = {"@type": "Person", "@id": ORIGIN + "/#michael-philipps", "name": B.AUTHOR["name"],
           "jobTitle": B.AUTHOR["role"], "honorificSuffix": B.AUTHOR["credentials"],
-          "image": ORIGIN + B.AUTHOR["photo"], "worksFor": {"@id": ORIGIN + "/#organization"}}
+          "description": B.AUTHOR["role"] + " | " + B.AUTHOR["credentials"] + ", " + B.AUTHOR["specialty"],
+          "knowsAbout": ["Marketing digital", "Marketing inmobiliario", "Publicidad inmobiliaria",
+                         "Producción audiovisual inmobiliaria", "Fotografía y video con drone", "Bienes raíces"],
+          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Universidad del Pacífico"},
+          "hasCredential": [
+              {"@type": "EducationalOccupationalCredential", "name": "Agente inmobiliario registrado 23267-PN-MVCS",
+               "credentialCategory": "Registro profesional",
+               "recognizedBy": {"@type": "GovernmentOrganization", "name": "Ministerio de Vivienda, Construcción y Saneamiento"}},
+              {"@type": "EducationalOccupationalCredential", "name": "Piloto de drone certificado",
+               "credentialCategory": "Certificación",
+               "recognizedBy": {"@type": "GovernmentOrganization", "name": "Dirección General de Aeronáutica Civil (DGAC)"}}],
+          "image": ORIGIN + B.AUTHOR["photo"], "url": B.AUTHOR["linkedin"], "sameAs": [B.AUTHOR["linkedin"]], "worksFor": {"@id": ORIGIN + "/#organization"}}
 BLOG_ID = ORIGIN + "/blog/#blog"
 
 
@@ -313,10 +324,30 @@ def author_row(p, words):
         <img class="post-byline__img" src="{B.AUTHOR['avatar']}" alt="{B.AUTHOR['name']}" width="192" height="192">
         <div class="post-byline__txt">
           <a class="post-byline__name" href="#autor" rel="author">{B.AUTHOR['name']}</a>
-          <span>{B.AUTHOR['role']} <span aria-hidden="true">|</span> {B.AUTHOR['credentials']}</span>
+          <span>{B.AUTHOR['role']} <span aria-hidden="true">|</span> {B.AUTHOR['credentials']}, {B.AUTHOR['specialty']}</span>
         </div>
         <p class="post-byline__meta"><time datetime="{B.PUBLISHED}">{fecha_larga(B.PUBLISHED)}</time><span aria-hidden="true">·</span><span>{mins} min de lectura</span></p>
       </div>"""
+
+
+def author_box():
+    paras = "\n".join(f"          <p>{inline(t)}</p>" for t in B.AUTHOR["bio"])
+    return f"""      <aside class="author-box" id="autor" aria-labelledby="autor-titulo">
+        <div class="author-box__head">
+          <img src="{B.AUTHOR['avatar']}" alt="{B.AUTHOR['name']}" width="192" height="192" loading="lazy">
+          <div>
+            <h2 id="autor-titulo">Conoce más al autor</h2>
+            <p class="author-box__name">{B.AUTHOR['name']}</p>
+            <p class="author-box__role">{B.AUTHOR['role']} <span aria-hidden="true">|</span> {B.AUTHOR['credentials']}, {B.AUTHOR['specialty']}</p>
+          </div>
+          <a class="author-box__in" href="{B.AUTHOR['linkedin']}" target="_blank" rel="noopener me" aria-label="Perfil de LinkedIn de {B.AUTHOR['name']}">
+            <img src="/assets/logos/linkedin.webp" alt="" width="96" height="96" loading="lazy">
+          </a>
+        </div>
+        <div class="author-box__bio">
+{paras}
+        </div>
+      </aside>"""
 
 
 def share(url, title):
@@ -406,14 +437,7 @@ def build_post(p):
 
     <footer class="post__foot">
 {share(url, p['title'])}
-      <div class="post-author" id="autor">
-        <img src="{B.AUTHOR['avatar']}" alt="{B.AUTHOR['name']}" width="192" height="192" loading="lazy">
-        <div>
-          <p class="post-author__label">Escrito por</p>
-          <p class="post-author__name">{B.AUTHOR['name']}</p>
-          <p class="post-author__role">{B.AUTHOR['role']} <span aria-hidden="true">|</span> {B.AUTHOR['credentials']}</p>
-        </div>
-      </div>
+{author_box()}
     </footer>
   </article>
 

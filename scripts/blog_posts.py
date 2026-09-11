@@ -16,7 +16,16 @@ Dentro del texto:
 AUTHOR = {
     "name": "Michael Philipps",
     "role": "Socio y fundador de Steid Hub",
-    "credentials": "BA, MBA",
+    "credentials": "BBA, MBA",
+    "specialty": "Especialista en Marketing Digital y Agente Inmobiliario",
+    "linkedin": "https://www.linkedin.com/in/michael-philipps-08704a19a/",
+    # Recuadro "Conoce más al autor" (sólo en los artículos, no en el índice del blog).
+    "bio": [
+        "Michael Philipps es **Administrador por la Universidad del Pacífico, MBA y especialista en marketing digital**. Su interés por la comunicación visual lo llevó a especializarse en **producción audiovisual inmobiliaria**, convertirse en **piloto de drone** y **certificarse ante la Dirección General de Aeronáutica Civil (DGAC)**, adscrita al Ministerio de Transportes y Comunicaciones del Perú.",
+        "Además, es **agente inmobiliario registrado ante el Ministerio de Vivienda, Construcción y Saneamiento** bajo el código **23267-PN-MVCS**, y **fundador de Haut Bâtiment**, inmobiliaria enfocada en propiedades de **Lima Top y Lima Moderna**.",
+        "Su experiencia combina logística en **Nexa Resources**, control de gestión en **SmartBrands Perú**, finanzas en **PwC**, y marketing digital y asesoría comercial en la **Universidad del Pacífico**. También ha trabajado en proyectos de marketing para **USIL, La Carbonera e Inmobiliaria MyE**, así como en la promoción de proyectos como **The Grand Pezet, Portillo y el Condominio Playa del Carmen** en Chincha.",
+        "Desde Steid Hub, comparte recomendaciones prácticas para ayudar a inmobiliarias, agentes y propietarios a vender mejor mediante **estrategia, contenido, pauta digital y gestión comercial**.",
+    ],
     "avatar": "/assets/team/michael-philipps-avatar.webp",
     "photo": "/assets/team/michael-philipps.webp",
 }
@@ -58,11 +67,11 @@ POSTS = [
 "body": """
 Durante años, muchas inmobiliarias entendieron el marketing digital como una tarea operativa: publicar en portales, subir fotos a redes sociales, responder mensajes y esperar que aparezca un comprador. Ese modelo ya no es suficiente.
 
-Hoy, vender una propiedad exige algo más sofisticado: una arquitectura de captación, seguimiento y conversión. No basta con tener exposición; se necesita construir una máquina digital de ventas capaz de atraer compradores, medir su intención, calificarlos, responderles a tiempo y acompañarlos hasta la visita o separación.
+Hoy, vender una propiedad exige algo más sofisticado: una arquitectura de captación, seguimiento y conversión. No basta con tener exposición; se necesita construir una máquina digital de ventas capaz de atraer compradores, medir su intención, calificarlos, responderles a tiempo y acompañarlos hasta la visita o la separación.
 
-El mercado peruano atraviesa un momento donde la construcción y la vivienda vuelven a mostrar dinamismo. CAPECO reportó que el PBI construcción creció 11.8% en el primer semestre de 2026 y que el mercado de vivienda fue uno de los motores del sector, con cerca de 47 mil créditos hipotecarios colocados entre junio de 2025 y mayo de 2026 por aproximadamente S/17,500 millones. [[CAPECO|https://capeco.org/construccion-registra-un-crecimiento-de-11-8-en-el-primer-semestre-y-con-expectativas-favorables-sobre-el-nuevo-gobierno/]]
+El mercado peruano atraviesa un momento donde la construcción y la vivienda vuelven a mostrar dinamismo. CAPECO reportó que el PBI del sector construcción creció 11.8% en el primer semestre de 2026 y que el mercado de vivienda fue uno de los motores del sector, con cerca de 47 mil créditos hipotecarios colocados entre junio de 2025 y mayo de 2026 por aproximadamente S/17,500 millones. [[CAPECO|https://capeco.org/construccion-registra-un-crecimiento-de-11-8-en-el-primer-semestre-y-con-expectativas-favorables-sobre-el-nuevo-gobierno/]]
 
-La pregunta para una inmobiliaria ya no es si debe invertir en digital. La pregunta correcta es: **¿qué tan bien está diseñado su sistema digital para convertir interés en oportunidades comerciales reales?**
+La pregunta para una inmobiliaria ya no es si debe invertir en digital. La pregunta correcta es: **¿Qué tan bien está diseñado su sistema digital para convertir interés en oportunidades comerciales reales?**
 
 ## El comprador inmobiliario ya no avanza en línea recta
 
@@ -86,7 +95,7 @@ Cuando alguien busca “departamentos en Miraflores”, “terrenos en Lurín”
 
 ### TikTok Ads acelera atención y recordación
 
-[TikTok](/servicios/tiktok-ads/) dejó de ser únicamente entretenimiento. En real estate, funciona especialmente bien cuando se muestran recorridos, transformaciones, vistas, lifestyle, ubicación y beneficios concretos en formato video. En Perú, su alcance publicitario adulto estimado llegó a 28.3 millones de usuarios en late 2025, según DataReportal. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
+[TikTok](/servicios/tiktok-ads/) dejó de ser únicamente entretenimiento. En real estate, funciona especialmente bien cuando se muestran recorridos, transformaciones, vistas, lifestyle, ubicación y beneficios concretos en formato video. En Perú, su alcance publicitario adulto estimado llegó a 28.3 millones de usuarios a finales de 2025, según DataReportal. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
 
 !leer google-meta-tiktok-vender-propiedades
 
@@ -112,10 +121,10 @@ Un sistema serio debe medir más que el costo por lead.
 + CPA: costo por acción. Puede ser una visita agendada, una llamada o una cotización.
 + CAC: costo de adquisición de cliente. Indica cuánto costó conseguir una venta real.
 + Tasa de contacto: porcentaje de leads que sí responden.
-+ Tasa de visita: porcentaje de leads que agenda visita.
++ Tasa de visita: porcentaje de leads que agendan una visita.
 + Tasa de cierre: porcentaje de visitas que terminan en separación o venta.
 
-El CPL puede ser bajo y aun así ser un mal indicador. Una campaña que genera leads a S/6 pero sin capacidad de compra puede ser peor que una campaña con leads a S/30, pero con compradores reales.
+El CPL puede ser bajo y aun así ser un mal indicador. Una campaña que genera leads a S/6, pero sin capacidad de compra puede ser peor que una campaña con leads a S/30, pero con compradores reales.
 
 Google recomienda alimentar las campañas de generación de leads con datos más profundos del embudo, como “lead calificado”, “cita agendada” o “cliente convertido”, porque las campañas automatizadas aprenden mejor cuando reciben señales cercanas a la venta real. [[Google|https://business.google.com/us/accelerate/resources/articles/performance-max-best-practices-for-lead-generation/]]
 
@@ -123,7 +132,7 @@ Google recomienda alimentar las campañas de generación de leads con datos más
 
 ## El contenido no es decoración: es infraestructura comercial
 
-En inmobiliaria, el contenido visual reduce incertidumbre. Una [foto profesional](/contenido-inmobiliario), un video bien narrado o una [toma de drone](/servicio-drone-inmobiliario) no son accesorios estéticos; son activos de venta.
+En inmobiliaria, el contenido visual reduce la incertidumbre. Una [foto profesional](/contenido-inmobiliario), un video bien narrado o una [toma de drone](/servicio-drone-inmobiliario) no son accesorios estéticos; son activos de venta.
 
 La National Association of Realtors reportó que, entre compradores que usaron internet, las fotos fueron consideradas “muy útiles” por el 83%, la información detallada por el 79%, los planos por el 57%, los tours virtuales por el 41% y los videos por el 29%. [[NAR|https://cms.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
 
@@ -131,7 +140,7 @@ Eso significa que una campaña sin buen contenido parte con desventaja. El usuar
 
 ## Conclusión
 
-La inmobiliaria que gana no es necesariamente la que más publica ni la que más invierte. Es la que construye mejor sistema.
+La inmobiliaria que gana no es necesariamente la que más publica ni la que más invierte. Es la que construye un mejor sistema.
 
 La máquina digital ideal combina Google Ads para capturar intención, Meta Ads para generar conversación, TikTok Ads para ganar atención, WhatsApp para convertir, CRM para ordenar y contenido profesional para elevar la confianza.
 
@@ -160,7 +169,7 @@ La respuesta profesional no es elegir una plataforma por moda. La respuesta corr
 
 Google funciona mejor cuando el usuario ya está buscando. Meta funciona mejor cuando la marca necesita aparecer, insistir y convertir mediante conversación. TikTok funciona mejor cuando la propiedad necesita atención visual rápida y contenido con apariencia nativa.
 
-Por eso, la pregunta no debería ser cuál plataforma es mejor. La pregunta debería ser: **¿qué papel cumple cada plataforma dentro del proceso de venta?**
+Por eso, la pregunta no debería ser qué plataforma es mejor. La pregunta debería ser: **¿Qué papel cumple cada plataforma dentro del proceso de venta?**
 
 ## Google Ads: cuando el comprador ya tiene intención
 
@@ -180,7 +189,7 @@ Performance Max amplía esta lógica porque permite aparecer en distintos espaci
 
 A diferencia de Google, el usuario no siempre está buscando activamente una propiedad. Puede estar viendo historias, reels o publicaciones. Pero un buen anuncio puede activar una necesidad latente: mudarse, invertir, comprar un primer departamento, separar un lote o visitar un proyecto.
 
-Meta ha reforzado sus herramientas de generación de leads con formularios, clic a WhatsApp, Messenger, Instagram Direct e integraciones CRM. En una publicación corporativa, Meta señaló que las campañas con configuración orientada a leads de calidad lograron, en promedio, una reducción del 16% en costo por lead de calidad y un aumento del 21% en la conversión de lead a lead calificado frente a campañas con objetivo estándar de rendimiento de leads. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
+Meta ha reforzado sus herramientas de generación de leads con formularios, clic a WhatsApp, Messenger, Instagram Direct e integraciones con CRM. En una publicación corporativa, Meta señaló que las campañas con configuración orientada a leads de calidad lograron, en promedio, una reducción del 16% en el costo por lead de calidad y un aumento del 21% en la conversión de lead a lead calificado frente a campañas con objetivo estándar de rendimiento de leads. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
 
 + Ventaja principal: volumen, remarketing y conversación.
 + Riesgo principal: muchos leads curiosos si no se filtra bien.
@@ -192,9 +201,9 @@ Meta ha reforzado sus herramientas de generación de leads con formularios, clic
 
 Para inmobiliarias, esto abre una oportunidad potente: recorridos rápidos, “antes y después”, tours de departamentos, tomas de drone, contenido tipo asesor, mitos sobre compra de vivienda, errores al invertir y videos de ubicación.
 
-DataReportal reporta que TikTok tuvo 28.3 millones de usuarios adultos alcanzables por anuncios en Perú en late 2025, con un crecimiento potencial de alcance publicitario de 22.5% entre fines de 2024 y late 2025. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
+DataReportal reporta que TikTok tuvo 28.3 millones de usuarios adultos alcanzables por anuncios en Perú a finales de 2025, con un crecimiento potencial de alcance publicitario del 22.5% entre finales de 2024 y finales de 2025. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
 
-Además, TikTok presentó casos inmobiliarios como RentSocial, donde videos de seis segundos alcanzaron más de un millón de vistas promedio al año, con un CTR 27% superior a estándares de la industria y una reducción de 16% en CPC. La propia plataforma advierte que los resultados son reportados por la marca y no garantizan resultados futuros, pero el caso demuestra el rol del video corto en real estate. [[TikTok For Business|https://ads.tiktok.com/business/en/inspiration/rent-social-lead-generation-case-study]]
+Además, TikTok presentó casos inmobiliarios como RentSocial, donde videos de seis segundos alcanzaron más de un millón de vistas promedio al año, con un CTR 27% superior a los estándares de la industria y una reducción del 16% en el CPC. La propia plataforma advierte que los resultados son reportados por la marca y no garantizan resultados futuros, pero el caso demuestra el rol del video corto en real estate. [[TikTok For Business|https://ads.tiktok.com/business/en/inspiration/rent-social-lead-generation-case-study]]
 
 + Ventaja principal: atención barata y contenido viralizable.
 + Riesgo principal: leads menos maduros si no se combina con remarketing y WhatsApp.
@@ -202,7 +211,7 @@ Además, TikTok presentó casos inmobiliarios como RentSocial, donde videos de s
 
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
-## Entonces, ¿dónde invertir?
+## Entonces, ¿Dónde invertir?
 
 La mejor distribución depende del producto. Pero para una inmobiliaria promedio, una estructura razonable podría ser:
 
@@ -218,7 +227,7 @@ La lógica es simple: Google captura demanda, Meta convierte conversación y Tik
 
 Muchas empresas eligen la plataforma con menor CPL. Ese es un error frecuente.
 
-Un lead de TikTok puede costar menos, pero requerir más nutrición. Un lead de Google puede costar más, pero llegar con intención más clara. Un lead de Meta puede estar en punto intermedio, especialmente si entra por WhatsApp y responde preguntas de calificación.
+Un lead de TikTok puede costar menos, pero requerir más nutrición. Un lead de Google puede costar más, pero llegar con intención más clara. Un lead de Meta puede estar en un punto intermedio, especialmente si entra por WhatsApp y responde preguntas de calificación.
 
 Por eso, la comparación debe hacerse con métricas de embudo:
 
@@ -277,11 +286,11 @@ En campañas inmobiliarias, esto suele ocurrir cuando se optimiza solo hacia for
 
 La diferencia es enorme.
 
-Un lead de S/5 puede ser caro si nadie lo atiende o si no cumple el perfil. Un lead de S/35 puede ser barato si agenda visita y tiene capacidad real de compra.
+Un lead de S/5 puede ser caro si nadie lo atiende o si no cumple el perfil. Un lead de S/35 puede ser barato si agenda una visita y tiene capacidad real de compra.
 
 ## Qué significa realmente “lead calificado”
 
-Un lead calificado es un contacto que cumple ciertas condiciones mínimas para convertirse en oportunidad comercial.
+Un lead calificado es un contacto que cumple ciertas condiciones mínimas para convertirse en una oportunidad comercial.
 
 En inmobiliaria, esas condiciones pueden ser:
 
@@ -313,7 +322,7 @@ Ejemplo:
 | Visitas | 6 | 18 |
 | Ventas | 0 | 2 |
 
-La campaña A tuvo CPL más barato. La campaña B fue mejor negocio.
+La campaña A tuvo un CPL más barato. La campaña B fue un mejor negocio.
 
 !leer google-meta-tiktok-vender-propiedades
 
@@ -331,7 +340,7 @@ El algoritmo no adivina el negocio. Aprende de las señales que recibe.
 
 En Perú y Latinoamérica, WhatsApp es un canal crítico para inmobiliarias. No porque sea moderno, sino porque es directo, rápido y familiar.
 
-Meta presentó un caso de Lomas de Angelópolis, desarrollador inmobiliario mexicano, donde la combinación de anuncios con clic a WhatsApp y un agente de negocio en WhatsApp logró 6 veces más citas mensuales, una reducción de 33% en el ciclo de ventas y ahorro de 10 a 12 horas semanales del equipo. La fuente advierte que son resultados autoreportados y no garantizan desempeño futuro, pero el caso ilustra la importancia de responder rápido y automatizar la calificación. [[WhatsApp Business|https://whatsappbusiness.com/resources/success-stories/lomas-de-angelopolis/]]
+Meta presentó un caso de Lomas de Angelópolis, desarrollador inmobiliario mexicano, donde la combinación de anuncios con clic a WhatsApp y un agente de negocio en WhatsApp logró seis veces más citas mensuales, una reducción del 33% en el ciclo de ventas y un ahorro de 10 a 12 horas semanales del equipo. La fuente advierte que son resultados autorreportados y no garantizan desempeño futuro, pero el caso ilustra la importancia de responder rápido y automatizar la calificación. [[WhatsApp Business|https://whatsappbusiness.com/resources/success-stories/lomas-de-angelopolis/]]
 
 En otras palabras: **el anuncio abre la puerta, pero la conversación vende.**
 
@@ -341,7 +350,7 @@ En otras palabras: **el anuncio abre la puerta, pero la conversación vende.**
 1. **Crea landings específicas.** No mandes todos los anuncios a una página general. Una campaña para terrenos debe tener una página de terrenos. Una campaña para departamentos debe tener una página de departamentos.
 1. **Separa campañas por intención.** No mezcles búsqueda activa con remarketing, ni compradores fríos con personas que ya escribieron.
 1. **Mide el avance comercial.** El equipo de ventas debe reportar qué leads fueron útiles, cuáles visitaron y cuáles no calificaron.
-1. **Responde rápido.** En inmobiliaria, un lead atendido tarde puede convertirse en venta de otra empresa.
+1. **Responde rápido.** En inmobiliaria, un lead atendido tarde puede convertirse en una venta de otra empresa.
 
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
@@ -349,7 +358,7 @@ En otras palabras: **el anuncio abre la puerta, pero la conversación vende.**
 
 El crecimiento no viene de llenar una base de datos con contactos. Viene de construir un sistema que convierta inversión publicitaria en conversaciones útiles, visitas calificadas y ventas reales.
 
-La pregunta correcta no es “¿cuántos leads generamos?”. La pregunta correcta es: **¿cuántos compradores reales estamos incorporando al embudo comercial?**
+La pregunta correcta no es “¿Cuántos leads generamos?”. La pregunta correcta es: **¿Cuántos compradores reales estamos incorporando al embudo comercial?**
 """,
 },
 # ---------------------------------------------------------------------------
@@ -391,7 +400,7 @@ La fotografía, el video y el drone ayudan a responder esas preguntas antes de l
 
 ## La evidencia: las imágenes son decisivas
 
-La National Association of Realtors encontró que, entre compradores que usaron internet en su proceso, las fotos fueron el recurso más valorado: 83% las consideró “muy útiles”. También fueron muy valorados la información detallada de la propiedad (79%), los planos (57%), los tours virtuales (41%) y los videos (29%). [[NAR|https://cms.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
+La National Association of Realtors encontró que, entre compradores que usaron internet en su proceso, las fotos fueron el recurso más valorado: el 83% las consideró “muy útiles”. También fueron muy valorados la información detallada de la propiedad (79%), los planos (57%), los tours virtuales (41%) y los videos (29%). [[NAR|https://cms.nar.realtor/sites/default/files/2025-03/2025-home-buyers-and-sellers-generational-trends-report-04-01-2025.pdf]]
 
 Esto no significa que el video sea menos importante. Significa que el comprador necesita información visual ordenada. Primero quiere ver bien. Luego quiere entender. Después quiere imaginar.
 
@@ -401,7 +410,7 @@ El contenido profesional cumple justamente esa función.
 
 El video permite mostrar recorrido, escala y atmósfera. Una foto puede mostrar una sala; un video puede mostrar cómo se conecta esa sala con la cocina, el balcón y la vista.
 
-Wyzowl reportó en su estudio de video marketing 2026 que 85% de los marketers indicó que el video les ayudó a generar leads, 83% dijo que incrementó ventas directamente y 82% señaló que ayudó a mantener a los visitantes más tiempo en una web. Desde el lado del consumidor, 85% afirmó haber sido convencido de comprar un producto o servicio después de ver un video, y 89% dijo que la calidad del video impacta su confianza en una marca. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
+Wyzowl reportó en su estudio de video marketing 2026 que el 85% de los marketers indicó que el video les ayudó a generar leads, el 83% dijo que incrementó las ventas directamente y el 82% señaló que ayudó a mantener a los visitantes más tiempo en una web. Desde el lado del consumidor, el 85% afirmó haber sido convencido de comprar un producto o servicio después de ver un video, y el 89% dijo que la calidad del video impacta su confianza en una marca. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
 
 En inmobiliaria, esa confianza es decisiva.
 
@@ -413,7 +422,7 @@ El [drone](/servicio-drone-inmobiliario) vende algo que una cámara interior no 
 
 Para terrenos, proyectos, locales comerciales, edificios, casas de playa o inmuebles con ubicación estratégica, la toma aérea ayuda a entender accesos, entorno, avenidas, cercanía a servicios y dimensión real.
 
-La encuesta tecnológica de NAR 2025 mostró que 52% de los agentes inmobiliarios encuestados ya usan fotografía o video con drone, mientras que 75% usa redes sociales como tecnología de trabajo. [[NAR|https://www.nar.realtor/research-and-statistics/research-reports/realtor-technology-survey]]
+La encuesta tecnológica de NAR 2025 mostró que el 52% de los agentes inmobiliarios encuestados ya usa fotografía o video con drone, mientras que el 75% usa redes sociales como tecnología de trabajo. [[NAR|https://www.nar.realtor/research-and-statistics/research-reports/realtor-technology-survey]]
 
 Esto demuestra que el contenido visual dejó de ser un lujo. Es parte de la infraestructura comercial del sector.
 
@@ -451,7 +460,7 @@ La producción debe incluir:
 
 El contenido inmobiliario no debe verse como un gasto de producción. Debe verse como un activo de conversión.
 
-Mejores fotos aumentan la confianza. Mejores videos reducen incertidumbre. Mejores tomas aéreas explican mejor el valor. Y mejores piezas publicitarias permiten que Google, Meta y TikTok trabajen con activos más persuasivos.
+Mejores fotos aumentan la confianza. Mejores videos reducen la incertidumbre. Mejores tomas aéreas explican mejor el valor. Y mejores piezas publicitarias permiten que Google, Meta y TikTok trabajen con activos más persuasivos.
 
 En un mercado donde todos publican, **gana quien presenta mejor.**
 """,
@@ -478,11 +487,11 @@ Tampoco significa llenar el feed con frases como “ocasión”, “remato” o 
 
 Vender en redes sociales exige estrategia, narrativa y método. La propiedad debe presentarse como una oportunidad clara, creíble y visualmente atractiva.
 
-La pregunta no es “¿en qué grupo de Facebook puedo publicar?”. La pregunta correcta es: **¿cómo convierto una propiedad en contenido capaz de generar interés real?**
+La pregunta no es “¿En qué grupo de Facebook puedo publicar?”. La pregunta correcta es: **¿Cómo convierto una propiedad en contenido capaz de generar interés real?**
 
 ## Paso 1: define a quién le estás vendiendo
 
-Antes de publicar, hay que definir comprador.
+Antes de publicar, hay que definir al comprador.
 
 No es lo mismo vender un departamento de 60 m² para primera vivienda que una casa de lujo, un terreno industrial o un local comercial.
 
@@ -514,7 +523,7 @@ La historia debe responder: qué es, para quién es, por qué importa y qué deb
 + Instagram: es ideal para percepción visual, confianza, reels, historias, carruseles y branding del asesor o inmobiliaria.
 + TikTok: permite captar atención con recorridos rápidos, videos tipo “ven conmigo a ver este departamento”, errores al comprar, comparativas de distritos o contenido educativo.
 
-DataReportal muestra que Perú tiene una masa digital suficientemente grande para justificar una estrategia multicanal: 28.3 millones de identidades activas en redes sociales, 24.7 millones de usuarios alcanzables por Facebook Ads, 11.3 millones por Instagram y 28.3 millones adultos por TikTok Ads. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
+DataReportal muestra que Perú tiene una masa digital suficientemente grande para justificar una estrategia multicanal: 28.3 millones de identidades activas en redes sociales, 24.7 millones de usuarios alcanzables por Facebook Ads, 11.3 millones por Instagram y 28.3 millones de adultos por TikTok Ads. [[DataReportal|https://datareportal.com/reports/digital-2026-peru]]
 
 !leer google-meta-tiktok-vender-propiedades
 
@@ -542,7 +551,7 @@ Una buena publicación no solo atrae. También filtra.
 
 Las redes sociales generan interés, pero la conversación comercial suele ocurrir por WhatsApp.
 
-El objetivo no es que el usuario dé like. El objetivo es que escriba, pregunte, mande captura, pida video, solicite ubicación o agende visita.
+El objetivo no es que el usuario dé like. El objetivo es que escriba, pregunte, mande una captura, pida un video, solicite la ubicación o agende una visita.
 
 Meta ha desarrollado anuncios de clic a WhatsApp precisamente para conectar descubrimiento en [Facebook e Instagram](/meta-ads-inmobiliarias) con conversación directa. Además, sus herramientas permiten integrar formularios, mensajes e incluso CRM para mejorar el seguimiento. [[Meta Blueprint|https://www.facebookblueprint.com/student/path/248735-whatsapp-click-to-ads]]
 
@@ -550,7 +559,7 @@ La clave es responder rápido y con orden.
 
 Un buen mensaje inicial debe incluir:
 
-> “Hola, gracias por tu interés. Te comparto la información completa de la propiedad: ubicación referencial, metraje, precio, distribución y video. Para ayudarte mejor, ¿estás buscando para vivir, invertir o alquilar?”
+> “Hola, gracias por tu interés. Te comparto la información completa de la propiedad: ubicación referencial, metraje, precio, distribución y video. Para ayudarte mejor, ¿Estás buscando para vivir, invertir o alquilar?”
 
 Eso convierte una conversación abierta en una calificación comercial.
 
@@ -558,7 +567,7 @@ Eso convierte una conversación abierta en una calificación comercial.
 
 No conviene invertir dinero para promocionar una publicación débil.
 
-Primero se necesita una pieza clara: buen video, buen copy, buen CTA y destino correcto. Luego se pauta.
+Primero se necesita una pieza clara: buen video, buen copy, buen CTA y un destino correcto. Luego se pauta.
 
 Un presupuesto pequeño puede funcionar si la estructura está bien diseñada. Pero si el contenido no comunica valor, el anuncio solo acelera el desperdicio.
 
@@ -610,7 +619,7 @@ La venta inmobiliaria sigue siendo humana. Pero el primer contacto, la primera i
 "body": """
 Una campaña inmobiliaria en Facebook, Instagram y TikTok no empieza en el Administrador de Anuncios. Empieza mucho antes.
 
-Empieza con una pregunta comercial: **¿qué propiedad se quiere vender, a quién, en qué plazo y con qué presupuesto?**
+Empieza con una pregunta comercial: **¿Qué propiedad se quiere vender, a quién, en qué plazo y con qué presupuesto?**
 
 Sin esa respuesta, la campaña se convierte en improvisación. Y en digital, improvisar cuesta dinero.
 
@@ -650,13 +659,13 @@ Para una campaña inmobiliaria, conviene preparar:
 - Copy corto para tráfico frío.
 - Copy más directo para remarketing.
 
-Wyzowl reportó que 71% de personas considera más efectivos los videos entre 30 segundos y 2 minutos, y que 63% prefiere aprender sobre un producto o servicio mediante video corto. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
+Wyzowl reportó que el 71% de las personas considera más efectivos los videos de entre 30 segundos y 2 minutos, y que el 63% prefiere aprender sobre un producto o servicio mediante video corto. [[Wyzowl|https://wyzowl.com/video-marketing-statistics/]]
 
 En inmobiliaria, el video debe ser claro desde los primeros segundos. No empieces con un logo. Empieza con el gancho:
 
 > “Departamento de estreno en San Miguel desde S/…”
 > “Terreno amplio a 5 minutos de…”
-> “Así se ve este triplex en San Borja por dentro…”
+> “Así se ve este tríplex en San Borja por dentro…”
 > “¿Buscas local comercial con exposición?”
 
 !leer contenido-inmobiliario-que-vende
@@ -680,7 +689,7 @@ En [Meta Ads](/meta-ads-inmobiliarias), lo recomendable es separar campañas por
 + Objetivo: mensajes o conversiones.
 + Público: personas que vieron videos, interactuaron con Instagram/Facebook, visitaron la web o escribieron.
 
-Meta señala que sus herramientas de lead generation permiten que una persona complete un formulario, inicie un chat o reciba una llamada para obtener más información. También destaca la integración con CRM y la optimización hacia leads de calidad. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
+Meta señala que sus herramientas de generación de leads permiten que una persona complete un formulario, inicie un chat o reciba una llamada para obtener más información. También destaca la integración con CRM y la optimización hacia leads de calidad. [[Meta|https://about.fb.com/ltam/news/2023/11/ayudando-a-las-empresas-a-crecer-con-nuevas-herramientas-de-generacion-de-leads-funciones-de-ia-y-alianzas-de-crm/]]
 
 ## Paso 4: estructura la campaña en TikTok Ads
 
@@ -690,7 +699,7 @@ Una campaña en TikTok debería incluir:
 
 + Campaña 1 — video views o tráfico: probar creativos y medir retención.
 + Campaña 2 — generación de leads o mensajes: captar interesados.
-+ Campaña 3 — remarketing: impactar a quienes vieron 50%, 75% o 100% del video.
++ Campaña 3 — remarketing: impactar a quienes vieron el 50%, el 75% o el 100% del video.
 
 TikTok funciona mejor cuando el anuncio parece contenido, no publicidad tradicional. Los videos deben ser rápidos, humanos y concretos.
 
@@ -707,9 +716,9 @@ Las campañas inmobiliarias no son una categoría cualquiera. En algunos mercado
 
 Meta ha implementado restricciones para anuncios de vivienda, incluyendo limitaciones en edad, género y código postal en determinados mercados, como parte de sus esfuerzos contra la discriminación. [[Meta|https://about.fb.com/news/2022/06/expanding-our-work-on-ads-fairness/]]
 
-TikTok también tiene una política HEC —Housing, Employment and Credit— para ciertos mercados, donde los anuncios de vivienda no pueden usar criterios como edad, género, zip code o estados maritales/parentales. [[TikTok For Business|https://ads.tiktok.com/resources/help/article/housing-employment-credit-hec-ad-policy]]
+TikTok también tiene una política HEC —Housing, Employment and Credit— para ciertos mercados, donde los anuncios de vivienda no pueden usar criterios como edad, género, código postal o estado civil y parental. [[TikTok For Business|https://ads.tiktok.com/resources/help/article/housing-employment-credit-hec-ad-policy]]
 
-Aunque estas reglas aplican de forma específica por mercado, una agencia profesional debe diseñar campañas inmobiliarias con criterios responsables: no excluir públicos de manera discriminatoria, no prometer financiamiento engañoso y no usar claims imposibles de sostener.
+Aunque estas reglas aplican de forma específica por mercado, una agencia profesional debe diseñar campañas inmobiliarias con criterios responsables: no excluir públicos de manera discriminatoria, no prometer financiamiento engañoso y no usar afirmaciones imposibles de sostener.
 
 ## Paso 6: crea un flujo de WhatsApp
 
@@ -717,15 +726,15 @@ La campaña no termina cuando llega el mensaje.
 
 Un flujo básico debería ordenar al lead así:
 
-1. **Primera respuesta:** saludo + información de propiedad.
+1. **Primera respuesta:** saludo e información de la propiedad.
 1. **Segunda pregunta:** presupuesto, zona o necesidad.
 1. **Tercer paso:** envío de video, ficha o brochure.
-1. **Cuarto paso:** invitación a visita.
+1. **Cuarto paso:** invitación a una visita.
 1. **Quinto paso:** seguimiento si no responde.
 
 Ejemplo de mensaje:
 
-> “Hola, gracias por tu interés. Te comparto la información completa de la propiedad. Para orientarte mejor, ¿estás buscando para vivir, invertir o alquilar?”
+> “Hola, gracias por tu interés. Te comparto la información completa de la propiedad. Para orientarte mejor, ¿Estás buscando para vivir, invertir o alquilar?”
 
 La meta no es conversar por conversar. La meta es calificar y avanzar.
 
@@ -766,7 +775,7 @@ Indicadores:
 
 No se deben apagar anuncios solo porque tienen pocos likes. Tampoco se deben mantener solo porque tienen muchas vistas.
 
-La pregunta siempre debe ser comercial: **¿este anuncio está generando oportunidades reales?**
+La pregunta siempre debe ser comercial: **¿Este anuncio está generando oportunidades reales?**
 
 ## Conclusión
 
