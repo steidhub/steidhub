@@ -1493,3 +1493,12 @@ body[data-landing="drone"] #incluye .drone-usecases li{font-weight:600;color:#FF
   body[data-landing="drone"] .drone-gear__specs span{font-size:12px}
   body[data-landing="drone"] .drone-gear__head p:not(.eyebrow){font-size:14px}
 }
+/* "Todo el sistema…" va ahora después del formulario: mismo ritmo arriba y
+   algo más de aire antes del pie de página */
+body[data-landing="drone"] #contacto{padding-bottom:clamp(40px,4.4vw,64px)}
+/* especificidad por encima de "#galeria ~ .lp-section:not(#contacto)" */
+body[data-landing="drone"] #galeria ~ #contacto + #servicios.lp-section{padding-bottom:clamp(64px,7vw,104px)}
+@media(max-width:767px){
+  body[data-landing="drone"] #contacto{padding-bottom:36px}
+  body[data-landing="drone"] #galeria ~ #contacto + #servicios.lp-section{padding-bottom:64px}
+}
