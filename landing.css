@@ -1071,13 +1071,13 @@ html:not(.has-js) .lp-kpi__bar i{transform:scaleX(1)}
 /* ==========================================================================
    Google Ads + Meta Ads: fondo continuo y animado, sin líneas entre secciones
    ========================================================================== */
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]){background:var(--ink)}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page){background:var(--ink)}
 /* dos capas de luz fijas al viewport: el difuminado nunca termina al hacer scroll */
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before,
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::before,
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::after{
   content:"";position:fixed;inset:-25vmax;z-index:-1;pointer-events:none;will-change:transform;
 }
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before{
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::before{
   background:
     radial-gradient(36vmax 26vmax at 70% 26%,rgba(196,107,60,.22),transparent 70%),
     radial-gradient(40vmax 30vmax at 22% 40%,rgba(22,50,79,.36),transparent 70%),
@@ -1085,7 +1085,7 @@ html:not(.has-js) .lp-kpi__bar i{transform:scaleX(1)}
     radial-gradient(38vmax 28vmax at 30% 80%,rgba(22,50,79,.26),transparent 70%);
   animation:lpAuroraA 36s ease-in-out infinite alternate;
 }
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::after{
   background:
     radial-gradient(28vmax 22vmax at 42% 52%,rgba(217,140,95,.10),transparent 70%),
     radial-gradient(32vmax 24vmax at 80% 58%,rgba(22,50,79,.24),transparent 70%),
@@ -1103,19 +1103,19 @@ html:not(.has-js) .lp-kpi__bar i{transform:scaleX(1)}
   100%{transform:translate3d(-6%,3%,0) rotate(6deg) scale(1.06)}
 }
 /* sin divisores ni bandas: todas las secciones sobre el mismo fondo */
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-section + .lp-section::before{display:none}
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-section--deep,
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .lp-section + .lp-section::before{display:none}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .lp-section--deep,
 body[data-landing="meta-ads"] #resultados{background:transparent;box-shadow:none}
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .footer{border-top:0;background:transparent}
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .footer{border-top:0;background:transparent}
 /* la foto del hero y la de contacto se funden con el fondo en vez de cortar en negro */
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-hero__media,
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .lp-hero::after{
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .lp-hero__media,
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .lp-hero::after{
   -webkit-mask-image:linear-gradient(180deg,#000 38%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.45) 78%,rgba(0,0,0,.14) 92%,transparent);mask-image:linear-gradient(180deg,#000 38%,rgba(0,0,0,.82) 58%,rgba(0,0,0,.45) 78%,rgba(0,0,0,.14) 92%,transparent);
 }
-:is(body[data-landing="google-ads"],body[data-landing="meta-ads"]) .section__bg{
+:is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page) .section__bg{
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent);mask-image:linear-gradient(180deg,transparent,#000 24%,#000 76%,transparent);
 }
 @media(prefers-reduced-motion:reduce){
-  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::before,
-  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"])::after{animation:none}
+  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::before,
+  :is(body[data-landing="google-ads"],body[data-landing="meta-ads"],body.blog-page)::after{animation:none}
 }
