@@ -744,46 +744,6 @@
     }
   });
 
-  /* ---------- Pop-up de diagnóstico ---------- */
-  const popup = document.getElementById('popup');
-  if (popup) {
-    let lastFocus = null;
-    const closeBtn = popup.querySelector('.popup__close');
-    const link = popup.querySelector('.popup__link');
-
-    const close = () => {
-      popup.classList.remove('is-open');
-      document.body.style.overflow = '';
-      setTimeout(() => { popup.hidden = true; }, 400);
-      if (lastFocus) lastFocus.focus();
-    };
-    const open = () => {
-      if (sessionStorage.getItem('popupVisto') === '1') return;
-      lastFocus = document.activeElement;
-      popup.hidden = false;
-      // reflow forzado en vez de rAF: si la pestaña está en segundo plano rAF no corre
-      // y el overlay se quedaría invisible pero bloqueando los clics.
-      void popup.offsetWidth;
-      popup.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    };
-
-    popup.querySelectorAll('[data-popup-close]').forEach((el) =>
-      el.addEventListener('click', () => { try { sessionStorage.setItem('popupVisto', '1'); } catch (e) {} close(); }));
-    // al ir a WhatsApp también se cierra y no vuelve a salir en esta visita
-    link && link.addEventListener('click', () => { try { sessionStorage.setItem('popupVisto', '1'); } catch (e) {} close(); });
-
-    addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && popup.classList.contains('is-open')) {
-        try { sessionStorage.setItem('popupVisto', '1'); } catch (e2) {}
-        close();
-      }
-    });
-
-    setTimeout(() => { if (!matchMedia('(max-width:767px)').matches) open(); }, 3000);
-  }
-
   /* ---------- Formulario ---------- */
   const form = document.getElementById('contactForm');
   if (!form) return;
