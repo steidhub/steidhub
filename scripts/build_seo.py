@@ -24,10 +24,10 @@ def schema(path,title,description,crumbs,kind=None):
  return json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False).replace('<','\\u003c')
 def metadata(path,title,description,crumbs=(),kind=None):
  url=ORIGIN+path
- tags=[f'<title>{escape(title)}</title>',f'<meta name="description" content="{escape(description,quote=True)}">',f'<link rel="canonical" href="{url}">','<meta name="robots" content="index,follow,max-image-preview:large">','<meta name="theme-color" content="#111111">']
- for key,val in {'og:title':title,'og:description':description,'og:url':url,'og:type':'website','og:site_name':'Steid Hub','og:locale':'es_PE','og:image':ORIGIN+'/assets/img/hero-poster.jpg','og:image:alt':'Vista aérea de un proyecto inmobiliario presentada por Steid Hub'}.items():
+ tags=[f'<title>{escape(title)}</title>',f'<meta name="description" content="{escape(description,quote=True)}">',f'<link rel="canonical" href="{url}">',f'<link rel="alternate" hreflang="es-PE" href="{url}">',f'<link rel="alternate" hreflang="x-default" href="{url}">','<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">','<meta name="theme-color" content="#111111">']
+ for key,val in {'og:title':title,'og:description':description,'og:url':url,'og:type':'website','og:site_name':'Steid Hub','og:locale':'es_PE','og:image':ORIGIN+'/assets/og/home.jpg','og:image:type':'image/jpeg','og:image:width':'1200','og:image:height':'630','og:image:alt':'Vista aérea de un proyecto inmobiliario presentada por Steid Hub'}.items():
   tags.append(f'<meta property="{key}" content="{escape(val,quote=True)}">')
- for key,val in {'twitter:card':'summary_large_image','twitter:title':title,'twitter:description':description,'twitter:image':ORIGIN+'/assets/img/hero-poster.jpg','twitter:image:alt':'Vista aérea de un proyecto inmobiliario presentada por Steid Hub'}.items():
+ for key,val in {'twitter:card':'summary_large_image','twitter:title':title,'twitter:description':description,'twitter:image':ORIGIN+'/assets/og/home.jpg','twitter:image:alt':'Vista aérea de un proyecto inmobiliario presentada por Steid Hub'}.items():
   tags.append(f'<meta name="{key}" content="{escape(val,quote=True)}">')
  tags.append('<script type="application/ld+json">\n'+schema(path,title,description,crumbs,kind)+'\n</script>')
  return '\n'.join(tags)
@@ -61,8 +61,11 @@ home=re.sub(r'<meta (?:name="(?:description|robots|theme-color|twitter:[^"]+)"|p
 home=re.sub(r'<link rel="canonical"[^>]*>\s*','',home)
 home=re.sub(r'<script type="application/ld\+json">.*?</script>\s*','',home,flags=re.S)
 home=home.replace('</head>',metadata('/','Agencia de marketing digital en Perú | Steid Hub','Marketing digital en Perú: campañas en Google, Meta y TikTok, generación de leads y producción audiovisual para inmobiliarias y desarrolladores.')+'\n</head>')
-(ROOT/'index.html').write_text(home)
+# index.html se mantiene a mano (datos estructurados y etiquetas propias); no se sobrescribe.
 urls=list(dict.fromkeys(['/','/servicios/','/sectores/']+[p['path'] for p in PAGES]+[r['path'] for p in PAGES for r in p['resources']]))
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'  <url><loc>{ORIGIN}{url}</loc></url>\n' for url in urls)+'</urlset>\n')
+# El sitemap es compartido (landings, blog): sólo se añaden las rutas que falten.
+_sm=(ROOT/'sitemap.xml').read_text()
+_new=''.join(f'  <url><loc>{ORIGIN}{url}</loc></url>\n' for url in urls if f'<loc>{ORIGIN}{url}</loc>' not in _sm)
+(ROOT/'sitemap.xml').write_text(_sm.replace('</urlset>',_new+'</urlset>'))
 (ROOT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {ORIGIN}/sitemap.xml\n')
 print(f'Generated {len(urls)} indexable routes; no client-side SEO injection.')

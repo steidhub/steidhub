@@ -727,7 +727,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
 .footer__top{display:grid;gap:var(--sp-4);margin-bottom:var(--sp-5)}
 @media(min-width:900px){.footer__top{grid-template-columns:1.6fr 1fr 1fr;gap:var(--sp-5)}}
 .footer__logo img{height:30px;width:auto;margin-bottom:var(--sp-2)}
-.footer h4{font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-muted);margin:0 0 var(--sp-2)}
+.footer h4,.footer .footer__heading{font-size:.6875rem;font-weight:600;line-height:1.05;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-muted);margin:0 0 var(--sp-2)}
 .footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .footer ul a{font-size:.875rem;color:var(--sand);transition:color .2s var(--ease)}
 .footer ul a:hover{color:var(--terra)}
@@ -1200,7 +1200,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
   body:not(.ads-page) .contact__info dt{font-size:10px;letter-spacing:.2em}
   body:not(.ads-page) .field label{font-size:10.5px}
   body:not(.ads-page) .form__consent{font-size:12.5px;line-height:1.6}
-  body:not(.ads-page) .footer h4{font-size:10px;letter-spacing:.2em}
+  body:not(.ads-page) .footer h4,body:not(.ads-page) .footer .footer__heading{font-size:10px;letter-spacing:.2em}
   body:not(.ads-page) .footer ul a{font-size:13.5px}
   body:not(.ads-page) .footer__bar{font-size:11px}
 }

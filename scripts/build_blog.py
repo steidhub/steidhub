@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260910-blog12"
+V = "20260910-blog13"
 POSTS = {p["slug"]: p for p in B.POSTS}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
@@ -123,6 +123,7 @@ WA_HELLO = "https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%
 
 def head(title, description, canonical, image, image_alt, og_type="article", extra_meta="", jsonld=None, preload=None):
     img_abs = ORIGIN + image[0]
+    image = (image[0], 1200, 630) if image[0].startswith("/assets/og/") else image
     return f"""<!doctype html>
 <html lang="es-PE">
 <head>
@@ -139,6 +140,8 @@ def head(title, description, canonical, image, image_alt, og_type="article", ext
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{canonical}">
+<link rel="alternate" hreflang="es-PE" href="{canonical}">
+<link rel="alternate" hreflang="x-default" href="{canonical}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="author" content="{B.AUTHOR['name']}">
 <meta name="theme-color" content="#111111">
@@ -149,6 +152,7 @@ def head(title, description, canonical, image, image_alt, og_type="article", ext
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:image" content="{img_abs}">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="{image[1]}">
 <meta property="og:image:height" content="{image[2]}">
 <meta property="og:image:alt" content="{esc(image_alt)}">
@@ -168,7 +172,7 @@ def head(title, description, canonical, image, image_alt, og_type="article", ext
    no carga (bloqueado, 404, error), soltamos la clase y la pagina se ve entera. */
 (function(d){{d.classList.add("has-js");setTimeout(function(){{
   if(!window.__lpReady)d.classList.remove("has-js");}},3000);}})(document.documentElement)</script>
-<link rel="stylesheet" href="/styles.css?v=20260910-lp1">
+<link rel="stylesheet" href="/styles.css?v=20260910-seo1">
 <link rel="stylesheet" href="/landing.css?v={V}">
 <link rel="stylesheet" href="/blog.css?v={V}">
 <script type="application/ld+json">
@@ -266,6 +270,7 @@ FOOTER_WA = (FOOTER_WA.replace('src="assets/', 'src="/assets/')
              .replace('href="index.html#', 'href="/#')
              .replace('<li><a href="/#portafolio">Portafolio</a></li>',
                       '<li><a href="/#portafolio">Portafolio</a></li>\n          <li><a href="/blog/">Blog de marketing inmobiliario</a></li>'))
+FOOTER_WA = FOOTER_WA.replace("<h4>", '<h2 class="footer__heading">').replace("</h4>", "</h2>")
 assert 'href="/blog/"' in FOOTER_WA and "index.html" not in FOOTER_WA
 SCRIPTS = f"""<script src="/wa-widget.js?v=20260910-lp1" defer></script>
 <script src="/landing.js?v=20260910-ux13" defer></script>
@@ -373,18 +378,20 @@ def build_post(p):
     body, toc, words, sources = render_body(p["body"])
     src, w, h, alt = p["cover"]
     title_tag = f"{p['seo_title']} | Steid Hub"
+    og = f"/assets/og/blog-{p['slug']}.jpg"
     graph = [ORG, WEBSITE, PERSON,
              {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title_tag,
               "description": p["description"], "inLanguage": "es-PE",
               "isPartOf": {"@id": ORIGIN + "/#website"}, "breadcrumb": {"@id": url + "#breadcrumb"},
-              "primaryImageOfPage": {"@type": "ImageObject", "url": ORIGIN + src}},
+              "primaryImageOfPage": {"@type": "ImageObject", "url": ORIGIN + og, "width": 1200, "height": 630}},
              {"@type": "BreadcrumbList", "@id": url + "#breadcrumb", "itemListElement": [
                  {"@type": "ListItem", "position": 1, "name": "Inicio", "item": ORIGIN + "/"},
                  {"@type": "ListItem", "position": 2, "name": "Blog", "item": ORIGIN + "/blog/"},
                  {"@type": "ListItem", "position": 3, "name": p["title"]}]},
              {"@type": "BlogPosting", "@id": url + "#article", "mainEntityOfPage": {"@id": url + "#webpage"},
               "headline": p["title"], "alternativeHeadline": p["seo_title"], "description": p["description"],
-              "image": {"@type": "ImageObject", "url": ORIGIN + src, "width": w, "height": h},
+              "image": [{"@type": "ImageObject", "url": ORIGIN + og, "width": 1200, "height": 630},
+                        {"@type": "ImageObject", "url": ORIGIN + src, "width": w, "height": h}],
               "datePublished": B.PUBLISHED + "T09:00:00-05:00", "dateModified": B.PUBLISHED + "T09:00:00-05:00",
               "author": {"@id": ORIGIN + "/#michael-philipps"}, "publisher": {"@id": ORIGIN + "/#organization"},
               "isPartOf": {"@id": BLOG_ID}, "inLanguage": "es-PE", "articleSection": "Marketing inmobiliario",
@@ -404,7 +411,7 @@ def build_post(p):
           <h3>{esc(POSTS[s]['title'])}</h3>
           <p>{esc(POSTS[s]['excerpt'])}</p>
         </a>""" for s in p["related"])
-    page = f"""{head(title_tag, p['description'], url, p['cover'], alt, 'article', extra, {"@context": "https://schema.org", "@graph": graph}, src)}
+    page = f"""{head(title_tag, p['description'], url, (og,), alt, 'article', extra, {"@context": "https://schema.org", "@graph": graph}, src)}
 <body class="lp-page blog-page" data-landing="blog-{p['slug']}">
 
 {nav()}
@@ -477,7 +484,7 @@ def build_index():
     title = "Blog de marketing inmobiliario en Perú | Steid Hub"
     desc = ("Guías de marketing inmobiliario para vender más propiedades en Perú: Google Ads, Meta Ads, "
             "TikTok Ads, generación de leads, contenido y drone.")
-    cover = ("/assets/img/meta-hero-brasil.webp", 2048, 1536)
+    cover = ("/assets/og/blog.jpg", 1200, 630)
     alt = "Vista aérea de edificios residenciales en Lima"
     graph = [ORG, WEBSITE, PERSON,
              {"@type": "CollectionPage", "@id": url + "#webpage", "url": url, "name": title, "description": desc,
