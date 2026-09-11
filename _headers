@@ -10,7 +10,13 @@
 # Imágenes, logos, videos y tipografías: caché de 7 días en el navegador
 # (mejora la velocidad de carga, que Google mide en Core Web Vitals).
 /assets/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+  X-Content-Type-Options: nosniff
+# Seguridad y privacidad sin bloquear analytics, fuentes o formularios actuales.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
 # Feed del blog
 /blog/feed.xml
   Content-Type: application/rss+xml; charset=utf-8

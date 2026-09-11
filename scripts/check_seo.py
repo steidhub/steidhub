@@ -2,7 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
-import json,xml.etree.ElementTree as ET
+import json,posixpath,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 ORIGIN='https://steidhub.com'
 class Document(HTMLParser):
@@ -22,7 +22,11 @@ docs={}
 for url in urls:
  assert url.startswith(ORIGIN+'/')
  path=urlsplit(url).path
- file=ROOT/path.strip('/')/'index.html'
+ if path=='/':file=ROOT/'index.html'
+ elif path.endswith('/'):file=ROOT/path.strip('/')/'index.html'
+ else:
+  flat=ROOT/(path.strip('/')+'.html')
+  file=flat if flat.exists() else ROOT/path.strip('/')/'index.html'
  assert file.exists(),file
  docs[path]=Document(file.read_text())
 for path,doc in docs.items():
@@ -54,9 +58,14 @@ for path,doc in docs.items():
    if not value:continue
    u=urlsplit(value)
    if u.scheme or u.netloc:continue
-   target=(path+u.path if not u.path.startswith('/') else u.path) if u.path else path
+   base=path if path.endswith('/') else posixpath.dirname(path)+'/'
+   target=posixpath.normpath(posixpath.join(base,u.path)) if u.path and not u.path.startswith('/') else (u.path or path)
+   if not target.startswith('/'):target='/'+target
    target=unquote(target)
    local=ROOT/target.lstrip('/')
+   if not local.exists() and not target.endswith('/'):
+    html=ROOT/(target.lstrip('/')+'.html')
+    if html.exists():local=html
    assert local.exists(),(path,value,'missing target')
    if u.fragment:
     dest=docs.get(target)
@@ -78,4 +87,7 @@ assert len({x['keyword'].casefold() for x in keywords})==len(keywords)
 assert all(x['url'] in docs for x in keywords)
 assert 'noindex' in (ROOT/'404.html').read_text()
 assert 'Sitemap: '+ORIGIN+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
+assert (ROOT/'llms.txt').exists() and (ROOT/'llms-full.txt').exists()
+robots=(ROOT/'robots.txt').read_text()
+assert all(f'User-agent: {agent}' in robots for agent in ['OAI-SearchBot','ChatGPT-User','ClaudeBot'])
 print(f'PASS: {len(docs)} routes, {len(keywords)} unique keyword candidates, metadata, schema, headings, images, links, anchors and reachability.')

@@ -186,6 +186,35 @@
     document.addEventListener('visibilitychange', () => { if (document.hidden) film.pause(); });
   }
 
+  /* Los videos verticales pesan mucho más que sus posters. Las fuentes quedan
+     en data-src y sólo se solicitan cuando el bloque se acerca al viewport. */
+  const showcaseVideos = [...document.querySelectorAll('.video-showcase video')];
+  if (showcaseVideos.length) {
+    const loadVideo = (video) => {
+      if (video.dataset.loaded === 'true') return;
+      video.querySelectorAll('source[data-src]').forEach((source) => {
+        source.src = source.dataset.src;
+      });
+      video.dataset.loaded = 'true';
+      video.load();
+    };
+    const setPlayback = (video, visible) => {
+      if (visible && !reduce.matches) {
+        loadVideo(video);
+        video.play().catch(() => {});
+      } else video.pause();
+    };
+    if ('IntersectionObserver' in window) {
+      const vio = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        setPlayback(entry.target, entry.isIntersecting);
+      }), { rootMargin: '180px 0px', threshold: 0.08 });
+      showcaseVideos.forEach((video) => vio.observe(video));
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) showcaseVideos.forEach((video) => video.pause());
+    });
+  }
+
   /* ---------- Carrusel de galería ----------
      Sobre el scroll nativo, que ya da inercia y scroll-snap: las flechas
      sólo desplazan una lámina, y el avance automático se detiene en cuanto
