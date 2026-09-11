@@ -1349,3 +1349,50 @@ body[data-landing="drone"] #incluye .drone-usecases li span{flex-basis:30px;heig
 /* la etiqueta "Equipo" va alineada con el título de la ficha, no centrada */
 .drone-gear__head .eyebrow{justify-content:flex-start;text-align:left}
 body[data-landing="drone"] #incluye .drone-usecases>.eyebrow{justify-content:flex-start;text-align:left}
+
+/* ==========================================================================
+   Drone · banda de licencia DGAC dentro de "Qué esperar, sin letra chica".
+   Resume la antigua sección "Piloto certificado, permisos y seguridad".
+   ========================================================================== */
+.drone-license{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:auto minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:center;
+  margin-top:18px;padding:clamp(24px,3vw,34px);border-radius:20px;
+  border:1px solid rgba(217,140,95,.55);
+  background:linear-gradient(120deg,rgba(196,107,60,.24),rgba(33,28,24,.94) 42%,rgba(18,18,18,.96));
+  box-shadow:0 0 0 1px rgba(196,107,60,.12),0 24px 60px rgba(0,0,0,.38);
+}
+.drone-license::after{
+  content:"";position:absolute;z-index:-1;width:260px;height:260px;left:-80px;top:-90px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(217,140,95,.28),transparent);
+}
+.drone-license__badge{
+  width:76px;height:76px;border-radius:20px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--terra),#9C4F27);color:#fff;
+  box-shadow:0 14px 30px rgba(196,107,60,.35),inset 0 0 0 1px rgba(255,255,255,.18);
+}
+.drone-license__badge svg{width:36px;height:36px}
+.drone-license__k{margin:0;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--terra-soft)}
+.drone-license__copy h3{margin:8px 0 0;font-size:clamp(1.25rem,2vw,1.7rem);line-height:1.2;letter-spacing:-.03em;color:var(--bone)}
+.drone-license__copy h3 strong{color:var(--terra-soft)}
+.drone-license__copy p:not(.drone-license__k){margin:10px 0 0;font-size:.9rem;line-height:1.65;color:#CFC9C2;max-width:52ch}
+.drone-license__list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.drone-license__list li{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;
+  border:1px solid rgba(237,229,220,.14);background:rgba(17,17,17,.5);
+  font-size:.86rem;color:#E2DCD5;
+}
+.drone-license__list svg{width:16px;height:16px;flex:none;color:var(--terra-soft)}
+@media(max-width:1100px){
+  .drone-license{grid-template-columns:auto minmax(0,1fr)}
+  .drone-license__list{grid-column:1 / -1;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:767px){
+  .drone-license{grid-template-columns:1fr;gap:16px;padding:22px 18px;text-align:left}
+  .drone-license__badge{width:60px;height:60px;border-radius:16px}
+  .drone-license__badge svg{width:28px;height:28px}
+  .drone-license__copy h3{font-size:19px}
+  .drone-license__copy p:not(.drone-license__k){font-size:13.5px}
+  .drone-license__list{grid-template-columns:1fr}
+  .drone-license__list li{font-size:13px}
+}
