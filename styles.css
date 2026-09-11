@@ -1271,4 +1271,24 @@ body.home::after{
 /* divisores entre secciones sin imagen */
 body.home #integral,
 body.home #equipo{border-top:0}
+
+/* El fondo animado sólo se ve desde la 2.ª sección hasta "Equipo":
+   el inicio y "Hablemos de tu próximo proyecto" quedan sobre negro sólido,
+   y los extremos del tramo se funden con un degradado para que no haya corte. */
+body.home .hero,
+body.home #contacto{background:var(--ink)}
+body.home #produccion{background:linear-gradient(180deg,var(--ink) 0,rgba(17,17,17,0) 320px)}
+body.home #equipo{background:linear-gradient(180deg,rgba(17,17,17,0) calc(100% - 320px),var(--ink) 100%)}
+/* la foto de Marketing se funde con el fondo animado en vez de cortar en negro */
+body.home #marketing .section__bg{
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 20%,#000 80%,transparent 100%);
+          mask-image:linear-gradient(180deg,transparent 0,#000 20%,#000 80%,transparent 100%);
+}
+body.home #marketing .section__bg img{-webkit-mask-image:none;mask-image:none}
+body.home #marketing .section__bg::after{
+  background:radial-gradient(90% 70% at 78% 22%,rgba(196,107,60,.20),transparent 60%),rgba(17,17,17,.9);
+}
+/* menos vacío entre los logos de "Colaboraciones" y "Por qué nosotros" */
+body.home #portafolio{padding-bottom:clamp(24px,3vw,40px)}
+body.home #equipo{padding-top:clamp(64px,7vw,96px)}
 @media(prefers-reduced-motion:reduce){body.home::before,body.home::after{animation:none}}
