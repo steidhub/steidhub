@@ -1287,3 +1287,65 @@ body[data-landing="google-ads"] .lp-method--icons article{grid-template-columns:
   .lp-method__ico{grid-column:2;grid-row:1;width:44px;height:44px;border-radius:12px}
   .lp-method__ico svg{width:21px;height:21px}
 }
+
+/* ==========================================================================
+   Drone · "Qué incluye" compacto: tarjetas sin número de fondo, ficha del
+   equipo y casos de uso dentro de la misma sección.
+   ========================================================================== */
+body[data-landing="drone"] .drone-includes{gap:16px}
+body[data-landing="drone"] .drone-includes article{
+  min-height:0;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;
+  padding:20px 22px;border-radius:18px;
+}
+body[data-landing="drone"] .drone-includes article::before{content:none;display:none}
+body[data-landing="drone"] .drone-includes article::after{width:120px;height:120px;right:-60px;bottom:-70px}
+body[data-landing="drone"] .drone-includes .lp-card__ic{flex:none;width:52px;height:52px;margin:0;border-radius:15px}
+body[data-landing="drone"] .drone-includes .lp-card__ic svg{width:24px;height:24px}
+body[data-landing="drone"] .drone-includes h3{max-width:none;margin:0;font-size:clamp(1.02rem,1.3vw,1.18rem);line-height:1.25;letter-spacing:-.02em}
+
+/* ficha del equipo */
+.drone-gear{
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(20px,3vw,40px);align-items:center;
+  margin-top:16px;padding:24px 26px;border-radius:18px;
+  border:1px solid rgba(217,140,95,.32);
+  background:linear-gradient(145deg,rgba(52,38,30,.72),rgba(18,18,18,.78));
+  box-shadow:0 18px 44px rgba(0,0,0,.28);
+}
+.drone-gear__head .eyebrow{margin:0 0 8px}
+.drone-gear__head h3{margin:0;font-size:clamp(1.3rem,1.8vw,1.6rem);letter-spacing:-.03em;color:var(--bone)}
+.drone-gear__head p:not(.eyebrow){margin:8px 0 0;font-size:.88rem;line-height:1.6;color:#CFC9C2}
+.drone-gear__specs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.drone-gear__specs li{
+  padding:14px 14px 12px;border-radius:13px;border:1px solid rgba(237,229,220,.14);
+  background:rgba(17,17,17,.5);transition:border-color .3s var(--ease),background .3s var(--ease);
+}
+.drone-gear__specs li:hover{border-color:rgba(217,140,95,.6);background:rgba(196,107,60,.12)}
+.drone-gear__specs strong{display:block;font-size:clamp(1.05rem,1.5vw,1.3rem);font-weight:700;letter-spacing:-.03em;color:var(--bone);white-space:nowrap}
+.drone-gear__specs span{display:block;margin-top:4px;font-size:.74rem;line-height:1.4;color:#B4AEA7}
+
+/* casos de uso: más pequeños y pegados al bloque */
+body[data-landing="drone"] #incluye .drone-usecases{margin-top:16px;padding:20px 22px;border-radius:18px}
+body[data-landing="drone"] #incluye .drone-usecases>.eyebrow{margin-bottom:14px}
+body[data-landing="drone"] #incluye .drone-usecases ul{gap:10px}
+body[data-landing="drone"] #incluye .drone-usecases li{min-height:0;padding:12px 14px;gap:11px;font-size:.84rem;border-radius:13px}
+body[data-landing="drone"] #incluye .drone-usecases li span{flex-basis:30px;height:30px;border-radius:9px;font-size:.62rem}
+
+@media(max-width:1100px){
+  .drone-gear{grid-template-columns:1fr}
+}
+@media(max-width:767px){
+  body[data-landing="drone"] .drone-includes{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  body[data-landing="drone"] .drone-includes article{flex-direction:column;align-items:flex-start;gap:12px;padding:16px}
+  body[data-landing="drone"] .drone-includes .lp-card__ic{width:44px;height:44px;border-radius:12px}
+  body[data-landing="drone"] .drone-includes .lp-card__ic svg{width:21px;height:21px}
+  body[data-landing="drone"] .drone-includes h3{font-size:15px}
+  .drone-gear{padding:18px}
+  .drone-gear__specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .drone-gear__specs strong{font-size:17px}
+  .drone-gear__specs span{font-size:11px}
+  body[data-landing="drone"] #incluye .drone-usecases{padding:16px}
+  body[data-landing="drone"] #incluye .drone-usecases li{font-size:13px}
+}
+/* la etiqueta "Equipo" va alineada con el título de la ficha, no centrada */
+.drone-gear__head .eyebrow{justify-content:flex-start;text-align:left}
+body[data-landing="drone"] #incluye .drone-usecases>.eyebrow{justify-content:flex-start;text-align:left}
