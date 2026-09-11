@@ -272,8 +272,12 @@ body[data-landing="google-ads"] .lp-metrics__wide{
 }
 body[data-landing="google-ads"] .lp-metrics__wide span{margin-top:0}
 body[data-landing="google-ads"] .lp-metrics__wide p{max-width:62ch}
+/* cifra y texto como un bloque centrado en la tarjeta, sin hueco a la derecha */
+body[data-landing="google-ads"] .lp-metrics__wide{grid-template-columns:auto minmax(0,62ch);justify-content:center}
+body[data-landing="google-ads"] .lp-metrics__wide > div{text-align:center}
+body[data-landing="google-ads"] .lp-metrics__wide p{margin-inline:auto}
 @media(max-width:767px){
-  body[data-landing="google-ads"] .lp-metrics__wide{grid-template-columns:1fr;gap:0;padding:26px 22px}
+  body[data-landing="google-ads"] .lp-metrics__wide{grid-template-columns:1fr;gap:0;padding:26px 22px;text-align:center}
   body[data-landing="google-ads"] .lp-metrics__wide span{margin-top:10px}
 }
 body[data-landing="google-ads"] .lp-section{padding-block:clamp(96px,10vw,144px)}
