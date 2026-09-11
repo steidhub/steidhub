@@ -1366,3 +1366,9 @@ body.home #equipo{padding-top:clamp(64px,7vw,96px)}
 @media(prefers-reduced-motion:reduce){
   .results__k::before{transform:none;transition:none}
 }
+/* "Menos costo" un escalón más grande que "Más ventas" */
+.results__title-sub{display:inline-block;font-size:1.16em;line-height:.95}
+.results__foot{max-width:62ch;font-size:.85rem;line-height:1.6;color:#B4AEA7}
+.results__foot strong{color:var(--sand);font-weight:600}
+@media(max-width:767px){.results__foot{font-size:12px}}
+@media(max-width:767px){.results__title-sub{font-size:1.06em}}
