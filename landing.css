@@ -1521,3 +1521,70 @@ body[data-landing="contenido"] main > #servicios:last-child{
   body[data-landing="meta-ads"] main > #servicios:last-child,
   body[data-landing="contenido"] main > #servicios:last-child{padding-top:84px;padding-bottom:64px}
 }
+
+/* ==========================================================================
+   Móvil · las cuatro landings: menos cuerpo de letra y más margen lateral.
+   El prefijo html body.lp-page gana a las reglas por página (body[data-landing])
+   sin recurrir a !important. :not(.blog-page) deja el blog fuera.
+   Los campos del formulario se quedan en 16 px: por debajo, Safari en iOS
+   hace zoom al enfocarlos.
+   ========================================================================== */
+@media(max-width:767px){
+  /* margen lateral: de 26 a 32 px por lado */
+  html body.lp-page:not(.blog-page) .wrap{width:calc(100% - 64px)}
+
+  /* titulares y textos */
+  html body.lp-page:not(.blog-page) .lp-hero .display{font-size:27px;line-height:1.1}
+  html body.lp-page:not(.blog-page) .lp-hero__lead{font-size:13.5px;line-height:1.7}
+  html body.lp-page:not(.blog-page) .lp-head .h2,
+  html body.lp-page:not(.blog-page) .h2{font-size:20px;line-height:1.22}
+  html body.lp-page:not(.blog-page) .lp-head .lead,
+  html body.lp-page:not(.blog-page) .lead{font-size:13.5px;line-height:1.72}
+  html body.lp-page:not(.blog-page) .eyebrow,
+  html body.lp-page:not(.blog-page) .kicker{font-size:9.5px;letter-spacing:.18em}
+  html body.lp-page:not(.blog-page) .hero__tag{font-size:9.5px}
+
+  /* tarjetas */
+  html body.lp-page:not(.blog-page) .lp-problems article,
+  html body.lp-page:not(.blog-page) .lp-method article,
+  html body.lp-page:not(.blog-page) .lp-metrics article{padding:22px 18px}
+  html body.lp-page:not(.blog-page) .lp-problems h3,
+  html body.lp-page:not(.blog-page) .lp-method h3,
+  html body.lp-page:not(.blog-page) .lp-timeline h3{font-size:15.5px;line-height:1.3}
+  html body.lp-page:not(.blog-page) .lp-problems p,
+  html body.lp-page:not(.blog-page) .lp-method p,
+  html body.lp-page:not(.blog-page) .lp-metrics p,
+  html body.lp-page:not(.blog-page) .lp-timeline p,
+  html body.lp-page:not(.blog-page) .lp-cluster p{font-size:13px;line-height:1.7}
+  html body.lp-page:not(.blog-page) .lp-uses li,
+  html body.lp-page:not(.blog-page) .lp-checks li{font-size:13px}
+  html body.lp-page:not(.blog-page) .lp-cluster strong{font-size:15.5px}
+
+  /* cifras: mismo tamaño en las cuatro páginas (estaban entre 34 y 51 px) */
+  html body.lp-page:not(.blog-page) .lp-kpi article{padding:20px 18px}
+  html body.lp-page:not(.blog-page) .lp-kpi__n,
+  html body.lp-page:not(.blog-page) .lp-metrics strong{font-size:30px}
+  html body.lp-page:not(.blog-page) .lp-kpi__label{font-size:9.5px}
+  html body.lp-page:not(.blog-page) .lp-kpi__range{font-size:11px}
+  html body.lp-page:not(.blog-page) .lp-kpi__note{font-size:13px;line-height:1.65}
+  html body.lp-page:not(.blog-page) .stat__n{font-size:21px}
+
+  /* preguntas frecuentes y CTA */
+  html body.lp-page:not(.blog-page) .lp-faq summary{font-size:14px;padding:15px 16px}
+  html body.lp-page:not(.blog-page) .lp-faq__a{font-size:13px;padding:0 16px 15px}
+  html body.lp-page:not(.blog-page) .lp-cta{padding:26px 18px}
+
+  /* contacto: el texto baja, pero los campos se quedan en 16 px */
+  html body.lp-page:not(.blog-page) .contact__info dt{font-size:9.5px}
+  html body.lp-page:not(.blog-page) .contact__info dd{font-size:14.5px}
+  html body.lp-page:not(.blog-page) .form__panel{padding:18px 15px}
+  html body.lp-page:not(.blog-page) .field label{font-size:10px}
+  html body.lp-page:not(.blog-page) .form__consent{font-size:12px}
+  html body.lp-page:not(.blog-page) .field input,
+  html body.lp-page:not(.blog-page) .field select,
+  html body.lp-page:not(.blog-page) .field textarea{font-size:16px}
+}
+  /* Meta Ads fija el tamaño de sus cifras en #resultados: hay que igualarlo */
+@media(max-width:767px){
+  html body.lp-page:not(.blog-page) #resultados .lp-kpi__n{font-size:30px}
+}
