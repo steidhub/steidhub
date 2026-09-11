@@ -1502,3 +1502,22 @@ body[data-landing="drone"] #galeria ~ #contacto + #servicios.lp-section{padding-
   body[data-landing="drone"] #contacto{padding-bottom:36px}
   body[data-landing="drone"] #galeria ~ #contacto + #servicios.lp-section{padding-bottom:64px}
 }
+
+/* ==========================================================================
+   Google Ads, Meta Ads y Contenido: "Todo el sistema…" va ahora al final,
+   después del formulario (o del CTA final en Google Ads). Arriba recupera el
+   margen estándar de sección para seguir el ritmo de la página, y abajo deja
+   el mismo aire antes del pie que en la landing de drone.
+   main > #servicios:last-child gana a las reglas que la compactaban cuando
+   iba en medio de la página.
+   ========================================================================== */
+body[data-landing="google-ads"] main > #servicios:last-child,
+body[data-landing="meta-ads"] main > #servicios:last-child,
+body[data-landing="contenido"] main > #servicios:last-child{
+  padding-top:clamp(96px,10vw,144px);padding-bottom:clamp(64px,7vw,104px);
+}
+@media(max-width:767px){
+  body[data-landing="google-ads"] main > #servicios:last-child,
+  body[data-landing="meta-ads"] main > #servicios:last-child,
+  body[data-landing="contenido"] main > #servicios:last-child{padding-top:84px;padding-bottom:64px}
+}
