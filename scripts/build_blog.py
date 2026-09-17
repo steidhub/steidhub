@@ -119,6 +119,10 @@ def render_body(src):
 # ------------------------------------------------------------ fragmentos ---
 ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 WA_HELLO = "https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n"
+GTM_NOSCRIPT = '''<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGVBFL2M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->'''
 
 
 def head(title, description, canonical, image, image_alt, og_type="article", extra_meta="", jsonld=None, preload=None):
@@ -128,14 +132,13 @@ def head(title, description, canonical, image, image_alt, og_type="article", ext
 <html lang="es-PE">
 <head>
 <meta charset="utf-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-20RB0Z82XP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', 'G-20RB0Z82XP');
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+}})(window,document,'script','dataLayer','GTM-KGVBFL2M');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
@@ -413,6 +416,7 @@ def build_post(p):
         </a>""" for s in p["related"])
     page = f"""{head(title_tag, p['description'], url, (og,), alt, 'article', extra, {"@context": "https://schema.org", "@graph": graph}, src)}
 <body class="lp-page blog-page" data-landing="blog-{p['slug']}">
+{GTM_NOSCRIPT}
 
 {nav()}
 
@@ -516,6 +520,7 @@ def build_index():
         </a>""")
     page = f"""{head(title, desc, url, cover, alt, 'website', '', {"@context": "https://schema.org", "@graph": graph}, None)}
 <body class="lp-page blog-page" data-landing="blog">
+{GTM_NOSCRIPT}
 
 {nav()}
 

@@ -34,7 +34,7 @@ def metadata(path,title,description,crumbs=(),kind=None):
 def links(paths):
  return '<ul class="seo-related">'+''.join(f'<li><a href="{p}">{escape(BY_PATH[p]["label"])}</a></li>' for p in paths)+'</ul>'
 home=(ROOT/'index.html').read_text()
-analytics=re.search(r'<!-- Google tag.*?</script>\s*<script>.*?</script>',home,re.S).group()
+analytics=re.search(r'<!-- Google Tag Manager -->.*?<!-- End Google Tag Manager -->',home,re.S).group()
 def render(path,label,title,description,intro,content,kind,crumbs):
  breadcrumbs=' <span aria-hidden="true">/</span> '.join(f'<a href="{url}">{escape(name)}</a>' if i<len(crumbs)-1 else f'<span aria-current="page">{escape(name)}</span>' for i,(name,url) in enumerate(crumbs))
  html=TEMPLATE.substitute(metadata=metadata(path,title,description,crumbs,kind),analytics=analytics,kind=kind,breadcrumbs=breadcrumbs,eyebrow='Steid Hub · '+('Sectores' if kind=='sector' else 'Servicios'),h1=escape(label),description=escape(description),intro=f'<p>{escape(intro)}</p>' if intro else '',content=content)
