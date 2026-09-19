@@ -34,8 +34,10 @@ export async function onRequest({ request, env }) {
     values[key] = (data[key] || '').trim();
     if (values[key].length > limit) return json({ success: false, error: 'Uno de los campos supera la longitud permitida.' }, 400);
   }
+  const optionalModalPhone = data.lead_flow === 'whatsapp_modal';
+  const phoneDigits = (values.whatsapp.match(/\d/g) || []).length;
   if (values.nombre.length < 2 || !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(values.email) ||
-      (values.whatsapp.match(/\d/g) || []).length < 9 || values.necesidad.length < 2 ||
+      (optionalModalPhone ? (phoneDigits > 0 && phoneDigits < 9) : phoneDigits < 9) || values.necesidad.length < 2 ||
       data.consentimiento_contacto !== true || data.consentimiento_privacidad !== true) {
     return json({ success: false, error: 'Completa los campos obligatorios y acepta ambas autorizaciones.' }, 400);
   }

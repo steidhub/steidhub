@@ -366,6 +366,9 @@
       }
 
       summary.classList.remove('is-visible');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'lead_form_submit', form_id: 'steidhub_lead',
+        form_type: 'embedded', cta_source: 'contact_section', page_path: location.pathname });
       btn.setAttribute('aria-busy', 'true');
       btn.querySelector('.btn__label').textContent = 'Enviando…';
       btn.disabled = true;
@@ -395,9 +398,9 @@
         form.reset();
         form.querySelectorAll('.is-invalid').forEach((f) => f.classList.remove('is-invalid'));
         form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
-        if (typeof window.gtag === 'function') {
-          try { window.gtag('event', 'generate_lead'); } catch { /* El lead ya está guardado. */ }
-        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'generate_lead', form_id: 'steidhub_lead',
+          form_type: 'embedded', cta_source: 'contact_section', page_path: location.pathname });
       } catch {
         statusText.textContent = 'No pudimos confirmar el envío. Tus datos siguen aquí; vuelve a intentarlo en unos minutos o contáctanos por WhatsApp.';
         status.querySelector('svg').style.display = 'none';

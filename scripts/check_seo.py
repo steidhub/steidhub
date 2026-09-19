@@ -32,6 +32,7 @@ for url in urls:
  raw=file.read_text()
  assert raw.count('googletagmanager.com/gtm.js')==1,(path,'GTM script')
  assert raw.count('googletagmanager.com/ns.html?id=GTM-KGVBFL2M')==1,(path,'GTM noscript')
+ assert raw.count('/lead-modal.js')==1 and raw.count('/lead-modal.css')==1,(path,'floating lead form assets')
  if path.startswith('/servicios/') or path.startswith('/sectores/'):
   assert raw.count('id="guia-practica"')==1,(path,'editorial guidance')
 for path,doc in docs.items():
