@@ -27,7 +27,6 @@
       <button class="lead-modal__close" type="button" data-lead-close aria-label="Cerrar formulario">×</button>
       <h2 id="steid-lead-title">Conversemos sobre tu proyecto</h2>
       <p class="lead-modal__intro">Déjanos tus datos y continúa por WhatsApp.</p>
-      <p class="lead-modal__context" hidden></p>
       <form id="steid-lead-modal-form" novalidate autocomplete="on">
         <label class="lead-modal__field">Nombre <input name="first_name" autocomplete="given-name" maxlength="80" required></label>
         <label class="lead-modal__field">Apellido <input name="last_name" autocomplete="family-name" maxlength="80" required></label>
@@ -45,7 +44,6 @@
   const error = modal.querySelector('.lead-modal__error');
   const submit = modal.querySelector('.lead-modal__submit');
   const fallback = modal.querySelector('.lead-modal__fallback');
-  const contextLabel = modal.querySelector('.lead-modal__context');
   let context = null;
   let previousFocus = null;
   let started = false;
@@ -65,8 +63,6 @@
     if (!modal.hidden) return;
     previousFocus = document.activeElement;
     context = { cta_source: sourceFor(el), cta_label: visibleLabel(el), destination };
-    contextLabel.textContent = context.cta_label ? `Consulta: ${context.cta_label}` : '';
-    contextLabel.hidden = !context.cta_label;
     fallback.href = destination;
     fallback.hidden = true;
     started = false;

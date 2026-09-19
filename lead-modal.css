@@ -4,7 +4,6 @@
 .lead-modal__dialog{position:relative;width:min(100%,470px);max-height:calc(100dvh - 32px);overflow:auto;box-sizing:border-box;padding:26px 30px;border:1px solid rgba(196,107,60,.5);border-radius:18px;background:#fffaf5;color:#1c1a18;box-shadow:0 28px 90px rgba(0,0,0,.52)}
 .lead-modal__dialog h2{margin:0 34px 8px 0;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.14;letter-spacing:-.025em;color:#1c1a18}
 .lead-modal__intro{margin:0 0 18px;color:#514c47;font-size:.9rem;line-height:1.5}
-.lead-modal__context[hidden]{display:none}.lead-modal__context{display:inline-block;margin:0 0 14px;padding:6px 10px;border:1px solid rgba(196,107,60,.35);border-radius:99px;background:#f5e9df;color:#7d4025;font-size:.73rem;font-weight:700}
 .lead-modal__close{position:absolute;top:13px;right:13px;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:#e9dfd6;color:#1c1a18;font-size:1.4rem;cursor:pointer}
 .lead-modal form{display:grid;gap:10px}
 .lead-modal__field{display:grid;gap:5px;font-size:.82rem;font-weight:650}
