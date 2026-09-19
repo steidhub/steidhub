@@ -20,14 +20,11 @@
     btn.setAttribute('aria-expanded', 'false');
   };
 
-  /* En escritorio la burbuja sale al pasar el cursor (CSS). En móvil no hay
-     hover, así que el botón abre y cierra el panel; para ir a WhatsApp se usa
-     el enlace "Enviar mensaje" de dentro. */
+  /* En escritorio la burbuja sale al pasar el cursor (CSS). En móvil, el botón
+     dirige directamente a WhatsApp mediante el href. */
   btn.addEventListener('click', (e) => {
     if (!matchMedia('(max-width:767px)').matches) return;
-    e.preventDefault();
-    const abierto = wa.classList.toggle('is-panel-open');
-    btn.setAttribute('aria-expanded', String(abierto));
+    /* En móvil: permitir que el link se siga directamente a WhatsApp */
   });
   document.addEventListener('click', (e) => { if (!wa.contains(e.target)) cerrar(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrar(); });

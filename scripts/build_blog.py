@@ -264,10 +264,11 @@ def cta(title, text, wa_text):
 
 # Formulario y bloque de contacto: copia exacta del de las landings.
 CONTACT = (ROOT / "meta-ads-inmobiliarias.html").read_text()
-CONTACT = CONTACT[CONTACT.index('  <section class="lp-section section--photo" id="contacto">'):CONTACT.index("</main>")]
+CONTACT = CONTACT[CONTACT.index('  <section class="lp-section section--photo" id="contacto">'):CONTACT.index('  <section class="lp-section" id="servicios">')]
 CONTACT = CONTACT.replace('src="assets/', 'src="/assets/').rstrip() + "\n"
 FOOTER_WA = (ROOT / "meta-ads-inmobiliarias.html").read_text()
-FOOTER_WA = FOOTER_WA[FOOTER_WA.index('<footer class="footer">'):FOOTER_WA.index("<script src=")]
+FOOTER_START = FOOTER_WA.index('<footer class="footer">')
+FOOTER_WA = FOOTER_WA[FOOTER_START:FOOTER_WA.index("<script src=", FOOTER_START)]
 FOOTER_WA = (FOOTER_WA.replace('src="assets/', 'src="/assets/')
              .replace('href="google-ads.html"', 'href="/google-ads"')
              .replace('href="contenido-inmobiliario.html"', 'href="/contenido-inmobiliario"')
@@ -276,8 +277,29 @@ FOOTER_WA = (FOOTER_WA.replace('src="assets/', 'src="/assets/')
              .replace('<li><a href="/#portafolio">Portafolio</a></li>',
                       '<li><a href="/#portafolio">Portafolio</a></li>\n          <li><a href="/blog/">Blog de marketing inmobiliario</a></li>'))
 FOOTER_WA = FOOTER_WA.replace("<h4>", '<h2 class="footer__heading">').replace("</h4>", "</h2>")
+FOOTER_WA = FOOTER_WA.split('<div class="popup"', 1)[0]
 assert 'href="/blog/"' in FOOTER_WA and "index.html" not in FOOTER_WA
-SCRIPTS = f"""<script src="/wa-widget.js?v=20260910-lp1" defer></script>
+BLOG_POPUPS = """<div class="popup" data-popup-step="1" data-popup-key="ads" data-popup-gate="dia" data-popup-trigger="ancla:#autor" hidden>
+  <div class="popup__scrim" data-popup-close></div>
+  <div class="popup__box" role="dialog" aria-modal="true" aria-label="Asesoría y diagnóstico gratis">
+    <a class="popup__link" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub.%20Quiero%20agendar%20mi%20asesor%C3%ADa%20y%20diagn%C3%B3stico%20gratis%20para%20mis%20campa%C3%B1as." rel="noopener">
+      <img src="/assets/img/popup-diagnostico.webp" alt="¿Inviertes en ads pero no vendes? Obtén una asesoría y diagnóstico gratis para TikTok Ads, Meta Ads y Google Ads. Agenda tu reunión ahora." width="800" height="1000" loading="lazy" decoding="async">
+    </a>
+    <button class="popup__close" type="button" data-popup-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</div>
+<div class="popup" data-popup-step="2" data-popup-key="descuento" hidden>
+  <div class="popup__scrim" data-popup-close></div>
+  <div class="popup__box" role="dialog" aria-modal="true" aria-label="20% de descuento en tu primera producción audiovisual">
+    <a class="popup__link" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub.%20Quiero%20agendar%20mi%20primera%20producci%C3%B3n%20audiovisual%20con%20el%2020%25%20de%20descuento." rel="noopener">
+      <img src="/assets/img/popup-descuento-audiovisual.webp" alt="20% de descuento en tu primera producción audiovisual con Steid Hub. Agenda ahora." width="800" height="1000" loading="lazy" decoding="async">
+    </a>
+    <button class="popup__close" type="button" data-popup-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</div>
+"""
+SCRIPTS = f"""<script src="/popup.js?v=20260911-pop3" defer></script>
+<script src="/wa-widget.js?v=20260910-lp1" defer></script>
 <script src="/landing.js?v=20260910-ux13" defer></script>
 <script src="/blog.js?v={V}" defer></script>
 </body>
@@ -336,13 +358,14 @@ BLOG_ID = ORIGIN + "/blog/#blog"
 
 def author_row(p, words):
     mins = max(1, math.ceil(words / 220))
+    published = p.get("published", B.PUBLISHED)
     return f"""      <div class="post-byline">
         <img class="post-byline__img" src="{B.AUTHOR['avatar']}" alt="{B.AUTHOR['name']}" width="192" height="192">
         <div class="post-byline__txt">
           <a class="post-byline__name" href="#autor" rel="author">{B.AUTHOR['name']}</a>
           <span>{B.AUTHOR['role']} <span aria-hidden="true">|</span> {B.AUTHOR['credentials']}, {B.AUTHOR['specialty']}</span>
         </div>
-        <p class="post-byline__meta"><time datetime="{B.PUBLISHED}">{fecha_larga(B.PUBLISHED)}</time><span aria-hidden="true">·</span><span>{mins} min de lectura</span></p>
+        <p class="post-byline__meta"><time datetime="{published}">{fecha_larga(published)}</time><span aria-hidden="true">·</span><span>{mins} min de lectura</span></p>
       </div>"""
 
 
@@ -380,6 +403,7 @@ def share(url, title):
 
 def build_post(p):
     url = f"{ORIGIN}/blog/{p['slug']}"
+    published = p.get("published", B.PUBLISHED)
     body, toc, words, sources = render_body(p["body"])
     src, w, h, alt = p["cover"]
     title_tag = f"{p['seo_title']} | Steid Hub"
@@ -397,15 +421,15 @@ def build_post(p):
               "headline": p["title"], "alternativeHeadline": p["seo_title"], "description": p["description"],
               "image": [{"@type": "ImageObject", "url": ORIGIN + og, "width": 1200, "height": 630},
                         {"@type": "ImageObject", "url": ORIGIN + src, "width": w, "height": h}],
-              "datePublished": B.PUBLISHED + "T09:00:00-05:00", "dateModified": B.PUBLISHED + "T09:00:00-05:00",
+              "datePublished": published + "T09:00:00-05:00", "dateModified": published + "T09:00:00-05:00",
               "author": {"@id": ORIGIN + "/#michael-philipps"}, "publisher": {"@id": ORIGIN + "/#organization"},
               "isPartOf": {"@id": BLOG_ID}, "inLanguage": "es-PE", "articleSection": "Marketing inmobiliario",
               "keywords": ", ".join([p["keyword"]] + p["keywords"]), "wordCount": words,
               "about": {"@type": "Thing", "name": p["keyword"]},
               "mentions": [{"@type": "WebPage", "url": ORIGIN + B.SERVICES[k][0], "name": B.SERVICES[k][2]} for k in p["services"]],
               "citation": sources}]
-    extra = (f'<meta property="article:published_time" content="{B.PUBLISHED}T09:00:00-05:00">\n'
-             f'<meta property="article:modified_time" content="{B.PUBLISHED}T09:00:00-05:00">\n'
+    extra = (f'<meta property="article:published_time" content="{published}T09:00:00-05:00">\n'
+             f'<meta property="article:modified_time" content="{published}T09:00:00-05:00">\n'
              f'<meta property="article:author" content="{B.AUTHOR["name"]}">\n'
              f'<meta property="article:section" content="Marketing inmobiliario">\n'
              + "".join(f'<meta property="article:tag" content="{esc(k)}">\n' for k in [p["keyword"]] + p["keywords"][:4]))
@@ -480,7 +504,7 @@ def build_post(p):
 {explore(p['services'])}
 </main>
 
-{FOOTER_WA}{SCRIPTS}"""
+{FOOTER_WA}{BLOG_POPUPS}{SCRIPTS}"""
     (OUT / f"{p['slug']}.html").write_text(page)
     return url
 
@@ -503,7 +527,7 @@ def build_index():
               "inLanguage": "es-PE", "publisher": {"@id": ORIGIN + "/#organization"},
               "blogPost": [{"@type": "BlogPosting", "@id": f"{ORIGIN}/blog/{p['slug']}#article",
                             "headline": p["title"], "url": f"{ORIGIN}/blog/{p['slug']}",
-                            "datePublished": B.PUBLISHED + "T09:00:00-05:00",
+                            "datePublished": p.get("published", B.PUBLISHED) + "T09:00:00-05:00",
                             "author": {"@id": ORIGIN + "/#michael-philipps"},
                             "image": ORIGIN + p["cover"][0]} for p in B.POSTS]}]
     cards = []
@@ -556,7 +580,7 @@ def build_index():
 {explore(['google', 'meta', 'contenido', 'drone'])}
 </main>
 
-{FOOTER_WA}{SCRIPTS}"""
+{FOOTER_WA}{BLOG_POPUPS}{SCRIPTS}"""
     (OUT / "index.html").write_text(page)
     return url
 
@@ -567,7 +591,7 @@ def build_feed():
     <link>{ORIGIN}/blog/{p['slug']}</link>
     <guid>{ORIGIN}/blog/{p['slug']}</guid>
     <description>{esc(p['description'])}</description>
-    <pubDate>Thu, 10 Sep 2026 09:00:00 -0500</pubDate>
+    <pubDate>{date.fromisoformat(p.get('published', B.PUBLISHED)).strftime('%a, %d %b %Y')} 09:00:00 -0500</pubDate>
   </item>
 """ for p in B.POSTS)
     (OUT / "feed.xml").write_text(f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -586,7 +610,8 @@ def update_sitemap(urls):
     path = ROOT / "sitemap.xml"
     xml = path.read_text()
     xml = re.sub(r"  <url><loc>https://steidhub\.com/blog/[^<]*</loc>.*?</url>\n", "", xml)
-    rows = "".join(f"  <url><loc>{u}</loc><lastmod>{B.PUBLISHED}</lastmod><priority>{'0.8' if u.endswith('/blog/') else '0.7'}</priority></url>\n" for u in urls)
+    published = {f"{ORIGIN}/blog/{p['slug']}": p.get("published", B.PUBLISHED) for p in B.POSTS}
+    rows = "".join(f"  <url><loc>{u}</loc><lastmod>{published.get(u, B.PUBLISHED)}</lastmod><priority>{'0.8' if u.endswith('/blog/') else '0.7'}</priority></url>\n" for u in urls)
     path.write_text(xml.replace("</urlset>", rows + "</urlset>"))
 
 

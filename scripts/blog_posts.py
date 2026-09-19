@@ -139,6 +139,8 @@ La National Association of Realtors reportó que, entre compradores que usaron i
 
 Eso significa que una campaña sin buen contenido parte con desventaja. El usuario no solo quiere saber el precio; quiere imaginar cómo se vive, qué tan iluminado es el espacio, cómo se conecta con la ciudad y si vale la pena escribir.
 
+Para situar estas piezas dentro del mercado y de un embudo completo, consulta la [guía de marketing inmobiliario en Lima 2026](/blog/marketing-inmobiliario-lima-2026).
+
 ## Conclusión
 
 La inmobiliaria que gana no es necesariamente la que más publica ni la que más invierte. Es la que construye un mejor sistema.
@@ -241,6 +243,8 @@ Por eso, la comparación debe hacerse con métricas de embudo:
 - Costo por venta.
 
 La plataforma ganadora no es la que trae más mensajes. Es la que trae más oportunidades rentables.
+
+Antes de ampliar Search, conviene entender [qué diferencia AI Max de AI Mode y AI Overviews](/blog/google-ai-mode-ai-max-inmobiliarias) y revisar qué página recibe cada clic.
 
 !leer mejores-leads-inmobiliarios
 
@@ -353,6 +357,8 @@ En otras palabras: **el anuncio abre la puerta, pero la conversación vende.**
 1. **Mide el avance comercial.** El equipo de ventas debe reportar qué leads fueron útiles, cuáles visitaron y cuáles no calificaron.
 1. **Responde rápido.** En inmobiliaria, un lead atendido tarde puede convertirse en una venta de otra empresa.
 
+Cuando el anuncio ya atrae clics pertinentes, la [landing inmobiliaria](/blog/landing-page-inmobiliaria) determina si el usuario encuentra información suficiente para pedir una visita.
+
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
 ## Conclusión
@@ -454,6 +460,8 @@ La producción debe incluir:
 - Tomas de drone para ubicación y escala.
 - Clips cortos para anuncios.
 - Portadas optimizadas para captar atención.
+
+Si el producto es compacto, el reto visual cambia: [cómo mostrar una vivienda de 40 a 60 m² sin distorsionarla](/blog/vender-departamentos-40-60-m2-lima) requiere plano, secuencia y contexto.
 
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
@@ -590,6 +598,8 @@ Para vender una propiedad, debes medir:
 - Separaciones.
 - Ventas cerradas.
 - Costo por oportunidad.
+
+Para una sola unidad en Lima, el diagnóstico completo incluye también comparables y precio; lo desarrollamos en [cómo vender un departamento en Lima](/blog/como-vender-departamento-lima).
 
 Un video con 3,000 vistas y 8 buenos leads puede ser mejor que uno con 50,000 vistas y cero compradores.
 
@@ -788,6 +798,10 @@ Cuando esas piezas trabajan juntas, las redes sociales dejan de ser una vitrina 
 """,
 },
 ]
+
+# Las guías de septiembre de 2026 comparten el mismo diseño y la misma ficha de autor.
+from blog_posts_2026 import POSTS as NEW_POSTS
+POSTS = NEW_POSTS + POSTS
 
 # ===========================================================================
 # Segunda tanda: 5 artículos más del ecosistema
@@ -1140,6 +1154,8 @@ Debe medir:
 
 ~ Tasa de conversión
 ~ La tasa de conversión mide qué porcentaje de personas avanza de una etapa a otra. Por ejemplo, de consulta a visita o de visita a oferta.
+
+En un [lanzamiento inmobiliario en preventa](/blog/marketing-proyecto-inmobiliario-preventa-lima), esas etapas deben acordarse entre marketing y comercial antes de abrir campañas.
 
 !leer campana-vender-propiedades-facebook-instagram-tiktok
 
