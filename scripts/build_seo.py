@@ -5,6 +5,7 @@ from pathlib import Path
 from string import Template
 from html import escape
 import json,re
+from refresh_editorial import apply_editorial
 ROOT=Path(__file__).resolve().parents[1]
 ORIGIN='https://steidhub.com'
 PAGES=json.loads((ROOT/'seo/pages.json').read_text())
@@ -55,6 +56,7 @@ for path,kind,label,desc in [('/servicios/','service','Servicios de marketing di
  selected=[p for p in PAGES if p['kind']==kind]
  content='<section class="seo-section"><h2>'+('Servicios para tu proyecto' if kind=='service' else 'Experiencia inmobiliaria')+'</h2><ul class="seo-grid">'+''.join(f'<li class="seo-card"><h3><a href="{p["path"]}">{escape(p["label"])}</a></h3><p>{escape(p["description"])}</p></li>' for p in selected)+'</ul></section>'
  render(path,label,label+' | Steid Hub',desc,'',content,'hub',[('Inicio','/'),('Servicios' if kind=='service' else 'Sectores',path)])
+apply_editorial()
 # Update home head only; retain analytics, fonts, preload, and all functional scripts.
 home=re.sub(r'<title>.*?</title>\s*','',home,flags=re.S)
 home=re.sub(r'<meta (?:name="(?:description|robots|theme-color|twitter:[^"]+)"|property="og:[^"]+")[^>]*>\s*','',home)
@@ -67,5 +69,6 @@ urls=list(dict.fromkeys(['/','/servicios/','/sectores/']+[p['path'] for p in PAG
 _sm=(ROOT/'sitemap.xml').read_text()
 _new=''.join(f'  <url><loc>{ORIGIN}{url}</loc></url>\n' for url in urls if f'<loc>{ORIGIN}{url}</loc>' not in _sm)
 (ROOT/'sitemap.xml').write_text(_sm.replace('</urlset>',_new+'</urlset>'))
-(ROOT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {ORIGIN}/sitemap.xml\n')
+# robots.txt is maintained separately: rebuilding SEO pages must not erase
+# crawler-specific rules or the published sitemap declaration.
 print(f'Generated {len(urls)} indexable routes; no client-side SEO injection.')

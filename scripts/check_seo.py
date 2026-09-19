@@ -29,6 +29,11 @@ for url in urls:
   file=flat if flat.exists() else ROOT/path.strip('/')/'index.html'
  assert file.exists(),file
  docs[path]=Document(file.read_text())
+ raw=file.read_text()
+ assert raw.count('googletagmanager.com/gtm.js')==1,(path,'GTM script')
+ assert raw.count('googletagmanager.com/ns.html?id=GTM-KGVBFL2M')==1,(path,'GTM noscript')
+ if path.startswith('/servicios/') or path.startswith('/sectores/'):
+  assert raw.count('id="guia-practica"')==1,(path,'editorial guidance')
 for path,doc in docs.items():
  assert len(doc.select('h1'))==1,(path,'H1')
  assert len(doc.select('main'))==1
