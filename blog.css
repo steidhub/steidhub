@@ -67,6 +67,7 @@
 
 .post__cover{width:min(100% - 48px,1120px);margin:clamp(34px,5vw,56px) auto 0}
 .post__cover img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:18px;background:var(--paper-2)}
+.post__cover figcaption{margin:10px 2px 0;color:var(--text-2);font-size:.78rem;line-height:1.5;text-align:right}
 
 /* ---------- Columna de lectura + índice ---------- */
 /* El cuerpo queda siempre en el centro de la página; en pantallas anchas
@@ -157,12 +158,12 @@
 .ejemplo p{margin:0;font-size:1.05rem;line-height:1.7;color:#111}
 .ejemplo p+p{margin-top:.5em}
 
-.tabla{overflow-x:auto;border:1px solid var(--rule);border-radius:14px;background:var(--card)}
-.tabla table{width:100%;border-collapse:collapse;font-size:.98rem;line-height:1.5}
-.tabla th,.tabla td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--rule)}
-.tabla thead th{background:#111;color:#fff;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.tabla{overflow:hidden;max-width:100%;border:1px solid var(--rule);border-radius:14px;background:var(--card)}
+.tabla table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:.94rem;line-height:1.5}
+.tabla th,.tabla td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);overflow-wrap:anywhere;hyphens:auto}
+.tabla thead th{background:#111;color:#fff;font-size:.71rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
 .tabla tbody th{font-weight:600;color:#111}
-.tabla td{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tabla td{font-variant-numeric:tabular-nums}
 .tabla tbody tr:last-child>*{border-bottom:0}
 .tabla tbody tr:nth-child(even){background:rgba(237,229,220,.45)}
 
@@ -289,8 +290,16 @@
   .termino p{font-size:.94rem}
   .termino__t{font-size:1.02rem!important}
   .ejemplo p{font-size:.97rem}
-  .tabla table{font-size:.88rem}
-  .tabla th,.tabla td{padding:11px 14px}
+  .tabla{overflow:visible;border:0;border-radius:0;background:transparent}
+  .tabla table,.tabla tbody,.tabla tbody tr,.tabla tbody th,.tabla tbody td{display:block;width:100%}
+  .tabla thead{display:none}
+  .tabla tbody{display:grid;gap:12px}
+  .tabla tbody tr{overflow:hidden;border:1px solid var(--rule);border-radius:14px;background:var(--card)}
+  .tabla tbody th{padding:13px 16px;border:0;background:#111;color:#fff;font-size:.94rem;line-height:1.4}
+  .tabla tbody td{padding:11px 16px;border-bottom:1px solid var(--rule);font-size:.91rem;line-height:1.55}
+  .tabla tbody td::before{content:attr(data-label);display:block;margin-bottom:3px;color:var(--accent);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .tabla tbody tr:last-child>*{border-bottom:1px solid var(--rule)}
+  .tabla tbody tr td:last-child{border-bottom:0}
   .cite{font-size:.66rem}
   .post-read strong{font-size:.92rem}
   .post-card h2,.post-card h3{font-size:1.05rem}

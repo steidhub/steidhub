@@ -15,8 +15,32 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260910-blog13"
+V = "20260920-blog15"
 POSTS = {p["slug"]: p for p in B.POSTS}
+COVER_UPDATED = "2026-09-20"
+# Créditos editoriales de la portada. No se adjudica un distrito/proyecto si
+# el archivo de origen no permite confirmarlo.
+COVER_CREDITS = {
+    "marketing-inmobiliario-lima-2026": "Vista aérea de Miraflores, Lima — Steid Hub",
+    "marketing-proyecto-inmobiliario-preventa-lima": "Toma aérea del proyecto Praderas del Sur — Steid Hub",
+    "landing-page-inmobiliaria": "Sesión fotográfica de un ambiente interior — Steid Hub",
+    "google-ai-mode-ai-max-inmobiliarias": "Vista aérea de Lima — Steid Hub",
+    "seo-inmobiliario-peru": "Panorámica aérea de un entorno residencial — Steid Hub",
+    "como-vender-departamento-lima": "Sesión fotográfica de la cocina de The Grand, San Isidro, Lima — Steid Hub",
+    "vender-departamentos-40-60-m2-lima": "Sesión fotográfica de un departamento en San Borja, Lima — Steid Hub",
+    "captar-inversionistas-inmobiliarios-lima": "Sesión fotográfica del comedor de The Grand, San Isidro, Lima — Steid Hub",
+    "maquina-digital-para-vender-propiedades": "Toma aérea de un proyecto inmobiliario — Steid Hub",
+    "google-meta-tiktok-vender-propiedades": "Toma aérea de un condominio de playa en Chincha — Steid Hub",
+    "mejores-leads-inmobiliarios": "Sesión fotográfica del comedor de The Grand, San Isidro, Lima — Steid Hub",
+    "contenido-inmobiliario-que-vende": "Sesión fotográfica de un ambiente interior — Steid Hub",
+    "como-vender-una-propiedad-en-redes-sociales": "Toma aérea de viviendas de playa — Steid Hub",
+    "campana-vender-propiedades-facebook-instagram-tiktok": "Sesión fotográfica de un dormitorio — Steid Hub",
+    "por-que-nadie-pregunta-por-mi-propiedad": "Toma aérea de una vivienda de campo — Steid Hub",
+    "como-vender-terrenos-y-lotes-por-internet": "Toma aérea de lotes y accesos de un proyecto residencial — Steid Hub",
+    "whatsapp-inmobiliario-convertir-consultas-en-ventas": "Toma aérea del Condominio Playa del Carmen, Chincha — Steid Hub",
+    "marca-personal-agente-inmobiliario": "Identidad visual de Haut Bâtiment — Steid Hub",
+    "como-captar-clientes-inmobiliarios": "Toma aérea de un edificio residencial en Lima — Steid Hub",
+}
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
          "septiembre", "octubre", "noviembre", "diciembre"]
 
@@ -102,7 +126,8 @@ def render_body(src):
             rows = [[c.strip() for c in l.strip("|").split("|")] for l in lines]
             thead = "<tr>" + "".join(f'<th scope="col">{inline(c)}</th>' for c in rows[0]) + "</tr>"
             tbody = "".join("<tr>" + f'<th scope="row">{inline(r[0])}</th>' +
-                            "".join(f"<td>{inline(c)}</td>" for c in r[1:]) + "</tr>" for r in rows[1:])
+                            "".join(f'<td data-label="{esc(rows[0][i + 1])}">{inline(c)}</td>'
+                                    for i, c in enumerate(r[1:])) + "</tr>" for r in rows[1:])
             out.append(f'<div class="tabla"><table><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
         else:
             text = ' '.join(lines)
@@ -404,6 +429,7 @@ def share(url, title):
 def build_post(p):
     url = f"{ORIGIN}/blog/{p['slug']}"
     published = p.get("published", B.PUBLISHED)
+    modified = max(published, COVER_UPDATED)
     body, toc, words, sources = render_body(p["body"])
     src, w, h, alt = p["cover"]
     title_tag = f"{p['seo_title']} | Steid Hub"
@@ -420,8 +446,9 @@ def build_post(p):
              {"@type": "BlogPosting", "@id": url + "#article", "mainEntityOfPage": {"@id": url + "#webpage"},
               "headline": p["title"], "alternativeHeadline": p["seo_title"], "description": p["description"],
               "image": [{"@type": "ImageObject", "url": ORIGIN + og, "width": 1200, "height": 630},
-                        {"@type": "ImageObject", "url": ORIGIN + src, "width": w, "height": h}],
-              "datePublished": published + "T09:00:00-05:00", "dateModified": published + "T09:00:00-05:00",
+                        {"@type": "ImageObject", "url": ORIGIN + src, "width": w, "height": h,
+                         "caption": COVER_CREDITS[p["slug"]]}],
+              "datePublished": published + "T09:00:00-05:00", "dateModified": modified + "T09:00:00-05:00",
               "author": {"@id": ORIGIN + "/#michael-philipps"}, "publisher": {"@id": ORIGIN + "/#organization"},
               "isPartOf": {"@id": BLOG_ID}, "inLanguage": "es-PE", "articleSection": "Marketing inmobiliario",
               "keywords": ", ".join([p["keyword"]] + p["keywords"]), "wordCount": words,
@@ -429,7 +456,7 @@ def build_post(p):
               "mentions": [{"@type": "WebPage", "url": ORIGIN + B.SERVICES[k][0], "name": B.SERVICES[k][2]} for k in p["services"]],
               "citation": sources}]
     extra = (f'<meta property="article:published_time" content="{published}T09:00:00-05:00">\n'
-             f'<meta property="article:modified_time" content="{published}T09:00:00-05:00">\n'
+             f'<meta property="article:modified_time" content="{modified}T09:00:00-05:00">\n'
              f'<meta property="article:author" content="{B.AUTHOR["name"]}">\n'
              f'<meta property="article:section" content="Marketing inmobiliario">\n'
              + "".join(f'<meta property="article:tag" content="{esc(k)}">\n' for k in [p["keyword"]] + p["keywords"][:4]))
@@ -464,6 +491,7 @@ def build_post(p):
 
     <figure class="post__cover">
       <img src="{src}" alt="{esc(alt)}" width="{w}" height="{h}" fetchpriority="high">
+      <figcaption>Fuente: {esc(COVER_CREDITS[p['slug']])}.</figcaption>
     </figure>
 
     <div class="post__layout">
@@ -610,7 +638,7 @@ def update_sitemap(urls):
     path = ROOT / "sitemap.xml"
     xml = path.read_text()
     xml = re.sub(r"  <url><loc>https://steidhub\.com/blog/[^<]*</loc>.*?</url>\n", "", xml)
-    published = {f"{ORIGIN}/blog/{p['slug']}": p.get("published", B.PUBLISHED) for p in B.POSTS}
+    published = {f"{ORIGIN}/blog/{p['slug']}": max(p.get("published", B.PUBLISHED), COVER_UPDATED) for p in B.POSTS}
     rows = "".join(f"  <url><loc>{u}</loc><lastmod>{published.get(u, B.PUBLISHED)}</lastmod><priority>{'0.8' if u.endswith('/blog/') else '0.7'}</priority></url>\n" for u in urls)
     path.write_text(xml.replace("</urlset>", rows + "</urlset>"))
 
