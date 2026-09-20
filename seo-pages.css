@@ -11,7 +11,7 @@
 .seo-intro{padding-block:36px 56px;max-width:940px}
 .seo-intro h1{font-size:clamp(2rem,5vw,4.5rem);line-height:1.08;text-transform:uppercase;overflow-wrap:break-word}
 .seo-intro>p:not(.eyebrow){max-width:75ch}
-.seo-section{padding-block:48px;border-top:1px solid var(--line)}
+.seo-section{padding-block:48px}
 .seo-section h2{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;margin-bottom:24px}
 .seo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;padding:0}
 .seo-card{padding:28px;background:var(--ink-2);border:1px solid var(--line)}
@@ -20,7 +20,7 @@
 .seo-related{display:flex;gap:16px 28px;flex-wrap:wrap;list-style:none;padding:0}
 .seo-related a{text-decoration:underline;text-underline-offset:5px}
 .seo-footer-links{margin-top:20px}
-.seo-explorer{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px;padding:14px 0;border-block:1px solid var(--line)}
+.seo-explorer{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px;padding:14px 0}
 .seo-explorer__label{width:100%;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-muted)}
 .seo-explorer a{padding:9px 14px;border:1px solid var(--line);border-radius:999px;color:var(--fg-muted);font-size:.9rem;text-decoration:none;transition:color .2s,border-color .2s,background .2s,transform .2s}
 .seo-explorer a:hover,.seo-explorer a:focus-visible,.seo-explorer a[aria-current="true"]{color:var(--fg);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);transform:translateY(-2px)}

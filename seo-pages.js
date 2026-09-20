@@ -4,6 +4,7 @@
   if (!intro) return;
 
   const visualSources = {
+    'recursos': ['/assets/img/grafico-1.webp', 'Estrategia y datos para marketing inmobiliario'],
     'meta-ads': ['/assets/img/meta-ads-lima-hero.webp', 'Campaña de Meta Ads para proyecto inmobiliario en Lima'],
     'google-ads': ['/assets/img/google-ads-lima-hero.webp', 'Google Ads para proyecto inmobiliario en Lima'],
     'tiktok-ads': ['/assets/img/meta-hero-brasil.webp', 'Contenido vertical para publicidad inmobiliaria'],
@@ -52,7 +53,7 @@
   if (!document.querySelector('.wa')) {
     const wa = document.createElement('div');
     wa.className = 'wa';
-    wa.innerHTML = '<div class="wa__panel" role="note"><div class="wa__head"><span class="wa__who"><strong>Steid Hub</strong><small>Normalmente responde en minutos</small></span></div><div class="wa__body"><p class="wa__msg">¡Hola! ¿De qué proyecto desearías conversar?</p></div><a class="wa__send" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" rel="noopener">Enviar mensaje</a></div><a class="wa__btn" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" aria-label="Contactar por WhatsApp"><span class="wa__dot" aria-hidden="true"></span><span class="wa__ic" aria-hidden="true"></span><span class="wa__label">WhatsApp</span></a>';
+    wa.innerHTML = '<div class="wa__panel" role="note"><div class="wa__head"><span class="wa__who"><strong>Steid Hub</strong><small>Normalmente responde en minutos</small></span></div><div class="wa__body"><p class="wa__msg">¡Hola! ¿De qué proyecto desearías conversar?</p></div><a class="wa__send" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" rel="noopener">Enviar mensaje</a></div><a class="wa__btn" href="https://wa.me/51983595390?text=Hola%2C%20Steid%20Hub%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n" aria-label="Contactar por WhatsApp"><span class="wa__dot" aria-hidden="true"></span><span class="wa__ic" aria-hidden="true"></span><span class="wa__label">Contáctanos ahora</span></a>';
     document.body.append(wa);
   }
 })();
