@@ -639,6 +639,7 @@ def update_sitemap(urls):
     xml = path.read_text()
     xml = re.sub(r"  <url><loc>https://steidhub\.com/blog/[^<]*</loc>.*?</url>\n", "", xml)
     published = {f"{ORIGIN}/blog/{p['slug']}": max(p.get("published", B.PUBLISHED), COVER_UPDATED) for p in B.POSTS}
+    published[f"{ORIGIN}/blog/"] = max(published.values())
     rows = "".join(f"  <url><loc>{u}</loc><lastmod>{published.get(u, B.PUBLISHED)}</lastmod><priority>{'0.8' if u.endswith('/blog/') else '0.7'}</priority></url>\n" for u in urls)
     path.write_text(xml.replace("</urlset>", rows + "</urlset>"))
 
