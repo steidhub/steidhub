@@ -38,6 +38,10 @@
 .seo-visual img{width:100%;height:auto;max-height:720px;object-fit:contain;display:block;filter:saturate(1.05) contrast(1.04)}
 .seo-related-block{border-top:0;padding-top:18px}
 .seo-related-block .seo-card{background:rgba(24,20,19,.48);backdrop-filter:blur(12px)}
+.seo-related-block .seo-card{overflow:hidden;padding:0 0 24px}
+.seo-related-block .seo-card__image{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:22px;opacity:.86;filter:saturate(.9)}
+.seo-related-block .seo-card h3,.seo-related-block .seo-card p{margin-inline:24px}
+.seo-related-block .seo-card h3{margin-top:0}
 .seo-section[aria-labelledby="contact-title"]::after{content:none}
 .seo-page .wa__ic{background:url('/assets/logos/whatsapp-steid.png') center/contain no-repeat}
 .seo-page .wa__ic svg{display:none}

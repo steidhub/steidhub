@@ -31,6 +31,15 @@
     const related = document.createElement('section');
     related.className = 'seo-section seo-related-block';
     related.innerHTML = '<h2>Continúa explorando</h2><div class="seo-grid"><section class="seo-card"><h3><a href="/blog/">Blog de marketing inmobiliario</a></h3><p>Guías prácticas sobre campañas, contenido, leads y ventas de propiedades.</p></section><section class="seo-card"><h3><a href="/servicios/">Servicios relacionados</a></h3><p>Conecta esta decisión con pauta, contenido, landing pages y seguimiento comercial.</p></section><section class="seo-card"><h3><a href="/sectores/marketing-inmobiliario/">Marketing inmobiliario</a></h3><p>Conoce cómo integramos estrategia, producción y comercialización en Lima.</p></section></div>';
+    const relatedImages = ['/assets/og/blog-marketing-inmobiliario-lima-2026.jpg','/assets/img/meta-ads-lima-hero.webp','/assets/img/hero-drone.jpg'];
+    related.querySelectorAll('.seo-card').forEach((card, index) => {
+      const image = document.createElement('img');
+      image.className = 'seo-card__image';
+      image.src = relatedImages[index];
+      image.alt = ['Guías de marketing inmobiliario','Servicios de marketing digital inmobiliario','Proyectos inmobiliarios y comercialización'][index];
+      image.loading = 'lazy';
+      card.prepend(image);
+    });
     const contact = document.querySelector('[aria-labelledby="contact-title"]');
     if (contact) contact.before(related); else document.querySelector('article').append(related);
   }
