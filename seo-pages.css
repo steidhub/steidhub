@@ -45,6 +45,7 @@
 .seo-section[aria-labelledby="contact-title"]::after{content:none}
 .seo-page .wa__ic{background:url('/assets/logos/whatsapp-steid.png') center/contain no-repeat}
 .seo-page .wa__ic svg{display:none}
+.seo-page footer.footer--main{margin-top:clamp(56px,8vw,112px);border-top:0}
 @media(max-width:767px){.seo-visual{border-radius:16px}.wa__label{display:none!important}.wa__btn{width:54px!important;height:54px!important;padding:0!important;justify-content:center}.wa__ic{margin:0!important}}
 @keyframes seo-rise{from{opacity:.35;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:767px){.seo-header{align-items:flex-start;flex-direction:column;gap:18px}.seo-header nav{gap:18px}.seo-grid{grid-template-columns:1fr}.seo-intro{padding-top:20px}}
