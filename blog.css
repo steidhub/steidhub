@@ -70,8 +70,8 @@
 .post__cover figcaption{margin:10px 2px 0;color:var(--text-2);font-size:.78rem;line-height:1.5;text-align:right}
 
 /* ---------- Columna de lectura + índice ---------- */
-/* El cuerpo queda siempre en el centro de la página; en pantallas anchas
-   el índice ocupa el margen izquierdo sin desplazar la columna de lectura. */
+/* En escritorio, la lectura empieza donde antes y aprovecha el espacio
+   restante hasta el borde derecho de la portada. */
 .post__layout{
   width:min(100% - 48px,var(--col));margin:clamp(40px,5vw,64px) auto 0;
   display:grid;grid-template-columns:minmax(0,1fr);gap:28px;
@@ -79,8 +79,8 @@
 .post__body{width:100%}
 .post-toc{width:100%}
 @media(min-width:1300px){
-  .post__layout{width:100%;grid-template-columns:minmax(0,1fr) var(--col) minmax(0,1fr);gap:0}
-  .post-toc{grid-column:1;width:230px;justify-self:end;margin-right:48px;position:sticky;top:104px;align-self:start}
+  .post__layout{width:min(100% - 48px,1120px);grid-template-columns:200px minmax(0,1fr);gap:0}
+  .post-toc{grid-column:1;width:230px;justify-self:end;margin-right:56px;position:sticky;top:104px;align-self:start}
   .post__body{grid-column:2}
 }
 .post-toc details{border:1px solid var(--rule);border-radius:14px;background:var(--card);padding:4px 18px}
@@ -160,10 +160,13 @@
 
 .tabla{overflow:hidden;max-width:100%;border:1px solid var(--rule);border-radius:14px;background:var(--card)}
 .tabla table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:.94rem;line-height:1.5}
-.tabla th,.tabla td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);overflow-wrap:anywhere;hyphens:auto}
+.tabla th,.tabla td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule);overflow-wrap:break-word;hyphens:auto}
 .tabla thead th{background:#111;color:#fff;font-size:.71rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
 .tabla tbody th{font-weight:600;color:#111}
 .tabla td{font-variant-numeric:tabular-nums}
+.tabla--cols-2 th:first-child{width:34%}
+.tabla--cols-3 th:first-child{width:26%}
+.tabla--cols-4 th:first-child{width:25%}
 .tabla tbody tr:last-child>*{border-bottom:0}
 .tabla tbody tr:nth-child(even){background:rgba(237,229,220,.45)}
 
@@ -290,16 +293,18 @@
   .termino p{font-size:.94rem}
   .termino__t{font-size:1.02rem!important}
   .ejemplo p{font-size:.97rem}
-  .tabla{overflow:visible;border:0;border-radius:0;background:transparent}
-  .tabla table,.tabla tbody,.tabla tbody tr,.tabla tbody th,.tabla tbody td{display:block;width:100%}
-  .tabla thead{display:none}
-  .tabla tbody{display:grid;gap:12px}
-  .tabla tbody tr{overflow:hidden;border:1px solid var(--rule);border-radius:14px;background:var(--card)}
-  .tabla tbody th{padding:13px 16px;border:0;background:#111;color:#fff;font-size:.94rem;line-height:1.4}
-  .tabla tbody td{padding:11px 16px;border-bottom:1px solid var(--rule);font-size:.91rem;line-height:1.55}
-  .tabla tbody td::before{content:attr(data-label);display:block;margin-bottom:3px;color:var(--accent);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-  .tabla tbody tr:last-child>*{border-bottom:1px solid var(--rule)}
-  .tabla tbody tr td:last-child{border-bottom:0}
+  .tabla{overflow:hidden;border:1px solid var(--rule);border-radius:10px;background:var(--card)}
+  .tabla table{display:table;width:100%;table-layout:fixed;border-collapse:collapse;font-size:.76rem;line-height:1.42}
+  .tabla thead{display:table-header-group}
+  .tabla tbody{display:table-row-group}
+  .tabla tr{display:table-row}
+  .tabla th,.tabla td{display:table-cell;width:auto;padding:9px 7px;vertical-align:middle;overflow-wrap:break-word;word-break:normal;hyphens:auto}
+  .tabla thead th{font-size:.63rem;line-height:1.35;letter-spacing:.015em}
+  .tabla tbody th{font-size:.77rem;line-height:1.4}
+  .tabla tbody td::before{content:none}
+  .tabla--cols-4 table{font-size:.7rem}
+  .tabla--cols-4 th,.tabla--cols-4 td{padding:8px 5px}
+  .tabla--cols-4 thead th{font-size:.58rem}
   .cite{font-size:.66rem}
   .post-read strong{font-size:.92rem}
   .post-card h2,.post-card h3{font-size:1.05rem}

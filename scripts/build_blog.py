@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260920-blog15"
+V = "20260920-blog16"
 POSTS = {p["slug"]: p for p in B.POSTS}
 COVER_UPDATED = "2026-09-20"
 # Créditos editoriales de la portada. No se adjudica un distrito/proyecto si
@@ -128,7 +128,7 @@ def render_body(src):
             tbody = "".join("<tr>" + f'<th scope="row">{inline(r[0])}</th>' +
                             "".join(f'<td data-label="{esc(rows[0][i + 1])}">{inline(c)}</td>'
                                     for i, c in enumerate(r[1:])) + "</tr>" for r in rows[1:])
-            out.append(f'<div class="tabla"><table><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
+            out.append(f'<div class="tabla tabla--cols-{len(rows[0])}"><table><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
         else:
             text = ' '.join(lines)
             # la frase que presenta una lista o un ejemplo ("Debe incluir:") queda pegada a lo que presenta
