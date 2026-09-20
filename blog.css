@@ -54,6 +54,7 @@
   margin:0;color:#111;font-size:clamp(2rem,3.9vw,3rem);font-weight:700;
   line-height:1.1;letter-spacing:-.03em;text-wrap:balance;
 }
+.post h1{width:100%;max-width:none;text-wrap:wrap}
 .post__dek{margin:22px 0 0;max-width:100%;color:var(--text-2);font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.7;text-wrap:pretty}
 
 /* autor: foto pequeña junto al nombre */

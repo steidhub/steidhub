@@ -15,7 +15,7 @@ import blog_posts as B
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://steidhub.com"
 OUT = ROOT / "blog"
-V = "20260920-blog20"
+V = "20260920-blog21"
 POSTS = {p["slug"]: p for p in B.POSTS}
 COVER_UPDATED = "2026-09-20"
 # Créditos editoriales de la portada. No se adjudica un distrito/proyecto si
