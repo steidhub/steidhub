@@ -32,6 +32,9 @@
 .post{padding:clamp(40px,6vw,76px) 0 clamp(48px,6vw,80px)}
 .blog-page{--col:720px}
 .post__head{width:min(100% - 48px,var(--col));margin-inline:auto}
+@media(min-width:1300px){
+  .post__head{width:min(100% - 48px,1120px)}
+}
 .blog-hero__inner{width:min(100% - 48px,1180px);margin-inline:auto}
 .blog-hero h1{max-width:20ch}
 
@@ -192,8 +195,7 @@
 /* ---------- Pie del artículo ---------- */
 .post__foot{width:min(100% - 48px,var(--col));margin:clamp(44px,5vw,64px) auto 0}
 @media(min-width:1300px){
-  .post__foot{box-sizing:border-box;width:min(100% - 48px,1120px);padding-left:200px}
-  .post__foot .author-box{max-width:720px;margin-inline:auto}
+  .post__foot{box-sizing:border-box;width:min(100% - 48px,1120px)}
 }
 .post-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px 0;border-block:1px solid var(--rule)}
 .post-share span{margin-right:6px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-2)}
@@ -204,7 +206,7 @@
 .post-share a:hover,.post-share button:hover{background:#111;color:#fff;border-color:#111}
 /* recuadro "Conoce más a Michael Philipps": foto + biografía en letra pequeña */
 .author-box{
-  margin-top:28px;padding:clamp(24px,3.4vw,34px);
+  width:min(100%,760px);box-sizing:border-box;margin:28px auto 0;padding:clamp(24px,3.4vw,34px);
   border:1px solid var(--rule);border-radius:18px;background:var(--card);
   box-shadow:0 18px 40px rgba(17,17,17,.05);
 }
