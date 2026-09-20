@@ -760,9 +760,9 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em}
 .wa__btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 44px rgba(37,211,102,.4)}
 .wa__ic{
   width:42px;height:42px;flex:none;border-radius:50%;
-  display:grid;place-items:center;background:rgba(255,255,255,.32);
+  display:grid;place-items:center;background:rgba(255,255,255,.32) url('/assets/logos/whatsapp-steid.png') center/contain no-repeat;
 }
-.wa__ic svg{width:26px;height:26px}
+.wa__ic svg{display:none}
 
 /* punto rojo de notificación */
 .wa__dot{

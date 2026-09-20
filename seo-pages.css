@@ -1,7 +1,7 @@
 /* Shared visual layer: the supporting pages should feel like a continuation of the main site. */
 .seo-page{position:relative;isolation:isolate;background:transparent;overflow-x:hidden}
-.seo-page::before{content:"";position:fixed;inset:-18%;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 18% 8%,rgba(205,101,48,.34),transparent 34%),radial-gradient(ellipse at 88% 24%,rgba(107,54,37,.42),transparent 36%),radial-gradient(ellipse at 48% 78%,rgba(48,67,69,.26),transparent 38%),linear-gradient(145deg,#17191b 0%,#221b1a 47%,#111617 100%);filter:blur(36px);transform:scale(1.08)}
-.seo-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(13,15,16,.26),rgba(13,15,16,.68) 78%,rgba(13,15,16,.82))}
+.seo-page::before{content:"";position:fixed;inset:-18%;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 12% 8%,rgba(238,112,48,.62),transparent 34%),radial-gradient(ellipse at 88% 22%,rgba(181,73,35,.54),transparent 36%),radial-gradient(ellipse at 48% 78%,rgba(211,92,43,.30),transparent 38%),linear-gradient(145deg,#25201e 0%,#30211b 47%,#182023 100%);filter:blur(42px);transform:scale(1.08)}
+.seo-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(25,18,15,.16),rgba(25,18,15,.44) 78%,rgba(15,22,24,.60))}
 .seo-header{background:linear-gradient(180deg,rgba(14,15,16,.52),transparent);backdrop-filter:blur(10px)}
 .seo-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px;border-bottom:1px solid var(--line)}
 .seo-header img{width:190px;height:auto}
@@ -35,6 +35,15 @@
 .seo-section[aria-labelledby="contact-title"] h2{max-width:720px;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.04em;margin-bottom:14px}
 .seo-section[aria-labelledby="contact-title"] p{max-width:600px;font-size:1.08rem;color:var(--fg-muted);margin-bottom:28px}
 .seo-section[aria-labelledby="contact-title"] .btn{padding:15px 24px;font-weight:700;box-shadow:0 8px 24px rgba(216,111,55,.28)}
+.seo-visual{position:relative;margin:0 0 18px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:22px;box-shadow:0 22px 60px rgba(0,0,0,.25);background:rgba(19,22,23,.34)}
+.seo-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,15,16,.58),transparent 58%),linear-gradient(0deg,rgba(13,15,16,.45),transparent 45%)}
+.seo-visual img{width:100%;height:auto;max-height:720px;object-fit:contain;display:block;filter:saturate(1.05) contrast(1.04)}
+.seo-related-block{border-top:0;padding-top:18px}
+.seo-related-block .seo-card{background:rgba(24,20,19,.48);backdrop-filter:blur(12px)}
+.seo-section[aria-labelledby="contact-title"]::after{content:none}
+.seo-page .wa__ic{background:url('/assets/logos/whatsapp-steid.png') center/contain no-repeat}
+.seo-page .wa__ic svg{display:none}
+@media(max-width:767px){.seo-visual{border-radius:16px}.wa__label{display:none!important}.wa__btn{width:54px!important;height:54px!important;padding:0!important;justify-content:center}.wa__ic{margin:0!important}}
 @keyframes seo-rise{from{opacity:.35;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:767px){.seo-header{align-items:flex-start;flex-direction:column;gap:18px}.seo-header nav{gap:18px}.seo-grid{grid-template-columns:1fr}.seo-intro{padding-top:20px}}
 @media(max-width:767px){.seo-header{padding-block:18px}.seo-header img{width:150px}.seo-header nav{width:100%;gap:10px;font-size:.82rem}.seo-header nav .btn{margin-left:auto;padding:10px 13px}.seo-breadcrumbs{padding-block:20px;font-size:.78rem}.seo-intro{padding-block:18px 34px}.seo-intro h1{font-size:clamp(2rem,10vw,2.7rem);line-height:1.04;letter-spacing:-.035em}.seo-intro .lead{font-size:1rem;line-height:1.55}.seo-intro>p:not(.eyebrow){font-size:.95rem;line-height:1.65}.seo-section{padding-block:34px}.seo-section h2{font-size:1.65rem}.seo-card{padding:21px}.seo-section[aria-labelledby="contact-title"]{margin:28px 0 14px;padding:30px 22px;border-radius:18px}.seo-section[aria-labelledby="contact-title"] h2{font-size:2rem}.seo-section[aria-labelledby="contact-title"] p{font-size:.98rem}.seo-explorer{gap:7px}.seo-explorer a{font-size:.78rem;padding:8px 10px}}
