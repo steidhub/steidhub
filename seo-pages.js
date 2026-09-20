@@ -3,6 +3,13 @@
   const sections = [...document.querySelectorAll('.seo-section[id]')].filter(s => s.querySelector('h2'));
   if (!intro) return;
 
+  const oldFooter = document.querySelector('footer.footer');
+  if (oldFooter) oldFooter.remove();
+  const footer = document.createElement('footer');
+  footer.className = 'footer footer--main';
+  footer.innerHTML = `<div class="wrap"><div class="footer__top"><div class="footer__logo"><img src="/assets/logos/steidhub-lockup-white.png" alt="Steid Hub" width="900" height="240" loading="lazy"><p class="muted" style="max-width:40ch;font-size:.875rem;margin:0">Marketing for spaces. Producción, tecnología y estrategia para proyectos inmobiliarios.</p></div><div><h2 class="footer__heading">Servicios</h2><ul><li><a href="/servicios/google-ads/">Google Ads para inmobiliarias</a></li><li><a href="/servicios/meta-ads/">Meta Ads para inmobiliarias</a></li><li><a href="/servicios/produccion-audiovisual/">Producción audiovisual</a></li><li><a href="/servicios/landing-pages/">Landing pages</a></li><li><a href="/servicios/">Todos los servicios</a></li><li><a href="/sectores/marketing-inmobiliario/">Marketing inmobiliario</a></li><li><a href="/blog/">Blog de marketing inmobiliario</a></li></ul></div><div><h2 class="footer__heading">Contacto</h2><ul><li><a href="https://wa.me/51983595390">+51 983 595 390</a></li><li><a href="mailto:informes@steidhub.com">informes@steidhub.com</a></li><li><a href="https://instagram.com/steidhub" rel="noopener">Instagram @steidhub</a></li><li><a href="https://tiktok.com/@steidhub" rel="noopener">TikTok @steidhub</a></li></ul></div></div><div class="footer__bar"><span>© 2026 Steid Hub · Philipps Suárez Capital Group S.A.C. — RUC 20615410994</span></div></div>`;
+  document.body.append(footer);
+
   const visualSources = {
     'recursos': ['/assets/img/grafico-1.webp', 'Estrategia y datos para marketing inmobiliario'],
     'meta-ads': ['/assets/img/meta-ads-lima-hero.webp', 'Campaña de Meta Ads para proyecto inmobiliario en Lima'],
