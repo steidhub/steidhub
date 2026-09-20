@@ -3,7 +3,7 @@
 .seo-page::before{content:"";position:fixed;inset:-18%;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 12% 8%,rgba(238,112,48,.62),transparent 34%),radial-gradient(ellipse at 88% 22%,rgba(181,73,35,.54),transparent 36%),radial-gradient(ellipse at 48% 78%,rgba(211,92,43,.30),transparent 38%),linear-gradient(145deg,#25201e 0%,#30211b 47%,#182023 100%);filter:blur(42px);transform:scale(1.08)}
 .seo-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(25,18,15,.16),rgba(25,18,15,.44) 78%,rgba(15,22,24,.60))}
 .seo-header{background:linear-gradient(180deg,rgba(14,15,16,.52),transparent);backdrop-filter:blur(10px)}
-.seo-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px;border-bottom:1px solid var(--line)}
+.seo-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px;border-bottom:0}
 .seo-header img{width:190px;height:auto}
 .seo-header nav,.seo-footer-links{display:flex;align-items:center;flex-wrap:wrap;gap:24px}
 .seo-page a:not(.btn):hover,.seo-page a:not(.btn):focus-visible{text-decoration:underline;text-underline-offset:5px}
