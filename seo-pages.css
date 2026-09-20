@@ -1,4 +1,8 @@
-/* Scoped additions: the original landing page design stays in styles.css. */
+/* Shared visual layer: the supporting pages should feel like a continuation of the main site. */
+.seo-page{position:relative;isolation:isolate;background:transparent;overflow-x:hidden}
+.seo-page::before{content:"";position:fixed;inset:-18%;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 18% 8%,rgba(205,101,48,.34),transparent 34%),radial-gradient(ellipse at 88% 24%,rgba(107,54,37,.42),transparent 36%),radial-gradient(ellipse at 48% 78%,rgba(48,67,69,.26),transparent 38%),linear-gradient(145deg,#17191b 0%,#221b1a 47%,#111617 100%);filter:blur(36px);transform:scale(1.08)}
+.seo-page::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(13,15,16,.26),rgba(13,15,16,.68) 78%,rgba(13,15,16,.82))}
+.seo-header{background:linear-gradient(180deg,rgba(14,15,16,.52),transparent);backdrop-filter:blur(10px)}
 .seo-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:24px;border-bottom:1px solid var(--line)}
 .seo-header img{width:190px;height:auto}
 .seo-header nav,.seo-footer-links{display:flex;align-items:center;flex-wrap:wrap;gap:24px}
@@ -16,7 +20,24 @@
 .seo-related{display:flex;gap:16px 28px;flex-wrap:wrap;list-style:none;padding:0}
 .seo-related a{text-decoration:underline;text-underline-offset:5px}
 .seo-footer-links{margin-top:20px}
+.seo-explorer{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px;padding:14px 0;border-block:1px solid var(--line)}
+.seo-explorer__label{width:100%;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-muted)}
+.seo-explorer a{padding:9px 14px;border:1px solid var(--line);border-radius:999px;color:var(--fg-muted);font-size:.9rem;text-decoration:none;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.seo-explorer a:hover,.seo-explorer a:focus-visible,.seo-explorer a[aria-current="true"]{color:var(--fg);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);transform:translateY(-2px)}
+.seo-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.seo-card:hover,.seo-card:focus-within{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 14px 34px #0004}
+.seo-card h3{margin-top:0}
+.seo-section[id]{scroll-margin-top:24px}
+.seo-section.is-visible{animation:seo-rise .55s ease both}
+.seo-section[aria-labelledby="contact-title"]{position:relative;margin:56px 0 22px;padding:clamp(34px,6vw,76px);border:1px solid rgba(216,111,55,.62);border-radius:24px;overflow:hidden;background:linear-gradient(125deg,rgba(204,98,45,.22),rgba(35,28,27,.76) 48%,rgba(15,25,27,.86));box-shadow:0 24px 70px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.1)}
+.seo-section[aria-labelledby="contact-title"]::before{content:"";position:absolute;width:320px;height:320px;right:-100px;top:-150px;border-radius:50%;background:rgba(226,112,54,.28);filter:blur(55px);pointer-events:none}
+.seo-section[aria-labelledby="contact-title"] h2,.seo-section[aria-labelledby="contact-title"] p,.seo-section[aria-labelledby="contact-title"] a{position:relative}
+.seo-section[aria-labelledby="contact-title"] h2{max-width:720px;font-size:clamp(2rem,5vw,4rem);letter-spacing:-.04em;margin-bottom:14px}
+.seo-section[aria-labelledby="contact-title"] p{max-width:600px;font-size:1.08rem;color:var(--fg-muted);margin-bottom:28px}
+.seo-section[aria-labelledby="contact-title"] .btn{padding:15px 24px;font-weight:700;box-shadow:0 8px 24px rgba(216,111,55,.28)}
+@keyframes seo-rise{from{opacity:.35;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(max-width:767px){.seo-header{align-items:flex-start;flex-direction:column;gap:18px}.seo-header nav{gap:18px}.seo-grid{grid-template-columns:1fr}.seo-intro{padding-top:20px}}
+@media(max-width:767px){.seo-header{padding-block:18px}.seo-header img{width:150px}.seo-header nav{width:100%;gap:10px;font-size:.82rem}.seo-header nav .btn{margin-left:auto;padding:10px 13px}.seo-breadcrumbs{padding-block:20px;font-size:.78rem}.seo-intro{padding-block:18px 34px}.seo-intro h1{font-size:clamp(2rem,10vw,2.7rem);line-height:1.04;letter-spacing:-.035em}.seo-intro .lead{font-size:1rem;line-height:1.55}.seo-intro>p:not(.eyebrow){font-size:.95rem;line-height:1.65}.seo-section{padding-block:34px}.seo-section h2{font-size:1.65rem}.seo-card{padding:21px}.seo-section[aria-labelledby="contact-title"]{margin:28px 0 14px;padding:30px 22px;border-radius:18px}.seo-section[aria-labelledby="contact-title"] h2{font-size:2rem}.seo-section[aria-labelledby="contact-title"] p{font-size:.98rem}.seo-explorer{gap:7px}.seo-explorer a{font-size:.78rem;padding:8px 10px}}
 /* Preserve the existing hero badge and slogan after semantic tag changes. */
 h1.hero__tag{line-height:1.65;font-weight:600}
 p.display{margin-top:0;margin-inline:0}
