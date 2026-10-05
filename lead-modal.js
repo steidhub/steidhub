@@ -74,6 +74,8 @@
   document.addEventListener('click', (event) => {
     const el = event.target.closest('a[href],button[data-lead-form]');
     if (!el || modal.contains(el)) return;
+    /* El botón flotante de WhatsApp es contacto directo: nunca pasa por el formulario. */
+    if (el.closest('.wa')) return;
     const href = el.href || '';
     const ownWa = isOwnWhatsApp(href);
     const contactCta = href && new URL(href, location.href).hash === '#contacto';
