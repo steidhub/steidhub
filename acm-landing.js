@@ -14,7 +14,7 @@
     const was = mon(PRICE.precio), now = mon(PRICE.oferta), off = PRICE.precio > 0 ? Math.round((1 - PRICE.oferta / PRICE.precio) * 100) : 0;
     $$('.acm-was,#acm-p0').forEach(e => e.textContent = was);
     $$('.acm-now,#acm-p1,#acm-p2').forEach(e => e.textContent = now);
-    const o = $('#acm-off'); if (o) o.textContent = '−' + off + ' %';
+    const o = $('#acm-off'); if (o) o.textContent = '−' + off + ' %'; const o2 = $('#acm-off2'); if (o2) o2.textContent = '−' + off + ' %';
     $$('.acm-offt').forEach(e => e.textContent = 'Ahorras ' + mon(PRICE.precio - PRICE.oferta));
     calcLoss();
   }
@@ -77,20 +77,33 @@
 
   /* Error de precio */
   const lv = $('#lv'), ls = $('#ls'), lr = $('#lr'), lp = $('#lp');
+  let shown = 0, raf;
+  function countTo(el, to, pre) {
+    cancelAnimationFrame(raf);
+    const from = shown, t0 = performance.now();
+    const step = t => { const k = Math.min(1, (t - t0) / 500), e = 1 - Math.pow(1 - k, 3);
+      shown = from + (to - from) * e; el.textContent = pre + mon(shown); if (k < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+  }
   function calcLoss() {
     if (!lv || !ls || !lr) return;
     const v = +lv.value.replace(/[^\d]/g, ''), p = +ls.value;
     lp.textContent = (p > 0 ? '+' : p < 0 ? '−' : '') + Math.abs(p) + ' %';
+    ls.style.setProperty('--p', ((p + 20) / 40 * 100) + '%');
+    $$('#lc button').forEach(b => b.classList.toggle('on', +b.dataset.v === v));
     if (v > 0 && p < 0) {
-      const loss = v * (-p / 100);
+      const loss = v * (-p / 100), x = Math.max(1, Math.round(loss / PRICE.oferta)), w = Math.max(2, PRICE.oferta / loss * 100);
       lr.className = 'a-loss__r warn';
-      lr.innerHTML = '<strong>Pierdes ' + mon(loss) + '</strong>Tu ACM cuesta ' + mon(PRICE.oferta) + ' (antes ' + mon(PRICE.precio) + ').';
+      lr.innerHTML = '<small>Si publicas por debajo del mercado, pierdes</small><strong id="lrn"></strong>' +
+        '<div class="a-cmp"><span>Lo que pierdes</span><i class="l" style="width:100%"></i><span>Tu análisis: ' + mon(PRICE.oferta) + '</span><i class="s" style="width:' + w + '%"></i></div>' +
+        'Inviertes ' + mon(PRICE.oferta) + ' para evitar perder ' + x.toLocaleString('en-US') + ' veces más.';
+      countTo($('#lrn'), loss, '');
     } else if (v > 0 && p > 0) {
-      lr.className = 'a-loss__r';
-      lr.innerHTML = '<strong>Riesgo de no vender</strong>Un precio ' + p + ' % sobre el mercado alarga la venta.';
+      shown = 0; lr.className = 'a-loss__r';
+      lr.innerHTML = '<strong>Riesgo de no vender</strong>Un precio ' + p + ' % sobre el mercado alarga la venta. Tu análisis cuesta ' + mon(PRICE.oferta) + '.';
     } else {
-      lr.className = 'a-loss__r';
-      lr.innerHTML = '<strong>Precio alineado</strong>Tu ACM lo confirma con datos.';
+      shown = 0; lr.className = 'a-loss__r';
+      lr.innerHTML = '<strong>Precio alineado</strong>Tu análisis lo confirma con datos por solo ' + mon(PRICE.oferta) + '.';
     }
   }
   if (lv && ls) {
@@ -100,6 +113,7 @@
       calcLoss();
     });
     ls.addEventListener('input', calcLoss);
+    $$('#lc button').forEach(b => b.addEventListener('click', () => { lv.value = (+b.dataset.v).toLocaleString('en-US'); calcLoss(); }));
     calcLoss();
   }
 
