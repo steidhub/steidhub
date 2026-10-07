@@ -1,4 +1,4 @@
-/* Landing ACM v7 */
+/* Landing ACM v11 */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
@@ -6,8 +6,9 @@
   const fmt = n => Math.round(n).toLocaleString('en-US');
   const mon = n => 'S/ ' + fmt(n);
   const AVG = 5342.08;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let PRICE = { precio: 50, oferta: 25 };
-  function gtm(ev, o) { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, o || {})); }
+  const gtm = (ev, o) => (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, o || {}));
 
   function setPrices() {
     const was = mon(PRICE.precio), now = mon(PRICE.oferta), off = PRICE.precio > 0 ? Math.round((1 - PRICE.oferta / PRICE.precio) * 100) : 0;
@@ -21,11 +22,14 @@
     if (c && +c.oferta) { PRICE = { precio: +c.precio || 50, oferta: +c.oferta }; setPrices(); }
   }).catch(() => {});
 
+  /* Aparición escalonada */
+  $$('.a-grid,.a-steps,.a-faq,.a-stats').forEach(p => [...p.children].forEach((c, i) => { c.style.transitionDelay = (i * 90) + 'ms'; }));
   const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .12 }) : null;
   $$('.rv').forEach(e => io ? io.observe(e) : e.classList.add('in'));
 
+  /* Contadores */
   const cio = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return; cio.unobserve(e.target);
     const el = e.target, to = +el.dataset.count, pre = el.dataset.pre || '', t0 = performance.now();
@@ -34,12 +38,29 @@
   }), { threshold: .5 }) : null;
   $$('[data-count]').forEach(e => cio ? cio.observe(e) : (e.textContent = (e.dataset.pre || '') + e.dataset.count));
 
-  $$('.tabs button').forEach(b => b.addEventListener('click', () => {
-    $$('.tabs button').forEach(x => x.classList.toggle('on', x === b));
-    $$('.pane').forEach(p => p.classList.toggle('on', p.id === b.dataset.tab));
+  /* Bosquejo: resalta cada sección en bucle */
+  const blks = $$('.a-blk'), legs = $$('.a-leg li');
+  let cur = 0, timer = null, hold = false;
+  const show = k => { blks.forEach(b => b.classList.toggle('on', b.dataset.k == k)); legs.forEach(l => l.classList.toggle('on', l.dataset.k == k)); };
+  const tick = () => { if (hold) return; cur = cur % 6 + 1; show(cur); };
+  if (blks.length) {
+    show(1); cur = 1;
+    if (!reduce) timer = setInterval(tick, 2200);
+    [...blks, ...legs].forEach(el => {
+      el.addEventListener('mouseenter', () => { hold = true; cur = +el.dataset.k; show(cur); });
+      el.addEventListener('mouseleave', () => { hold = false; });
+      el.addEventListener('click', () => { cur = +el.dataset.k; show(cur); });
+    });
+  }
+
+  /* Pestañas */
+  $$('.a-tabs button').forEach(b => b.addEventListener('click', () => {
+    $$('.a-tabs button').forEach(x => x.classList.toggle('on', x === b));
+    $$('.a-pane').forEach(p => p.classList.toggle('on', p.id === b.dataset.tab));
     gtm('acm_tab', { tab: b.dataset.tab });
   }));
 
+  /* Calculadora */
   const m2 = $('#m2'), m2r = $('#m2r');
   function calc(v) {
     v = Math.max(0, +v || 0);
@@ -52,6 +73,7 @@
     calc(m2.value);
   }
 
+  /* Error de precio */
   const lv = $('#lv'), ls = $('#ls'), lr = $('#lr'), lp = $('#lp');
   function calcLoss() {
     if (!lv || !ls || !lr) return;
@@ -59,14 +81,14 @@
     lp.textContent = (p > 0 ? '+' : p < 0 ? '−' : '') + Math.abs(p) + ' %';
     if (v > 0 && p < 0) {
       const loss = v * (-p / 100);
-      lr.className = 'loss__r warn';
-      lr.innerHTML = '<strong>Dejarías ' + mon(loss) + ' sobre la mesa</strong>Tu ACM cuesta ' + mon(PRICE.oferta) + ' (antes ' + mon(PRICE.precio) + '): ese error costaría ' + fmt(loss / PRICE.oferta) + ' veces más.';
+      lr.className = 'a-loss__r warn';
+      lr.innerHTML = '<strong>Pierdes ' + mon(loss) + '</strong>Tu ACM cuesta ' + mon(PRICE.oferta) + ' (antes ' + mon(PRICE.precio) + ').';
     } else if (v > 0 && p > 0) {
-      lr.className = 'loss__r';
-      lr.innerHTML = '<strong>Riesgo de no vender</strong>Con un precio ' + p + ' % sobre el mercado, tu propiedad puede pasar meses publicada. Con tu ACM publicas con criterio.';
+      lr.className = 'a-loss__r';
+      lr.innerHTML = '<strong>Riesgo de no vender</strong>Un precio ' + p + ' % sobre el mercado alarga la venta.';
     } else {
-      lr.className = 'loss__r';
-      lr.innerHTML = '<strong>Precio alineado</strong>Con tu ACM confirmas que estás en el rango correcto.';
+      lr.className = 'a-loss__r';
+      lr.innerHTML = '<strong>Precio alineado</strong>Tu ACM lo confirma con datos.';
     }
   }
   if (lv && ls) {
@@ -79,33 +101,29 @@
     calcLoss();
   }
 
+  /* Lightbox */
   const lb = $('#lb');
   if (lb) {
     const img = $('img', lb);
-    $$('.zoom').forEach(b => b.addEventListener('click', () => { img.src = b.dataset.src; lb.hidden = false; document.body.style.overflow = 'hidden'; }));
+    $$('.a-zoom').forEach(b => b.addEventListener('click', () => { img.src = b.dataset.src; lb.hidden = false; lb.scrollTop = 0; lb.scrollLeft = 0; document.body.style.overflow = 'hidden'; }));
     const close = () => { lb.hidden = true; img.removeAttribute('src'); document.body.style.overflow = ''; };
-    lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('.lb__x')) close(); });
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('.a-lb__x')) close(); });
     addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
   }
 
-  const st = $('#sticky'), hero = $('.ahero');
-  if (st && hero) {
-    const upd = () => st.classList.toggle('show', scrollY > hero.offsetHeight * .8);
-    addEventListener('scroll', upd, { passive: true }); upd();
+  /* Barra fija, progreso y tilt */
+  const st = $('#sticky'), hero = $('.a-hero'), prog = $('#prog');
+  const onScroll = () => {
+    if (st && hero) st.classList.toggle('show', scrollY > hero.offsetHeight * .8);
+    if (prog) { const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; }
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const mk = $('.a-mock');
+  if (mk && !reduce && matchMedia('(hover:hover) and (min-width:900px)').matches) {
+    const box = mk.parentElement;
+    box.addEventListener('mousemove', e => { const r = box.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; mk.style.animation = 'none'; mk.style.transform = 'perspective(900px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 6) + 'deg)'; });
+    box.addEventListener('mouseleave', () => { mk.style.transform = ''; mk.style.animation = ''; });
   }
 
-  document.addEventListener('click', e => {
-    const a = e.target.closest('[data-acm-cta]'); if (a) gtm('acm_cta_click', { cta: a.dataset.acmCta });
-  });
-
-  /* Barra de progreso, escalonado y tilt */
-  const prog = $('#prog');
-  addEventListener('scroll', () => { if (!prog) return; const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; }, { passive: true });
-  $$('.grid,.steps,.faq,.checks,.astats').forEach(p => [...p.children].forEach((c, i) => { c.style.transitionDelay = (i * 90) + 'ms'; }));
-  const sh = $('.ashot');
-  if (sh && matchMedia('(hover:hover) and (min-width:900px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const box = sh.parentElement;
-    box.addEventListener('mousemove', e => { const r = box.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; sh.style.animation = 'none'; sh.style.transform = 'perspective(900px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 6) + 'deg)'; });
-    box.addEventListener('mouseleave', () => { sh.style.transform = ''; sh.style.animation = ''; });
-  }
+  document.addEventListener('click', e => { const a = e.target.closest('[data-acm-cta]'); if (a) gtm('acm_cta_click', { cta: a.dataset.acmCta }); });
 })();
