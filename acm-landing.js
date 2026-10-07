@@ -29,11 +29,11 @@
 
   /* Barras de ejemplo (precio por m², datos de muestra) */
   const DATA = [5200, 5450, 5100, 5600, 5300, 5750, 5400, 5000];
-  const AVG = 5350, MAX = 6000;
+  const AVG = 5350, sc = v => Math.round(30 + (v - 4900) / 950 * 62);
   const build = (el, labels) => {
     if (!el) return;
-    el.innerHTML = DATA.map((v, k) => '<i style="--h:' + Math.round(v / MAX * 100) + '%;transition-delay:' + (k * 70) + 'ms">' + (labels ? '<em>' + (v / 1000).toFixed(1) + 'k</em>' : '') + '</i>').join('') +
-      '<u style="bottom:' + Math.round(AVG / MAX * 100) + '%"></u>';
+    el.innerHTML = DATA.map((v, k) => '<i style="--h:' + sc(v) + '%;transition-delay:' + (k * 70) + 'ms">' + (labels ? '<em>' + (v / 1000).toFixed(1) + 'k</em>' : '') + '</i>').join('') +
+      '<u style="bottom:' + sc(AVG) + '%"></u>';
   };
   build($('#heroBars'), false); build($('#demoBars'), true);
 
