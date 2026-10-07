@@ -46,9 +46,11 @@
   if (blks.length) {
     show(1); cur = 1;
     if (!reduce) timer = setInterval(tick, 2200);
+    const box = document.querySelector('.a-sk'); let rel = null;
+    box.addEventListener('mouseenter', () => { clearTimeout(rel); hold = true; });
+    box.addEventListener('mouseleave', () => { rel = setTimeout(() => { hold = false; }, 1800); });
     [...blks, ...legs].forEach(el => {
-      el.addEventListener('mouseenter', () => { hold = true; cur = +el.dataset.k; show(cur); });
-      el.addEventListener('mouseleave', () => { hold = false; });
+      el.addEventListener('mouseenter', () => { if (cur != +el.dataset.k) { cur = +el.dataset.k; show(cur); } });
       el.addEventListener('click', () => { cur = +el.dataset.k; show(cur); });
     });
   }
