@@ -232,3 +232,7 @@
 @media(max-width:400px){.sticky .lbl{display:none}}
 /* móvil: sin chip tapando el informe */
 @media(max-width:560px){.c2{display:none}.ahero__img{padding:12px 4px}.sec{padding-block:44px}.acard{padding:18px}.checks li{font-size:.95rem}}
+.kicker{text-transform:none;letter-spacing:0}
+.foot{background:radial-gradient(1000px 520px at 85% 105%,rgba(240,122,53,.95),transparent 70%),radial-gradient(800px 420px at 5% 105%,rgba(201,74,23,.7),transparent 72%),linear-gradient(180deg,#120802 0%,#1c0e07 50%,#5a230c 100%)}
+.foot .foot__logos img:first-child{height:32px;width:auto}
+.foot .foot__logos img:last-child{height:28px}
