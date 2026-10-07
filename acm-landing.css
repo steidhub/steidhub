@@ -134,7 +134,7 @@
 .trust{font-size:.76rem;gap:4px 14px}
 .mock{transform:none;animation:none;max-width:100%}.mock__big{font-size:2rem}.f1{right:6px;top:-14px}.f2{left:6px}
 .sec{padding-block:34px}.sec h2{font-size:1.4rem;margin-bottom:10px}.sub{font-size:.88rem;margin-bottom:18px}
-.card{padding:16px}.ic{width:38px;height:38px;font-size:1.1rem;margin-bottom:8px}.card p{font-size:.84rem}
+.card{padding:14px;display:grid;grid-template-columns:40px 1fr;column-gap:12px;align-items:start}.ic{width:40px;height:40px;font-size:1.1rem;margin:0;grid-row:1/3}.card h3{font-size:.95rem;margin-bottom:3px}.card p{font-size:.82rem}
 .demo{padding:12px;border-radius:16px}.tabs button{padding:8px 12px;font-size:.74rem}.bars--lg{height:140px;gap:6px}.bars--lg i em{font-size:.54rem}
 .loss{padding:14px}.loss__r strong{font-size:1.35rem}
 .steps li{padding:14px;gap:12px}.num{width:38px;height:38px;font-size:1rem}
