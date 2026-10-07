@@ -188,3 +188,23 @@
 .a-lb__x{position:fixed;top:10px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--o4);font-size:1.1rem;cursor:pointer;z-index:2}
 .acm-lp .wa{right:14px}
 @media(prefers-reduced-motion:reduce){.acm-lp *,.acm-lp *::before,.acm-lp *::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.a-bars i{transform:none}}
+/* móvil compacto: tipografía menor y márgenes seguros */
+@media(max-width:560px){
+ html{font-size:13.5px}
+ .a-wrap{width:min(100% - 44px,1160px)}
+ .a-hero h1{font-size:1.75rem}
+ .a-kicker{font-size:.95rem}
+ .a-actions{flex-direction:column;gap:8px}.a-actions .a-btn{width:100%}
+ .a-btn--lg{padding:12px 18px;font-size:.95rem}
+ .a-trust li{font-size:.74rem;padding:4px 10px}
+ .a-kpi2{grid-template-columns:1fr}
+ .a-hero__vis{padding:10px 2px}
+ .a-mock__body{padding:14px}
+ .a-sec{padding-block:36px}
+ .a-sub{margin-bottom:20px}
+ .a-grid{gap:10px}.a-card{padding:14px}
+ .a-paper{padding:12px}
+ .a-demo{padding:10px}.a-zoom{padding:6px}
+ .a-resp{padding:16px}
+}
+.a-sk__kpis b{white-space:nowrap;font-size:.72rem}
