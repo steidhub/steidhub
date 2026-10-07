@@ -196,7 +196,6 @@
  .a-grid{gap:10px}.a-card{padding:14px}
  .a-paper{padding:12px}
  .a-demo{padding:10px}.a-zoom{padding:6px}
- .a-resp{padding:16px}
 }
 .a-sk__kpis b{white-space:nowrap;font-size:.72rem}
 
@@ -224,3 +223,5 @@
 .acm-lp .wa__btn{padding:12px 18px;gap:10px;line-height:1.3}.acm-lp .wa__label{line-height:1.3;white-space:nowrap}
 .a-foot p,.a-foot a{line-height:1.7}.a-foot__col a{display:block;padding:3px 0}
 @media(max-width:560px){.a-hero__in{gap:30px;padding-block:14px 40px}.a-sec{padding-block:42px}.a-resp__col{padding:16px}}
+
+.a-trust li{display:block}.a-trust li.a-pay{display:inline-flex}
