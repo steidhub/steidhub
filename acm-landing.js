@@ -88,7 +88,7 @@
     addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
   }
 
-  const st = $('#sticky'), hero = $('.hero');
+  const st = $('#sticky'), hero = $('.ahero');
   if (st && hero) {
     const upd = () => st.classList.toggle('show', scrollY > hero.offsetHeight * .8);
     addEventListener('scroll', upd, { passive: true }); upd();
@@ -97,4 +97,15 @@
   document.addEventListener('click', e => {
     const a = e.target.closest('[data-acm-cta]'); if (a) gtm('acm_cta_click', { cta: a.dataset.acmCta });
   });
+
+  /* Barra de progreso, escalonado y tilt */
+  const prog = $('#prog');
+  addEventListener('scroll', () => { if (!prog) return; const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; }, { passive: true });
+  $$('.grid,.steps,.faq,.checks,.astats').forEach(p => [...p.children].forEach((c, i) => { c.style.transitionDelay = (i * 90) + 'ms'; }));
+  const sh = $('.ashot');
+  if (sh && matchMedia('(hover:hover) and (min-width:900px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const box = sh.parentElement;
+    box.addEventListener('mousemove', e => { const r = box.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; sh.style.animation = 'none'; sh.style.transform = 'perspective(900px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 6) + 'deg)'; });
+    box.addEventListener('mouseleave', () => { sh.style.transform = ''; sh.style.animation = ''; });
+  }
 })();
