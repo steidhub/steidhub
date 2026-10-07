@@ -287,3 +287,5 @@
 .acm-lp .a-loss__r.warn .a-cmp i.l{background:#fff}
 @media(min-width:900px){.acm-lp .a-lossec h2 em{display:block}.acm-lp .a-ofr__p b{font-size:4.2rem}}
 @media(max-width:560px){.acm-lp .a-ofr{padding:18px 16px}.acm-lp .a-ofr__p b{font-size:3.2rem}.acm-lp .a-loss__r strong{font-size:2rem}}
+
+.acm-lp .a-ofr,.acm-lp .a-ofr__n,.acm-lp .a-ofr__p{color:#fff}.acm-lp .a-ofr__p{flex-wrap:wrap}.acm-lp .a-ofr__n{margin-top:6px}
