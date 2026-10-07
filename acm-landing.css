@@ -1,8 +1,8 @@
 /* Landing ACM v11 · marca Steid Hub: naranja, crema y negro */
 .acm-lp{--o1:#F07A35;--o2:#E8651F;--o3:#C94A17;--o4:#A93A12;--terra:#C46B3C;--cr:#F7F3EE;--cr2:#EDE5DC;--blk:#111111;--ink:#1B1612;--ink2:#625649;--line:#E4D8CA;background:var(--cr);color:var(--ink);font-family:'Poppins',system-ui,sans-serif;font-size:15px;line-height:1.5;overflow-x:hidden;-webkit-text-size-adjust:100%}
 .acm-lp *{box-sizing:border-box}
-.acm-lp h1,.acm-lp h2,.acm-lp h3,.acm-lp h4{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.14}
-.acm-lp p,.acm-lp ol,.acm-lp ul{margin:0;padding:0}.acm-lp ol,.acm-lp ul{list-style:none}
+.acm-lp h1,.acm-lp h2,.acm-lp h3,.acm-lp h4{font-weight:700;letter-spacing:-.02em;line-height:1.14}:where(.acm-lp) :is(h1,h2,h3,h4){margin:0}
+:where(.acm-lp) :is(p,ol,ul){margin:0;padding:0}.acm-lp ol,.acm-lp ul{list-style:none}
 .acm-lp img{max-width:100%;display:block}.acm-lp a{text-decoration:none}
 .a-wrap{width:min(100% - 40px,1160px);margin-inline:auto}
 @media(min-width:768px){.acm-lp{font-size:16px}.a-wrap{width:min(100% - 80px,1160px)}}
@@ -225,3 +225,6 @@
 @media(max-width:560px){.a-hero__in{gap:30px;padding-block:14px 40px}.a-sec{padding-block:42px}.a-resp__col{padding:16px}}
 
 .a-trust li{display:block}.a-trust li.a-pay{display:inline-flex}
+
+.acm-lp .a-small{text-align:center}
+.a-steps{align-items:stretch}
