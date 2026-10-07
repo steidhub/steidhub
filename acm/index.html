@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/styles.css?v=138-wa1">
-<link rel="stylesheet" href="/acm-landing.css?v=138-12">
+<link rel="stylesheet" href="/acm-landing.css?v=150">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KGVBFL2M');</script>
 <!-- End Google Tag Manager -->
-<script src="/acm-landing.js?v=138-12" defer></script>
+<script src="/acm-landing.js?v=150" defer></script>
 <script src="/wa-widget.js?v=138-lp1" defer></script>
 </head>
 <body class="acm-lp">
@@ -192,15 +192,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </section>
 
-<section class="a-sec a-cream2 a-c" id="error">
+<section class="a-sec a-c a-lossec" id="error">
   <div class="a-wrap a-err">
     <div class="a-err__txt">
       <p class="a-eye rv">El costo de adivinar</p>
-      <h2 class="rv">¿Cuánto cuesta un error de precio?</h2>
-      <p class="a-sub rv">Mueve la barra. Tu análisis: <b class="acm-now">S/ 25</b> <s class="acm-was">S/ 50</s></p>
+      <h2 class="rv">Un error de precio te cuesta miles. <em>Evitarlo, solo S/ 25.</em></h2>
+      <div class="a-deal rv">
+        <span class="a-deal__tag">Oferta · <b id="acm-off2">−50 %</b></span>
+        <div class="a-deal__p"><s class="acm-was">S/ 50</s><b class="acm-now">S/ 25</b></div>
+        <p class="a-deal__n">Informe PDF en 24h hábiles · Paga con Yape / Plin</p>
+        <a class="a-btn a-btn--lg" href="/acm-solicitud-registro" data-acm-cta="loss">Solicitar mi análisis →</a>
+      </div>
     </div>
     <div class="a-loss rv">
+      <p class="a-loss__q">Simula tu caso</p>
       <label class="a-fld">Valor de tu propiedad (S/)<input id="lv" type="text" inputmode="numeric" value="400,000" autocomplete="off"></label>
+      <div class="a-chips" id="lc"><button type="button" data-v="250000">250,000</button><button type="button" data-v="400000">400,000</button><button type="button" data-v="650000">650,000</button><button type="button" data-v="1000000">1,000,000</button></div>
       <div class="a-loss__s"><span>Publico <b id="lp">−10 %</b> respecto al mercado</span><input id="ls" class="a-slider" type="range" min="-20" max="20" value="-10" aria-label="Diferencia de precio"></div>
       <div class="a-loss__r" id="lr"></div>
     </div>
