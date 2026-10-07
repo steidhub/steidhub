@@ -15,7 +15,7 @@
     $$('.acm-was,#acm-p0').forEach(e => e.textContent = was);
     $$('.acm-now,#acm-p1,#acm-p2').forEach(e => e.textContent = now);
     const o = $('#acm-off'); if (o) o.textContent = '−' + off + ' %';
-    $$('.acm-offt').forEach(e => e.textContent = 'Ahorras ' + mon(PRICE.precio - PRICE.oferta) + ' · −' + off + ' %');
+    $$('.acm-offt').forEach(e => e.textContent = 'Ahorras ' + mon(PRICE.precio - PRICE.oferta));
     calcLoss();
   }
   fetch('/api/public/acm-config').then(r => r.json()).then(c => {
