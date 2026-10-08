@@ -69,12 +69,11 @@ function render(exp){const S=SN,C=S.p.cur,p=S.p,u=C==="USD"?"US$":"S/",V=S.comps
  if($("dl"))$("dl").onclick=dlpdf;$("mg").oninput=upd;upd();setTimeout(()=>map(),50)}
 async function dlpdf(){const b=$("dl");b.disabled=true;b.textContent="Preparando…";const w=window.open("","_blank");
  if(!w){alert("Tu navegador bloqueó la ventana. Permite las ventanas emergentes de esta página e inténtalo de nuevo.");b.disabled=false;b.textContent="⬇ Descargar PDF";return}
- try{w.document.write("<title>Preparando informe…</title><body style=\"font:15px sans-serif;padding:40px;color:#4A423C\">Preparando tu informe…</body>");
+ try{w.document.write("<meta name=viewport content=width=device-width><title>Preparando…</title><body style=\"font:15px sans-serif;padding:40px;color:#4A423C\">Preparando tu informe…</body>");
   const r=await fetch("/api/public/acm-ver/pdf",{method:"POST",headers:{"content-type":"application/json","x-t":TK},body:"{}",cache:"no-store"});if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.message||"No se pudo preparar el informe")}
-  const html=await r.text();w.document.open();w.document.write(html);w.document.close();w.document.title="Informe ACM - "+SN.code;
-  await new Promise(x=>{if(w.document.readyState==="complete")x();else w.addEventListener("load",x)});
-  try{await w.document.fonts.ready}catch(e){}await Promise.all([...w.document.images].map(i=>i.complete?0:new Promise(x=>{i.onload=i.onerror=x})));await new Promise(x=>setTimeout(x,600));
-  w.focus();w.print()}catch(e){try{w.close()}catch(x){}alert(e.message)}b.disabled=false;b.textContent="⬇ Descargar PDF"}
+  let html=await r.text();const bar='<style>.np{position:sticky;top:0;z-index:9;background:#111;color:#F3E1D3;font:600 13px/1.4 sans-serif;padding:10px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.np button{border:0;border-radius:99px;background:#C46B3C;color:#fff;font:700 13px sans-serif;padding:8px 16px}@media print{.np{display:none!important}}</style><div class="np"><span>Para guardar: Imprimir → Guardar como PDF</span><button onclick="print()">Imprimir / Guardar PDF</button></div>';
+  html=html.replace("<head>",'<head><meta name="viewport" content="width=794">').replace(/<body[^>]*>/,m=>m+bar).replace("</body>","<script>addEventListener('load',function(){setTimeout(function(){print()},900)})<\/script></body>");
+  const u=URL.createObjectURL(new Blob([html],{type:"text/html;charset=utf-8"}));w.location.href=u;setTimeout(()=>URL.revokeObjectURL(u),120000)}catch(e){try{w.close()}catch(x){}alert(e.message)}b.disabled=false;b.textContent="⬇ Descargar PDF"}
 function circ(lat,lng,R){const pts=[],cl=Math.cos(lat*Math.PI/180);for(let i=0;i<=72;i++){const a=i/72*2*Math.PI;pts.push([lng+R*Math.sin(a)/(111320*cl),lat+R*Math.cos(a)/110540])}return pts}
 function map(){const S=SN;if(!S.me||!window.maplibregl)return;const R=S.p.rad*1000,cl=Math.cos(S.me.lat*Math.PI/180),dl=R/110540,dg=R/(111320*cl);
  const m=new maplibregl.Map({container:"map",style:"https://tiles.openfreemap.org/styles/positron",bounds:[[S.me.lng-dg,S.me.lat-dl],[S.me.lng+dg,S.me.lat+dl]],fitBoundsOptions:{padding:20},attributionControl:{compact:true}});
