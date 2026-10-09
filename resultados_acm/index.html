@@ -71,6 +71,11 @@ function render(exp){const S=SN,C=S.p.cur,p=S.p,u=C==="USD"?"US$":"S/",V=S.comps
   if(S.cli){const cv=conv(S.cli.v,S.cli.cur,C,p.tc),df=(cv/S.prop-1)*100,lo=S.prop*(1-mg),hi=S.prop*(1+mg),t=cv>hi?["por encima del rango","#b4442c"]:cv<lo?["por debajo del rango","#8B6F5A"]:["dentro del rango","#2e7d4f"];$("ver").innerHTML=`<div class="ver" style="border-color:${t[1]}"><span class="l" style="display:inline;margin-right:8px">Precio pedido por el propietario</span><b>${fmt(S.cli.v,S.cli.cur)}</b>${S.cli.cur!==C?` (≈ ${fmt(cv,C)})`:""} · <b style="color:${t[1]}">${t[0]} de mercado</b> · ${df>=0?"+":""}${df.toFixed(1)}% vs. valor sugerido</div>`}};
  if($("dl"))$("dl").onclick=dlpdf;$("mg").oninput=upd;upd();setTimeout(()=>map(),50)}
 async function dlpdf(){const b=$("dl");b.disabled=true;b.textContent="Generando PDF…";let f;
+ const nm="ACM - "+String((SN&&SN.p&&SN.p.dir)||"informe").replace(/[\\\/:*?"<>|]+/g," ").trim().slice(0,60)+" - "+new Date().toISOString().slice(0,10)+".pdf";
+ try{const rf=await fetch("/api/public/acm-ver/file",{method:"POST",headers:{"content-type":"application/json","x-t":TK},body:"{}",cache:"no-store"});
+  if(rf.ok&&/pdf/.test(rf.headers.get("content-type")||"")){const u=URL.createObjectURL(await rf.blob()),a=document.createElement("a");a.href=u;a.download=nm;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);b.disabled=false;b.textContent="⬇ Descargar PDF";return}
+  if(rf.status===429){const j=await rf.json().catch(()=>({}));alert(j.message||"Límite de descargas alcanzado");b.disabled=false;b.textContent="⬇ Descargar PDF";return}
+ }catch(e){}
  const ld=src=>new Promise((ok,ko)=>{const s=document.createElement("script");s.src=src;s.onload=ok;s.onerror=()=>ko(new Error("No se pudo cargar el generador de PDF. Revisa tu conexión e inténtalo de nuevo."));document.head.appendChild(s)});
  try{const r=await fetch("/api/public/acm-ver/pdf",{method:"POST",headers:{"content-type":"application/json","x-t":TK},body:"{}",cache:"no-store"});if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.message||"No se pudo preparar el informe")}
   const html=await r.text();if(!window.jspdf)await ld("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
@@ -84,7 +89,7 @@ async function dlpdf(){const b=$("dl");b.disabled=true;b.textContent="Generando 
   const pages=[...d.querySelectorAll(".page")];if(!pages.length)throw new Error("No se pudo preparar el informe");
   const pdf=new window.jspdf.jsPDF({unit:"mm",format:"a4"});
   for(let i=0;i<pages.length;i++){const cv=await w.html2canvas(pages[i],{scale:2,useCORS:true,backgroundColor:"#ffffff"});if(i)pdf.addPage();pdf.addImage(cv.toDataURL("image/jpeg",.92),"JPEG",0,0,210,297)}
-  const nm="ACM - "+String((SN&&SN.p&&SN.p.dir)||"informe").replace(/[\\\/:*?"<>|]+/g," ").trim().slice(0,60)+" - "+new Date().toISOString().slice(0,10)+".pdf";
+  
   const u=URL.createObjectURL(pdf.output("blob")),a=document.createElement("a");a.href=u;a.download=nm;a.rel="noopener";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)
  }catch(e){alert(e.message||"No se pudo generar el PDF")}
  if(f)f.remove();b.disabled=false;b.textContent="⬇ Descargar PDF"}
