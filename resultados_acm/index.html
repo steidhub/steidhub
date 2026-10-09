@@ -76,6 +76,7 @@ async function dlpdf(){const b=$("dl");b.disabled=true;b.textContent="Generando 
   f.srcdoc=html.replace("<head>",'<head><meta name="viewport" content="width=794"><meta name="format-detection" content="telephone=no"><style>a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font:inherit!important}</style>');await new Promise(ok=>f.onload=ok);
   const d=f.contentDocument,w=f.contentWindow;try{await d.fonts.ready}catch(e){}
   await Promise.all([...d.images].map(i=>i.complete?0:new Promise(ok=>{i.onload=i.onerror=ok})));
+  d.querySelectorAll("img").forEach(im=>{const cs=w.getComputedStyle(im);if(cs.objectFit!=="cover"||!im.currentSrc)return;const r=im.getBoundingClientRect(),dv=d.createElement("div");dv.style.cssText="width:"+r.width+"px;height:"+r.height+"px;border-radius:"+cs.borderRadius+";background:url('"+im.currentSrc+"') center/cover no-repeat;display:block";im.replaceWith(dv)});
   await new Promise((ok,ko)=>{const s=d.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";s.onload=ok;s.onerror=()=>ko(new Error("No se pudo cargar el generador de PDF. Revisa tu conexión e inténtalo de nuevo."));d.head.appendChild(s)});
   await new Promise(ok=>setTimeout(ok,300));
   const pages=[...d.querySelectorAll(".page")];if(!pages.length)throw new Error("No se pudo preparar el informe");
