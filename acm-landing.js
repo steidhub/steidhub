@@ -128,9 +128,9 @@
   }
 
   /* Barra fija, progreso y tilt */
-  const st = $('#sticky'), hero = $('.a-hero'), prog = $('#prog');
+  const st = $('#sticky'), hero = $('.a-hero'), prog = $('#prog'), faq = $('#faq');
   const onScroll = () => {
-    if (st && hero) st.classList.toggle('show', scrollY > hero.offsetHeight * .8);
+    if (st && hero) st.classList.toggle('show', scrollY > hero.offsetHeight * .8 && !(faq && faq.getBoundingClientRect().top < innerHeight * .9));
     if (prog) { const h = document.documentElement.scrollHeight - innerHeight; prog.style.width = (h > 0 ? scrollY / h * 100 : 0) + '%'; }
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
