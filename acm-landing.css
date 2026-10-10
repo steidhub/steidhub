@@ -289,3 +289,4 @@
 @media(max-width:560px){.acm-lp .a-sv{padding:18px 16px}.acm-lp .a-sv__p b{font-size:3.2rem}.acm-lp .a-loss__r strong{font-size:2rem}}
 
 .acm-lp .a-sv,.acm-lp .a-sv__n,.acm-lp .a-sv__p{color:#fff}.acm-lp .a-sv__p{flex-wrap:wrap}.acm-lp .a-sv__n{margin-top:6px}
+@media(max-width:520px){.acm-lp .wa__btn{width:58px;height:58px;padding:0;gap:0;justify-content:center;border-radius:50%}.acm-lp .wa__ic{margin:0}}
