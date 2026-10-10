@@ -177,7 +177,7 @@
 .a-lb img{width:min(1200px,230vw);max-width:none;border-radius:10px;background:#fff}
 @media(min-width:900px){.a-lb{place-items:center}.a-lb img{width:min(1200px,96vw);max-width:96vw}}
 .a-lb__x{position:fixed;top:10px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--o4);font-size:1.1rem;cursor:pointer;z-index:2}
-.acm-lp .wa{right:14px}
+.acm-lp .wa{right:14px;bottom:clamp(88px,14vh,124px)}
 @media(prefers-reduced-motion:reduce){.acm-lp *,.acm-lp *::before,.acm-lp *::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.a-bars i{transform:none}}
 /* móvil compacto: tipografía menor y márgenes seguros */
 @media(max-width:560px){
