@@ -539,3 +539,4 @@
  .l-r1,.l-r2{width:200px;height:200px;margin-left:-100px;top:20px}
  .l-ticker{padding:8px 0;font-size:.68rem}
 }
+@media(max-width:600px){.l-hero__in{gap:16px}.l-kicker{margin-bottom:14px}.l-deal{margin-bottom:14px}.l-trust{margin-top:14px}.l-ph-note{display:none}}
