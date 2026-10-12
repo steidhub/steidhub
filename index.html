@@ -40,8 +40,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preload" as="image" href="assets/img/hero-poster.webp" fetchpriority="high">
 <link rel="stylesheet" href="styles.css?v=20260920-wa1">
 <link rel="stylesheet" href="integral.css?v=draft1">
-<link rel="stylesheet" href="home-crema.css?v=draft9">
-<link rel="stylesheet" href="funnel.css?v=draft1">
+<link rel="stylesheet" href="home-crema.css?v=draft10">
+<link rel="stylesheet" href="funnel.css?v=draft2">
 <link rel="stylesheet" href="seo-pages.css?v=1">
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <script type="application/ld+json">
@@ -94,16 +94,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="hero__media">
-    <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline
-           disablepictureinpicture disableremoteplayback preload="auto"
-           poster="assets/img/hero-poster.webp" aria-hidden="true" tabindex="-1">
-      <source data-src="assets/video/hero.mp4" type="video/mp4">
-    </video>
-  </div>
-
   <div class="hero__center">
-    <div class="wrap">
+    <div class="wrap hero__grid">
+     <div class="hero__copy">
       <h1 id="hero-title" class="hero__tag reveal"><i aria-hidden="true"></i> Agencia de marketing digital inmobiliario en Lima</h1>
       <p class="display reveal" data-d="1">
         Contenido<br>
@@ -124,6 +117,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="btn btn--ghost btn--lg" href="#portafolio">Ver portafolio</a>
         </div>
       </div>
+     </div>
+     <div class="hero__stage">
+      <div class="hero__device" id="heroDevice">
+        <div class="hero__bezel">
+          <i class="hero__cam" aria-hidden="true"></i>
+          <div class="hero__media">
+            <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline
+                   disablepictureinpicture disableremoteplayback preload="auto"
+                   poster="assets/img/hero-poster.webp" aria-hidden="true" tabindex="-1">
+              <source data-src="assets/video/hero.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="hero__chip hero__chip--a" aria-hidden="true"><b></b>Nuevo lead de WhatsApp</div>
+      <div class="hero__chip hero__chip--b" aria-hidden="true"><b></b>Video entregado</div>
+      <div class="hero__chip hero__chip--c" aria-hidden="true"><b></b>Anuncio activo</div>
+     </div>
     </div>
   </div>
 
@@ -554,7 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </button>
       </div>
       <span class="fun__out" aria-hidden="true">Ventas</span>
-      <p class="fun__hint">Toca cada etapa para ver qué hacemos</p>
+      <div class="fun__hint"><button class="fun__sim" type="button" aria-label="Simular el recorrido de un cliente por el embudo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Simular un cliente</span></button><span class="fun__hint-t">o toca cada etapa</span></div>
     </div>
     <div class="fun__panels">
       <article class="fun__panel is-on" id="fun-p0" role="tabpanel" aria-labelledby="fun-t0">
@@ -936,7 +947,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="popup.js?v=20260911-pop3" defer></script>
 <script src="main.js?v=20260911-pop1"></script>
 <script src="integral.js?v=draft1" defer></script>
-<script src="funnel.js?v=draft1" defer></script>
+<script src="funnel.js?v=draft2" defer></script>
+<script src="hero.js?v=draft1" defer></script>
 <script src="showcase-captions.js?v=20260909-ios-video3"></script>
 <script src="mobile-loops.js?v=20260909-ios-video3"></script>
 <script src="video-sales.js?v=20260909-ios-video3"></script>

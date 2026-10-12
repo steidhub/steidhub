@@ -84,5 +84,87 @@
     }), { threshold: 0.35 }).observe(root);
   } else visible = true;
 
+  // ---- más interacción: pasar el cursor, botón "siguiente" y simulación de un cliente ----
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let ht = 0;
+  if (fine) {
+    tabs.concat(polys).forEach((el) => {
+      const k = +el.dataset.i;
+      el.addEventListener('pointerenter', () => { clearTimeout(ht); ht = setTimeout(() => { if (!running) show(k, true); }, 90); });
+      el.addEventListener('pointerleave', () => clearTimeout(ht));
+    });
+  }
+  panels.forEach((p, k) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'fun__next';
+    b.textContent = k === panels.length - 1 ? 'Volver a empezar \u21BA' : 'Siguiente etapa \u2192';
+    b.addEventListener('click', () => show(k + 1, true));
+    p.appendChild(b);
+  });
+
+  const svg = root.querySelector('.fun__svg');
+  const sim = root.querySelector('.fun__sim');
+  const simTxt = sim ? sim.querySelector('span') : null;
+  const NS = 'http://www.w3.org/2000/svg';
+  const ys = [54, 170, 286, 402];
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  let running = false;
+
+  const burst = (x, y) => {
+    for (let n = 0; n < 16; n++) {
+      const d = document.createElementNS(NS, 'circle');
+      d.setAttribute('r', (3 + Math.random() * 3).toFixed(1));
+      d.setAttribute('cx', x); d.setAttribute('cy', y);
+      d.setAttribute('fill', n % 2 ? '#B85A2B' : '#161411');
+      svg.appendChild(d);
+      const a = (n / 16) * Math.PI * 2, r = 70 + Math.random() * 60;
+      d.animate([{ transform: 'translate(0,0) scale(1)', opacity: 1 },
+        { transform: `translate(${Math.cos(a) * r}px,${Math.sin(a) * r}px) scale(.3)`, opacity: 0 }],
+        { duration: 1000 + Math.random() * 400, easing: 'cubic-bezier(.2,.8,.3,1)' }).finished.then(() => d.remove(), () => d.remove());
+    }
+  };
+
+  const run = async () => {
+    if (running) return;
+    running = true;
+    sim.disabled = true;
+    root.classList.remove('is-won');
+    root.classList.add('is-sim');
+    hold = true;
+    const me = document.createElementNS(NS, 'circle');
+    me.setAttribute('r', 11);
+    me.setAttribute('class', 'fun__me');
+    me.style.transform = 'translate(300px,-24px)';
+    svg.appendChild(me);
+    let px = 300, py = -24;
+    const go = (x, y, ms) => {
+      const a = me.animate([{ transform: `translate(${px}px,${py}px)` }, { transform: `translate(${x}px,${y}px)` }],
+        { duration: reduce ? 1 : ms, easing: 'ease-in-out', fill: 'forwards' });
+      px = x; py = y;
+      return a.finished.catch(() => {});
+    };
+    for (let i = 0; i < 4; i++) {
+      await go(300 + (Math.random() * 40 - 20), ys[i], 800);
+      show(i, true);
+      me.classList.add('pulse');
+      await wait(reduce ? 400 : 1600);
+      me.classList.remove('pulse');
+    }
+    await go(300, 483, 600);
+    await go(300, 538, 500);
+    root.classList.add('is-won');
+    if (!reduce) burst(300, 538);
+    if (simTxt) simTxt.textContent = '¡Venta cerrada! Repetir';
+    await wait(reduce ? 0 : 500);
+    me.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400, fill: 'forwards' }).finished.then(() => me.remove(), () => me.remove());
+    userUntil = Date.now() + 8000;
+    hold = false;
+    running = false;
+    sim.disabled = false;
+    root.classList.remove('is-sim');
+  };
+  if (sim) sim.addEventListener('click', run);
+
   show(0, false);
 })();

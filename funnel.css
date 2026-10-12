@@ -55,9 +55,32 @@
   font-size:clamp(1rem,2.2vw,1.3rem);font-weight:600;color:#161411;letter-spacing:-.01em;
 }
 .fun__hint{
-  position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;
+  position:absolute;left:0;right:0;bottom:0;margin:0;display:flex;align-items:center;justify-content:center;gap:12px;
   font-size:.8125rem;color:var(--tx-2,#4B443C);
 }
+.fun__sim{
+  display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:100px;border:0;cursor:pointer;
+  background:#161411;color:#fff;font:inherit;font-weight:600;font-size:.8125rem;
+  box-shadow:0 12px 22px -12px rgba(22,20,17,.7);transition:transform .25s var(--ease),background .25s var(--ease);
+}
+.fun__sim svg{width:14px;height:14px}
+.fun__sim:hover{transform:translateY(-2px);background:#B85A2B}
+.fun__sim:disabled{opacity:.6;cursor:default;transform:none;background:#161411}
+.fun__sim:focus-visible{outline:3px solid #B85A2B;outline-offset:3px}
+.fun__me{fill:#B85A2B;stroke:#fff;stroke-width:3;filter:drop-shadow(0 4px 8px rgba(184,90,43,.7))}
+.fun__me.pulse{animation:funMe .8s ease-in-out infinite alternate}
+@keyframes funMe{from{stroke-width:3}to{stroke-width:7}}
+.fun.is-sim .fun__dots{opacity:.25;transition:opacity .4s}
+.fun.is-won .fun__sale{animation:funWon .7s cubic-bezier(.34,1.56,.64,1)}
+@keyframes funWon{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+.fun__sale{transform-box:fill-box;transform-origin:center}
+.fun__next{
+  margin-top:22px;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:100px;cursor:pointer;
+  border:1.5px solid #161411;background:transparent;color:#161411;font:inherit;font-weight:600;font-size:.875rem;
+  transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
+}
+.fun__next:hover{background:#161411;color:#fff;transform:translateX(3px)}
+.fun__panel .tags + .fun__next{margin-top:20px}
 
 /* ---------- panel de detalle ---------- */
 .fun__panels{
@@ -95,6 +118,8 @@
   .fun__l{font-size:1rem}
 }
 @media(max-width:480px){
+  .fun__hint-t{display:none}
+  .fun__sim{min-height:34px;padding:0 14px;font-size:.75rem}
   .fun__l{font-size:.9375rem}
   .fun__step{font-size:.6875rem}
 }
