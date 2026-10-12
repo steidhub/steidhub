@@ -2,7 +2,7 @@
 (function(){
   var root=document.getElementById('cotizador');if(!root)return;
   var IGV=.18,state={video:'',photo:'',edit:false,qty:1};
-  var VIDEO={drone:{n:'Grabación con drone',p:250,from:true},cam:{n:'Grabación con cámara',p:350,from:true},combo:{n:'Grabación con cámara + drone',p:350}};
+  var VIDEO={drone:{n:'Grabación con drone',p:250,from:true},cam:{n:'Grabación con cámara',p:350,from:true},combo:{n:'Grabación con cámara + drone',p:350,from:true}};
   var PHOTO={int:{n:'Fotografía de interiores',p:250},ext:{n:'Fotografía de exteriores (incluye edición)',p:250},both:{n:'Fotografía interior + exterior · 15 fotos editadas',p:500,pv:100}};
   var PACKS={'drone-ed':{video:'drone',photo:'',edit:true},'combo-ed':{video:'combo',photo:'',edit:true},'todo':{video:'combo',photo:'both',edit:true}};
   var $=function(s){return root.querySelector(s)},$$=function(s){return root.querySelectorAll(s)};
@@ -11,7 +11,7 @@
   function lines(){
     var L=[],hv=!!state.video;
     if(hv){var v=VIDEO[state.video];L.push({n:v.n,u:v.p,from:v.from})}
-    if(state.photo){var f=PHOTO[state.photo];var u=(f.pv&&hv)?f.pv:f.p;L.push({n:f.n+((f.pv&&hv)?' · con video':''),u:u})}
+    if(state.photo){var f=PHOTO[state.photo];var u=(f.pv&&hv)?f.pv:f.p;L.push({n:f.n+(''),u:u})}
     if(state.edit){L.push({n:hv?'Edición avanzada: IA, Premiere, After Effects y color grading':'Solo edición: IA, Premiere, After Effects y color grading',u:hv?100:150})}
     return L;
   }
@@ -22,19 +22,15 @@
     $$('[data-g]').forEach(function(b){var g=b.dataset.g;b.setAttribute('aria-pressed',g==='edit'?state.edit:state[g]===b.dataset.v)});
     $$('[data-pack]').forEach(function(b){var p=PACKS[b.dataset.pack];b.classList.toggle('is-on',p.video===state.video&&p.photo===state.photo&&p.edit===state.edit)});
     var ec=$('[data-g="edit"] .cot__price');if(ec)ec.textContent=state.video?'+ S/ 100':'S/ 150';
-    $('.cot__lines').innerHTML=L.length?L.map(function(l){
-      return '<li><span>'+l.n+(state.qty>1?' <em>× '+state.qty+'</em>':'')+'<small>'+(l.from&&!state.edit?'desde ':'')+fmt(l.u)+' por propiedad</small></span><b>'+fmt(l.u*state.qty)+'</b></li>';
-    }).join(''):'<li class="cot__empty">Elige un pack o un servicio para ver tu cotización.</li>';
-    $('.cot__sub').textContent=fmt(sub);
+    $('.cot__lines').innerHTML=L.length?L.map(function(l){return '<li><span>'+l.n+'</span></li>'}).join('')+(state.qty>1?'<li class="cot__props"><span>'+state.qty+' propiedades</span></li>':''):'<li class="cot__empty">Elige un pack o un servicio para ver tu cotización.</li>';
     $('.cot__discrow').style.display=d?'':'none';
-    $('.cot__dsc').textContent=d?'−'+fmt(dv)+' ('+Math.round(d*100)+'%)':'—';
-    var tot=$('.cot__total');tot.textContent=(from?'desde ':'')+fmt(total);
+    $('.cot__dsc').textContent=d?'−'+Math.round(d*100)+'%':'—';
+    var tot=$('.cot__total');tot.textContent=L.length?(from?'desde ':'')+fmt(total):'S/ 0';
     tot.classList.remove('is-bump');void tot.offsetWidth;tot.classList.add('is-bump');
-    $('.cot__igv').textContent=L.length?fmt(total*(1+IGV)):'—';
     $('.cot__qty-n').textContent=state.qty;
     var tier=state.qty>=4?4:state.qty;
     $$('.cot__disc li').forEach(function(li){li.classList.toggle('is-on',+li.dataset.q===tier)});
-    var msg='Hola Steid Hub, quiero cotizar contenido inmobiliario:\n'+L.map(function(l){return '• '+l.n}).join('\n')+'\nPropiedades: '+state.qty+(d?' (descuento '+Math.round(d*100)+'%)':'')+'\nTotal referencial sin IGV: '+(from?'desde ':'')+fmt(total);
+    var msg='Hola Steid Hub, quiero cotizar contenido inmobiliario:\n'+L.map(function(l){return '• '+l.n}).join('\n')+'\nPropiedades: '+state.qty+(d?' (descuento '+Math.round(d*100)+'%)':'')+'\nTotal referencial + IGV: '+(from?'desde ':'')+fmt(total);
     var a=$('.cot__cta');a.href='https://wa.me/51983595390?text='+encodeURIComponent(L.length?msg:'Hola Steid Hub, quiero cotizar contenido inmobiliario');
     a.setAttribute('aria-disabled',L.length?'false':'true');
   }

@@ -93,3 +93,11 @@
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){show(cur);auto()}else clearInterval(timer)})},{threshold:.35});
   io.observe(box);
 })();
+
+/* barra superior: desaparece tras la primera sección */
+(function(){
+  var nav=document.querySelector('.lp-nav'),hero=document.querySelector('.lp-hero');if(!nav||!hero)return;
+  function f(){nav.classList.toggle('is-gone',window.scrollY>hero.offsetHeight-60)}
+  window.addEventListener('scroll',f,{passive:true});f();
+  var rs=document.getElementById('mo-rs');if(rs)rs.querySelectorAll('[data-r]').forEach(function(b){b.addEventListener('click',function(){rs.classList.add('is-user')})});
+})();
