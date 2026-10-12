@@ -64,3 +64,32 @@
   function showTab(i){mt.forEach(function(x,k){x.classList.toggle('is-on',k===i);mp[k].classList.toggle('is-on',k===i);vids(mp[k],k===i)});if(mi)mi.style.setProperty('--i',i)}
   mt.forEach(function(b,k){b.addEventListener('click',function(){showTab(k)})});
 })();
+
+/* Resultados interactivos: un panel, tres botones */
+(function(){
+  var box=document.getElementById('mo-rs');if(!box)return;
+  var D=[
+    {t:'Más clics en tu anuncio',d:'Una primera imagen que detiene el scroll.',n:'Más gente toca tu anuncio y llega a tu propiedad.',v:40},
+    {t:'Más tiempo mirando tu propiedad',d:'Más ambientes vistos antes de decidir.',n:'Los interesados se quedan viendo la propiedad.',v:60},
+    {t:'Más personas te escriben',d:'Ubicación y acabados claros.',n:'Más mensajes de gente que sí quiere visitar.',v:35}
+  ];
+  var tabs=box.querySelectorAll('[data-r]'),panel=box.querySelector('.mo-rs__panel'),dots=box.querySelector('.mo-rs__dots b');
+  var cur=0,timer=null,user=false,raf=0;
+  function q(s){return box.querySelector(s)}
+  function show(i){
+    cur=i;var x=D[i];
+    tabs.forEach(function(b,k){var on=k===i;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on)});
+    q('.mo-rs__t').textContent=x.t;q('.mo-rs__d').textContent=x.d;q('.mo-rs__n').textContent=x.n;
+    q('.mo-rs__e').textContent=100+x.v;
+    box.style.setProperty('--hi',(100+x.v)/100);
+    panel.classList.remove('go');void panel.offsetWidth;panel.classList.add('go');
+    var v=q('.mo-rs__v'),t0=null;cancelAnimationFrame(raf);
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){v.textContent='+'+x.v;return}
+    (function f(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/900);v.textContent='+'+Math.round(x.v*(1-Math.pow(1-p,3)));if(p<1)raf=requestAnimationFrame(f)})(performance.now());
+    if(dots){dots.style.animation='none';void dots.offsetWidth;dots.style.animation=''}
+  }
+  function auto(){clearInterval(timer);if(user)return;timer=setInterval(function(){show((cur+1)%3)},5200)}
+  tabs.forEach(function(b,k){b.addEventListener('click',function(){user=true;clearInterval(timer);if(dots)dots.parentNode.style.display='none';show(k)})});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){show(cur);auto()}else clearInterval(timer)})},{threshold:.35});
+  io.observe(box);
+})();
