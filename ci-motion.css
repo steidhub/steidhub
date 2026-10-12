@@ -624,3 +624,90 @@ body.lp-page .lp-nav__cta{color:#fff!important}
 .cot__title em{font-style:normal;font-weight:500;color:#4B443C}
 @media(max-width:600px){.cot__rows{grid-template-columns:1fr}.cot__row{padding:12px 14px}}
 .cot__packs{align-items:stretch}.cot__pack{display:flex;align-items:center}
+
+/* footer mínimo */
+.mo-foot-min{padding:0!important;border-top:1px solid rgba(243,237,228,.14)}
+.mo-foot-min__in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding-block:14px}
+.mo-foot-min img{height:22px;width:auto}
+.mo-foot-min nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.82rem}
+.mo-foot-min a{color:#F3EDE4;opacity:.85}.mo-foot-min a:hover{opacity:1;color:#E0A272}
+.mo-foot-min span{font-size:.75rem;color:#bfb5a8}
+@media(max-width:700px){.mo-foot-min__in{flex-direction:column;align-items:flex-start;gap:8px;padding-block:12px}.mo-foot-min nav{font-size:.78rem;gap:4px 14px}}
+.mo-tag--g{background:#E4EFE4!important;color:#1B5E36!important}
+.mo-card--b>div:last-child,.mo-card--c>div:last-child{display:flex;flex-wrap:wrap;gap:6px}
+.mo-card--b>div:last-child>:is(h3,p),.mo-card--c>div:last-child>:is(h3,p){flex:0 0 100%}
+.mo-card--b .mo-tag,.mo-card--c .mo-tag{margin-top:2px;font-size:.7rem;padding:4px 9px}
+
+/* ===== móvil compacto ===== */
+.cot,.cot__opts,.cot__group,.cot__rows,.cot__sum{min-width:0}
+.cot{grid-template-columns:minmax(0,1.35fr) minmax(300px,.8fr)}
+@media(max-width:980px){.cot{grid-template-columns:minmax(0,1fr)!important}}
+.cot__row,.cot__pack{min-width:0;max-width:100%}
+.cot__rt{overflow-wrap:anywhere}
+@media(max-width:600px){
+  body.lp-page .lp-section{padding-block:30px!important}
+  body.lp-page .lp-head{margin-bottom:14px!important}
+  body.lp-page .h2{font-size:clamp(1.35rem,6.4vw,1.7rem)!important}
+  body.lp-page .lead,body.lp-page .lp-head .lead{font-size:.88rem!important;line-height:1.5}
+  body.lp-page .eyebrow{font-size:.66rem}
+  /* agentes */
+  .mo-agents__in{padding-block:30px!important;gap:8px!important}
+  body.lp-page .mo-agents__h{font-size:clamp(2.1rem,11.5vw,2.8rem)!important}
+  body.lp-page .mo-agents__p{font-size:.88rem!important;line-height:1.5}
+  body.lp-page .mo-agents__k{font-size:.68rem}
+  /* bento 2 columnas */
+  .mo-bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .mo-bento>.mo-card{padding:12px!important;gap:8px!important;border-radius:16px}
+  .mo-bento>.mo-card>:first-child{height:78px!important;min-height:78px!important}
+  .mo-bento .mo-eq,.mo-bento .mo-logos{height:78px!important;min-height:78px!important}
+  .mo-bento .mo-eq img{max-height:72px}
+  .mo-bento .mo-stack{height:78px}.mo-bento .mo-stack i{width:96px;height:62px;margin:-31px 0 0 -48px}
+  .mo-bento .mo-stack i::after{font-size:.5rem;left:6px;bottom:6px;padding:2px 6px}
+  .mo-bento h3{font-size:.86rem!important}
+  .mo-bento p{font-size:.72rem!important;line-height:1.35}
+  .mo-bento .mo-tag{font-size:.6rem!important;padding:3px 7px!important;margin-top:2px}
+  .mo-bento .mo-logos{gap:6px}.mo-bento .lg--pr,.mo-bento .lg--ae{width:30px;height:30px;font-size:.8rem;border-radius:8px}.mo-bento .lg-img{height:24px}
+  .mo-bento .mo-ring{width:52px;height:52px}.mo-bento .mo-num{font-size:1.8rem}
+  .mo-bento .mo-lens svg,.mo-bento .mo-formats{transform:scale(.7)}
+  .mo-bento>.mo-card.mo-card--g{padding:12px 16px!important;gap:8px 16px!important}
+  .mo-card--g .mo-g__k b{font-size:1.7rem}.mo-card--g .mo-g__t{font-size:.9rem}
+  .mo-card--g .mo-g__b{padding:8px 14px;font-size:.8rem}
+  /* resultados */
+  .mo-rs__tabs{gap:6px;margin-bottom:10px}.mo-rs__tabs button{padding:8px 11px;font-size:.78rem;gap:6px}.mo-rs__tabs button i{width:18px;height:18px;font-size:.62rem}
+  .mo-rs__panel{padding:16px!important;gap:14px!important;border-radius:20px}
+  body.lp-page .mo-rs__t{font-size:1.25rem!important}
+  body.lp-page .mo-rs__d,body.lp-page .mo-rs__n{font-size:.85rem!important;margin-top:6px}
+  body.lp-page .mo-rs__big span{font-size:3.2rem!important}
+  .mo-bar span{font-size:.72rem}.mo-bar b{font-size:.82rem!important}.mo-bar--b b{font-size:.95rem!important}.mo-bar i{height:12px}
+  body.lp-page .mo-foot{font-size:.76rem;padding:12px 14px}
+  /* casos */
+  .mo-flow{gap:8px!important}.mo-flow__a,.mo-flow__b{white-space:nowrap;padding:8px 14px!important;font-size:.8rem!important}
+  .lp-content-channel{padding:12px!important;gap:10px!important}
+  .lp-content-channel h3{font-size:.95rem!important}.lp-content-channel p{font-size:.78rem!important}
+  /* cotizador */
+  .cot{gap:14px!important}.cot__opts{gap:14px!important}
+  .cot__packs{padding:10px!important;gap:6px!important}.cot__pack{padding:9px 12px!important}.cot__pack b{font-size:.82rem!important}
+  .cot__hint{font-size:.82rem}.cot__title{font-size:.92rem!important;margin-bottom:8px!important}
+  .cot__title em{display:none}
+  .cot__row{padding:10px 12px!important;gap:10px!important;border-radius:14px}
+  .cot__row .cot__ico{width:34px!important;height:34px!important;border-radius:10px}.cot__row .cot__ico svg{width:19px;height:19px}
+  .cot__rt strong{font-size:.9rem}.cot__rt span{font-size:.76rem}.cot__box{width:22px;height:22px}
+  .cot__group--row{padding:10px 12px!important}
+  .cot__disc{gap:6px}.cot__disc li{padding:8px 4px}.cot__disc li b{font-size:1.05rem}.cot__disc li span{font-size:.7rem}
+  .cot__sum{padding:16px!important}.cot__lines li{font-size:.84rem}
+  .cot__grand dd{font-size:1.5rem!important}
+  /* servicios */
+  body.lp-page #servicios .mo-cluster{gap:10px!important}
+  body.lp-page #servicios .mo-cluster a{min-height:0!important;padding:18px!important;border-radius:20px;gap:6px!important}
+  body.lp-page #servicios .mo-cico{width:50px!important;height:50px!important;border-radius:15px!important;margin-bottom:6px}
+  body.lp-page #servicios .mo-cico svg{width:24px!important;height:24px!important}
+  body.lp-page #servicios .mo-cluster a strong{font-size:1.15rem!important}
+  body.lp-page #servicios .mo-cluster a p{font-size:.85rem!important}
+  body.lp-page #servicios .mo-cluster a::after{padding:8px 14px;font-size:.8rem}
+  body.lp-page #servicios .h2{font-size:clamp(1.5rem,7vw,1.9rem)!important}
+  /* cta y faq */
+  body.lp-page #diagnostico .lp-cta{padding:18px!important}
+  body.lp-page #diagnostico .lp-cta .h2{font-size:1.25rem!important}
+  body.lp-page #faq .lp-faq summary{padding:11px 14px!important;font-size:.88rem}
+}
+@media(max-width:600px){.mo-bento .mo-formats{transform:scale(.55)!important;transform-origin:center;justify-content:center}.mo-bento .mo-stack i{width:80px!important;height:56px!important;margin:-28px 0 0 -40px!important}}
