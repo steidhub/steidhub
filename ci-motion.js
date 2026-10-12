@@ -55,7 +55,7 @@
     new IntersectionObserver(function(e){e[0].isIntersecting?L2.go(0):L2.pause()},{threshold:.3}).observe(tl)}
   /* tarjetas problema (táctil) */
   document.querySelectorAll('.mo-pcard').forEach(function(c){c.addEventListener('click',function(){var o=c.classList.contains('is-open');document.querySelectorAll('.mo-pcard.is-open').forEach(function(x){x.classList.remove('is-open')});if(!o)c.classList.add('is-open')})});
-  document.querySelectorAll('.mo-metrics,.mo-kpis,.lp-content-channels').forEach(function(e){io.observe(e)});
+  document.querySelectorAll('.mo-metrics,.mo-resgrid,.mo-kpis,.lp-content-channels').forEach(function(e){io.observe(e)});
 
   /* material unificado */
   var mt=document.querySelectorAll('.mo-mtab'),mp=document.querySelectorAll('.mo-mpanel'),mi=document.querySelector('.mo-mtabs');
