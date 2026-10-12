@@ -320,3 +320,44 @@ body.lp-page .mo-stage__f figcaption span{color:#F3EDE4!important}
 .mo-spark{height:70px}.mo-spark circle{display:none}
 body.lp-page .mo-tab.is-on span{color:#fff}
 body.lp-page .mo-kpi__n,body.lp-page .mo-kpi__n span{color:#161411!important}body.lp-page .mo-kpi__n em{color:#B85A2B!important}
+
+/* ===== material unificado ===== */
+.mo-pchips{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin:-6px 0 28px}
+.mo-pchips>span{font-size:.95rem;color:#4B443C;margin-right:6px}
+.mo-pchip{position:relative;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1.5px solid var(--line-strong);border-radius:99px;background:#fff;color:#161411;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .3s,color .3s,transform .3s,border-color .3s}
+.mo-pchip i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#B85A2B;color:#fff;font-style:normal;font-size:.7rem;font-weight:800;animation:moBlink 2.4s ease-in-out infinite}
+@keyframes moBlink{50%{transform:scale(1.25)}}
+.mo-pchip::after{content:attr(data-t);position:absolute;left:50%;bottom:calc(100% + 10px);translate:-50% 6px;width:max-content;max-width:240px;padding:9px 14px;border-radius:12px;background:#161411;color:#fff;font-size:.85rem;font-weight:500;opacity:0;pointer-events:none;transition:opacity .3s,translate .3s}
+.mo-pchip:hover,.mo-pchip:focus-visible{background:#B85A2B;color:#fff;border-color:#B85A2B;transform:translateY(-3px)}
+.mo-pchip:hover i{background:#fff;color:#B85A2B}
+.mo-pchip:hover::after,.mo-pchip:focus-visible::after{opacity:1;translate:-50% 0}
+.mo-mtabs{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:99px;background:#fff;border:1px solid var(--line-strong);box-shadow:0 14px 34px rgba(70,50,30,.12);max-width:980px;margin:0 auto 26px}
+.mo-mtab{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 12px;border:0;border-radius:99px;background:none;color:#161411;font:inherit;font-size:.95rem;cursor:pointer;transition:color .4s}
+.mo-mtab b{font-weight:700}
+.mo-mtab__i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#EAE0D3;color:#B85A2B;transition:background .4s,color .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.mo-mtab__i svg{width:18px;height:18px}
+.mo-mtab:hover .mo-mtab__i{transform:rotate(-8deg) scale(1.1)}
+.mo-mtab.is-on{color:#fff}.mo-mtab.is-on .mo-mtab__i{background:#fff;color:#B85A2B}
+.mo-mtabs__ind{position:absolute;z-index:0;top:8px;bottom:8px;left:8px;width:calc((100% - 16px - 24px)/4);border-radius:99px;background:#B85A2B;box-shadow:0 10px 24px rgba(184,90,43,.4);transform:translateX(calc(var(--i,0)*(100% + 8px)));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.mo-mstage{position:relative}
+.mo-mpanel{display:none}
+.mo-mpanel.is-on{display:block;animation:moPanel .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes moPanel{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+.mo-mpanel .mo-mz{animation:moPop .7s cubic-bezier(.2,.8,.2,1) both}
+.mo-mpanel .mo-mz:nth-child(2){animation-delay:.1s}.mo-mpanel .mo-mz:nth-child(3){animation-delay:.2s}.mo-mpanel .mo-mz:nth-child(4){animation-delay:.3s}
+@keyframes moPop{from{opacity:0;transform:scale(.9) translateY(20px)}to{opacity:1;transform:none}}
+.mo-mpanel .mo-mz img{animation:moKen 14s ease-in-out infinite alternate}
+@keyframes moKen{to{transform:scale(1.08)}}
+.mo-mpanel .mo-mz:hover img{animation-play-state:paused}
+.mo-mpanel .mo-mosaic{grid-auto-rows:clamp(150px,19vw,270px)}
+.mo-mpanel .video-showcase{margin-top:0}
+@media(max-width:800px){
+  .mo-pchips{gap:8px;margin-bottom:20px}.mo-pchips>span{width:100%;text-align:center;margin:0 0 2px}.mo-pchip{font-size:.82rem;padding:8px 12px}
+  .mo-pchip::after{display:none}
+  .mo-mtabs{grid-template-columns:repeat(2,1fr);border-radius:24px;gap:6px;padding:6px}
+  .mo-mtabs__ind{display:none}
+  .mo-mtab{padding:11px 8px;font-size:.82rem;border-radius:18px;gap:7px}.mo-mtab.is-on{background:#B85A2B}
+  .mo-mtab__i{width:26px;height:26px}
+  .mo-mpanel .mo-mosaic{grid-auto-rows:140px}
+}
+@media(prefers-reduced-motion:reduce){.mo-pchip i,.mo-mpanel .mo-mz img,.mo-mpanel.is-on,.mo-mpanel .mo-mz{animation:none!important}}

@@ -56,4 +56,11 @@
   /* tarjetas problema (táctil) */
   document.querySelectorAll('.mo-pcard').forEach(function(c){c.addEventListener('click',function(){var o=c.classList.contains('is-open');document.querySelectorAll('.mo-pcard.is-open').forEach(function(x){x.classList.remove('is-open')});if(!o)c.classList.add('is-open')})});
   document.querySelectorAll('.mo-metrics,.mo-kpis,.lp-content-channels').forEach(function(e){io.observe(e)});
+
+  /* material unificado */
+  var mt=document.querySelectorAll('.mo-mtab'),mp=document.querySelectorAll('.mo-mpanel'),mi=document.querySelector('.mo-mtabs');
+  function vids(panel,on){panel.querySelectorAll('video').forEach(function(v){
+    if(on){v.querySelectorAll('source[data-src]').forEach(function(s){if(!s.src){s.src=s.dataset.src;v.load()}});var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()})}
+  function showTab(i){mt.forEach(function(x,k){x.classList.toggle('is-on',k===i);mp[k].classList.toggle('is-on',k===i);vids(mp[k],k===i)});if(mi)mi.style.setProperty('--i',i)}
+  mt.forEach(function(b,k){b.addEventListener('click',function(){showTab(k)})});
 })();
