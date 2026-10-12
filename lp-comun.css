@@ -518,3 +518,24 @@
  .l-foot nav{display:none}
  .l-foot__grid{grid-template-columns:1fr}
 }
+/* móvil: primera pantalla completa y animaciones fluidas */
+.l-ticker__in{will-change:transform;backface-visibility:hidden;transform:translate3d(0,0,0)}
+@keyframes l-tk{to{transform:translate3d(-50%,0,0)}}
+.ph__roll{will-change:transform}
+@media(max-width:600px){
+ .l-hero__in{gap:12px;padding-block:2px 18px}
+ .l-hero h1{margin-bottom:8px}
+ .l-kicker{margin-bottom:12px;font-size:.8rem;line-height:1.45}
+ .l-deal{margin-bottom:12px;padding:7px 11px}
+ .l-actions{flex-wrap:nowrap;gap:8px}
+ .l-actions .l-btn{flex:1 1 auto;padding:10px 12px;font-size:.8rem;white-space:nowrap}
+ .l-actions .l-btn--o{flex:0 0 auto}
+ .l-trust{margin-top:12px;gap:6px 12px;font-size:.7rem}
+ .l-trust li:nth-child(n+4){display:none}
+ .l-vis{padding-block:4px;gap:8px}
+ .ph{width:min(132px,36vw);border-radius:22px;padding:5px}
+ .ph__scr{border-radius:18px}
+ .l-chips{display:none}
+ .l-r1,.l-r2{width:200px;height:200px;margin-left:-100px;top:20px}
+ .l-ticker{padding:8px 0;font-size:.68rem}
+}
