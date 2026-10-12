@@ -711,3 +711,27 @@ body.lp-page .lp-nav__cta{color:#fff!important}
   body.lp-page #faq .lp-faq summary{padding:11px 14px!important;font-size:.88rem}
 }
 @media(max-width:600px){.mo-bento .mo-formats{transform:scale(.55)!important;transform-origin:center;justify-content:center}.mo-bento .mo-stack i{width:80px!important;height:56px!important;margin:-28px 0 0 -40px!important}}
+
+/* gráficos al centro exacto del cuadro */
+.mo-bento>.mo-card:not(.mo-card--g){display:flex!important;flex-direction:column;justify-content:flex-start}
+.mo-bento>.mo-card:not(.mo-card--g)>:first-child{flex:1 1 auto;height:auto!important;min-height:124px;width:100%;display:flex;align-items:center;justify-content:center}
+.mo-bento .mo-stack,.mo-bento .mo-lens,.mo-bento .mo-tracks,.mo-bento .mo-formats,.mo-bento .mo-orbit{height:auto}
+.mo-bento .mo-stack{min-height:124px}
+.mo-bento .mo-eq,.mo-bento .mo-logos{height:auto!important}
+.mo-bento .mo-row{width:auto}
+@media(max-width:600px){.mo-bento>.mo-card:not(.mo-card--g)>:first-child{min-height:78px}}
+
+/* cotizador: ítems más chicos, packs más grandes */
+.cot__row{padding:9px 13px!important;gap:11px!important;border-radius:14px}
+.cot__row .cot__ico{width:34px!important;height:34px!important;border-radius:10px}
+.cot__row .cot__ico svg{width:19px;height:19px}
+.cot__rt strong{font-size:.92rem}.cot__rt span{font-size:.78rem;line-height:1.35}
+.cot__box{width:22px;height:22px;border-radius:7px}
+.cot__row.is-on .cot__box::after{left:6px;top:2px;width:6px;height:11px}
+.cot__opts{gap:18px!important}
+.cot__title{font-size:.95rem!important;margin-bottom:9px!important}
+.cot__packs{padding:20px 22px!important;gap:14px!important}
+.cot__packs-k{font-size:.85rem!important}
+.cot__pack{padding:20px 20px!important;border-radius:18px!important;min-height:76px}
+.cot__pack b{font-size:1.12rem!important;line-height:1.2}
+@media(max-width:600px){.cot__packs{padding:12px!important}.cot__pack{padding:13px 14px!important;min-height:0}.cot__pack b{font-size:.95rem!important}}

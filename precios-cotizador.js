@@ -9,7 +9,7 @@
   function price(){
     var hv=state.drone||state.cam,ph=state.int||state.ext,v=0,f=0,e=0;
     if(state.cam)v=350;else if(state.drone)v=250;
-    if(state.int&&state.ext)f=500;else if(ph)f=hv?300:250;
+    if(ph)f=hv?100:(state.int&&state.ext?500:300);
     if(state.edit&&(hv||!ph))e=hv?100:150;
     return v+f+e;
   }
@@ -17,7 +17,7 @@
     var L=[],hv=state.drone||state.cam,ph=state.int||state.ext;
     if(state.drone&&state.cam)L.push('Grabación con cámara + drone');else if(state.drone)L.push('Grabación con drone');else if(state.cam)L.push('Grabación con cámara');
     if(ph){var w=state.int&&state.ext?'interiores y exteriores':state.int?'interiores':'exteriores';
-      L.push(hv?'Fotografía de '+w+' · edición incluida':'Fotografía HDR de '+w+' · '+(state.int&&state.ext?'40 fotos editadas':'10 fotos editadas'))}
+      L.push(hv?'Fotografía de '+w+' · 15 fotos editadas':'Fotografía HDR de '+w+' · '+(state.int&&state.ext?'40 fotos editadas':'10 fotos editadas'))}
     if(state.edit&&(hv||!ph))L.push(hv?'Edición avanzada: IA, Premiere, After Effects y color grading':'Solo edición: IA, Premiere, After Effects y color grading');
     return L;
   }
