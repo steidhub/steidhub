@@ -540,3 +540,16 @@
  .l-ticker{padding:8px 0;font-size:.68rem}
 }
 @media(max-width:600px){.l-hero__in{gap:16px}.l-kicker{margin-bottom:14px}.l-deal{margin-bottom:14px}.l-trust{margin-top:14px}.l-ph-note{display:none}}
+/* móvil: respiro en la primera sección */
+@media(max-width:600px){
+ .l-top{padding-block:16px 14px}
+ .l-hero__in{gap:18px;padding-block:6px 22px}
+ .l-hero h1{margin-bottom:14px;line-height:1.15}
+ .l-kicker{margin-bottom:20px;line-height:1.55}
+ .l-deal{margin-bottom:20px;padding:9px 13px}
+ .l-actions{gap:10px}
+ .l-actions .l-btn{padding:12px 14px}
+ .l-trust{margin-top:20px;gap:8px 14px}
+ .l-vis{padding-top:10px}
+ .ph{width:min(124px,34vw)}
+}
