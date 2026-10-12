@@ -1,0 +1,108 @@
+/* ==========================================================================
+   #marketing · embudo interactivo (Investiga → Atrae → Convierte → Mide → Ventas)
+   Sobre crema: texto negro en tonos claros, texto blanco sobre naranja fuerte.
+   ========================================================================== */
+.fun{
+  --f1:#EFE5D8; --f2:#E6B48F; --f3:#B85A2B; --f4:#8F4220;
+  display:grid;gap:clamp(28px,4vw,56px);align-items:center;
+}
+@media(min-width:900px){.fun{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}}
+
+/* ---------- embudo ---------- */
+.fun__viz{position:relative;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:600/640}
+.fun__svg{position:absolute;inset:0;width:100%;height:calc(100% * 580 / 640);overflow:visible}
+.fun__poly{stroke:transparent;stroke-width:0;transition:filter .45s var(--ease),stroke .3s var(--ease),transform .45s var(--ease);
+  transform-box:fill-box;transform-origin:50% 50%;cursor:pointer}
+.fun__poly--0{fill:var(--f1)}
+.fun__poly--1{fill:var(--f2)}
+.fun__poly--2{fill:var(--f3)}
+.fun__poly--3{fill:var(--f4)}
+.fun__poly.is-on{stroke:#161411;stroke-width:3;filter:drop-shadow(0 12px 18px rgba(60,40,20,.38));transform:scale(1.025)}
+.fun__neck{fill:#6E3317}
+.fun__sale{fill:#161411}
+.fun__ring{fill:none;stroke:#B85A2B;stroke-width:3;transform-box:fill-box;transform-origin:center;animation:funRing 2.2s ease-out infinite}
+@keyframes funRing{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.fun__check{stroke-dasharray:60;stroke-dashoffset:60;animation:funCheck 2.2s ease-in-out infinite}
+@keyframes funCheck{0%,18%{stroke-dashoffset:60}45%,100%{stroke-dashoffset:0}}
+
+/* personas que caen: las que no avanzan se desvanecen al salir de cada etapa */
+.fun__dot{fill:#fff;stroke:#161411;stroke-width:1.4;opacity:0;animation-iteration-count:infinite;animation-timing-function:linear;animation-play-state:paused}
+.fun.is-in .fun__dot{animation-play-state:running}
+@keyframes funFallS{0%{transform:translate(var(--x0),-14px);opacity:0}6%{opacity:1}
+  86%{transform:translate(var(--x1),456px);opacity:1}100%{transform:translate(300px,524px);opacity:0}}
+@keyframes funFallA{0%{transform:translate(var(--x0),-14px);opacity:0}6%{opacity:1}
+  24%{opacity:1}30%{opacity:0}100%{transform:translate(var(--x1),456px);opacity:0}}
+@keyframes funFallB{0%{transform:translate(var(--x0),-14px);opacity:0}6%{opacity:1}
+  48%{opacity:1}54%{opacity:0}100%{transform:translate(var(--x1),456px);opacity:0}}
+@keyframes funFallC{0%{transform:translate(var(--x0),-14px);opacity:0}6%{opacity:1}
+  72%{opacity:1}78%{opacity:0}100%{transform:translate(var(--x1),456px);opacity:0}}
+
+/* etapas = botones superpuestos a cada tramo */
+.fun__tabs{position:absolute;inset:0;height:calc(100% * 580 / 640)}
+.fun__tab{
+  position:absolute;left:var(--l);top:var(--t);width:var(--w);height:18.62%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  background:none;border:0;padding:0;font:inherit;cursor:pointer;border-radius:12px;
+  color:#161411;-webkit-tap-highlight-color:transparent;
+}
+.fun__tab--2,.fun__tab--3{color:#fff}
+.fun__n{font-size:.6875rem;font-weight:600;letter-spacing:.2em;opacity:.8}
+.fun__l{font-size:clamp(1rem,2.2vw,1.35rem);font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.fun__tab:focus-visible{outline:3px solid #161411;outline-offset:2px}
+.fun__tab--2:focus-visible,.fun__tab--3:focus-visible{outline-color:#fff;outline-offset:-5px}
+.fun__out{
+  position:absolute;left:58%;top:calc(538 / 640 * 100%);transform:translateY(-50%);
+  font-size:clamp(1rem,2.2vw,1.3rem);font-weight:600;color:#161411;letter-spacing:-.01em;
+}
+.fun__hint{
+  position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;
+  font-size:.8125rem;color:var(--tx-2,#4B443C);
+}
+
+/* ---------- panel de detalle ---------- */
+.fun__panels{
+  position:relative;background:#fff;border:1px solid rgba(70,50,30,.12);border-radius:20px;
+  box-shadow:0 26px 48px -30px rgba(60,40,20,.5);padding:clamp(22px,3vw,40px);overflow:hidden;
+}
+.fun__head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.fun__ic{width:48px;height:48px;border-radius:14px;background:#B85A2B;color:#fff;display:grid;place-items:center;flex:none}
+.fun__ic svg{width:22px;height:22px}
+.fun__step{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#161411}
+.fun__panel h3{font-size:clamp(1.4rem,2.3vw,2rem);letter-spacing:-.02em;line-height:1.12;margin:0 0 12px;color:#161411}
+.fun__panel p{margin:0;color:#4B443C;font-size:1rem;line-height:1.7;max-width:52ch}
+.fun__panel .tags{margin-top:22px}
+.fun__panel + .fun__panel{margin-top:32px;padding-top:32px;border-top:1px solid rgba(70,50,30,.12)}
+.fun__bar{position:absolute;left:0;right:0;top:0;height:4px;background:rgba(70,50,30,.1);display:none}
+.fun__bar i{display:block;height:100%;width:0;background:#B85A2B}
+
+/* con JS: solo se ve la etapa activa y se anima el cambio */
+.fun.is-js .fun__panel{display:none}
+.fun.is-js .fun__panel.is-on{display:block;animation:funIn .55s var(--ease)}
+.fun.is-js .fun__panel + .fun__panel{margin:0;padding:0;border:0}
+.fun.is-js .fun__bar{display:block}
+.fun.is-js .fun__bar.run i{animation:funBar var(--dur,6s) linear forwards}
+@keyframes funIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes funBar{from{width:0}to{width:100%}}
+.fun.is-js .fun__panel.is-on .fun__ic{animation:funPop .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes funPop{from{transform:scale(.5) rotate(-12deg)}to{transform:none}}
+
+/* ---------- móvil ---------- */
+@media(max-width:899px){
+  .fun__viz{max-width:400px}
+  .fun__panels{padding:22px 20px}
+  .fun__panel p{font-size:.9375rem}
+  .fun__n{font-size:.625rem}
+  .fun__l{font-size:1rem}
+}
+@media(max-width:480px){
+  .fun__l{font-size:.9375rem}
+  .fun__step{font-size:.6875rem}
+}
+
+/* ---------- sin animación ---------- */
+@media(prefers-reduced-motion:reduce){
+  .fun__dots{display:none}
+  .fun__ring,.fun__check{animation:none;stroke-dashoffset:0}
+  .fun.is-js .fun__panel.is-on,.fun.is-js .fun__panel.is-on .fun__ic{animation:none}
+  .fun__poly{transition:none}
+}

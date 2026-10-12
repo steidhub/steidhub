@@ -41,6 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="styles.css?v=20260920-wa1">
 <link rel="stylesheet" href="integral.css?v=draft1">
 <link rel="stylesheet" href="home-crema.css?v=draft1">
+<link rel="stylesheet" href="funnel.css?v=draft1">
 <link rel="stylesheet" href="seo-pages.css?v=1">
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 <script type="application/ld+json">
@@ -525,45 +526,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
     </div>
 
-    <p class="mobile-swipe-hint">Desliza para explorar nuestros servicios →</p>
-    <div class="mkt reveal" data-d="2" tabindex="0" aria-label="Servicios de marketing">
-      <article class="mkt__card">
-        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-        <span class="mkt__n">01</span>
-        <h3>Campañas digitales</h3>
-        <p>Diseñamos, lanzamos y optimizamos campañas en Meta, Google y TikTok con segmentación por comportamiento e intención real de compra.</p>
-        <ul class="tags tags--mkt">
-          <li><a href="/servicios/meta-ads/">Meta Ads</a></li><li><a href="/servicios/google-ads/">Google</a></li><li><a href="/servicios/tiktok-ads/">TikTok</a></li><li>Pauta en redes</li>
-        </ul>
-      </article>
-      <article class="mkt__card">
-        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3Z"/></svg></span>
-        <span class="mkt__n">02</span>
-        <h3>Embudos de conversión</h3>
-        <p>Flujos automatizados de email, WhatsApp y retargeting, con landing pages optimizadas y alertas al equipo comercial en el momento exacto.</p>
-        <ul class="tags tags--mkt">
-          <li><a href="/servicios/landing-pages/">Landing pages</a></li><li><a href="/recursos/retargeting-inmobiliario/">Retargeting</a></li><li><a href="/servicios/generacion-de-leads/">Segmentación de leads</a></li>
-        </ul>
-      </article>
-      <article class="mkt__card">
-        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H3V3"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
-        <span class="mkt__n">03</span>
-        <h3>Reportes de rendimiento</h3>
-        <p>Dashboard en tiempo real y reportes ejecutivos con costo por lead, tasa de conversión, ROI por canal y velocidad de venta por unidad.</p>
-        <ul class="tags tags--mkt">
-          <li><a href="/recursos/costo-por-lead/">Costo por lead</a></li><li><a href="/recursos/roi-por-canal/">ROI por canal</a></li><li><a href="/recursos/reporte-ejecutivo/">Reporte ejecutivo</a></li>
-        </ul>
-      </article>
-      <article class="mkt__card">
-        <span class="mkt__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
-        <span class="mkt__n">04</span>
+    <div class="fun reveal" data-d="2" data-funnel>
+    <div class="fun__viz">
+      <svg class="fun__svg" viewBox="0 0 600 580" aria-hidden="true" focusable="false">
+        <polygon class="fun__poly fun__poly--0 is-on" data-i="0" points="0,0 600,0 546,108 54,108"/>
+        <polygon class="fun__poly fun__poly--1" data-i="1" points="54,116 546,116 492,224 108,224"/>
+        <polygon class="fun__poly fun__poly--2" data-i="2" points="108,232 492,232 438,340 162,340"/>
+        <polygon class="fun__poly fun__poly--3" data-i="3" points="162,348 438,348 384,456 216,456"/>
+        <polygon class="fun__neck" points="238,464 362,464 330,502 270,502"/>
+        <circle class="fun__ring" cx="300" cy="538" r="34"/>
+        <circle class="fun__sale" cx="300" cy="538" r="30"/>
+        <path class="fun__check" d="M285 538l10 10 20-21" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g class="fun__dots"></g>
+      </svg>
+      <div class="fun__tabs" role="tablist" aria-label="Etapas del marketing digital">
+        <button class="fun__tab fun__tab--0" type="button" role="tab" id="fun-t0" aria-controls="fun-p0" aria-selected="true" data-i="0" style="--t:0%;--l:4.5%;--w:91%">
+          <span class="fun__n">01</span><span class="fun__l">Investiga</span>
+        </button>
+        <button class="fun__tab fun__tab--1" type="button" role="tab" id="fun-t1" aria-controls="fun-p1" aria-selected="false" data-i="1" style="--t:20%;--l:13.5%;--w:73%">
+          <span class="fun__n">02</span><span class="fun__l">Atrae</span>
+        </button>
+        <button class="fun__tab fun__tab--2" type="button" role="tab" id="fun-t2" aria-controls="fun-p2" aria-selected="false" data-i="2" style="--t:40%;--l:22.5%;--w:55%">
+          <span class="fun__n">03</span><span class="fun__l">Convierte</span>
+        </button>
+        <button class="fun__tab fun__tab--3" type="button" role="tab" id="fun-t3" aria-controls="fun-p3" aria-selected="false" data-i="3" style="--t:60%;--l:31.5%;--w:37%">
+          <span class="fun__n">04</span><span class="fun__l">Mide</span>
+        </button>
+      </div>
+      <span class="fun__out" aria-hidden="true">Ventas</span>
+      <p class="fun__hint">Toca cada etapa para ver qué hacemos</p>
+    </div>
+    <div class="fun__panels">
+      <article class="fun__panel is-on" id="fun-p0" role="tabpanel" aria-labelledby="fun-t0">
+        <div class="fun__head">
+          <span class="fun__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+          <span class="fun__step">Etapa 1 de 4 · Investiga</span>
+        </div>
         <h3>Investigación de mercado</h3>
         <p>Precios por m², absorción, ticket promedio y benchmarking de proyectos similares. Cada recomendación soportada por datos verificables.</p>
-        <ul class="tags tags--mkt">
+        <ul class="tags">
           <li><a href="/recursos/absorcion-inmobiliaria/">Absorción</a></li><li><a href="/recursos/benchmarking-inmobiliario/">Benchmarking</a></li><li><a href="/recursos/estudio-de-demanda/">Estudio de demanda</a></li>
         </ul>
       </article>
+      <article class="fun__panel" id="fun-p1" role="tabpanel" aria-labelledby="fun-t1">
+        <div class="fun__head">
+          <span class="fun__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
+          <span class="fun__step">Etapa 2 de 4 · Atrae</span>
+        </div>
+        <h3>Campañas digitales</h3>
+        <p>Diseñamos, lanzamos y optimizamos campañas en Meta, Google y TikTok con segmentación por comportamiento e intención real de compra.</p>
+        <ul class="tags">
+          <li><a href="/servicios/meta-ads/">Meta Ads</a></li><li><a href="/servicios/google-ads/">Google</a></li><li><a href="/servicios/tiktok-ads/">TikTok</a></li><li>Pauta en redes</li>
+        </ul>
+      </article>
+      <article class="fun__panel" id="fun-p2" role="tabpanel" aria-labelledby="fun-t2">
+        <div class="fun__head">
+          <span class="fun__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3Z"/></svg></span>
+          <span class="fun__step">Etapa 3 de 4 · Convierte</span>
+        </div>
+        <h3>Embudos de conversión</h3>
+        <p>Flujos automatizados de email, WhatsApp y retargeting, con landing pages optimizadas y alertas al equipo comercial en el momento exacto.</p>
+        <ul class="tags">
+          <li><a href="/servicios/landing-pages/">Landing pages</a></li><li><a href="/recursos/retargeting-inmobiliario/">Retargeting</a></li><li><a href="/servicios/generacion-de-leads/">Segmentación de leads</a></li>
+        </ul>
+      </article>
+      <article class="fun__panel" id="fun-p3" role="tabpanel" aria-labelledby="fun-t3">
+        <div class="fun__head">
+          <span class="fun__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H3V3"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg></span>
+          <span class="fun__step">Etapa 4 de 4 · Mide</span>
+        </div>
+        <h3>Reportes de rendimiento</h3>
+        <p>Dashboard en tiempo real y reportes ejecutivos con costo por lead, tasa de conversión, ROI por canal y velocidad de venta por unidad.</p>
+        <ul class="tags">
+          <li><a href="/recursos/costo-por-lead/">Costo por lead</a></li><li><a href="/recursos/roi-por-canal/">ROI por canal</a></li><li><a href="/recursos/reporte-ejecutivo/">Reporte ejecutivo</a></li>
+        </ul>
+      </article>
+      <div class="fun__bar" aria-hidden="true"><i></i></div>
     </div>
+  </div>
+
   </div>
 </section>
 
@@ -895,6 +936,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="popup.js?v=20260911-pop3" defer></script>
 <script src="main.js?v=20260911-pop1"></script>
 <script src="integral.js?v=draft1" defer></script>
+<script src="funnel.js?v=draft1" defer></script>
 <script src="showcase-captions.js?v=20260909-ios-video3"></script>
 <script src="mobile-loops.js?v=20260909-ios-video3"></script>
 <script src="video-sales.js?v=20260909-ios-video3"></script>

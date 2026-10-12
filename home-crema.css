@@ -18,8 +18,8 @@ body.home :is(#produccion,.video-sales,#resultados,#marketing,#portafolio,#equip
   background:var(--bg);color:var(--tx);border-top:0;
 }
 /* alternancia de dos cremas para que las secciones se distingan sin líneas */
-body.home :is(#produccion,#resultados,#marketing,#equipo){--bg:var(--cr-3)}
-body.home :is(.video-sales,#portafolio){--bg:var(--cr)}
+body.home :is(#produccion,.video-sales,#resultados,#marketing,#equipo){--bg:var(--cr-3)}
+body.home #portafolio{--bg:var(--cr)}
 /* «Videos que venden» vive dentro de .wrap: se extiende a todo el ancho */
 body.home .video-sales{
   overflow:visible;box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);
@@ -94,18 +94,6 @@ body.home #resultados .results__d,
 body.home #resultados .results__foot{color:var(--tx-2)}
 body.home #resultados .results__foot strong{color:var(--tx)}
 
-/* ---- 7 · Marketing ---- */
-body.home #marketing .mkt__card{
-  background:#fff;border:1px solid rgba(70,50,30,.12);border-radius:18px;
-  box-shadow:0 24px 44px -30px rgba(60,40,20,.5);
-  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
-}
-body.home #marketing .mkt__card:hover{transform:translateY(-5px);box-shadow:0 30px 50px -28px rgba(60,40,20,.6)}
-body.home #marketing .mkt__card h3{color:var(--tx)}
-body.home #marketing .mkt__card p{color:var(--tx-2)}
-body.home #marketing .mkt__n{color:var(--tx-2)}
-body.home #marketing .mkt__ic{background:var(--or);color:#fff;border-color:var(--or)}
-
 /* ---- 8 · Portafolio y Equipo ---- */
 body.home #portafolio .case__body h3{color:#fff}
 body.home #portafolio .case__k{color:#F0B48F}
@@ -114,30 +102,27 @@ body.home #portafolio .case__body p{color:#E9E4DD}
 body.home #portafolio .marquee__item img{filter:brightness(0) opacity(.7)}
 body.home #portafolio .marquee__item{opacity:1}
 body.home #portafolio .kicker{color:var(--tx)}
-body.home #marketing .tags--mkt{justify-content:flex-start}
-body.home #portafolio .case,
-body.home #equipo .member{
+body.home #portafolio .case{
   background:#fff;border:1px solid rgba(70,50,30,.12);border-radius:18px;
   box-shadow:0 24px 44px -30px rgba(60,40,20,.5);
   transition:transform .35s var(--ease),box-shadow .35s var(--ease);
 }
-body.home #portafolio .case:hover,
-body.home #equipo .member:hover{transform:translateY(-5px);box-shadow:0 30px 50px -28px rgba(60,40,20,.6)}
+body.home #portafolio .case:hover{transform:translateY(-5px);box-shadow:0 30px 50px -28px rgba(60,40,20,.6)}
 body.home #equipo .member__role{color:var(--tx-2)}
 body.home #equipo .member__bio{color:var(--tx-2)}
 
 /* ---- 9 · entrada escalonada de tarjetas ---- */
 @media(prefers-reduced-motion:no-preference){
-  body.home :is(.mkt,.team,.cases,.results__grid) > *{opacity:0;transform:translateY(24px) scale(.98)}
-  body.home :is(.mkt,.team,.cases).is-in > *,
+  body.home :is(.cases,.results__grid) > *{opacity:0;transform:translateY(24px) scale(.98)}
+  body.home :is(.cases).is-in > *,
   body.home .results__grid .is-in{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .7s var(--ease),box-shadow .35s var(--ease)}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(1){transition-delay:.05s}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(2){transition-delay:.13s}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(3){transition-delay:.21s}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(4){transition-delay:.29s}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(5){transition-delay:.37s}
-  body.home :is(.mkt,.team,.cases).is-in > *:nth-child(6){transition-delay:.45s}
-  body.home :is(.mkt,.team,.cases).is-in > *:hover{transition-delay:0s;transform:translateY(-5px)}
+  body.home :is(.cases).is-in > *:nth-child(1){transition-delay:.05s}
+  body.home :is(.cases).is-in > *:nth-child(2){transition-delay:.13s}
+  body.home :is(.cases).is-in > *:nth-child(3){transition-delay:.21s}
+  body.home :is(.cases).is-in > *:nth-child(4){transition-delay:.29s}
+  body.home :is(.cases).is-in > *:nth-child(5){transition-delay:.37s}
+  body.home :is(.cases).is-in > *:nth-child(6){transition-delay:.45s}
+  body.home :is(.cases).is-in > *:hover{transition-delay:0s;transform:translateY(-5px)}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -147,4 +132,34 @@ body.home #equipo .member__bio{color:var(--tx-2)}
   body.home :is(#produccion,#resultados,#marketing,#portafolio,#equipo) .eyebrow::before{width:28px}
 }
 
-@media(max-width:899px){body.home #marketing .tags--mkt{justify-content:center}}
+
+/* ---- 10 · uniones suaves entre secciones (difuminado, sin cortes duros) ---- */
+body.home :is(#produccion,#integral,#marketing,#portafolio,#equipo){
+  --fade-h:200px;
+  background-image:linear-gradient(180deg,
+    var(--fade-from) 0,
+    color-mix(in srgb,var(--fade-from) 82%,transparent) calc(var(--fade-h) * .18),
+    color-mix(in srgb,var(--fade-from) 50%,transparent) calc(var(--fade-h) * .45),
+    color-mix(in srgb,var(--fade-from) 18%,transparent) calc(var(--fade-h) * .75),
+    transparent var(--fade-h));
+  background-repeat:no-repeat;
+}
+body.home #produccion{--fade-from:#111111;--fade-h:260px}   /* viene del hero oscuro */
+body.home #integral{--fade-from:#FBF8F3}
+body.home #marketing{--fade-from:#F3EDE4}
+body.home #portafolio{--fade-from:#FBF8F3}
+body.home #equipo{--fade-from:#F3EDE4}
+
+/* «Hablemos de tu próximo proyecto» entra desde el crema con un degradado largo */
+body.home #contacto::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:300px;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,
+    #FBF8F3 0,
+    rgba(251,248,243,.82) 12%,
+    rgba(251,248,243,.55) 34%,
+    rgba(251,248,243,.25) 60%,
+    rgba(251,248,243,.07) 82%,
+    rgba(251,248,243,0) 100%);
+}
+@media(max-width:899px){body.home #contacto::before{height:200px}}
+body.home #contacto{border-top:0}
