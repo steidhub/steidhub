@@ -69,9 +69,9 @@
 (function(){
   var box=document.getElementById('mo-rs');if(!box)return;
   var D=[
-    {t:'Más clics en tu anuncio',d:'Una primera imagen que detiene el scroll.',n:'Más gente toca tu anuncio y llega a tu propiedad.',v:40},
-    {t:'Más tiempo mirando tu propiedad',d:'Más ambientes vistos antes de decidir.',n:'Los interesados se quedan viendo la propiedad.',v:60},
-    {t:'Más personas te escriben',d:'Ubicación y acabados claros.',n:'Más mensajes de gente que sí quiere visitar.',v:35}
+    {t:'Más clics en tu anuncio',d:'Una primera imagen que detiene el scroll.',n:'Más gente toca tu anuncio y llega a tu propiedad.',v:40,u:'clics'},
+    {t:'Más tiempo mirando tu propiedad',d:'Más ambientes vistos antes de decidir.',n:'Los interesados se quedan viendo la propiedad.',v:60,u:'segundos mirando'},
+    {t:'Más personas te escriben',d:'Ubicación y acabados claros.',n:'Más mensajes de gente que sí quiere visitar.',v:35,u:'mensajes'}
   ];
   var tabs=box.querySelectorAll('[data-r]'),panel=box.querySelector('.mo-rs__panel'),dots=box.querySelector('.mo-rs__dots b');
   var cur=0,timer=null,user=false,raf=0;
@@ -80,7 +80,7 @@
     cur=i;var x=D[i];
     tabs.forEach(function(b,k){var on=k===i;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on)});
     q('.mo-rs__t').textContent=x.t;q('.mo-rs__d').textContent=x.d;q('.mo-rs__n').textContent=x.n;
-    q('.mo-rs__e').textContent=100+x.v;
+    q('.mo-rs__e').textContent='hasta '+(100+x.v)+' '+x.u;q('.mo-rs__h0').textContent='100 '+x.u;
     box.style.setProperty('--hi',(100+x.v)/100);
     panel.classList.remove('go');void panel.offsetWidth;panel.classList.add('go');
     var v=q('.mo-rs__v'),t0=null;cancelAnimationFrame(raf);
