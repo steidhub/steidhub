@@ -269,7 +269,7 @@ body.lp-page .lp-cluster a>span{color:var(--or)}
 body.lp-page #contacto .section__bg{-webkit-mask-image:none!important;mask-image:none!important}
 
 /* ---- componentes específicos de las otras landings ---- */
-body.lp-page .lp-section :is(.lp-compare>article,.lp-channel-compare>article,.lp-metrics__wide,.lp-metrics>article,.stat,.drone-gear,.drone-usecases,.drone-license,.lp-section article:not(.lp-faq__item)){
+body.lp-page .lp-section :is(.lp-compare>article,.lp-channel-compare>article,.lp-metrics__wide,.lp-metrics>article,.stat,.drone-gear,.drone-usecases,.drone-license,.lp-section article:not(.lp-faq__item):not(.mo-card--f)){
   background-image:none!important;
 }
 body.lp-page .lp-section :is(.lp-compare>article,.lp-channel-compare>article,.lp-metrics__wide,.lp-metrics>article,.stat,.drone-gear,.drone-usecases,.drone-license,.lp-method>article,.lp-method>*,.lp-timeline>li){
