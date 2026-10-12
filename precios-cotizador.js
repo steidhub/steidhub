@@ -14,22 +14,26 @@
     return v+f+e;
   }
   function names(){
-    var L=[],hv=state.drone||state.cam,ph=state.int||state.ext;
-    if(state.drone&&state.cam)L.push('Grabación con cámara + drone');else if(state.drone)L.push('Grabación con drone');else if(state.cam)L.push('Grabación con cámara');
-    if(state.edit&&(hv||!ph))L.push((hv?'Edición de video':'Solo edición de video')+': After Effects, Premiere Pro e IA');
+    var inc=[],del=[],tools=[],hv=state.drone||state.cam,ph=state.int||state.ext,ve=state.edit&&(hv||!ph);
+    if(state.drone&&state.cam)inc.push('Grabación con cámara y drone');else if(state.drone)inc.push('Grabación con drone');else if(state.cam)inc.push('Grabación con cámara');
     if(ph){var w=state.int&&state.ext?'interiores y exteriores':state.int?'interiores':'exteriores';
-      L.push(hv?'Fotografía de '+w+' · 15 fotos editadas':'Sesión y edición HDR de '+w+' · '+(state.int&&state.ext?'40 fotos':'10 fotos'));
-      L.push('Edición de fotos: Lightroom y Photoshop')}
-    if(hv)L.splice(L.length-(ph?2:0),0,'Entregable: video de 60 segundos en 1 formato a elección');
-    return L;
+      inc.push(hv?'Fotografía de '+w:'Sesión y edición HDR de '+w)}
+    if(ve&&ph)inc.push('Edición de fotos y video');else if(ve)inc.push(hv?'Edición de video':'Solo edición de video');else if(ph)inc.push('Edición de fotos');
+    if(hv||ve)del.push('1 video en 1 formato a elección, máximo 60 segundos');
+    if(ph)del.push(hv?'15 fotos editadas':(state.int&&state.ext?'40':'10')+' fotos editadas HDR');
+    if(ve)tools.push('After Effects','Premiere Pro','IA');
+    if(ph)tools.push('Lightroom','Photoshop');
+    return {inc:inc,del:del,tools:tools};
   }
   function same(p){return ['drone','cam','int','ext','edit'].every(function(k){return !!p[k]===!!state[k]})}
   function render(){
-    var L=names(),unit=price(),d=disc(state.qty),total=unit*state.qty*(1-d);
+    var N=names(),L=N.inc,unit=price(),d=disc(state.qty),total=unit*state.qty*(1-d);
     $$('[data-k]').forEach(function(b){var on=!!state[b.dataset.k];b.setAttribute('aria-checked',on);b.classList.toggle('is-on',on)});
     var pe=$('[data-auto=pedit]');if(pe){var po=!!(state.int||state.ext);pe.classList.toggle('is-on',po);pe.setAttribute('aria-checked',po)}
     $$('[data-pack]').forEach(function(b){b.classList.toggle('is-on',same(PACKS[b.dataset.pack]))});
     $('.cot__lines').innerHTML=L.length?L.map(function(n){return '<li><span>'+n+'</span></li>'}).join('')+(state.qty>1?'<li class="cot__props"><span>'+state.qty+' propiedades</span></li>':''):'<li class="cot__empty">Marca lo que necesitas para ver tu precio.</li>';
+    var dl=$('.cot__del');if(dl){dl.hidden=!N.del.length;dl.querySelector('ul').innerHTML=N.del.map(function(n){return '<li>'+n+'</li>'}).join('')}
+    var tl=$('.cot__tools');if(tl){tl.hidden=!N.tools.length;tl.querySelector('span').textContent=N.tools.join(', ')}
     $('.cot__discrow').style.display=d?'':'none';
     $('.cot__dsc').textContent=d?'−'+Math.round(d*100)+'% por '+state.qty+' propiedades':'—';
     var tot=$('.cot__total');tot.textContent=L.length?fmt(total):'S/ 0';
@@ -37,7 +41,7 @@
     $('.cot__qty-n').textContent=state.qty;
     var tier=state.qty>=4?4:state.qty;
     $$('.cot__disc li').forEach(function(li){li.classList.toggle('is-on',+li.dataset.q===tier)});
-    var msg='Hola Steid Hub, quiero cotizar contenido inmobiliario:\n'+L.map(function(n){return '• '+n}).join('\n')+'\nPropiedades: '+state.qty+(d?' (descuento '+Math.round(d*100)+'%)':'')+'\nTotal: '+fmt(total)+' + IGV';
+    var msg='Hola Steid Hub, quiero cotizar contenido inmobiliario:\n'+L.concat(N.del.map(function(n){return 'Entregable: '+n})).map(function(n){return '• '+n}).join('\n')+'\nPropiedades: '+state.qty+(d?' (descuento '+Math.round(d*100)+'%)':'')+'\nTotal: '+fmt(total)+' + IGV';
     var a=$('.cot__cta');a.href='https://wa.me/51983595390?text='+encodeURIComponent(L.length?msg:'Hola Steid Hub, quiero cotizar contenido inmobiliario');
     a.setAttribute('aria-disabled',L.length?'false':'true');
   }
