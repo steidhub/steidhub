@@ -25,3 +25,10 @@
   Cache-Control: no-store
   X-Frame-Options: DENY
   Referrer-Policy: no-referrer
+# Landings de venta: CSS/JS versionados (?v=N) con caché larga
+/lp-comun.css
+  Cache-Control: public, max-age=31536000, immutable
+/lp-comun.js
+  Cache-Control: public, max-age=31536000, immutable
+/lp-diagnostico.js
+  Cache-Control: public, max-age=31536000, immutable
