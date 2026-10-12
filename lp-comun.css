@@ -508,3 +508,13 @@
  .l-foot__grid{grid-template-columns:1fr 1fr;gap:10px}.l-foot__grid>div:first-child{grid-column:1/-1}
  .l-foot a,.l-foot span{padding:1px 0}.l-foot__bar{flex-direction:column;gap:2px;font-size:.68rem}
 }
+/* móvil: títulos más pequeños y footer solo con contacto */
+@media(max-width:600px){
+ .l-sec h2{font-size:clamp(1.02rem,4.5vw,1.3rem)}
+ .l-big{font-size:clamp(1.2rem,5.4vw,1.5rem)!important;max-width:none}
+ .l-hero h1{font-size:clamp(1.15rem,5.4vw,1.45rem)}
+ .l-final h2{font-size:clamp(1.3rem,6vw,1.65rem)}
+ .trk h3{font-size:.95rem}.fn h3{font-size:.92rem}.l-card h3{font-size:.86rem}
+ .l-foot nav{display:none}
+ .l-foot__grid{grid-template-columns:1fr}
+}
