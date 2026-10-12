@@ -295,14 +295,14 @@ body.home .stat{
 }
 body.home .stat:hover{transform:translateY(-4px)}
 body.home .stat{text-align:center}
-body.home .hero__stats{padding:22px 0 40px}
+body.home .hero__stats{padding:26px 0 48px}
 body.home .wa.is-over-hero{bottom:24px}
 body.home .stat__n{color:#161411}
 body.home .stat__l{color:#4B443C}
 
 @media(min-width:960px){
-  body.home .hero{min-height:min(88svh,860px)}
-  body.home .hero__center{padding:116px 0 20px;flex:1;display:flex;flex-direction:column;justify-content:center}
+  body.home .hero{min-height:min(95svh,960px)}
+  body.home .hero__center{padding:128px 0 28px;flex:1;display:flex;flex-direction:column;justify-content:center}
   body.home .hero__grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(24px,3vw,56px)}
   body.home .hero .display{font-size:clamp(2.5rem,4.8vw,4.6rem)}
   body.home .hero__center{text-align:left}
@@ -344,3 +344,46 @@ body.home .stat__l{color:#4B443C}
   body.home .hero__tag i{animation:none}
   body.home .hero__device{transition:none}
 }
+
+
+/* ---- 12 · cifras y avisos con más vida ---- */
+body.home .stat{position:relative;overflow:hidden}
+body.home .stat::after{
+  content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;border-radius:3px;background:#B85A2B;
+  transform:scaleX(0);transform-origin:left;
+}
+body.home .stat::before{
+  content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(240,180,143,.35),transparent);transform:skewX(-18deg);
+}
+body.home .stat__n{display:inline-block}
+@keyframes statPop{0%{opacity:0;transform:translateY(34px) scale(.9)}60%{opacity:1;transform:translateY(-6px) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes statBar{to{transform:scaleX(1)}}
+@keyframes statShine{0%,70%{left:-60%}100%{left:130%}}
+@keyframes numPop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes chipIn{0%{opacity:0;scale:.5}65%{opacity:1;scale:1.08}100%{opacity:1;scale:1}}
+@keyframes chipPing{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(2.3);opacity:0}}
+body.home .hero__chip b::before{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;opacity:0}
+@media(prefers-reduced-motion:no-preference){
+  body.home .hero__stats .stat{animation:statPop .9s cubic-bezier(.34,1.4,.64,1) both}
+  body.home .stat::after{animation:statBar 1.2s var(--ease) both}
+  body.home .stat::before{animation:statShine 7s ease-in-out infinite}
+  body.home .stat:nth-child(1)::after{animation-delay:.9s}body.home .stat:nth-child(2)::after{animation-delay:1.05s}
+  body.home .stat:nth-child(3)::after{animation-delay:1.2s}body.home .stat:nth-child(4)::after{animation-delay:1.35s}
+  body.home .stat:nth-child(5)::after{animation-delay:1.5s}
+  body.home .stat:nth-child(2)::before{animation-delay:.7s}body.home .stat:nth-child(3)::before{animation-delay:1.4s}
+  body.home .stat:nth-child(4)::before{animation-delay:2.1s}body.home .stat:nth-child(5)::before{animation-delay:2.8s}
+  body.home .hero__chip{animation:chipIn .8s cubic-bezier(.34,1.56,.64,1) backwards,heroBob 5.5s ease-in-out infinite}
+  body.home .hero__chip--a{animation-delay:1s,0s}
+  body.home .hero__chip--d{animation-delay:1.3s,-.9s;animation-duration:.8s,6.1s}
+  body.home .hero__chip--b{animation-delay:1.6s,-1.8s;animation-duration:.8s,6.4s}
+  body.home .hero__chip--e{animation-delay:1.9s,-4.1s;animation-duration:.8s,5.2s}
+  body.home .hero__chip--c{animation-delay:2.2s,-3.2s;animation-duration:.8s,5.9s}
+  body.home .hero__chip b::before{animation:chipPing 3.4s ease-out infinite}
+  body.home .hero__chip--a b::before{animation-delay:2.2s}
+  body.home .hero__chip--d b::before{animation-delay:.6s}
+  body.home .hero__chip--b b::before{animation-delay:1.7s}
+  body.home .hero__chip--e b::before{animation-delay:2.8s}
+  body.home .hero__chip--c b::before{animation-delay:1.1s}
+}
+@media(prefers-reduced-motion:reduce){body.home .stat::after{transform:scaleX(1)}body.home .stat::before{display:none}}

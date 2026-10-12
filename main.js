@@ -43,6 +43,7 @@
   const nums = document.querySelectorAll('[data-count]');
   const fmt = (n) => n.toLocaleString('es-PE');
   const runCount = (el) => {
+    if (el.closest('.hero__stats') && !el._d && !reduce.matches) { el._d = 1; el.textContent = (el.dataset.prefix || '') + '0'; setTimeout(() => runCount(el), 700 + 130 * Array.from(el.closest('.stats').children).indexOf(el.parentNode)); return; }
     const target = Number(el.dataset.count);
     const prefix = el.dataset.prefix || '';
     if (reduce.matches) { el.textContent = prefix + fmt(target); return; }
