@@ -100,7 +100,7 @@
     const isDx = document.body.dataset.lp === 'diagnostico';
     const cfg = isDx
       ? { first: 'Hola, Steid Hub. Quiero mi diagnóstico de redes y web.', hi: '¡Hola! 👋 Somos Steid Hub. ¿Qué quieres que revisemos primero?', opts: ['Mi página web', 'Mis redes sociales', 'Ambas'], bye: 'Perfecto. Sigue en WhatsApp y te ayudamos con tu diagnóstico gratis.' }
-      : { first: 'Hola, Steid Hub. Quiero una landing para mi inmobiliaria.', hi: '¡Hola! 👋 Somos Steid Hub. ¿Qué quieres promocionar con tu landing?', opts: ['Un edificio o proyecto', 'Propiedades de mi cartera', 'Aún no lo sé'], bye: 'Perfecto. Desde S/ 600 + IGV. Sigue en WhatsApp y te enviamos tu cotización.' };
+      : { first: 'Hola, Steid Hub. Quiero una landing para mi inmobiliaria.', hi: '¡Hola! 👋 Somos Steid Hub. ¿Qué quieres promocionar con tu landing?', opts: ['Un edificio o proyecto', 'Propiedades de mi cartera', 'Aún no lo sé'], bye: 'Perfecto. Desde S/ 700 + IGV. Sigue en WhatsApp y te enviamos tu cotización.' };
     const base = new URL(fab.href); const baseTxt = base.searchParams.get('text') || cfg.first;
     const panel = document.createElement('div');
     panel.className = 'l-fc'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat con Steid Hub'); panel.id = 'fc';
@@ -133,6 +133,19 @@
     $('.l-fc__bar button', panel).addEventListener('click', close);
     addEventListener('keydown', e => { if (e.key === 'Escape' && panel.classList.contains('open')) close(); });
     addEventListener('resize', () => panel.classList.contains('open') && place());
+  }
+
+  /* Pop de descuento: aparece al acercarse al final de la página (una vez por sesión) */
+  const pop = $('#pop');
+  if (pop && fin) {
+    let shown = false, last = null;
+    try { shown = sessionStorage.getItem('pop15') === '1'; } catch (e) {}
+    const show = () => { if (shown) return; shown = true; try { sessionStorage.setItem('pop15', '1'); } catch (e) {} last = document.activeElement; pop.hidden = false; requestAnimationFrame(() => pop.classList.add('open')); gtm('lp_popup_open', { popup: 'descuento_15' }); $('.l-pop__x', pop).focus(); };
+    const hide = () => { pop.classList.remove('open'); setTimeout(() => { pop.hidden = true; }, 300); last && last.focus && last.focus(); };
+    const chk = () => { if (!shown && fin.getBoundingClientRect().top < innerHeight * 1.1 && scrollY > 600) { removeEventListener('scroll', chk); setTimeout(show, 500); } };
+    addEventListener('scroll', chk, { passive: true });
+    pop.addEventListener('click', e => { if (e.target === pop || e.target.closest('.l-pop__x')) hide(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) hide(); });
   }
 
   /* Seguimiento (sin datos personales) */
