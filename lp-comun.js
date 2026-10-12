@@ -136,6 +136,15 @@
   }
 
   /* Seguimiento (sin datos personales) */
-  document.addEventListener('click', e => { const a = e.target.closest('[data-cta]'); if (a) gtm('lp_cta_click', { cta: a.dataset.cta }); });
+  /* Conversión: clic a WhatsApp → evento `whatsapp_click` (GTM: GA4 "contact" + Meta "Contact") */
+  const waEvent = (src) => { const id = 'wa_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); (window.dataLayer = window.dataLayer || []).push({ event: 'whatsapp_click', event_id: id, contact_method: 'whatsapp', cta_source: src || '', lp, page_path: location.pathname, content_name: document.title }); };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href]'); if (!a) return;
+    const isWa = /^https:\/\/wa\.me\//.test(a.href);
+    if (isWa && a.id !== 'fab') waEvent(a.dataset.cta || 'whatsapp');
+    else if (a.dataset.cta && !isWa) gtm('lp_cta_click', { cta: a.dataset.cta, page_path: location.pathname });
+  });
+  /* Vista de contenido (Meta ViewContent) una vez por carga */
+  (window.dataLayer = window.dataLayer || []).push({ event: 'view_item', lp, page_path: location.pathname, content_name: document.title, content_type: 'landing' });
   $$('.l-faq details').forEach(d => d.addEventListener('toggle', () => { if (d.open) gtm('lp_faq_open', { q: (d.querySelector('summary') || {}).textContent || '' }); }));
 })();
