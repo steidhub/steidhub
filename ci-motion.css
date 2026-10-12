@@ -757,3 +757,17 @@ body.lp-page #precios .lead{font-size:.98rem;margin-top:6px}
 .cot__disc{margin-top:-2px}.cot__disc li{padding:8px 4px}
 @media(max-width:900px){.cot__trio{grid-template-columns:1fr}}
 @media(max-width:600px){.cot__trio{gap:10px}.cot__pack{min-height:0!important;padding:11px 14px!important}}
+
+/* v13: tipografía más ligera, 2 columnas, footer mayor */
+.cot__trio{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:700px){.cot__trio{grid-template-columns:1fr!important}}
+.cot__rt strong,.cot__trio .cot__rt strong{font-weight:500!important}
+.cot__title,.cot__pack,.cot__pack *,.cot__disc b,.cot__disc span,.cot__sum-h,.cot__inc{font-weight:500!important}
+.cot__qty-n,.cot__total{font-weight:600!important}
+.cot__row--auto{cursor:default;pointer-events:none}
+.cot__row--auto:not(.is-on){opacity:.55}
+.mo-foot-min__in{padding-block:34px!important;gap:16px 32px!important}
+.mo-foot-min img{height:34px!important}
+.mo-foot-min nav{font-size:.95rem!important;gap:8px 24px!important}
+.mo-foot-min span{font-size:.82rem!important;flex-basis:100%;padding-top:14px;border-top:1px solid rgba(243,237,228,.12)}
+@media(max-width:700px){.mo-foot-min__in{padding-block:24px!important}.mo-foot-min img{height:28px!important}.mo-foot-min nav{font-size:.86rem!important}}

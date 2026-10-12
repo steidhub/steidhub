@@ -20,12 +20,14 @@
     if(ph){var w=state.int&&state.ext?'interiores y exteriores':state.int?'interiores':'exteriores';
       L.push(hv?'Fotografía de '+w+' · 15 fotos editadas':'Sesión y edición HDR de '+w+' · '+(state.int&&state.ext?'40 fotos':'10 fotos'));
       L.push('Edición de fotos: Lightroom y Photoshop')}
+    if(hv)L.splice(L.length-(ph?2:0),0,'Entregable: video de 60 segundos en 1 formato a elección');
     return L;
   }
   function same(p){return ['drone','cam','int','ext','edit'].every(function(k){return !!p[k]===!!state[k]})}
   function render(){
     var L=names(),unit=price(),d=disc(state.qty),total=unit*state.qty*(1-d);
     $$('[data-k]').forEach(function(b){var on=!!state[b.dataset.k];b.setAttribute('aria-checked',on);b.classList.toggle('is-on',on)});
+    var pe=$('[data-auto=pedit]');if(pe){var po=!!(state.int||state.ext);pe.classList.toggle('is-on',po);pe.setAttribute('aria-checked',po)}
     $$('[data-pack]').forEach(function(b){b.classList.toggle('is-on',same(PACKS[b.dataset.pack]))});
     $('.cot__lines').innerHTML=L.length?L.map(function(n){return '<li><span>'+n+'</span></li>'}).join('')+(state.qty>1?'<li class="cot__props"><span>'+state.qty+' propiedades</span></li>':''):'<li class="cot__empty">Marca lo que necesitas para ver tu precio.</li>';
     $('.cot__discrow').style.display=d?'':'none';
