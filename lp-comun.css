@@ -166,7 +166,7 @@
 .l-shot button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;background:linear-gradient(to bottom,rgba(247,247,245,0),var(--cr));pointer-events:none}
 .l-shot button:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(17,17,17,.2)}
 .l-shot button:focus-visible{outline:3px solid var(--o4);outline-offset:3px}
-.l-shot img{width:100%;height:auto;aspect-ratio:600/1130;object-fit:cover;object-position:top}
+.l-shot img{width:100%;height:auto;aspect-ratio:600/900;object-fit:cover;object-position:top}
 .l-shot figcaption{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--ink)}
 .l-shot figcaption::before{content:attr(data-n);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--o2);color:#fff;font-size:.76rem;font-weight:800}
 @media(min-width:860px){
@@ -368,16 +368,20 @@
 .trk__badge i{width:9px;height:9px;border-radius:50%;background:var(--wa);animation:l-pu2 2.2s infinite}
 .trk h3{font-size:clamp(1.2rem,5vw,1.7rem);color:#fff}.trk p{color:#E9E6E1;font-size:.9rem;max-width:46ch}
 .trk small{font-size:.72rem;color:#CFCBC4}
-.tf{position:relative;display:grid;gap:4px;width:min(100%,420px);margin-inline:auto}
+.tf{position:relative;display:grid;gap:4px;width:min(100%,420px);margin-inline:auto;align-content:start}
 .tf__s{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;height:64px;color:#fff;animation:tf-g 6s ease-in-out infinite}
 .tf__s b{font-size:1.5rem;letter-spacing:-.03em}.tf__s span{font-size:.84rem;font-weight:600}
 .tf__s.s1{background:#B85A2B;clip-path:polygon(0 0,100% 0,91% 100%,9% 100%)}
 .tf__s.s2{width:82%;margin-inline:auto;background:#9A4A22;clip-path:polygon(0 0,100% 0,89% 100%,11% 100%);animation-delay:1.5s}
-.tf__s.s3{width:64%;margin-inline:auto;background:#0E7A3E;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);animation-delay:3s;height:72px}
+.tf__s.s3{width:64%;margin-inline:auto;background:#0E7A3E;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);animation-delay:3s}
+.tf__s.s4{width:46%;margin-inline:auto;background:#fff;color:#111;clip-path:polygon(0 0,100% 0,84% 100%,16% 100%);animation-delay:4.5s}
+.tf__r{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.tf__r li{border:1.5px solid rgba(255,255,255,.5);border-radius:14px;padding:8px 10px;text-align:center}
+.tf__r b{display:block;font-size:1.35rem;color:#fff;line-height:1.1}.tf__r span{font-size:.74rem;color:#E9E6E1}
 @keyframes tf-g{0%,30%,100%{filter:brightness(1)}12%{filter:brightness(1.35)}}
 .tf__d{position:absolute;z-index:3;left:50%;top:0;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:#fff;opacity:0;animation:tf-d 3s ease-in infinite}
 .tf__d:nth-child(2){animation-delay:.75s;--x:-46px}.tf__d:nth-child(3){animation-delay:1.5s;--x:30px}.tf__d:nth-child(4){animation-delay:2.25s;--x:-12px}.tf__d:nth-child(1){--x:40px}
-@keyframes tf-d{0%{transform:translate(var(--x),0) scale(1);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translate(0,210px) scale(.6);opacity:0}}
+@keyframes tf-d{0%{transform:translate(var(--x),0) scale(1);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translate(0,270px) scale(.6);opacity:0}}
 @media(min-width:860px){.trk{grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding:32px 40px}.trk small{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.tf__s,.tf__d{animation:none!important}}
 /* botones WhatsApp sobre naranja */
@@ -399,3 +403,25 @@
 .l-final .l-actions{margin-top:0}
 .l-final .l-btn--xl{width:min(100%,460px)}
 .l-final .l-final__note{margin:16px auto 0;font-size:.84rem;font-weight:600;color:#fff}
+
+.il .tg.x{color:#111;background:transparent;border:1.5px solid #111}
+.il .tg{display:inline-flex;align-items:center;justify-content:center;min-width:128px;height:26px;padding:0 12px;font-size:.72rem;font-weight:700;border-radius:999px;border:1.5px solid transparent}
+.wa-big{width:100%;justify-content:center;text-align:center;margin-inline:auto}
+.wa-big>div{text-align:center}
+.orb__c img{filter:brightness(0) invert(1)}
+.orb__c{font-weight:600}
+/* chat flotante */
+.l-fc{position:fixed;right:max(14px,env(safe-area-inset-right));z-index:260;width:min(340px,calc(100vw - 28px));background:#E9E2D8;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);display:flex;flex-direction:column;max-height:min(520px,72vh);transform:translateY(14px) scale(.96);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.l-fc.open{opacity:1;transform:none;pointer-events:auto}
+.l-fc__bar{background:var(--wa);color:#fff;display:flex;align-items:center;gap:10px;padding:11px 12px;font-weight:700;font-size:.9rem}
+.l-fc__bar small{display:block;font-weight:500;font-size:.7rem}
+.l-fc__bar button{margin-left:auto;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.2);color:#fff;font-size:1.1rem;cursor:pointer}
+.l-fc__av{width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none}.l-fc__av img{width:20px;height:20px}
+.l-fc__body{padding:12px;display:flex;flex-direction:column;gap:8px;overflow-y:auto;min-height:150px}
+.l-fc .msg{opacity:1;transform:none;animation:fc-in .3s}
+@keyframes fc-in{from{opacity:0;transform:translateY(8px)}}
+.l-fc__q{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.l-fc__q button{font:600 .8rem 'Poppins',system-ui,sans-serif;background:#fff;color:#111;border:1.5px solid var(--wa);border-radius:999px;padding:8px 12px;cursor:pointer;min-height:38px}
+.l-fc__go{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-weight:700;font-size:.9rem;padding:12px;border-radius:999px;min-height:46px;animation:fc-in .3s}
+.l-fc__go svg{width:20px;height:20px}
+.tfw{width:min(100%,420px);margin-inline:auto}.tfw .tf{width:100%}

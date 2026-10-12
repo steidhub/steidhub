@@ -95,6 +95,46 @@
     addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
   }
 
+  /* Chat flotante: conversación animada antes de ir a WhatsApp */
+  if (fab) {
+    const isDx = document.body.dataset.lp === 'diagnostico';
+    const cfg = isDx
+      ? { first: 'Hola, Steid Hub. Quiero mi diagnóstico de redes y web.', hi: '¡Hola! 👋 Somos Steid Hub. ¿Qué quieres que revisemos primero?', opts: ['Mi página web', 'Mis redes sociales', 'Ambas'], bye: 'Perfecto. Sigue en WhatsApp y te ayudamos con tu diagnóstico gratis.' }
+      : { first: 'Hola, Steid Hub. Quiero una landing para mi inmobiliaria.', hi: '¡Hola! 👋 Somos Steid Hub. ¿Qué quieres promocionar con tu landing?', opts: ['Un edificio o proyecto', 'Propiedades de mi cartera', 'Aún no lo sé'], bye: 'Perfecto. Desde S/ 600 + IGV. Sigue en WhatsApp y te enviamos tu cotización.' };
+    const base = new URL(fab.href); const baseTxt = base.searchParams.get('text') || cfg.first;
+    const panel = document.createElement('div');
+    panel.className = 'l-fc'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat con Steid Hub'); panel.id = 'fc';
+    panel.innerHTML = '<div class="l-fc__bar"><span class="l-fc__av"><img src="/assets/logos/steidhub-mark-black.png" alt="" width="20" height="20"></span><div>Steid Hub<small>En línea · responde rápido</small></div><button type="button" aria-label="Cerrar chat">✕</button></div><div class="l-fc__body" aria-live="polite"></div>';
+    document.body.appendChild(panel);
+    const body = $('.l-fc__body', panel); let timers = [], started = false;
+    const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+    const add = (txt, who) => { const m = document.createElement('div'); m.className = 'msg ' + who; m.textContent = txt; body.appendChild(m); body.scrollTop = body.scrollHeight; return m; };
+    const typingEl = () => { const t = document.createElement('div'); t.className = 'typing show'; t.innerHTML = '<i></i><i></i><i></i>'; body.appendChild(t); body.scrollTop = body.scrollHeight; return t; };
+    const reply = (txt, ms, cb) => { const t = typingEl(); later(() => { t.remove(); add(txt, 'sh'); cb && cb(); }, ms); };
+    const go = (choice) => {
+      const u = new URL(base.origin + base.pathname); u.searchParams.set('text', baseTxt + (choice ? ' ' + choice + '.' : ''));
+      const a = document.createElement('a'); a.className = 'l-fc__go'; a.href = u.href; a.target = '_blank'; a.rel = 'noopener'; a.dataset.cta = 'fab_chat_go';
+      a.innerHTML = '<svg aria-hidden="true"><use href="#i-wa"/></svg>Continuar en WhatsApp'; body.appendChild(a); body.scrollTop = body.scrollHeight;
+    };
+    const start = () => {
+      started = true; body.innerHTML = '';
+      later(() => add(cfg.first, 'me'), 400);
+      later(() => reply(cfg.hi, 1000, () => {
+        const q = document.createElement('div'); q.className = 'l-fc__q';
+        cfg.opts.forEach(o => { const b = document.createElement('button'); b.type = 'button'; b.textContent = o; b.addEventListener('click', () => { q.remove(); add(o, 'me'); gtm('lp_chat_choice', { choice: o }); reply(cfg.bye, 900, () => go(o)); }); q.appendChild(b); });
+        body.appendChild(q); body.scrollTop = body.scrollHeight;
+      }), 1300);
+    };
+    const place = () => { panel.style.bottom = (innerHeight - fab.getBoundingClientRect().top + 10) + 'px'; };
+    const open = () => { place(); if (!started) start(); panel.classList.add('open'); fab.setAttribute('aria-expanded', 'true'); gtm('lp_chat_open', {}); $('button', panel).focus(); };
+    const close = () => { panel.classList.remove('open'); fab.setAttribute('aria-expanded', 'false'); fab.focus(); };
+    fab.setAttribute('aria-controls', 'fc'); fab.setAttribute('aria-expanded', 'false');
+    fab.addEventListener('click', e => { e.preventDefault(); panel.classList.contains('open') ? close() : open(); });
+    $('.l-fc__bar button', panel).addEventListener('click', close);
+    addEventListener('keydown', e => { if (e.key === 'Escape' && panel.classList.contains('open')) close(); });
+    addEventListener('resize', () => panel.classList.contains('open') && place());
+  }
+
   /* Seguimiento (sin datos personales) */
   document.addEventListener('click', e => { const a = e.target.closest('[data-cta]'); if (a) gtm('lp_cta_click', { cta: a.dataset.cta }); });
   $$('.l-faq details').forEach(d => d.addEventListener('toggle', () => { if (d.open) gtm('lp_faq_open', { q: (d.querySelector('summary') || {}).textContent || '' }); }));
