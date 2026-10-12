@@ -425,3 +425,23 @@
 .l-fc__go{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;font-weight:700;font-size:.9rem;padding:12px;border-radius:999px;min-height:46px;animation:fc-in .3s}
 .l-fc__go svg{width:20px;height:20px}
 .tfw{width:min(100%,420px);margin-inline:auto}.tfw .tf{width:100%}
+
+/* ajustes de distribución */
+.trk{align-items:center}
+.tfw{justify-self:center;display:grid;gap:0}
+.tfw small{text-align:center;margin-top:12px}
+@media(min-width:860px){.trk{padding-block:36px}.trk>div:first-child{padding-left:8px}}
+.l-ints{margin-top:34px;gap:34px}
+.il{gap:14px}
+.il li{padding:18px 18px 16px;gap:8px;min-height:170px}
+.il b{margin-top:2px}
+#integraciones .l-note{margin-top:28px}
+#integraciones .l-cta{margin-top:36px}
+.l-hero__in{gap:34px;padding-block:18px 48px}
+.l-top{padding-block:18px}
+.l-hero h1{margin-bottom:18px;line-height:1.1}
+.l-kicker{margin-bottom:26px;line-height:1.6}
+.l-deal{margin-bottom:26px}
+.l-actions{margin-top:8px;gap:14px}
+.l-trust{margin-top:30px;gap:12px 22px}
+@media(min-width:900px){.l-hero__in{gap:56px;padding-block:44px 84px}.l-top{padding-block:24px}.l-vis{gap:30px}}
