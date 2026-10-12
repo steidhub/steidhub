@@ -238,7 +238,7 @@ body.home .hero .display .accent{
 }
 body.home .hero .display .outline{
   display:inline-block;position:relative;overflow:hidden;-webkit-text-stroke:0;color:#fff;background:#B85A2B;
-  padding:.04em .2em .02em;margin:.06em 0 .04em -.04em;border-radius:.16em;transform:rotate(-1.6deg);
+  padding:.04em .2em .02em;margin:.06em 0 .04em -.04em;border-radius:.16em;
   box-shadow:0 .28em .6em -.2em rgba(120,55,20,.6);
 }
 body.home .hero .display .outline::after{
@@ -249,7 +249,7 @@ body.home .hero .display .outline::after{
   body.home .hero .display .outline{animation:estIn .9s cubic-bezier(.34,1.4,.64,1) .45s backwards}
   body.home .hero .display .outline::after{animation:estShine 5s ease-in-out 1.8s infinite}
 }
-@keyframes estIn{from{opacity:0;transform:rotate(-6deg) scale(.7)}}
+@keyframes estIn{from{opacity:0;transform:scale(.8)}}
 @keyframes estShine{0%,60%{left:-50%}100%{left:140%}}
 body.home .hero__tag{background:#fff;border:1px solid rgba(70,50,30,.18);color:#161411;box-shadow:0 10px 24px -16px rgba(60,40,20,.5)}
 @media(min-width:960px){body.home .hero__tag{font-size:.75rem;letter-spacing:.14em;padding:10px 20px}}
