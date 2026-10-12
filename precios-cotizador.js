@@ -16,9 +16,10 @@
   function names(){
     var L=[],hv=state.drone||state.cam,ph=state.int||state.ext;
     if(state.drone&&state.cam)L.push('Grabación con cámara + drone');else if(state.drone)L.push('Grabación con drone');else if(state.cam)L.push('Grabación con cámara');
+    if(state.edit&&(hv||!ph))L.push((hv?'Edición de video':'Solo edición de video')+': After Effects, Premiere Pro e IA');
     if(ph){var w=state.int&&state.ext?'interiores y exteriores':state.int?'interiores':'exteriores';
-      L.push(hv?'Fotografía de '+w+' · 15 fotos editadas':'Fotografía HDR de '+w+' · '+(state.int&&state.ext?'40 fotos editadas':'10 fotos editadas'))}
-    if(state.edit&&(hv||!ph))L.push(hv?'Edición avanzada: IA, Premiere, After Effects y color grading':'Solo edición: IA, Premiere, After Effects y color grading');
+      L.push(hv?'Fotografía de '+w+' · 15 fotos editadas':'Sesión y edición HDR de '+w+' · '+(state.int&&state.ext?'40 fotos':'10 fotos'));
+      L.push('Edición de fotos: Lightroom y Photoshop')}
     return L;
   }
   function same(p){return ['drone','cam','int','ext','edit'].every(function(k){return !!p[k]===!!state[k]})}

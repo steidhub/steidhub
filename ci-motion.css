@@ -735,3 +735,25 @@ body.lp-page .lp-nav__cta{color:#fff!important}
 .cot__pack{padding:20px 20px!important;border-radius:18px!important;min-height:76px}
 .cot__pack b{font-size:1.12rem!important;line-height:1.2}
 @media(max-width:600px){.cot__packs{padding:12px!important}.cot__pack{padding:13px 14px!important;min-height:0}.cot__pack b{font-size:.95rem!important}}
+
+/* cotizador simple y compacto */
+body.lp-page #precios{padding-block:clamp(30px,4vw,48px)!important}
+body.lp-page #precios .lp-head{margin-bottom:14px!important}
+body.lp-page #precios .h2{font-size:clamp(1.7rem,3.4vw,2.6rem)!important}
+body.lp-page #precios .lead{font-size:.98rem;margin-top:6px}
+.cot{gap:18px!important}
+.cot__opts{gap:12px!important}
+.cot__trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.cot__trio .cot__rows{grid-template-columns:1fr!important;gap:8px}
+.cot__trio .cot__title{margin-bottom:8px!important;font-size:.92rem!important}
+.cot__trio .cot__row{padding:10px 12px!important;gap:9px!important}
+.cot__trio .cot__rt strong{font-size:.92rem}
+.cot__trio .cot__rt span{font-size:.72rem;font-weight:600;color:#7a3a17}
+.cot__trio .cot__ico{width:30px!important;height:30px!important}
+.cot__hint{margin:0!important;font-size:.88rem!important}
+.cot__packs{padding:16px 18px!important;gap:10px!important}
+.cot__pack{min-height:64px!important;padding:14px 16px!important}
+.cot__group--row{padding:8px 14px!important}
+.cot__disc{margin-top:-2px}.cot__disc li{padding:8px 4px}
+@media(max-width:900px){.cot__trio{grid-template-columns:1fr}}
+@media(max-width:600px){.cot__trio{gap:10px}.cot__pack{min-height:0!important;padding:11px 14px!important}}
