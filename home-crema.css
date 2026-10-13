@@ -467,3 +467,15 @@ body.home .video-sales__head .h2{margin:6px 0 8px}
 body.home .video-sales__head .accent{color:#B85A2B}
 body.home .video-sales__sub{margin:0;color:#4B443C;font-size:clamp(.88rem,1.6vw,1.05rem)}
 @media(max-width:600px){body.home .video-sales__head .h2{font-size:1.4rem}body.home .video-sales__sub{font-size:.8rem}}
+
+/* Programas y plataformas: 3 filas compactas sin huecos */
+@media(min-width:900px){
+  body.home .tags--rows{display:flex;flex-wrap:wrap;gap:10px 8px}
+  body.home .tags--rows li{padding:9px 16px;font-size:.84rem}
+}
+@media(min-width:900px){
+  body.home .tools{grid-template-columns:1.9fr 1fr!important;gap:28px 40px}
+  body.home .tags--rows{gap:8px 6px}
+  body.home .tags--rows li{padding:8px 13px;font-size:.8rem;white-space:nowrap}
+}
+@media(min-width:900px){body.home .tags--rows li{padding:10px 18px;font-size:.86rem}}
