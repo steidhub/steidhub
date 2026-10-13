@@ -380,3 +380,45 @@ body.lp-page .sx-sec{overflow-x:clip}
 .sx-search__in{min-width:0;box-sizing:border-box}
 .sx-search__in span{max-width:calc(100% - 30px)}
 @media(max-width:767px){.sx-search__in{font-size:12.5px;padding:11px 14px}}
+
+/* ===== v3: línea de tiempo entre primer y último icono + móvil con lo mínimo ===== */
+.sx-steps__nav::before{left:calc(50%/var(--n,6))!important;right:calc(50%/var(--n,6))!important;top:29px}
+.sx-steps__nav i.fill{left:calc(50%/var(--n,6))!important;top:29px;transition:width .6s}
+@media(max-width:767px){
+  .sx-dm{display:none}
+  body.lp-page .sx-sec .lp-head{margin-bottom:22px}
+  body.lp-page .sx-sec .lp-head .h2{font-size:22px!important;line-height:1.15}
+  body.lp-page .sx-sec .lp-head .lead{font-size:14px!important;margin-top:6px}
+  .sx-scene__cap,.sx-vs__info p,.sx-kpi p,.sx-bc p,.sx-tabs__btn small,.sx-vs__chips .sx-tag:nth-child(n+3),.sx-stp__chips,.sx-note{display:none!important}
+  .sx-tabs__btn b{font-size:14px}
+  .sx-scene{padding:16px;gap:8px}
+  .sx-tabs__stage{min-height:0}
+  .sx-vs__big{font-size:2.4rem}
+  .sx-vs__info{gap:6px;padding:16px}
+  .sx-vs__info h3{font-size:16px}
+  .sx-kpi h3{font-size:13px}
+  .sx-stp{min-height:0;padding:18px;gap:12px}
+  .sx-stp h3{font-size:16px}
+  .sx-stp p{font-size:13px}
+  .sx-bc h3{font-size:15px}
+  .sx-specs span{font-size:11px}
+  .sx-disc{font-size:11px}
+  .sx-banner span{font-size:13px}
+  .sx-banner strong{font-size:2rem}
+  /* secciones heredadas */
+  body.lp-page .lp-cta .lead,body.lp-page #contacto .lp-head .lead,body.lp-page #servicios .lp-head .lead,body.lp-page .lp-cluster p{display:none!important}
+  body.lp-page .lp-cluster a{padding:16px!important;gap:6px!important}
+  body.lp-page .lp-hero__lead{font-size:15px!important;line-height:1.45}
+}
+@media(max-width:767px){body.lp-page .sx-kpi h3{font-size:13px!important}}
+@media(min-width:768px){body.lp-page .sx-sec .lp-head .h2{font-size:clamp(1.7rem,3.4vw,2.6rem)!important}}
+@media(min-width:768px) and (max-width:1279px){body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"]) .lp-hero h1{font-size:clamp(2.6rem,5.4vw,4.2rem)!important}}
+@media(max-width:900px){.sx-leads{grid-template-columns:repeat(8,1fr)!important}.sx-leads i:nth-child(n+19){display:grid!important}}
+@media(max-width:767px){
+  .sx-leads{gap:8px!important}
+  .sx-steps__nav{grid-template-columns:repeat(var(--n,6),1fr)!important;overflow:visible!important;gap:2px!important;margin:0 0 16px!important;padding:0!important}
+  .sx-steps__nav::before,.sx-steps__nav i.fill{display:block!important;top:22px!important}
+  .sx-st i{width:44px;height:44px}.sx-st i svg{width:20px;height:20px}
+  .sx-st span{font-size:9px!important;letter-spacing:-.01em}
+  body.lp-page #faq .lp-head .lead{display:none!important}
+}

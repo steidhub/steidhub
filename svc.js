@@ -68,7 +68,7 @@
       cur=i;btns.forEach(function(b,k){b.setAttribute('aria-selected',k===i)});
       var d=data[i];$('.sx-stp__n',box).textContent=('0'+(i+1)).slice(-2);$('.sx-stp h3',box).textContent=d.dataset.t;$('.sx-stp p',box).textContent=d.dataset.p;
       var ch=$('.sx-stp__chips',box);ch.innerHTML='';d.dataset.c.split('|').forEach(function(c){var s=document.createElement('span');s.className='sx-tag';s.textContent=c;ch.appendChild(s)});
-      if(fill)fill.style.width=(i/(btns.length-1)*90)+'%';
+      if(fill)fill.style.width='calc((100% - 100%/'+btns.length+') * '+(i/(btns.length-1))+')';
     }
     btns.forEach(function(b,i){b.addEventListener('click',function(){hold=Date.now()+20000;go(i)})});
     vis(box,function(on){run=on});go(0);
