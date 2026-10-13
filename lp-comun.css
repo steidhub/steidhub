@@ -654,3 +654,5 @@
 @keyframes hfxRise{from{transform:translateY(40px);opacity:0}}
 @media(max-width:767px){.hfx__ring--a{width:90vw;right:-35%;top:-4%}.hfx__ring--b{display:none}.hfx__s1,.hfx__s5{display:none}.hfx__sky{height:34%}}
 @media(prefers-reduced-motion:reduce){.hfx *,.hfx{animation:none!important}}
+/* titulo principal destacado en movil */
+@media(max-width:767px){body.lp-site .l-hero h1{font-size:clamp(2.3rem,10vw,2.9rem)!important;line-height:1.06!important;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}}

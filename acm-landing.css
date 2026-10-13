@@ -378,3 +378,4 @@
 .a-mvcs p{font-size:.86rem;color:#4a3f36;margin:0}.a-mvcs p b{color:#161411}
 @media(min-width:768px){.a-mvcs{grid-template-columns:minmax(260px,380px) 1fr;gap:32px;padding:26px 32px;margin-top:24px}.a-mvcs h3{font-size:1.5rem}.a-mvcs p{font-size:1rem}}
 #que-obtienes .a-grid .a-card:last-child{grid-column:span 2}
+@media(max-width:767px){body.acm-lp .a-hero h1{font-size:clamp(2.3rem,10vw,2.9rem);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}}
