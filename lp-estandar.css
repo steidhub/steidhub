@@ -1,0 +1,36 @@
+/* lp-estandar.css · lineamientos Steid Hub para google-ads, meta-ads, drone y blog */
+/* color: nada de texto naranja sobre crema/blanco */
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-head .eyebrow,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .req,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto dd a,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto a[href^="tel"],body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-kpi__n em,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .post-card__tag,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) article>span,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) article a>span,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .form__consent a{color:#161411!important}
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-cta .eyebrow,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .mo-impact .eyebrow{color:#fff!important}
+/* WhatsApp: verde con texto blanco */
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) a.btn[href*="wa.me"],body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) a.btn--primary[href*="wa.me"]{background:#1E8E4F!important;border-color:#1E8E4F!important;color:#fff!important}
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) a.btn[href*="wa.me"]:hover{background:#17773F!important}
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-cta a.btn[href*="wa.me"]{border-color:#fff!important}
+/* sin texto con contorno */
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) *{-webkit-text-stroke:0!important}
+/* contacto: titulo */
+.ci-contact-t{display:none}
+@media(max-width:767px){
+ /* hero: titulo destacado */
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-hero h1,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .blog-hero h1{font-size:clamp(2.3rem,10vw,2.9rem)!important;line-height:1.06!important;letter-spacing:-.03em;font-weight:800!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-hero .lead,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-hero__lead,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .blog-hero .lead{font-size:15px!important;line-height:1.5!important}
+ /* jerarquia: h2 22 > h3 16 > subtitulo 14 > cuerpo 13 > etiqueta 10 */
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) main .h2,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) section .h2{font-size:22px!important;line-height:1.2!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) main section:not(.lp-hero):not(.blog-hero) h3{font-size:16px!important;line-height:1.25!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lp-head .lead,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .lead{font-size:14px!important;line-height:1.55!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .eyebrow{font-size:10px!important;letter-spacing:.14em!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) section:not(.lp-hero) p:not(.lead):not(.eyebrow){font-size:13px;line-height:1.55}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #faq summary{font-size:13.5px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #faq .lp-faq__a{font-size:12.5px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) .btn{font-size:14px}
+ /* contacto centrado */
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto .ci-contact-t{display:block;margin:0 0 14px;font-size:1.5rem;font-weight:800;color:#161411;text-align:center}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto .contact__info{text-align:center}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto .contact__info dl{justify-items:center;text-align:center}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) #contacto .contact__info dl>div{text-align:center}
+}
+body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],[data-landing="blog"]) a>span:has(+strong){color:#161411!important}
+
+/* blog: logos blancos sobre fondo crema -> tinta */
+body.lp-page[data-landing="blog"] .lp-nav__logo img{filter:brightness(0)!important}
+body.lp-page[data-landing="blog"] .post__kicker,body.lp-page[data-landing="blog"] .footer a[class*="chip"],body.lp-page[data-landing="blog"] .post-links a{color:#161411!important}
