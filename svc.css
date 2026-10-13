@@ -524,3 +524,5 @@ body.lp-page .sx-sec{overflow-x:clip}
 .dq__sum li i::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
 .dq__tot{border-top:1px solid rgba(255,255,255,.3);padding-top:14px}
 @media(max-width:767px){.dq__opts button{padding:14px 4px}.dq__edit{padding:13px 12px}.dq__sum ul{font-size:13px;gap:9px}}
+/* mismo ancho: video 4K y foto de lente */
+@media(min-width:1101px){.sx-gear{grid-template-columns:1fr 1fr!important;gap:14px!important}}
