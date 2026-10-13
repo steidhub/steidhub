@@ -3,7 +3,7 @@
   var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
   function vis(el,cb,once){
     if(!('IntersectionObserver' in window)){cb(true);return}
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){cb(e.isIntersecting);if(e.isIntersecting&&once)io.unobserve(el)})},{threshold:.12});io.observe(el);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){cb(e.isIntersecting);if(e.isIntersecting&&once)io.unobserve(el)})},{threshold:0,rootMargin:'0px 0px -4% 0px'});io.observe(el);
   }
   /* revelado + contadores */
   $$('.sx-rv').forEach(function(el){vis(el,function(on){if(on){el.classList.add('sx-on');$$('[data-sx-count]',el).forEach(count)}},true)});
@@ -98,7 +98,7 @@
       if(!first)[].slice.call(k.querySelectorAll('[data-sx-count]')).forEach(function(n){var to=+n.dataset.sxCount,p=n.dataset.prefix||'',sf=n.dataset.suffix||'',t0=performance.now();(function f(t){var q=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-q,3);n.textContent=p+Math.round(to*e)+sf;if(q<1)requestAnimationFrame(f)})(t0)});
       first=false}
     if(!('IntersectionObserver' in window)){play();return}
-    new IntersectionObserver(function(es){es.forEach(function(e){var was=run;run=e.isIntersecting;if(run&&!was)play()})},{threshold:.35}).observe(k);
+    new IntersectionObserver(function(es){es.forEach(function(e){var was=run;run=e.isIntersecting;if(run&&!was)play()})},{threshold:0,rootMargin:'0px 0px -8% 0px'}).observe(k);
     if(!RM)setInterval(function(){if(run)play()},11000);
   });
   /* cotizador drone */

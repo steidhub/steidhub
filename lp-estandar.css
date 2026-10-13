@@ -77,3 +77,10 @@ body.lp-page[data-landing="google-ads"] .marquee__item img{filter:brightness(0) 
  body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) section:not(.lp-hero) p:not(.lead):not(.eyebrow){font-size:13px}
  body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .sx-kpi h3{font-size:15px!important}
 }
+
+/* footer móvil: sin espacio vacío arriba */
+@media(max-width:599px){
+  body.lp-page .footer{padding-block:14px 18px!important}
+  body.lp-page .footer__top{display:none!important;margin:0!important}
+  body.lp-page .footer__bottom,body.lp-page .footer__bar{padding-top:0!important;margin-top:0!important;border-top:0!important}
+}

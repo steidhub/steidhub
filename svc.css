@@ -503,3 +503,11 @@ body.lp-page .sx-sec{overflow-x:clip}
 .sx-scene:has(.sx-browser) .sx-float:nth-of-type(3){left:0!important;bottom:10%!important}
 @media(max-width:767px){.sx-browser{width:100%}.sx-scene:has(.sx-browser) .sx-float{display:none}}
 .sx-banner{justify-content:center!important;text-align:center;gap:18px}
+
+/* entrada más ágil */
+.sx-kpis.play .sx-kpi{animation-duration:.55s!important;animation-delay:calc(var(--i)*.09s)!important}
+.sx-kpis.play .sx-ring circle:last-child{animation-duration:1.3s!important;animation-delay:calc(var(--i)*.09s + .15s)!important}
+.sx-kpis.play .sx-ring b{animation-delay:calc(var(--i)*.09s + .25s)!important}
+.sx-kpis.play .sx-ring::after{animation-delay:calc(var(--i)*.09s + 1.3s)!important}
+.sx-kpis.play~.sx-banner{animation-duration:.6s!important;animation-delay:.55s!important}
+.sx-kpis.play~.sx-banner::after{animation-delay:1.2s!important}
