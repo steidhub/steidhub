@@ -74,7 +74,7 @@
 
 /* ticker */
 .l-ticker{overflow:hidden;background:var(--deep);color:var(--on-deep);padding:10px 0;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.l-ticker__in{display:flex;gap:34px;width:max-content;animation:l-tk 34s linear infinite}
+.l-ticker__in{display:flex;gap:34px;padding-right:34px;width:max-content;animation:l-tk 34s linear infinite}
 .l-ticker__in span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#E9A27C;margin-right:34px;vertical-align:middle}
 @keyframes l-tk{to{transform:translateX(-50%)}}
 
@@ -614,3 +614,11 @@
  .l-hero .l-actions{flex-direction:column;align-items:stretch}
  .l-hero .l-actions .l-btn{justify-content:center;width:100%}
 }
+/* hero + franja = primera pantalla; contenido crece en pantallas grandes */
+.l-hero{min-height:calc(100svh - 40px)}
+@media(max-width:767px){
+ .l-hero{min-height:calc(100svh - 34px)}
+ @media(min-height:760px){.l-hero h1{font-size:2.15rem}.l-hero .l-kicker{font-size:1.02rem}.l-hero .l-actions .l-btn{padding-block:15px;font-size:1rem}.l-hero .l-deal__price{font-size:1.9rem}}
+}
+@media(min-width:900px) and (min-height:960px){.l-hero h1{font-size:clamp(3rem,4.6vw,4.2rem)}.l-hero .l-kicker{font-size:1.2rem}.l-hero .ph{width:min(260px,56vw)}}
+@media(min-width:768px){.l-hero__in{padding-block:8px 28px}}
