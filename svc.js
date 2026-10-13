@@ -106,11 +106,11 @@
   var opts=[].slice.call(dq.querySelectorAll('.dq__opts button')),ed=document.getElementById('dqEdit'),ul=document.getElementById('dqLines'),tot=document.getElementById('dqTot'),igv=document.getElementById('dqIgv'),wa=document.getElementById('dqWa'),mins=30,price=250,edit=false;
   function fmt(n){return 'S/ '+n.toLocaleString('es-PE',{maximumFractionDigits:2})}
   function render(){
-    var rows=[['Vuelo con drone · 30 min',250]],extra=(mins-30)/30;
-    for(var i=0;i<extra;i++)rows.push(['+30 min adicionales',100]);
-    if(edit)rows.push(['Edición IA + tracking · 1 video ≤ 60 s',400]);
-    var t=rows.reduce(function(a,r){return a+r[1]},0);
-    ul.innerHTML=rows.map(function(r){return '<li><span>'+r[0]+'</span><b>'+fmt(r[1])+'</b></li>'}).join('');
+    var t=250+(mins-30)/30*100+(edit?400:0);
+    var items=['Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
+    if(edit)items.push('Edición con IA + tracking · 1 video hasta 60 s');
+    items.push('Vuelo sobre un punto, 150–200 m (urbano) · 600 m (campo)');
+    ul.innerHTML=items.map(function(r){return '<li><i></i><span>'+r+'</span></li>'}).join('');
     tot.textContent=fmt(t);igv.textContent=fmt(Math.round(t*1.18*100)/100);
     var mt=mins===60?'1 hora':mins===90?'1 hora 30 min':'30 minutos';
     wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con drone de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
