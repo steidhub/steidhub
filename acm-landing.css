@@ -347,3 +347,26 @@
 @keyframes a-aurora{0%{transform:translate3d(-4%,-3%,0) scale(1)}50%{transform:translate3d(5%,3%,0) scale(1.12)}100%{transform:translate3d(-2%,6%,0) scale(1.04)}}
 @keyframes a-dots{to{background-position:30px 60px}}
 @media(prefers-reduced-motion:reduce){.acm-lp .a-hero::before,.acm-lp .a-hero::after{animation:none}}
+
+/* motion graphics hero */
+.hfx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hfx__sky{position:absolute;left:0;bottom:0;width:100%;height:46%;opacity:.09;animation:hfxRise 1.6s cubic-bezier(.2,.8,.2,1) both}
+.hfx__sky .wn{fill:#FFD9BE;opacity:.0;animation:hfxWin 6s ease-in-out infinite}
+.hfx__beam{position:absolute;top:-30%;left:-30%;width:26%;height:160%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);transform:rotate(20deg);animation:hfxBeam 9s ease-in-out infinite}
+.hfx__beam--2{width:12%;animation-delay:4.5s;animation-duration:11s}
+.hfx__ring{position:absolute;opacity:.3}
+.hfx__ring--a{width:min(46vw,640px);right:-8%;top:-14%;animation:hfxSpin 60s linear infinite}
+.hfx__ring--b{width:min(30vw,420px);left:-6%;bottom:12%;animation:hfxSpin 80s linear infinite reverse}
+.hfx__s{position:absolute;border:2px solid rgba(255,255,255,.4);border-radius:10px;animation:hfxFloat 9s ease-in-out infinite alternate}
+.hfx__s1{width:44px;height:44px;left:46%;top:16%}
+.hfx__s2{width:26px;height:26px;left:8%;top:30%;border-radius:50%;animation-duration:7s}
+.hfx__s3{width:64px;height:64px;right:10%;bottom:30%;animation-duration:11s;transform:rotate(18deg)}
+.hfx__s4{width:18px;height:18px;left:34%;bottom:26%;background:rgba(255,255,255,.35);border:0;border-radius:50%;animation-duration:6s}
+.hfx__s5{width:34px;height:34px;right:34%;top:10%;border-radius:50%;animation-duration:8s}
+@keyframes hfxSpin{to{transform:rotate(360deg)}}
+@keyframes hfxFloat{0%{transform:translate3d(0,0,0) rotate(0)}100%{transform:translate3d(24px,-42px,0) rotate(90deg)}}
+@keyframes hfxBeam{0%,100%{transform:translateX(0) rotate(20deg);opacity:0}15%{opacity:1}60%{transform:translateX(480%) rotate(20deg);opacity:1}75%{opacity:0}}
+@keyframes hfxWin{0%,100%{opacity:0}40%,60%{opacity:1}}
+@keyframes hfxRise{from{transform:translateY(40px);opacity:0}}
+@media(max-width:767px){.hfx__ring--a{width:90vw;right:-35%;top:-4%}.hfx__ring--b{display:none}.hfx__s1,.hfx__s5{display:none}.hfx__sky{height:34%}}
+@media(prefers-reduced-motion:reduce){.hfx *,.hfx{animation:none!important}}
