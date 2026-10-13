@@ -557,3 +557,12 @@ body.lp-page .sx-sec{overflow-x:clip}
   body.lp-page .sx-tabs__btn b{font-size:13px!important}
   body.lp-page .sx-tabs__btn[aria-selected="true"]{box-shadow:0 6px 16px rgba(196,107,60,.28)!important}
 }
+/* escena CRM + GA4 completa y apilada */
+.sx-line{min-width:0;grid-template-columns:minmax(0,1fr)}
+.sx-line svg{max-width:100%;overflow:hidden}
+@media(max-width:767px){
+  .sx-line svg{height:110px}
+  .sx-evts{grid-template-columns:1fr!important;gap:7px}
+  .sx-evts div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;font-size:12px;text-align:right;border-radius:12px}
+  .sx-evts b{display:inline;font-size:16px;font-weight:800;text-align:left}
+}
