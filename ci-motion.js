@@ -114,3 +114,13 @@
   });
   (window.dataLayer=window.dataLayer||[]).push({event:'view_item',lp:'contenido-inmobiliario',page_path:location.pathname,content_name:document.title,content_type:'landing'});
 })();
+
+/* Hero móvil: chips que se iluminan en secuencia (tocables) */
+(function(){
+  var w=document.querySelector('.mo-hchips');if(!w)return;
+  var c=[].slice.call(w.children),i=0,t,rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n){i=n%c.length;c.forEach(function(x,k){x.classList.toggle('is-on',k===i)})}
+  function run(){if(rm)return;clearInterval(t);t=setInterval(function(){go(i+1)},1600)}
+  c.forEach(function(x,k){x.addEventListener('click',function(){go(k);run()})});
+  w.removeAttribute('aria-hidden');run();
+})();

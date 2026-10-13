@@ -857,3 +857,87 @@ body.lp-page #precios .lead{font-size:.98rem;margin-top:6px}
   .lp-hero .lead{font-size:.82rem!important}
   .lp-stat,.mo-stat,#material [class*="stat"]{padding:10px!important}
 }
+
+/* ===== v17 MÓVIL: más pequeño, tipografía ligera, menos bloques de texto ===== */
+.mo-hchips{display:none}
+@media(max-width:600px){
+  /* tipografía: peso ligero y escala menor */
+  .lp-page h1,.lp-page h2,.lp-page h3,.lp-page .display,.lp-page .h2{font-weight:600!important}
+  .lp-page strong,.lp-page b,.lp-page .btn{font-weight:500!important}
+  .h2{font-size:1.12rem!important;line-height:1.2!important;letter-spacing:0!important;margin:4px 0 6px!important}
+  .lead{font-size:.74rem!important;line-height:1.45!important}
+  .eyebrow{font-size:.58rem!important;font-weight:500!important}
+  .lp-section{padding-block:26px!important}
+  .lp-head{margin-bottom:12px!important}
+  .btn{font-size:.82rem!important}
+  /* hero: solo título + chips + botones */
+  .lp-hero__lead,.lp-hero .lead{display:none!important}
+  .hero__tag{font-size:.56rem!important;padding:6px 10px!important;margin-bottom:10px!important}
+  .lp-hero .display{font-size:1.55rem!important;line-height:1.12!important;font-weight:600!important;text-wrap:balance}
+  .lp-hero__media img{animation:moKen 18s ease-in-out infinite alternate}
+  @keyframes moKen{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-2%,-1%)}}
+  .mo-hchips{display:flex!important;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0 4px}
+  .mo-hchips span{font-size:.7rem;font-weight:500;padding:6px 11px;border-radius:99px;border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.08);transition:all .35s;cursor:pointer}
+  .mo-hchips span.is-on{background:#B85A2B;border-color:#E0A272;transform:scale(1.07);box-shadow:0 6px 18px rgba(184,90,43,.55)}
+  .hero__actions{margin-top:12px!important;gap:8px!important}
+  .hero__actions .btn{padding:12px 16px!important;min-height:0!important}
+  .hero__actions .btn--primary{animation:moPulse 2.4s ease-in-out infinite}
+  @keyframes moPulse{0%,100%{box-shadow:0 0 0 0 rgba(224,162,114,.55)}50%{box-shadow:0 0 0 10px rgba(224,162,114,0)}}
+  .hero__actions .btn--ghost{padding:10px 16px!important}
+  /* menos texto en bloques */
+  .mo-agents__p,#servicios .lp-head .lead,#casos .lp-head .lead,#faq .lp-head .lead,#resumen .lp-head .lead,#proceso .lp-head .lead,#beneficios .mo-rs__n,.mo-foot,#diagnostico .lead,#servicios p{display:none!important}
+  .mo-agents{padding:22px 0!important}.mo-agents__h{font-size:1.45rem!important;font-weight:600!important}.mo-agents__k{font-size:.56rem!important}
+  /* bento: solo títulos y etiquetas */
+  .mo-bento p{display:none!important}
+  .mo-bento{gap:8px!important}
+  .mo-bento>*{padding:12px!important;min-height:0!important}
+  .mo-bento h3,.mo-bento strong{font-size:.78rem!important;font-weight:600!important}
+  .mo-bento [class*="tag"],.mo-bento .mo-tags span,.mo-bento em{font-size:.58rem!important;padding:3px 7px!important}
+  .mo-price,.mo-bento>*:last-child{padding:12px!important}
+  .mo-bento>*:last-child *{font-size:inherit}
+  /* resultados */
+  .mo-rs__d{font-size:.7rem!important}.mo-rs__t{font-size:.9rem!important;font-weight:600!important}
+  .mo-rs__tabs button{font-size:.7rem!important;padding:7px 10px!important}
+  .mo-rs__big span,.mo-rs__v{font-size:2rem!important;font-weight:600!important}
+  .mo-bar span{font-size:.62rem!important}.mo-bar b{font-size:.68rem!important;font-weight:500!important}
+  /* proceso: iconos en fila + tarjeta corta + kpis chicos */
+  .mo-tl__rail{grid-template-columns:repeat(5,1fr)!important;gap:4px!important;padding:0!important}
+  .mo-tl__line{left:10%!important;right:10%!important;top:21px!important;bottom:auto!important;width:auto!important;height:3px!important}
+  .mo-tl__line b{transform-origin:left!important;transform:scaleX(var(--p,0))!important;height:100%!important;width:auto!important}
+  .mo-node{flex-direction:column!important;gap:0!important;padding:0!important;justify-content:center}
+  .mo-node>:not(.mo-node__c){display:none!important}
+  .mo-node__c{width:40px!important;height:40px!important;margin:0 auto}
+  .mo-tl__stage{min-height:0!important;margin-top:12px!important;border-radius:16px!important}
+  .mo-pstep{padding:12px 14px!important;gap:10px!important}
+  .mo-pstep__n{font-size:1.6rem!important;font-weight:600!important}
+  .mo-pstep h3{font-size:.86rem!important}.mo-pstep p{font-size:.7rem!important;margin:2px 0 0!important}
+  .mo-kpis{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:6px!important}
+  .mo-kpi{padding:9px 6px!important;border-radius:12px!important;text-align:center}
+  .mo-kpi__n{font-size:1.15rem!important;font-weight:600!important}.mo-kpi__n em{font-size:.6rem!important}
+  .mo-kpi__t{font-size:.58rem!important;font-weight:500!important;margin:2px 0 0!important}
+  .mo-kpi__s,.mo-kpi .mo-kpi__bar,.mo-kpi>div{display:none!important}
+  /* cotizador, casos, faq, servicios */
+  .cot__pack{font-weight:500!important}
+  .cot__trio .cot__rt strong{font-weight:500!important;font-size:.72rem!important}
+  #casos .lp-content-channel h3{font-size:.72rem!important;font-weight:500!important}
+  #faq summary{font-size:.74rem!important;font-weight:500!important}
+  #servicios h3{font-size:.86rem!important}
+  #servicios [class*="card"],#servicios article{padding:12px!important}
+  .lp-cta{padding:18px!important}.lp-cta .h2{font-size:1rem!important}
+  #contacto .contact__info dd a{font-weight:400!important}
+  .mo-fcol h4{font-weight:500!important}
+}
+
+/* v17b: gana a las reglas por sección */
+@media(max-width:600px){
+  body.lp-page .h2,body.lp-page #resumen .h2,body.lp-page #faq .h2,body.lp-page #servicios .h2,body.lp-page #precios .h2,body.lp-page #beneficios .h2,body.lp-page #proceso .h2,body.lp-page #casos .h2,body.lp-page #material .h2,body.lp-page #contacto .h2{font-size:1.15rem!important;line-height:1.2!important;font-weight:600!important;text-transform:none!important;letter-spacing:0!important}
+  body.lp-page #diagnostico .lp-cta .h2{font-size:1rem!important;font-weight:600!important}
+  body.lp-page .mo-agents__h{font-size:1.35rem!important}
+  .mo-bento .mo-num{display:block!important;font-size:1.7rem!important;font-weight:600!important}
+  .mo-bento .mo-num small{font-size:.8rem}
+  .mo-bento .mo-row{gap:10px!important;justify-content:center}
+  .mo-bento .mo-ring{width:46px!important;height:46px!important}
+  .mo-bento>*:last-child p{display:block!important}
+  .mo-bento>*:last-child p:nth-of-type(2){font-size:.7rem!important}
+}
+@media(max-width:600px){#beneficios .lp-head .lead,#material .lp-head .lead,#material .lead,#beneficios .lead{display:none!important}}
