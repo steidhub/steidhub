@@ -583,3 +583,4 @@ body.lp-page .sx-sec{overflow-x:clip}
   .dq__tot{padding-top:10px}.dq__tot strong{font-size:34px!important}.dq__wa{padding:11px;font-size:13.5px}
 }
 @media(max-width:360px){.dq__opts strong{font-size:13px}.dq__sum ul{font-size:12px}}
+.wa{transition:opacity .25s,transform .25s}.wa.wa--hide{opacity:0!important;pointer-events:none!important;transform:translateY(14px)}

@@ -118,3 +118,6 @@
   ed.addEventListener('click',function(){edit=!edit;ed.setAttribute('aria-pressed',edit);render()});
   render();
 })();
+/* oculta el botón flotante de WhatsApp mientras se ve el cotizador (tiene su propio botón) */
+(function(){var q=document.getElementById('dq'),w=document.querySelector('.wa');if(!q||!w||!('IntersectionObserver' in window))return;
+new IntersectionObserver(function(es){es.forEach(function(e){w.classList.toggle('wa--hide',e.isIntersecting)})},{threshold:0}).observe(q)})();
