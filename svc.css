@@ -547,3 +547,13 @@ body.lp-page .sx-sec{overflow-x:clip}
 .dq__tot strong{grid-area:n;text-align:right;font-size:52px!important}
 .dq__tot small{grid-area:i;text-align:right;font-size:14px!important;font-weight:600}
 @media(max-width:767px){.dq__tot strong{font-size:40px!important}}
+/* pestañas móvil v2: filas compactas una debajo de otra */
+@media(max-width:767px){
+  body.lp-page .sx-tabs__list{grid-template-columns:1fr!important;gap:6px!important}
+  body.lp-page .sx-tabs__btn{flex-direction:row!important;align-items:center!important;text-align:left!important;gap:10px!important;padding:7px 12px!important;border-radius:12px!important}
+  body.lp-page .sx-tabs__btn i{width:28px!important;height:28px!important;border-radius:9px!important;flex:none}
+  body.lp-page .sx-tabs__btn i svg{width:15px!important;height:15px!important}
+  body.lp-page .sx-tabs__btn>span{text-align:left!important}
+  body.lp-page .sx-tabs__btn b{font-size:13px!important}
+  body.lp-page .sx-tabs__btn[aria-selected="true"]{box-shadow:0 6px 16px rgba(196,107,60,.28)!important}
+}
