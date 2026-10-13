@@ -972,3 +972,17 @@ body.lp-page .mo-hpanel__k,body.lp-page .mo-hpanel__list i,body.lp-page .mo-mtab
 body.lp-page .lp-content-channel span,body.lp-page .mo-kpi__n em{color:#161411!important}
 body.lp-page .mo-impact{background:linear-gradient(135deg,#C46B3C,#A9562B)!important}
 @media(max-width:767px){body.lp-page .lp-hero__copy h1.display,body.lp-page .lp-hero h1{font-size:clamp(2.3rem,10vw,2.9rem)!important;line-height:1.06!important;letter-spacing:-.03em}}
+/* cotizacion sin costo: letras mas grandes; contacto centrado en movil */
+body.lp-page #diagnostico .lp-cta .h2{font-size:clamp(1.9rem,3.6vw,3rem)!important;line-height:1.1!important}
+body.lp-page #diagnostico .lp-cta .lead{font-size:clamp(1.05rem,1.5vw,1.3rem)!important;line-height:1.55!important}
+body.lp-page #diagnostico .lp-cta .eyebrow{font-size:.85rem!important}
+body.lp-page #diagnostico .lp-cta .btn{font-size:1.1rem}
+.ci-contact-t{display:none}
+@media(max-width:767px){
+ body.lp-page #diagnostico .lp-cta .h2{font-size:clamp(1.7rem,7.4vw,2.1rem)!important}
+ body.lp-page #diagnostico .lp-cta .lead{font-size:1rem!important}
+ body.lp-page #contacto .ci-contact-t{display:block;margin:0 0 14px;font-size:1.5rem;font-weight:800;color:#161411;text-align:center}
+ body.lp-page #contacto .contact__info{text-align:center}
+ body.lp-page #contacto .contact__info dl{justify-items:center;text-align:center}
+ body.lp-page #contacto .contact__info dl>div{text-align:center}
+}

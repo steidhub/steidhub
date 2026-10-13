@@ -379,3 +379,14 @@
 @media(min-width:768px){.a-mvcs{grid-template-columns:minmax(260px,380px) 1fr;gap:32px;padding:26px 32px;margin-top:24px}.a-mvcs h3{font-size:1.5rem}.a-mvcs p{font-size:1rem}}
 #que-obtienes .a-grid .a-card:last-child{grid-column:span 2}
 @media(max-width:767px){body.acm-lp .a-hero h1{font-size:clamp(2.3rem,10vw,2.9rem);line-height:1.06;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}}
+/* ajustes: precio blanco, sello MVCS, contacto centrado en movil */
+.acm-lp .a-sv__p b,.acm-lp .acm-now{color:#fff!important;text-shadow:0 2px 14px rgba(60,20,0,.35)}
+.acm-lp .a-mvcs__g{color:#0E7A3E}
+.acm-lp .a-mvcs__a{display:inline-block;margin:0 0 6px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4a3f36}
+@media(max-width:767px){
+ .acm-lp .a-mvcs{text-align:center;justify-items:center}
+ .acm-lp .a-mvcs img{margin-inline:auto}
+ .acm-lp .a-foot{text-align:center}.acm-lp .a-foot img{margin-inline:auto}
+ .acm-lp .a-foot__col,.acm-lp .a-foot__grid>*{text-align:center}
+ .acm-lp .a-foot a{display:block}
+}

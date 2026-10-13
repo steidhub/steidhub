@@ -656,3 +656,4 @@
 @media(prefers-reduced-motion:reduce){.hfx *,.hfx{animation:none!important}}
 /* titulo principal destacado en movil */
 @media(max-width:767px){body.lp-site .l-hero h1{font-size:clamp(2.3rem,10vw,2.9rem)!important;line-height:1.06!important;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}}
+@media(max-width:767px){body.lp-site .l-foot{text-align:center}.l-foot__logos{justify-content:center}.l-foot__grid{justify-items:center}.l-foot__bar{justify-content:center;text-align:center}}
