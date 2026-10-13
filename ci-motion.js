@@ -101,3 +101,16 @@
   window.addEventListener('scroll',f,{passive:true});f();
   var rs=document.getElementById('mo-rs');if(rs)rs.querySelectorAll('[data-r]').forEach(function(b){b.addEventListener('click',function(){rs.classList.add('is-user')})});
 })();
+
+/* Seguimiento: clic en enlaces directos a WhatsApp (los del modal flotante ya se miden en lead-modal.js) */
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]');if(!a||e.defaultPrevented)return;
+    if(!/^https:\/\/wa\.me\//.test(a.href))return;
+    var src=a.classList.contains('cot__cta')?'cotizador':a.closest('.wa')?'widget_whatsapp':(a.closest('#contacto')?'contacto':(a.closest('footer')?'footer':'pagina'));
+    var d={event:'whatsapp_click',event_id:'wa_'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),contact_method:'WhatsApp',cta_source:src,lp:'contenido-inmobiliario',page_path:location.pathname,content_name:document.title};
+    if(src==='cotizador'){var t=document.querySelector('.cot__total');if(t)d.quote_total=t.textContent.replace(/[^0-9.]/g,'')}
+    (window.dataLayer=window.dataLayer||[]).push(d);
+  });
+  (window.dataLayer=window.dataLayer||[]).push({event:'view_item',lp:'contenido-inmobiliario',page_path:location.pathname,content_name:document.title,content_type:'landing'});
+})();

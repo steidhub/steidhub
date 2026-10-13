@@ -788,3 +788,72 @@ body.lp-page #precios .lead{font-size:.98rem;margin-top:6px}
 @media(max-width:700px){.mo-foot-min__in{grid-template-columns:1fr 1fr!important;padding-block:28px 20px!important;gap:20px!important}.mo-fcol--brand{grid-column:1/-1}.mo-foot-min img{height:30px!important}}
 .mo-foot-min img{width:auto!important;max-width:100%;align-self:flex-start}
 .mo-fcol h4{color:#E0A272!important;font-size:.8rem!important;line-height:1.2}
+
+/* ===== v15 MÓVIL: jerarquía clara y compacta (solo ≤600px) ===== */
+@media(max-width:600px){
+  body.lp-page{font-size:14px}
+  .lp-section{padding-block:34px!important}
+  .lp-head{margin-bottom:16px!important}
+  .eyebrow{font-size:.62rem!important;letter-spacing:.14em!important}
+  .h2{font-size:1.32rem!important;line-height:1.15!important;font-weight:700!important;letter-spacing:-.01em!important;margin:6px 0 8px!important}
+  .lead{font-size:.8rem!important;line-height:1.5!important;color:#6a6258!important;font-weight:400!important;margin:0 auto!important;max-width:34ch}
+  .lp-page [class*="dark"] .lead,#beneficios .lead,#servicios .lead{color:#c9bfb2!important}
+  /* tarjetas: título > cuerpo */
+  .mo-bento h3,.mo-bento strong{font-size:.86rem!important;line-height:1.2!important}
+  .mo-bento p{font-size:.7rem!important;line-height:1.35!important;color:#6a6258}
+  .mo-rs__t{font-size:1rem!important}.mo-rs__d,.mo-rs__e{font-size:.76rem!important}
+  .mo-agents .h2,.mo-agents h2{font-size:1.5rem!important}.mo-agents p{font-size:.78rem!important;line-height:1.5!important}
+  /* casos de uso: mosaico 2 columnas sin descripciones */
+  #casos .lp-content-channels{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+  #casos .lp-content-channel{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important;padding:12px!important;min-height:0!important;border-radius:14px!important}
+  #casos .lp-content-channel img{height:26px!important;width:auto!important;max-width:100%!important;object-fit:contain!important;margin:0!important;border-radius:8px}
+  #casos .lp-content-channel div{width:100%}
+  #casos .lp-content-channel span{font-size:.56rem!important;letter-spacing:.12em!important}
+  #casos .lp-content-channel h3{font-size:.8rem!important;line-height:1.2!important;margin:2px 0 0!important}
+  #casos .lp-content-channel p{display:none!important}
+  #casos .mo-flow{transform:scale(.85);margin:0 auto 10px}
+  /* cotizador */
+  .cot__pack{font-size:.82rem!important;padding:9px 12px!important}
+  .cot__packs{gap:6px!important;padding:12px!important}
+  .cot__hint{font-size:.74rem!important;margin:10px 0 6px!important}
+  .cot__trio{grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .cot__trio .cot__rows{gap:6px!important}
+  .cot__trio .cot__row{padding:8px 9px!important;gap:6px!important;min-height:0!important;border-radius:11px!important}
+  .cot__trio .cot__ico{display:none!important}
+  .cot__trio .cot__rt strong{font-size:.76rem!important;line-height:1.15}
+  .cot__trio .cot__box{width:18px!important;height:18px!important}
+  .cot__trio .cot__title{font-size:.8rem!important;margin-bottom:6px!important}
+  .cot__title span{width:20px!important;height:20px!important;font-size:.68rem!important}
+  .cot__group--row{padding:8px 10px!important}
+  .cot__disc{gap:5px!important}.cot__disc li{padding:6px 2px!important}.cot__disc b{font-size:.9rem!important}.cot__disc span{font-size:.62rem!important}
+  .cot__sum{padding:14px!important}
+  .cot__sum-h{font-size:.62rem!important}.cot__inc{font-size:.62rem!important;margin:8px 0 4px!important}
+  .cot__lines li{font-size:.78rem!important;padding:6px 0!important}
+  .cot__del li{font-size:.76rem!important}.cot__tools{font-size:.66rem!important}
+  .cot__total{font-size:1.5rem!important}.cot__grand dt{font-size:.8rem}
+  .cot__cta{font-size:.88rem!important;padding:12px 16px!important;min-height:0!important}
+  .cot__note{font-size:.64rem!important}
+  /* contacto: sin texto largo, solo contactos + formulario */
+  #contacto .contact__info .lp-head{display:none!important}
+  #contacto .contact__info{padding:14px!important}
+  #contacto .contact__info dl{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px 12px!important;margin:0!important;text-align:left!important}
+  #contacto .contact__info dt{font-size:.56rem!important;letter-spacing:.12em!important;margin:0 0 2px}
+  #contacto .contact__info dd a{font-size:.74rem!important;word-break:break-all}
+  #contacto .form__panel{padding:14px!important}
+  #contacto .field label{font-size:.6rem!important}
+  #contacto .field input,#contacto .field select,#contacto .field textarea{font-size:.85rem!important;padding:9px 11px!important}
+  #contacto textarea{min-height:64px!important}
+  #contacto .form small,#contacto .field__hint{font-size:.64rem!important}
+  #contacto .check,#contacto .form__consent,#contacto label.check{font-size:.64rem!important;line-height:1.35!important}
+  /* diagnóstico, faq, servicios */
+  #faq summary{font-size:.8rem!important;padding:11px 12px!important}
+  #faq p{font-size:.76rem!important}
+  #servicios h3{font-size:.95rem!important}#servicios p{font-size:.74rem!important}
+  .mo-foot-min nav a,.mo-fcol a{font-size:.8rem!important}
+  .mo-fcol h4{font-size:.62rem!important}
+}
+@media(max-width:600px){
+  .lp-hero .lead,.lp-hero p.lead,#diagnostico .lead,.lp-cta .lead,.mo-agents .lead{color:#efe7dc!important}
+  .lp-hero .lead{font-size:.82rem!important}
+  .lp-stat,.mo-stat,#material [class*="stat"]{padding:10px!important}
+}
