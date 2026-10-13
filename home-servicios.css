@@ -49,3 +49,5 @@
   .hs__go::after{width:26px;height:26px}
 }
 @media(max-width:600px){.hs{padding-block:30px!important}}
+/* títulos y precios a la misma altura */
+@media(min-width:601px){.hs__card strong{min-height:2.6em;display:flex;align-items:center;justify-content:center;line-height:1.25}}
