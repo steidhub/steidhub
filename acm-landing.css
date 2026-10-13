@@ -370,3 +370,11 @@
 @keyframes hfxRise{from{transform:translateY(40px);opacity:0}}
 @media(max-width:767px){.hfx__ring--a{width:90vw;right:-35%;top:-4%}.hfx__ring--b{display:none}.hfx__s1,.hfx__s5{display:none}.hfx__sky{height:34%}}
 @media(prefers-reduced-motion:reduce){.hfx *,.hfx{animation:none!important}}
+/* sello MVCS destacado */
+.a-mvcs{margin-top:18px;display:grid;gap:14px;align-items:center;text-align:left;background:#fff;border:2px solid #C46B3C;border-radius:20px;padding:18px;box-shadow:0 18px 44px rgba(196,107,60,.28)}
+.a-mvcs img{width:100%;max-width:340px;height:auto;display:block}
+.a-mvcs__k{display:inline-block;background:#0E7A3E;color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:8px}
+.a-mvcs h3{font-size:1.12rem;margin:0 0 4px;color:#161411}
+.a-mvcs p{font-size:.86rem;color:#4a3f36;margin:0}.a-mvcs p b{color:#161411}
+@media(min-width:768px){.a-mvcs{grid-template-columns:minmax(260px,380px) 1fr;gap:32px;padding:26px 32px;margin-top:24px}.a-mvcs h3{font-size:1.5rem}.a-mvcs p{font-size:1rem}}
+#que-obtienes .a-grid .a-card:last-child{grid-column:span 2}
