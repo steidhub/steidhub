@@ -540,3 +540,26 @@ body.home .tags--rows li.brk{flex:0 0 100%!important;width:100%;height:0;padding
   body.home #equipo .member__role{font-size:10.5px!important;font-weight:500!important;letter-spacing:.09em!important;line-height:1.5!important;max-width:30ch;margin:0 auto 10px!important;text-align:center;color:var(--tx-2)}
   body.home #equipo .member__bio{font-size:12px!important;font-weight:400!important;line-height:1.55!important;max-width:32ch!important;margin:0 auto!important;text-align:center;color:var(--tx-2);opacity:.85}
 }
+/* v34 móvil · jerarquía tipográfica global (solo tamaños):
+   h2 22 › título de card 17 › subtítulo 14 › cuerpo 13 › etiquetas 10–11 */
+@media(max-width:767px){
+  body.home :is(#produccion,#integral,#marketing,#portafolio,#equipo,.video-sales) .h2{font-size:22px!important}
+  body.home #resultados .h2,body.home #resultados .h2 .results__title-sub,body.home #resultados .h2 span{font-size:28px!important}
+  body.home .video-sales__sub,body.home #contacto .lead{font-size:14px!important}
+  /* títulos de card */
+  body.home :is(#produccion,#integral,#marketing,#portafolio,#equipo) :is(h3,.h3){font-size:17px!important;font-weight:600!important;line-height:1.25!important}
+  body.home #integral .tools h3{font-size:11px!important;font-weight:600!important}
+  body.home #integral .tools h3{letter-spacing:.12em}
+  /* cuerpo */
+  body.home #produccion p:not(.eyebrow):not(.kicker):not(.lead),
+  body.home #resultados .results__d,
+  body.home #marketing .fun__panel p,
+  body.home #portafolio .case p:not(.case__k),
+  body.home #integral .cta-band .muted,
+  body.home #equipo .member__bio{font-size:13px!important;line-height:1.55!important}
+  body.home #portafolio .case__k{font-size:11px!important;font-weight:600!important}
+  body.home #equipo .member h3{font-size:17px!important}
+  /* botones y pestañas */
+  body.home #produccion a span,body.home .cta-band a.btn{font-size:14px!important}
+  body.home #marketing .fun__l,body.home #marketing .fun__out{font-size:13px!important}
+}
