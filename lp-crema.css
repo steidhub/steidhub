@@ -301,3 +301,8 @@ body.lp-page .lp-hero .lp-price{background:rgba(34,22,12,.55);border-color:rgba(
 body.lp-page .lp-hero .lp-price :is(.lp-price__n,.lp-price__note){color:#fff}
 body.lp-page .lp-hero .lp-price__label{color:#F3D9C6}
 body.lp-page .drone-includes article,body.lp-page .drone-includes article *{text-shadow:none!important}
+
+/* Hero a pantalla completa en las landings (el contenido se centra y luego se baja) */
+body.lp-page:not([data-landing="contenido"]) .lp-hero{min-height:100vh!important;min-height:100svh!important;display:flex!important;align-items:center;padding-block:clamp(84px,12svh,128px) clamp(28px,6svh,64px)!important;box-sizing:border-box}
+@media(max-height:760px) and (min-width:900px){body.lp-page:not([data-landing="contenido"]) .lp-hero .lead{display:none}body.lp-page:not([data-landing="contenido"]) .lp-hero .display{font-size:clamp(1.9rem,6.6svh,3.6rem)!important}}
+@media(max-width:700px){body.lp-page:not([data-landing="contenido"]) .lp-hero{padding-block:84px 28px!important;text-align:center}}
