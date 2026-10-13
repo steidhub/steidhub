@@ -100,3 +100,14 @@ body.lp-page #contacto .lp-head,body.lp-page #contacto .contact__info,body.lp-pa
   body.lp-page .lp-cluster .svc-go{justify-content:center}
   body.lp-page .lp-cluster a>*{text-align:center}
 }
+
+/* cifras destacadas (4K, +1,000, etc.) en móvil */
+body.lp-page .lp-kpi article{text-align:center}
+@media(max-width:767px){
+  body.lp-page section .lp-kpi__n{font-size:46px!important;line-height:1!important;font-weight:800!important;letter-spacing:-.03em;color:#161411!important;margin:4px 0 2px!important}
+  body.lp-page section .lp-kpi__n em{font-size:24px!important;font-style:normal;margin-left:2px}
+  body.lp-page section .lp-kpi__label{font-size:11px!important;letter-spacing:.16em}
+  body.lp-page section .lp-kpi__range{font-size:14px!important;font-weight:600}
+  body.lp-page section .lp-kpi__note{font-size:13px!important}
+}
+body.lp-page .lp-kpi__n{justify-content:center!important;display:flex;align-items:baseline;gap:4px}
