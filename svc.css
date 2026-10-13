@@ -567,3 +567,5 @@ body.lp-page .sx-sec{overflow-x:clip}
   .sx-evts b{display:inline;font-size:16px;font-weight:800;text-align:left}
 }
 @media(max-width:767px){body.lp-page .sx-tabs__btn b{font-weight:500!important}.sx-evts b{font-weight:600!important}}
+.dq__eq{display:inline-block;align-self:flex-start;background:#161411;color:#fff!important;border-radius:99px;padding:5px 12px;font-size:11px!important;font-weight:700;letter-spacing:.08em;margin:0}
+@media(max-width:767px){.dq__eq{font-size:10px!important;padding:4px 10px}}

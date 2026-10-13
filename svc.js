@@ -107,13 +107,13 @@
   function fmt(n){return 'S/ '+n.toLocaleString('es-PE',{maximumFractionDigits:2})}
   function render(){
     var t=250+(mins-30)/30*100+(edit?150:0);
-    var items=['Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
+    var items=['Drone DJI Air 3S Fly More Combo','Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
     if(edit)items.push('Edición con IA + tracking · 1 video hasta 60s');
     items.push('Vuelo sobre un punto, 150–200 m (urbano) · 600 m (campo)');
     ul.innerHTML=items.map(function(r){return '<li><i></i><span>'+r+'</span></li>'}).join('');
     tot.textContent=fmt(t);
     var mt=mins===60?'1 hora':mins===90?'1 hora 30 min':'30 minutos';
-    wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con drone de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
+    wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con el drone DJI Air 3S Fly More Combo de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
   }
   opts.forEach(function(b){b.addEventListener('click',function(){mins=+b.dataset.m;opts.forEach(function(o){o.setAttribute('aria-pressed',o===b)});render()})});
   ed.addEventListener('click',function(){edit=!edit;ed.setAttribute('aria-pressed',edit);render()});
