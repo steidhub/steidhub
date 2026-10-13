@@ -43,3 +43,7 @@ body.lp-page:not(.blog-page) .lp-nav__links a:hover,body.lp-page:not(.blog-page)
 body.lp-page.blog-page .lp-nav{background:linear-gradient(to bottom,rgba(247,247,245,.92),rgba(247,247,245,0))!important}
 body.lp-page:not(.blog-page) .lp-nav__logo img{filter:brightness(0) invert(1)!important}
 body.lp-page.blog-page .lp-nav__logo img{filter:brightness(0)!important}
+
+/* Colaboraciones y más: panel naranja tras logos blancos */
+body.lp-page[data-landing="google-ads"] .marquee{background:linear-gradient(135deg,#D27A47,#B35C2E)!important;border-radius:18px;padding-block:18px!important;box-shadow:0 14px 34px rgba(179,92,46,.28)}
+body.lp-page[data-landing="google-ads"] .marquee__item img{filter:brightness(0) invert(1)!important;opacity:.95}

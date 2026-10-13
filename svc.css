@@ -422,3 +422,7 @@ body.lp-page .sx-sec{overflow-x:clip}
   .sx-st span{font-size:9px!important;letter-spacing:-.01em}
   body.lp-page #faq .lp-head .lead{display:none!important}
 }
+/* captura vertical HB: se ve completa en el teléfono */
+.sx-phone:has(img[src*="ejemplos/"]){height:auto;width:200px}
+.sx-phone__s:has(img[src*="ejemplos/"]){height:auto}
+.sx-phone__s img[src*="ejemplos/"]{height:auto!important;width:100%!important;object-fit:initial;animation:none!important}

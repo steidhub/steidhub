@@ -657,3 +657,14 @@
 /* titulo principal destacado en movil */
 @media(max-width:767px){body.lp-site .l-hero h1{font-size:clamp(2.3rem,10vw,2.9rem)!important;line-height:1.06!important;letter-spacing:-.03em;font-weight:800;margin-bottom:16px}}
 @media(max-width:767px){body.lp-site .l-foot{text-align:center}.l-foot__logos{justify-content:center}.l-foot__grid{justify-items:center}.l-foot__bar{justify-content:center;text-align:center}}
+
+/* Criterios de marca (ronda estándar): sin bloques negros, móvil con texto mínimo */
+body.lp-site .l-ticker{background:linear-gradient(90deg,#C46B3C,#A9562B)!important;color:#fff!important}
+body.lp-site .l-ticker__in span::before{background:#fff!important}
+body.lp-site .l-hero :is(.l-big,h1) em,body.lp-site .l-res2 .l-big em{color:inherit}
+body.lp-site .l-hero [class*=price] *,body.lp-site .l-hero .l-pill *{color:#111}
+@media(max-width:767px){
+  body.lp-site .l-sub,body.lp-site .l-sec>.l-wrap>p:not(.l-eye):not(.l-sub):not(.l-note){font-size:14px!important;line-height:1.45!important}
+  body.lp-site #resultados .l-sub,body.lp-site #como .l-sub,body.lp-site .l-sec .l-note,body.lp-site #ejemplos .l-sub,body.lp-site .l-sec small,body.lp-site .trk>div>p,body.lp-site .wa-big span:not(.ic){display:none!important}
+  body.lp-site .l-hero .l-lead,body.lp-site .l-hero p+p{font-size:14px!important}
+}
