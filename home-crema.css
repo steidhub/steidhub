@@ -509,3 +509,15 @@ body.home .video-sales__sub{margin:0;color:#4B443C;font-size:clamp(.88rem,1.6vw,
   body.home .footer__bottom{margin:0!important;padding:0!important;text-align:center}
   body.home #contacto{padding-bottom:28px!important}
 }
+
+/* v29 móvil: título del contacto grande en 2 líneas y footer centrado */
+@media(max-width:767px){
+  body.home #contacto .contact__info .h2{font-size:clamp(1.55rem,7.4vw,1.9rem)!important;line-height:1.1!important;text-wrap:balance;max-width:none;margin-inline:auto}
+  body.home .footer{display:flex;align-items:center;justify-content:center;min-height:52px}
+  body.home .footer>.wrap{width:100%;display:flex;justify-content:center}
+  body.home .footer__bottom{width:100%;display:flex;justify-content:center;align-items:center;text-align:center;margin:0!important;padding:0!important}
+  body.home .footer__bottom>*{text-align:center;margin:0}
+}
+@media(max-width:767px){
+  body.home #contacto .contact__info .h2{font-size:clamp(1.5rem,7.6vw,1.95rem)!important;white-space:nowrap;text-wrap:nowrap;text-align:center}
+}

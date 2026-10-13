@@ -21,7 +21,7 @@
     bar.classList.add('run');
   };
 
-  const show = (i, fromUser) => {
+  let show = (i, fromUser) => {
     cur = (i + tabs.length) % tabs.length;
     tabs.forEach((t, k) => {
       const on = k === cur;
@@ -165,6 +165,65 @@
     root.classList.remove('is-sim');
   };
   if (sim) sim.addEventListener('click', run);
+
+
+  // ---- móvil: tarjetas en carrusel horizontal infinito (deslizar con el dedo) ----
+  const mq = window.matchMedia('(max-width: 767px)');
+  const box = root.querySelector('.fun__panels');
+  let track = null, items = [], setW = 0, scrolling = 0, fromScroll = false;
+  const N = panels.length;
+  const center = (el) => el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2;
+  const nearest = () => {
+    const mid = track.scrollLeft + track.clientWidth / 2;
+    let best = 0, bd = Infinity;
+    items.forEach((el, k) => { const d = Math.abs(el.offsetLeft + el.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = k; } });
+    return best;
+  };
+  const buildTrack = () => {
+    if (track || !box || !mq.matches) return;
+    track = document.createElement('div');
+    track.className = 'fun__track';
+    const before = panels.map((p) => { const c = p.cloneNode(true); c.removeAttribute('id'); c.classList.remove('is-on'); c.setAttribute('aria-hidden', 'true'); return c; });
+    const after = panels.map((p) => { const c = p.cloneNode(true); c.removeAttribute('id'); c.classList.remove('is-on'); c.setAttribute('aria-hidden', 'true'); return c; });
+    before.forEach((c) => track.appendChild(c));
+    panels.forEach((p) => track.appendChild(p));
+    after.forEach((c) => track.appendChild(c));
+    box.appendChild(track);
+    root.classList.add('is-swipe');
+    items = Array.from(track.children);
+    requestAnimationFrame(() => {
+      setW = items[N].offsetLeft - items[0].offsetLeft;
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft = center(items[N]);
+    });
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrolling);
+      scrolling = setTimeout(() => {
+        let j = nearest();
+        if (j < N || j >= 2 * N) {                       // salta al juego central sin que se note
+          const dir = j < N ? 1 : -1;
+          track.style.scrollSnapType = 'none';
+          track.style.scrollBehavior = 'auto';
+          track.scrollLeft += dir * setW;
+          j += dir * N;
+          requestAnimationFrame(() => { track.style.scrollSnapType = ''; });
+        }
+        fromScroll = true; show(j - N, true); fromScroll = false;
+      }, 110);
+    }, { passive: true });
+  };
+  const goTo = (i) => {                                    // llevar la tarjeta i al centro (la copia más cercana)
+    if (!track || fromScroll) return;
+    const cj = nearest();
+    let best = N + i, bd = Infinity;
+    [i, N + i, 2 * N + i].forEach((k) => { const d = Math.abs(k - cj); if (d < bd) { bd = d; best = k; } });
+    track.style.scrollBehavior = 'smooth';
+    track.scrollTo({ left: center(items[best]) });
+  };
+  const _show = show;
+  show = (i, fromUser) => { _show(i, fromUser); items.forEach((el, k) => el.classList.toggle('is-on', k % N === cur)); goTo(cur); };
+  buildTrack();
+  mq.addEventListener && mq.addEventListener('change', buildTrack);
 
   show(0, false);
 })();
