@@ -106,7 +106,7 @@
   var opts=[].slice.call(dq.querySelectorAll('.dq__opts button')),ed=document.getElementById('dqEdit'),ul=document.getElementById('dqLines'),tot=document.getElementById('dqTot'),igv=document.getElementById('dqIgv'),wa=document.getElementById('dqWa'),mins=30,price=250,edit=false;
   function fmt(n){return 'S/ '+n.toLocaleString('es-PE',{maximumFractionDigits:2})}
   function render(){
-    var t=250+(mins-30)/30*100+(edit?400:0);
+    var t=250+(mins-30)/30*100+(edit?150:0);
     var items=['Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
     if(edit)items.push('Edición con IA + tracking · 1 video hasta 60 s');
     items.push('Vuelo sobre un punto, 150–200 m (urbano) · 600 m (campo)');
