@@ -84,3 +84,19 @@ body.lp-page[data-landing="google-ads"] .marquee__item img{filter:brightness(0) 
   body.lp-page .footer__top{display:none!important;margin:0!important}
   body.lp-page .footer__bottom,body.lp-page .footer__bar{padding-top:0!important;margin-top:0!important;border-top:0!important}
 }
+
+/* subrayado del título de contacto, centrado */
+body.lp-page #contacto .h2{position:relative;display:inline-block}
+body.lp-page #contacto .h2::after{left:calc(50% - 48px)!important;width:96px!important;transform-origin:center!important}
+body.lp-page #contacto .reveal.is-in .h2::after,body.lp-page #contacto .h2::after{transform:scaleX(1)!important}
+body.lp-page #contacto .lp-head,body.lp-page #contacto .contact__info,body.lp-page #contacto [class*=contact]{text-align:center}
+
+/* móvil: footer y "Sigue explorando" centrados */
+@media(max-width:767px){
+  body.lp-page .footer,body.lp-page .footer *{text-align:center!important}
+  body.lp-page .footer__bottom,body.lp-page .footer__bar{justify-content:center!important;flex-direction:column;align-items:center}
+  body.lp-page .lp-cluster a{align-items:center!important;text-align:center!important}
+  body.lp-page .lp-cluster .svc-logo{margin-inline:auto}
+  body.lp-page .lp-cluster .svc-go{justify-content:center}
+  body.lp-page .lp-cluster a>*{text-align:center}
+}

@@ -526,3 +526,18 @@ body.lp-page .sx-sec{overflow-x:clip}
 @media(max-width:767px){.dq__opts button{padding:14px 4px}.dq__edit{padding:13px 12px}.dq__sum ul{font-size:13px;gap:9px}}
 /* mismo ancho: video 4K y foto de lente */
 @media(min-width:1101px){.sx-gear{grid-template-columns:1fr 1fr!important;gap:14px!important}}
+/* pestañas móvil: cuadrícula centrada, sin scroll horizontal ni textos cortados */
+@media(max-width:767px){
+  body.lp-page .sx-tabs__list{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;overflow:visible!important;margin:0!important;padding:0!important}
+  body.lp-page .sx-tabs__btn{min-width:0!important;flex-direction:column;justify-content:flex-start;text-align:center;gap:6px;padding:10px 6px!important;border-radius:14px}
+  body.lp-page .sx-tabs__btn i{width:34px;height:34px;border-radius:11px}
+  body.lp-page .sx-tabs__btn i svg{width:18px;height:18px}
+  body.lp-page .sx-tabs__btn b{font-size:12px!important;line-height:1.25}
+  body.lp-page .sx-tabs__btn>span{display:block;text-align:center}
+}
+/* panel de equipo centrado */
+.sx-gear .sx-panel,.sx-gear .sx-panel *{text-align:center}
+.sx-gear .sx-panel .sx-tag{margin-inline:auto}
+.sx-gear .sx-panel :is(.sx-tag,h3,h2,h4){display:table;margin-inline:auto}
+.sx-gear .sx-panel .sx-seg{margin-inline:auto}
+.sx-gear .sx-seg button{white-space:nowrap}
