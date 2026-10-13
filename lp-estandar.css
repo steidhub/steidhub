@@ -47,3 +47,33 @@ body.lp-page.blog-page .lp-nav__logo img{filter:brightness(0)!important}
 /* Colaboraciones y más: panel naranja tras logos blancos */
 body.lp-page[data-landing="google-ads"] .marquee{background:linear-gradient(135deg,#D27A47,#B35C2E)!important;border-radius:18px;padding-block:18px!important;box-shadow:0 14px 34px rgba(179,92,46,.28)}
 body.lp-page[data-landing="google-ads"] .marquee__item img{filter:brightness(0) invert(1)!important;opacity:.95}
+
+/* footer: tablet ordenado en 3 columnas, sin hueco */
+@media(min-width:600px) and (max-width:899px){
+  body.lp-page .footer__top{grid-template-columns:1.4fr 1fr 1fr!important;text-align:left!important;gap:24px!important;margin-bottom:24px!important}
+  body.lp-page .footer__brand img,body.lp-page .footer__brand p{margin-inline:0!important}
+  body.lp-page .footer{padding-block:36px 24px!important}
+  body.lp-page .footer__bottom{justify-content:space-between!important;text-align:left!important}
+}
+@media(max-width:599px){
+  body.lp-page #explora,body.lp-page .lp-section:has(.lp-cluster){padding-block:28px 24px!important}
+  body.lp-page .lp-cluster{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  body.lp-page .lp-cluster a{padding:12px!important;gap:6px!important}
+  body.lp-page .lp-cluster .svc-logo{height:42px!important;padding:0 10px!important;margin-bottom:2px!important}
+  body.lp-page .lp-cluster .svc-logo svg{width:22px!important;height:22px!important}
+  body.lp-page .lp-cluster a strong{font-size:13px!important}
+  body.lp-page .lp-cluster a>span:not(.svc-go){font-size:9px!important}
+  body.lp-page .lp-cluster .svc-go{font-size:12px!important}
+  body.lp-page .lp-cluster .svc-go::after{width:24px;height:24px}
+}
+
+/* jerarquía móvil v2 (escalones claros): h2 24 > h3 17 > subtítulo 15 > tabs 14 > cuerpo 13 > etiqueta 10 */
+@media(max-width:767px){
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) main .h2,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) section .h2{font-size:24px!important;line-height:1.18!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) main section:not(.lp-hero):not(.blog-hero) h3,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .dq__main h3{font-size:17px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .lp-head .lead,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .lead{font-size:15px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .lp-hero .lead,body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .lp-hero__lead{font-size:16px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .sx-tabs__btn b{font-size:14px!important}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) section:not(.lp-hero) p:not(.lead):not(.eyebrow){font-size:13px}
+ body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"],.blog-page) .sx-kpi h3{font-size:15px!important}
+}

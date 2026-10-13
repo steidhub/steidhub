@@ -6,7 +6,7 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){cb(e.isIntersecting);if(e.isIntersecting&&once)io.unobserve(el)})},{threshold:.12});io.observe(el);
   }
   /* revelado + contadores */
-  $$('.sx-rv,.sx-kpis').forEach(function(el){vis(el,function(on){if(on){el.classList.add('sx-on');$$('[data-sx-count]',el).forEach(count)}},true)});
+  $$('.sx-rv').forEach(function(el){vis(el,function(on){if(on){el.classList.add('sx-on');$$('[data-sx-count]',el).forEach(count)}},true)});
   function count(n){
     if(n._d)return;n._d=1;var to=+n.dataset.sxCount,p=n.dataset.prefix||'',s=n.dataset.suffix||'';
     if(RM){n.textContent=p+to+s;return}
@@ -41,7 +41,7 @@
   /* tabs */
   $$('.sx-tabs').forEach(function(box){
     var btns=$$('.sx-tabs__btn',box),sc=$$('.sx-scene',box),cur=-1,tm,hold=0,run=false;
-    function dur(i){var c=$('.sx-scene__cap',sc[i]);return 9000+((c&&c.textContent.length)||40)*90}
+    function dur(i){var c=$('.sx-scene__cap',sc[i]);return 5500+((c&&c.textContent.length)||40)*55}
     function go(i){
       if(i===cur)return;cur=i;box.style.setProperty('--sx-t',dur(i)+'ms');clearTimeout(tm);if(!RM)tm=setTimeout(next,dur(i));
       btns.forEach(function(b,k){b.setAttribute('aria-selected',k===i);b.style.animation='none';void b.offsetWidth;b.style.animation=''});
@@ -87,4 +87,35 @@
     var lbl=$('.sx-gear__lbl',box);
     $$('.sx-seg button',box).forEach(function(b){b.addEventListener('click',function(){box.dataset.lens=b.dataset.lens;lbl.textContent=b.dataset.lbl;$$('.sx-seg button',box).forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
   });
+})();
+
+/* KPIs: se reproducen al entrar y se repiten mientras sigan visibles */
+(function(){
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  [].slice.call(document.querySelectorAll('.sx-kpis')).forEach(function(k){
+    var run=false,first=true;
+    function play(){k.classList.remove('play');void k.offsetWidth;k.classList.add('play');
+      if(!first)[].slice.call(k.querySelectorAll('[data-sx-count]')).forEach(function(n){var to=+n.dataset.sxCount,p=n.dataset.prefix||'',sf=n.dataset.suffix||'',t0=performance.now();(function f(t){var q=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-q,3);n.textContent=p+Math.round(to*e)+sf;if(q<1)requestAnimationFrame(f)})(t0)});
+      first=false}
+    if(!('IntersectionObserver' in window)){play();return}
+    new IntersectionObserver(function(es){es.forEach(function(e){var was=run;run=e.isIntersecting;if(run&&!was)play()})},{threshold:.35}).observe(k);
+    if(!RM)setInterval(function(){if(run)play()},11000);
+  });
+  /* cotizador drone */
+  var dq=document.getElementById('dq');if(!dq)return;
+  var opts=[].slice.call(dq.querySelectorAll('.dq__opts button')),ed=document.getElementById('dqEdit'),ul=document.getElementById('dqLines'),tot=document.getElementById('dqTot'),igv=document.getElementById('dqIgv'),wa=document.getElementById('dqWa'),mins=30,price=250,edit=false;
+  function fmt(n){return 'S/ '+n.toLocaleString('es-PE',{maximumFractionDigits:2})}
+  function render(){
+    var rows=[['Vuelo con drone · 30 min',250]],extra=(mins-30)/30;
+    for(var i=0;i<extra;i++)rows.push(['+30 min adicionales',100]);
+    if(edit)rows.push(['Edición IA + tracking · 1 video ≤ 60 s',400]);
+    var t=rows.reduce(function(a,r){return a+r[1]},0);
+    ul.innerHTML=rows.map(function(r){return '<li><span>'+r[0]+'</span><b>'+fmt(r[1])+'</b></li>'}).join('');
+    tot.textContent=fmt(t);igv.textContent=fmt(Math.round(t*1.18*100)/100);
+    var mt=mins===60?'1 hora':mins===90?'1 hora 30 min':'30 minutos';
+    wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con drone de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
+  }
+  opts.forEach(function(b){b.addEventListener('click',function(){mins=+b.dataset.m;opts.forEach(function(o){o.setAttribute('aria-pressed',o===b)});render()})});
+  ed.addEventListener('click',function(){edit=!edit;ed.setAttribute('aria-pressed',edit);render()});
+  render();
 })();
