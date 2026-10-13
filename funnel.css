@@ -148,6 +148,6 @@
   .fun__track{width:100%;max-width:100vw;box-sizing:border-box}
 }
 @media(max-width:767px){
-  .fun__track{scroll-snap-type:x proximity!important;overscroll-behavior-x:contain;scroll-behavior:auto}
+  .fun__track{scroll-snap-type:x mandatory!important;overscroll-behavior-x:contain;scroll-behavior:auto}
   .fun.is-js .fun__track .fun__panel{scroll-snap-stop:normal;transition:opacity .15s,transform .15s!important;will-change:transform,opacity}
 }
