@@ -1,0 +1,21 @@
+/* Tarjetas "Sigue explorando" con logos de marca */
+body.lp-page .lp-cluster{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;gap:18px!important}
+body.lp-page .lp-cluster a{display:flex!important;flex-direction:column;gap:10px!important;padding:22px!important;border-radius:20px!important;position:relative}
+body.lp-page .lp-cluster .mo-cico{display:none!important}
+body.lp-page .lp-cluster .svc-logo{display:flex;align-items:center;gap:10px;height:64px;padding:0 16px;margin-bottom:6px;border-radius:14px;background:#EDE5DC;width:max-content;max-width:100%}
+body.lp-page .lp-cluster .svc-logo svg{width:32px;height:32px;flex:none}
+body.lp-page .lp-cluster a>span:not(.svc-go){color:#161411!important;font-size:10px!important;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+body.lp-page .lp-cluster a strong{font-size:17px!important;line-height:1.3;font-weight:700}
+body.lp-page .lp-cluster a p{font-size:13.5px!important;line-height:1.6;flex:1}
+body.lp-page .lp-cluster .svc-go{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:13px;font-weight:600;color:#161411!important;letter-spacing:0;text-transform:none}
+body.lp-page .lp-cluster .svc-go::after{content:"→";display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#C46B3C;color:#fff;transition:transform .2s}
+body.lp-page .lp-cluster a:hover .svc-go::after{transform:translateX(4px)}
+@media(max-width:767px){
+  body.lp-page .lp-cluster{grid-template-columns:1fr!important;gap:12px!important}
+  body.lp-page .lp-cluster a{padding:18px!important}
+  body.lp-page .lp-cluster .svc-logo{height:52px;padding:0 14px}
+  body.lp-page .lp-cluster .svc-logo svg{width:26px;height:26px}
+  body.lp-page .lp-cluster a strong{font-size:15.5px!important}
+  body.lp-page .lp-cluster a p{font-size:13px!important}
+}
+body.lp-page .lp-cluster a::after{display:none!important}
