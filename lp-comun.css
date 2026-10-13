@@ -589,3 +589,16 @@
  .dx-f:has(input[name="link2"]){display:none}
  .dx-chk{font-size:.7rem}
 }
+
+/* ===== v13 revisión de criterios: jerarquía tipográfica móvil ===== */
+@media(max-width:767px){
+  /* h2 22 › título de card 16 › subtítulo 14 › cuerpo 13 › etiquetas 10 */
+  .l-rv:is(h2),section h2.l-big,section h2.l-rv{font-size:22px!important;line-height:1.2!important}
+  .l-sub{font-size:14px!important;line-height:1.55!important}
+  section h3{font-size:16px!important;line-height:1.25!important;font-weight:600!important}
+  section h3+p,.l-card p,.l-faq p,details p,.l-steps li p,.dx-card p{font-size:13px!important;line-height:1.5!important}
+  summary{font-size:14px!important}
+  .l-eye{font-size:10px!important}
+  .l-btn{font-size:14px!important}
+}
+@media(max-width:767px){ .l-hero h1{font-size:26px!important;line-height:1.15!important} }

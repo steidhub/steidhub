@@ -941,3 +941,32 @@ body.lp-page #precios .lead{font-size:.98rem;margin-top:6px}
   .mo-bento>*:last-child p:nth-of-type(2){font-size:.7rem!important}
 }
 @media(max-width:600px){#beneficios .lp-head .lead,#material .lp-head .lead,#material .lead,#beneficios .lead{display:none!important}}
+
+/* ===== draft20 · revisión de criterios: color + jerarquía tipográfica ===== */
+/* sin texto naranja sobre crema/blanco */
+body.lp-page .eyebrow,body.lp-page .cot__sum-h,body.lp-page .req,body.lp-page .mo-g__b,body.lp-page .mo-g__b i,
+body.lp-page #contacto a[href^="tel"],body.lp-page #contacto dd a{color:#161411!important}
+@media(max-width:767px){
+  /* h2 22 › título de card 16 › subtítulo 14 › cuerpo 13 › etiquetas 10 */
+  body.lp-page :is(#resumen,#material,#beneficios,#proceso,#casos,#precios,#faq,#servicios) .h2{font-size:22px!important;line-height:1.2!important}
+  body.lp-page .mo-agents__h{font-size:22px!important}
+  body.lp-page #diagnostico .h2{font-size:20px!important}
+  body.lp-page .eyebrow{font-size:10px!important}
+  body.lp-page .lead{font-size:14px!important;line-height:1.55!important}
+  body.lp-page .mo-rs__t{font-size:16px!important}
+  body.lp-page #proceso h3{font-size:15px!important}
+  body.lp-page .mo-rs__d{font-size:13px!important;line-height:1.5!important}
+  body.lp-page #proceso p:not(.mo-kpi__n):not(.mo-kpi__t){font-size:12.5px!important;line-height:1.5!important}
+  body.lp-page #faq summary{font-size:13.5px!important;font-weight:600!important}
+  body.lp-page .lp-faq__a{font-size:12.5px!important;line-height:1.55!important}
+}
+body.lp-page a.btn[href*="wa.me"],body.lp-page a.btn--primary[href*="wa.me"]{background:#1E8E4F!important;border-color:#1E8E4F!important;color:#fff!important}
+body.lp-page a.btn[href*="wa.me"]:hover{background:#17773F!important}
+body.lp-page .form__consent a,body.lp-page #precios em,body.lp-page .mo-pchip em,body.lp-page .cot__row i,body.lp-page .mo-g i,body.lp-page .mo-note span{color:#161411!important}
+@media(max-width:767px){
+  body.lp-page #proceso p.eyebrow{font-size:10px!important}
+  body.lp-page #faq p.eyebrow{font-size:10px!important}
+  body.lp-page #faq .lp-faq__a{font-size:12.5px!important}
+}
+body.lp-page .mo-hpanel__k,body.lp-page .mo-hpanel__list i,body.lp-page .mo-mtab__i,body.lp-page .mo-rs__tabs i,body.lp-page .mo-pstep__n,body.lp-page .cot__body em,body.lp-page .cot__row em{color:#161411!important}
+body.lp-page .lp-content-channel span,body.lp-page .mo-kpi__n em{color:#161411!important}

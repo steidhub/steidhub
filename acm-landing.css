@@ -290,3 +290,30 @@
 
 .acm-lp .a-sv,.acm-lp .a-sv__n,.acm-lp .a-sv__p{color:#fff}.acm-lp .a-sv__p{flex-wrap:wrap}.acm-lp .a-sv__n{margin-top:6px}
 @media(max-width:520px){.acm-lp .wa__btn{width:58px;height:58px;padding:0;gap:0;justify-content:center;border-radius:50%}.acm-lp .wa__ic{margin:0}}
+
+/* ===== v175 revisión de criterios: color + jerarquía tipográfica ===== */
+/* sin texto naranja sobre blanco/crema; WhatsApp verde con texto blanco */
+.acm-lp .a-btn--w,.acm-lp .a-sv .a-btn{color:#161411}
+.acm-lp .a-btn--o2{color:#fff}
+.acm-lp .a-hero h1 em{color:#161411}
+.acm-lp .a-hero .a-btn--o[href*="wa.me"]{background:#0E7A3E;border-color:#0E7A3E;color:#fff}
+.acm-lp .a-hero .a-btn--o[href*="wa.me"]:hover{background:#0B6A35}
+.acm-lp .a-eye:not(.a-deep .a-eye):not(.a-lossec .a-eye){color:#161411}
+.acm-lp .a-hl,.acm-lp .a-deal b,.acm-lp .acm-now,.acm-lp .a-sv__tag,.acm-lp .a-deal__arrow,.acm-lp .a-num,.acm-lp .a-leg .a-n,.acm-lp .a-mock em,.acm-lp .a-sk i,.acm-lp .a-sk em{color:#161411}
+.acm-lp .a-leg li.on .a-n{color:#fff}
+.acm-lp .a-mock b{color:#161411}
+.acm-lp .a-deep .a-hl,.acm-lp .a-lossec .a-hl{color:#FFD8BD}
+@media(max-width:767px){
+  /* h2 22 › título de card 16 › subtítulo 14 › cuerpo 13 › etiquetas 10 */
+  .acm-lp section h2{font-size:22px!important;line-height:1.2!important;font-weight:700}
+  .acm-lp .a-sub{font-size:14px!important;line-height:1.55!important}
+  .acm-lp section h3{font-size:16px!important;line-height:1.25!important;font-weight:600!important}
+  .acm-lp #que-obtienes h3+p,.acm-lp #bosquejo li p,.acm-lp #pasos h3+p,.acm-lp #respaldo li p,.acm-lp #faq details p,.acm-lp .a-sv__n,.acm-lp #respaldo li span{font-size:13px!important;line-height:1.5!important}
+  .acm-lp #faq summary{font-size:14px!important;font-weight:600}
+  .acm-lp .a-eye{font-size:10px!important}
+  .acm-lp .a-btn{font-size:14px!important}
+  .acm-lp .a-btn--lg{font-size:14px!important}
+  .acm-lp .a-top__cta{font-size:12px!important}
+}
+.acm-lp .a-kpi b,.acm-lp .a-sk__calc b,.acm-lp .a-sk__kpis b{color:#161411}
+.acm-lp .a-leg li.on h3{color:#161411!important}.acm-lp .a-leg li.on .a-n{background:#C94A17!important;color:#fff!important}
