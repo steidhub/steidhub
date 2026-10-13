@@ -107,9 +107,12 @@
   function fmt(n){return 'S/ '+n.toLocaleString('es-PE',{maximumFractionDigits:2})}
   function render(){
     var t=250+(mins-30)/30*100+(edit?150:0);
-    var items=['Drone DJI Air 3S Fly More Combo','Piloto certificado DGAC','Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
-    if(edit)items.push('Edición con IA + tracking · 1 video hasta 60s');
-    ul.innerHTML=items.map(function(r){return '<li><i></i><span>'+r+'</span></li>'}).join('');
+    var vt=(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min');
+    var inc=['Drone DJI Air 3S Fly More Combo','Piloto certificado DGAC','Vuelo de '+vt];
+    if(edit)inc.push('Edición con IA + tracking en After Effects');
+    var ent=[edit?'Video editado de máximo 60s en el formato elegido.':'Fotografía y video en alta calidad en los formatos elegidos.'];
+    function li(x){return '<li><i></i><span>'+x+'</span></li>'}
+    ul.innerHTML='<li class="dq__h">Incluye</li>'+inc.map(li).join('')+'<li class="dq__h">Entregables</li>'+ent.map(li).join('')+'<li class="dq__h dq__h--s">Consideraciones</li><li class="dq__c">Lima Metropolitana · 1 punto de vuelo</li>';
     tot.textContent=fmt(t);
     var mt=mins===60?'1 hora':mins===90?'1 hora 30 min':'30 minutos';
     wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con el drone DJI Air 3S Fly More Combo y piloto certificado DGAC, de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
