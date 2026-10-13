@@ -460,3 +460,10 @@ body.home .hero__stats{flex:none;padding-bottom:clamp(14px,3svh,28px)}
   body.home .hero__center{padding-block:78px 8px}
   body.home .hero__device{width:min(100%,calc((100svh - 500px)*1.5 + 100px))}
 }
+
+/* Videos que venden: título arriba */
+body.home .video-sales__head{text-align:center;margin:0 auto clamp(18px,3svh,32px);max-width:640px}
+body.home .video-sales__head .h2{margin:6px 0 8px}
+body.home .video-sales__head .accent{color:#B85A2B}
+body.home .video-sales__sub{margin:0;color:#4B443C;font-size:clamp(.88rem,1.6vw,1.05rem)}
+@media(max-width:600px){body.home .video-sales__head .h2{font-size:1.4rem}body.home .video-sales__sub{font-size:.8rem}}
