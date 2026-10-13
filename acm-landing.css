@@ -340,3 +340,10 @@
 @media(min-width:768px){.acm-lp .a-hero__in{padding-block:8px 24px}}
 @media(max-width:767px){.acm-lp .a-hero__in{padding-block:0 16px}.acm-lp .a-hero .a-kicker{margin-bottom:14px}.acm-lp .a-hero .a-deal{margin-bottom:14px}}
 @media(max-width:767px){.acm-lp .a-hero{min-height:calc(100svh - 40px)}.acm-lp .a-deal{gap:6px;padding:10px 12px;flex-wrap:nowrap}.acm-lp .a-deal__new b{font-size:1.5rem}.acm-lp .a-deal__old,.acm-lp .a-deal__new{font-size:.78rem;white-space:nowrap}}
+/* fondo animado hero */
+.acm-lp .a-hero{isolation:isolate}
+.acm-lp .a-hero::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(38% 42% at 22% 28%,rgba(240,190,159,.5),transparent 70%),radial-gradient(34% 40% at 80% 70%,rgba(138,67,34,.55),transparent 70%),radial-gradient(30% 34% at 62% 18%,rgba(233,162,124,.38),transparent 70%);animation:a-aurora 16s ease-in-out infinite alternate}
+.acm-lp .a-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.22) 1.2px,transparent 1.6px);background-size:30px 30px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);animation:a-dots 40s linear infinite}
+@keyframes a-aurora{0%{transform:translate3d(-4%,-3%,0) scale(1)}50%{transform:translate3d(5%,3%,0) scale(1.12)}100%{transform:translate3d(-2%,6%,0) scale(1.04)}}
+@keyframes a-dots{to{background-position:30px 60px}}
+@media(prefers-reduced-motion:reduce){.acm-lp .a-hero::before,.acm-lp .a-hero::after{animation:none}}

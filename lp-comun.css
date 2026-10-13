@@ -622,3 +622,12 @@
 }
 @media(min-width:900px) and (min-height:960px){.l-hero h1{font-size:clamp(3rem,4.6vw,4.2rem)}.l-hero .l-kicker{font-size:1.2rem}.l-hero .ph{width:min(260px,56vw)}}
 @media(min-width:768px){.l-hero__in{padding-block:8px 28px}}
+/* fondo animado hero */
+.l-hero{isolation:isolate}
+.l-hero::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(38% 42% at 22% 28%,rgba(240,190,159,.5),transparent 70%),radial-gradient(34% 40% at 80% 70%,rgba(138,67,34,.55),transparent 70%),radial-gradient(30% 34% at 62% 18%,rgba(233,162,124,.38),transparent 70%);animation:l-aurora 16s ease-in-out infinite alternate}
+.l-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.22) 1.2px,transparent 1.6px);background-size:30px 30px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);animation:l-dots 40s linear infinite}
+.l-hero .l-blob{opacity:.22;z-index:0}
+.l-hero>header,.l-hero>div{position:relative;z-index:2}
+@keyframes l-aurora{0%{transform:translate3d(-4%,-3%,0) scale(1)}50%{transform:translate3d(5%,3%,0) scale(1.12)}100%{transform:translate3d(-2%,6%,0) scale(1.04)}}
+@keyframes l-dots{to{background-position:30px 60px}}
+@media(prefers-reduced-motion:reduce){.l-hero::before,.l-hero::after{animation:none}}
