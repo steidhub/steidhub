@@ -591,3 +591,4 @@ body.lp-page .sx-sec{overflow-x:clip}
 .dq__sum li.dq__c{display:block;font-size:11px;opacity:.8;line-height:1.3;padding:0}
 .dq__sum ul{gap:7px!important}
 .dq__sum .dq__k{font-size:15px!important;letter-spacing:.14em}@media(max-width:619px){.dq__sum .dq__k{font-size:13.5px!important}}
+.dq__sum li.dq__h{margin-top:12px!important}.dq__sum li.dq__h:first-child{margin-top:0!important}.dq__sum li.dq__h--s{margin-top:12px!important}
