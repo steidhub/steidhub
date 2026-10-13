@@ -541,3 +541,9 @@ body.lp-page .sx-sec{overflow-x:clip}
 .sx-gear .sx-panel :is(.sx-tag,h3,h2,h4){display:table;margin-inline:auto}
 .sx-gear .sx-panel .sx-seg{margin-inline:auto}
 .sx-gear .sx-seg button{white-space:nowrap}
+/* total a la derecha, más grande */
+.dq__tot{display:grid!important;grid-template-columns:auto 1fr;grid-template-areas:"l n" ". i";align-items:center;column-gap:12px;row-gap:0}
+.dq__tot>span{grid-area:l;font-size:15px!important;align-self:center}
+.dq__tot strong{grid-area:n;text-align:right;font-size:52px!important}
+.dq__tot small{grid-area:i;text-align:right;font-size:14px!important;font-weight:600}
+@media(max-width:767px){.dq__tot strong{font-size:40px!important}}

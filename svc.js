@@ -111,7 +111,7 @@
     if(edit)items.push('Edición con IA + tracking · 1 video hasta 60 s');
     items.push('Vuelo sobre un punto, 150–200 m (urbano) · 600 m (campo)');
     ul.innerHTML=items.map(function(r){return '<li><i></i><span>'+r+'</span></li>'}).join('');
-    tot.textContent=fmt(t);igv.textContent=fmt(Math.round(t*1.18*100)/100);
+    tot.textContent=fmt(t);
     var mt=mins===60?'1 hora':mins===90?'1 hora 30 min':'30 minutos';
     wa.href='https://wa.me/51983595390?text='+encodeURIComponent('Hola, quiero cotizar un vuelo con drone de '+mt+(edit?' con edición de 1 video con IA y tracking':'')+'. Total referencial: '+fmt(t)+' + IGV. Mi proyecto queda en:');
   }
