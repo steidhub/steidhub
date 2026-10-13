@@ -196,7 +196,14 @@
       track.style.scrollBehavior = 'auto';
       track.scrollLeft = center(items[N]);
     });
+    let live = -1, raf = 0;
+    const paint = () => {                                  // cambia el color al instante mientras se desliza
+      raf = 0;
+      const j = nearest() % N;
+      if (j !== live) { live = j; items.forEach((el, k) => el.classList.toggle('is-on', k % N === j)); }
+    };
     track.addEventListener('scroll', () => {
+      if (!raf) raf = requestAnimationFrame(paint);
       clearTimeout(scrolling);
       scrolling = setTimeout(() => {
         let j = nearest();
@@ -209,7 +216,7 @@
           requestAnimationFrame(() => { track.style.scrollSnapType = ''; });
         }
         fromScroll = true; show(j - N, true); fromScroll = false;
-      }, 110);
+      }, 60);
     }, { passive: true });
   };
   const goTo = (i) => {                                    // llevar la tarjeta i al centro (la copia más cercana)
@@ -219,6 +226,7 @@
     [i, N + i, 2 * N + i].forEach((k) => { const d = Math.abs(k - cj); if (d < bd) { bd = d; best = k; } });
     track.style.scrollBehavior = 'smooth';
     track.scrollTo({ left: center(items[best]) });
+    setTimeout(() => { if (track) track.style.scrollBehavior = 'auto'; }, 450);
   };
   const _show = show;
   show = (i, fromUser) => { _show(i, fromUser); items.forEach((el, k) => el.classList.toggle('is-on', k % N === cur)); goTo(cur); };

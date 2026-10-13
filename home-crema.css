@@ -525,3 +525,11 @@ body.home .video-sales__sub{margin:0;color:#4B443C;font-size:clamp(.88rem,1.6vw,
 body.home .tags--rows li.brk{flex:0 0 100%!important;width:100%;height:0;padding:0!important;margin:-4px 0 0!important;border:0!important;background:none!important;box-shadow:none!important;min-height:0;display:none}
 @media(min-width:1200px){body.home .tags--rows li.brk--d{display:block}}
 @media(max-width:600px){body.home .tags--rows li.brk--m{display:block}}
+/* v31 móvil: programas y plataformas más compacto */
+@media(max-width:767px){
+  body.home .tools{gap:18px!important}
+  body.home .tools h3{margin-bottom:8px!important}
+  body.home .tags--rows,body.home .tools .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 5px!important}
+  body.home .tags--rows li,body.home .tools .tags li{flex:0 0 auto!important;padding:6px 11px!important;font-size:.7rem!important;line-height:1.2;font-weight:500;white-space:nowrap}
+  body.home .tags--rows li.brk{display:none!important}
+}
