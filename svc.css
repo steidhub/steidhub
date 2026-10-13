@@ -569,3 +569,17 @@ body.lp-page .sx-sec{overflow-x:clip}
 @media(max-width:767px){body.lp-page .sx-tabs__btn b{font-weight:500!important}.sx-evts b{font-weight:600!important}}
 .dq__eq{display:inline-block;align-self:flex-start;background:#161411;color:#fff!important;border-radius:99px;padding:5px 12px;font-size:11px!important;font-weight:700;letter-spacing:.08em;margin:0}
 @media(max-width:767px){.dq__eq{font-size:10px!important;padding:4px 10px}}
+/* cotizador responsivo v2 */
+.dq__note{font-size:11px!important;line-height:1.45;padding:7px 10px!important;opacity:.9}
+@media(min-width:620px) and (max-width:860px){.dq{grid-template-columns:1.1fr 1fr!important}.dq__main,.dq__sum{padding:18px}.dq__tot strong{font-size:38px!important}.dq__opts strong{font-size:14px}.dq__opts span{font-size:11.5px}.dq__edit small{display:none}}
+@media(max-width:619px){
+  .dq{gap:10px}.dq__main,.dq__sum{padding:14px!important;gap:8px}
+  .dq__main h3{font-size:15px!important;margin-top:2px}
+  .dq__hint{font-size:11.5px;line-height:1.35}
+  .dq__opts button{padding:9px 2px!important}.dq__opts span{font-size:11px}
+  .dq__edit{padding:9px 11px!important}.dq__edit i{width:20px;height:20px}.dq__edit strong{font-size:12.5px!important}.dq__edit em{font-size:10px}
+  .dq__note{font-size:10px!important;padding:6px 9px!important}
+  .dq__sum ul{font-size:12.5px;gap:6px}.dq__sum li i{width:17px;height:17px}.dq__sum li i::after{left:5px;top:2px;width:4px;height:8px}
+  .dq__tot{padding-top:10px}.dq__tot strong{font-size:34px!important}.dq__wa{padding:11px;font-size:13.5px}
+}
+@media(max-width:360px){.dq__opts strong{font-size:13px}.dq__sum ul{font-size:12px}}
