@@ -149,8 +149,9 @@
   }
 
   /* Seguimiento (sin datos personales) */
-  /* Conversión: clic a WhatsApp → evento `whatsapp_click` (GTM: GA4 "contact" + Meta "Contact") */
-  const waEvent = (src) => { const id = 'wa_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); (window.dataLayer = window.dataLayer || []).push({ event: 'whatsapp_click', event_id: id, contact_method: 'whatsapp', cta_source: src || '', lp, page_path: location.pathname, content_name: document.title }); };
+  /* Intención: clic a WhatsApp → `whatsapp_intent`. NO es un contacto confirmado (la persona puede no enviar el mensaje):
+     el "Contact" de Meta/GA4 solo debe salir del mensaje realmente recibido (contador en Cloudflare). */
+  const waEvent = (src) => { const id = 'wa_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); (window.dataLayer = window.dataLayer || []).push({ event: 'whatsapp_intent', intent_only: true, event_id: id, contact_method: 'whatsapp', cta_source: src || '', lp, page_path: location.pathname, content_name: document.title }); };
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href]'); if (!a) return;
     const isWa = /^https:\/\/wa\.me\//.test(a.href);

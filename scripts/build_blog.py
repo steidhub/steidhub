@@ -204,7 +204,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="/landing.css?v={V}">
 <link rel="stylesheet" href="/blog.css?v={V}">
 <link rel="stylesheet" href="/lead-modal.css?v=20260919-1">
-<script src="/lead-modal.js?v=20260919-1" defer></script>
+<script src="/lead-modal.js?v=20261013-intent" defer></script>
 <script type="application/ld+json">
 {json.dumps(jsonld, ensure_ascii=False)}
 </script>

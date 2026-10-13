@@ -3,7 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ('<link rel="stylesheet" href="/lead-modal.css?v=20260919-1">\n'
-          '<script src="/lead-modal.js?v=20260919-1" defer></script>\n')
+          '<script src="/lead-modal.js?v=20261013-intent" defer></script>\n')
 pages = [path for path in ROOT.rglob('*.html') if 'seo/templates' not in path.as_posix()]
 changed = 0
 for path in pages:

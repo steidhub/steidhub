@@ -94,7 +94,7 @@
   modal.addEventListener('click', (event) => { if (event.target.closest('[data-lead-close]')) close(); });
   fallback.addEventListener('click', (event) => {
     event.preventDefault();
-    track('whatsapp_click', { cta_source: context.cta_source, contact_method: 'WhatsApp', form_type: 'floating', lead_saved: false });
+    track('whatsapp_intent', { cta_source: context.cta_source, contact_method: 'WhatsApp', form_type: 'floating', lead_saved: false });
     setTimeout(() => location.assign(context.destination), 350);
   });
   document.addEventListener('keydown', (event) => {
@@ -137,7 +137,7 @@
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error('save_failed');
       track('generate_lead', { cta_source: context.cta_source, form_type: 'floating', lead_destination: 'whatsapp' });
-      track('whatsapp_click', { cta_source: context.cta_source, contact_method: 'WhatsApp', form_type: 'floating', lead_saved: true });
+      track('whatsapp_intent', { cta_source: context.cta_source, contact_method: 'WhatsApp', form_type: 'floating', lead_saved: true });
       // Give GTM a brief window to dispatch the outbound event before navigation.
       setTimeout(() => location.assign(context.destination), 350);
     } catch {
