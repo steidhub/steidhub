@@ -35,3 +35,17 @@
   .hs__go{display:none}
   .hs__grid{gap:10px}
 }
+/* una sola franja, título centrado, menos aire */
+.hs{padding-block:clamp(36px,5vw,56px)!important}
+.hs__head{margin-bottom:22px}
+.hs__head .eyebrow{display:flex!important;justify-content:center;align-items:center;gap:12px;text-align:center;margin-inline:auto}
+.hs__head .h2{margin-inline:auto}
+@media(min-width:1000px){
+  .hs__grid{flex-wrap:nowrap;gap:12px}
+  .hs__card{flex:1 1 0!important;min-width:0;padding:18px 12px;gap:10px}
+  .hs__card strong{font-size:15px}
+  .hs__card em{font-size:12px;padding:5px 10px}
+  .hs__logo{height:50px;padding:0 14px}.hs__logo svg{width:26px;height:26px}
+  .hs__go::after{width:26px;height:26px}
+}
+@media(max-width:600px){.hs{padding-block:30px!important}}
