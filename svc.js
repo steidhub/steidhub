@@ -108,7 +108,7 @@
   function render(){
     var t=250+(mins-30)/30*100+(edit?150:0);
     var items=['Vuelo con drone · '+(mins===30?'30 min':mins===60?'1 hora':'1 h 30 min'),'Lima Metropolitana']
-    if(edit)items.push('Edición con IA + tracking · 1 video hasta 60 s');
+    if(edit)items.push('Edición con IA + tracking · 1 video hasta 60s');
     items.push('Vuelo sobre un punto, 150–200 m (urbano) · 600 m (campo)');
     ul.innerHTML=items.map(function(r){return '<li><i></i><span>'+r+'</span></li>'}).join('');
     tot.textContent=fmt(t);
