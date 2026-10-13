@@ -455,7 +455,7 @@ body.lp-page .mo-rs__big em{font-style:normal;font-size:clamp(1.6rem,3vw,2.6rem)
 body.lp-page .mo-agents__k{margin:0;font-size:.82rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#fff!important;opacity:.85}
 body.lp-page .mo-agents__h{margin:0;font-size:clamp(2.8rem,10vw,8rem);font-weight:800;line-height:.95;letter-spacing:-.045em;color:#fff!important;text-transform:uppercase}
 body.lp-page .mo-agents__h span,body.lp-page .mo-agents__h em{color:#fff!important;font-style:normal}
-body.lp-page .mo-agents__h em{-webkit-text-stroke:2px #fff;color:transparent!important}
+body.lp-page .mo-agents__h em{-webkit-text-stroke:0;color:#FFE2CC!important}
 body.lp-page .mo-agents__p{margin:6px 0 0;max-width:62ch;font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.55;color:#fff!important}
 @media(prefers-reduced-motion:reduce){.mo-agents::before{animation:none}}
 
