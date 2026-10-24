@@ -661,7 +661,8 @@
 /* Criterios de marca (ronda estándar): sin bloques negros, móvil con texto mínimo */
 body.lp-site .l-ticker{background:linear-gradient(90deg,#C46B3C,#A9562B)!important;color:#fff!important}
 body.lp-site .l-ticker__in span::before{background:#fff!important}
-body.lp-site .l-hero :is(.l-big,h1) em,body.lp-site .l-res2 .l-big em{color:inherit}
+body.lp-site .l-hero .l-big em,body.lp-site .l-res2 .l-big em{color:inherit}
+body.lp-site .l-hero h1 em{color:#111!important;background:#fff}
 body.lp-site .l-hero [class*=price] *,body.lp-site .l-hero .l-pill *{color:#111}
 @media(max-width:767px){
   body.lp-site .l-sub,body.lp-site .l-sec>.l-wrap>p:not(.l-eye):not(.l-sub):not(.l-note){font-size:14px!important;line-height:1.45!important}
