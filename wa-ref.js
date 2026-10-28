@@ -1,6 +1,6 @@
-/* Steid Hub — referencia de clic a WhatsApp para atribución en Meta (CAPI).
-   Al hacer clic en un enlace de WhatsApp agrega "(Ref SH-XXXXX)" al mensaje y guarda
-   fbc/fbp de forma anónima. El "Contact" real lo envía el servidor cuando llega el mensaje. */
+/* Steid Hub — registro anónimo de clics a WhatsApp para atribución en Meta (CAPI).
+   No modifica el mensaje: guarda fbc/fbp, página y el texto prellenado. El servidor empareja
+   el primer mensaje real con el clic más reciente (mismo texto, pocos minutos antes). */
 (() => {
   'use strict';
   const WA_RE = /^(https:\/\/(api\.)?wa\.me\/|https:\/\/api\.whatsapp\.com\/send|whatsapp:\/\/send)/i;
@@ -12,29 +12,25 @@
   } catch (e) {}
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   const newRef = () => { let r = ''; const a = new Uint8Array(5); crypto.getRandomValues(a); a.forEach((b) => { r += chars[b % chars.length]; }); return 'SH-' + r; };
-  const tag = (url) => {
+  let last = 0;
+  const record = (url) => {
     if (!url || !WA_RE.test(url)) return url;
-    let u; try { u = new URL(url); } catch (e) { return url; }
-    const base = u.searchParams.get('text') || 'Hola, Steid Hub.';
-    if (/Ref SH-[A-Z0-9]{5}/.test(base)) return url;
-    const ref = newRef();
-    u.searchParams.delete('text');
-    const rest = u.searchParams.toString();
-    const out = u.origin + u.pathname + '?' + (rest ? rest + '&' : '') + 'text=' + encodeURIComponent(base + ' (Ref ' + ref + ')');
-    const data = JSON.stringify({ ref, fbc: ck('_fbc') || ss('sh_fbc'), fbp: ck('_fbp'), url: location.href.split('#')[0] });
+    const now = Date.now(); if (now - last < 1500) return url; last = now;
+    let msg = ''; try { msg = new URL(url).searchParams.get('text') || ''; } catch (e) {}
+    const data = JSON.stringify({ ref: newRef(), msg: msg.slice(0, 300), fbc: ck('_fbc') || ss('sh_fbc'), fbp: ck('_fbp'), url: location.href.split('#')[0] });
     try {
       if (!(navigator.sendBeacon && navigator.sendBeacon('/api/wa-ref', new Blob([data], { type: 'application/json' }))))
         fetch('/api/wa-ref', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: data, keepalive: true });
     } catch (e) {}
-    return out;
+    return url;
   };
-  window.SH_waRef = tag;
+  window.SH_waRef = record;
   window.addEventListener('click', (e) => {
     const a = e.target && e.target.closest && e.target.closest('a[href]');
-    if (!a) return;
-    const t = tag(a.href);
-    if (t !== a.href) a.href = t;
+    if (a) record(a.href);
   }, true);
   const wo = window.open;
-  window.open = function (url, ...rest) { return wo.call(this, typeof url === 'string' ? tag(url) : url, ...rest); };
+  window.open = function (url, ...rest) { if (typeof url === 'string') record(url); return wo.call(this, url, ...rest); };
+  const la = Location.prototype.assign;
+  try { Location.prototype.assign = function (url) { record(String(url)); return la.call(this, url); }; } catch (e) {}
 })();

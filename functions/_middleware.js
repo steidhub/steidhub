@@ -1,5 +1,5 @@
 // Inserta /wa-ref.js en todas las páginas HTML (atribución de clics a WhatsApp)
-class Head { element(el) { el.prepend('<script src="/wa-ref.js?v=2"></script>', { html: true }); } }
+class Head { element(el) { el.prepend('<script src="/wa-ref.js?v=3"></script>', { html: true }); } }
 export async function onRequest({ next }) {
   const res = await next();
   const type = res.headers.get('Content-Type') || '';
