@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-base="/demobat">
+<html lang="en" data-base="/demobat" data-demo="1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -48,7 +48,7 @@
       <div class="panel frame" id="popup-panel">
         <h2>Pop-up</h2>
         <p>A message that opens on top of each show's own page (the page you share in ads). Use it for cancellations, refunds, venue changes or any notice. It has its own save button, separate from the tour dates.</p>
-        <div class="guide"><h3>How to use this section</h3><ol><li>Tick <b>Pop-up is on</b> to turn it on. Untick it to hide it.</li><li>Optional: pick a <b>template</b> and the title and message fill in for you.</li><li>Edit the <b>title</b> and <b>message</b> in plain words: what happened and what fans should do.</li><li>Optional: add a <b>button</b> (text and link), for example “Refund details”.</li><li>Optional: choose <b>dates</b> to show it only for a period.</li><li>Press <b>Save pop-up</b>. Use <b>Preview</b> to see it first.</li></ol></div>
+        <div class="guide"><h3>How to use this section</h3><ol><li>Tick <b>Pop-up is on</b> to turn it on. Untick it to hide it.</li><li>Optional: pick a <b>template</b> and the title and message fill in for you.</li><li>Edit the <b>title</b> and <b>message</b> in plain words: what happened and what fans should do.</li><li>Optional: add a <b>button</b> (text and link), for example “Refund details”.</li><li>Optional: choose <b>dates</b> to show it only for a period.</li><li>Press <b>Save pop-up</b>. Use <b>Preview this pop-up</b> to see it first. <b>Preview sign-up pop-up</b> opens the community form the way fans see it.</li></ol></div>
         <div class="pop">
           <label class="check pop__on"><input type="checkbox" id="pp-on"> Pop-up is on</label>
           <div class="field pop__tpl"><label for="pp-tpl">Start from a template</label>
@@ -65,7 +65,8 @@
         </div>
         <div class="btn-row" style="margin-top:1rem">
           <button class="btn btn--sm" type="button" id="pp-save">Save pop-up</button>
-          <button class="btn btn--ghost btn--sm" type="button" id="pp-preview">Preview</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="pp-preview">Preview this pop-up</button>
+          <a class="btn btn--ghost btn--sm" id="pp-preview-join" href="index.html?preview=join" target="_blank" rel="noopener">Preview sign-up pop-up</a>
         </div>
         <p class="status" id="pp-status" role="status" style="margin-top:.6rem"></p>
       </div>
@@ -111,6 +112,7 @@
 </main>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/popup.js" defer></script>
 <script src="assets/js/admin.js" defer></script>
 </body>
 </html>

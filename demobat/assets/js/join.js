@@ -70,7 +70,10 @@
   [].forEach.call(form.querySelectorAll('input,select'), function (i) { i.addEventListener('input', function () { bad(i, false); }); });
 
   /* gentle auto-open once per visitor (home page only): after ~25 s, never again for 30 days once seen */
-  if (d.getElementById('home')) {
+  var DEMO = d.documentElement.hasAttribute('data-demo');
+  if (/[?&]preview=join\b/.test(location.search)) setTimeout(open, 500);
+  else if (DEMO && d.getElementById('home')) setTimeout(function () { if (!dlg.open) open(); }, 1800); /* review demo: the sign-up pop-up always opens */
+  else if (d.getElementById('home')) {
     var seen = null; try { seen = localStorage.getItem(KEY); } catch (_) {}
     var recent = seen === 'done' || (seen && Date.now() - Number(seen) < 30 * 864e5);
     if (!recent) setTimeout(function () { if (!dlg.open && !d.querySelector('.nav[data-open="true"]')) open(); }, 25000);

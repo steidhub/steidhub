@@ -67,7 +67,7 @@ function page({ show, origin, B }) {
     offers: show.tickets ? { '@type': 'Offer', url: show.tickets, availability: show.soldOut ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock' } : undefined,
   };
 
-  return '<!doctype html>\n<html lang="en"' + (B ? ' data-base="' + esc(B) + '"' : '') + '>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
+  return '<!doctype html>\n<html lang="en"' + (B ? ' data-base="' + esc(B) + '"' : '') + (B === '/demobat' ? ' data-demo="1"' : '') + '>\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
     '<title>' + esc(title) + '</title>\n<meta name="description" content="' + esc(desc) + '">\n<meta name="robots" content="noindex, nofollow, noarchive">\n<meta name="theme-color" content="#050505">\n' +
     '<meta property="og:type" content="website"><meta property="og:site_name" content="BAT"><meta property="og:title" content="' + esc(title) + '"><meta property="og:description" content="' + esc(desc) + '"><meta property="og:image" content="' + esc(ogImg) + '"><meta property="og:url" content="' + esc(origin + B + '/show/' + show.slug) + '">\n' +
     '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="' + esc(title) + '"><meta name="twitter:description" content="' + esc(desc) + '"><meta name="twitter:image" content="' + esc(ogImg) + '">\n' +

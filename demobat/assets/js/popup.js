@@ -6,6 +6,7 @@
   if (!window.fetch || !d.createElement('dialog').showModal) return;
   var KINDS = { notice: 'Notice', cancelled: 'Show cancelled', postponed: 'Show postponed', venue: 'Venue change', refund: 'Refund information' };
   var SEEN = 'bat_popup_seen';
+  var DEMO = d.documentElement.hasAttribute('data-demo'); /* review demo: always show */
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function today() { var t = new Date(); return t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate()); }
@@ -59,7 +60,7 @@
       if (p.start && t < p.start) return;
       if (p.end && t > p.end) return;
       var id = p.updated || 'x';
-      if (!p.repeat && seen() === id) return;
+      if (!p.repeat && !DEMO && seen() === id) return;
       setTimeout(function () {
         var j = d.getElementById('join'); if (j && j.open) return;
         show(p); remember(id);
