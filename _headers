@@ -32,3 +32,11 @@
   Cache-Control: public, max-age=31536000, immutable
 /lp-diagnostico.js
   Cache-Control: public, max-age=31536000, immutable
+
+# BAT demo: private review copy, never in search engines
+/demobat/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+/demobat
+  X-Robots-Tag: noindex, nofollow, noarchive
+/demobat/admin*
+  Cache-Control: no-store

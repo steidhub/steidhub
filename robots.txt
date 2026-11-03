@@ -1,36 +1,45 @@
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: GPTBot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: Claude-User
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /demobat/
 
 Sitemap: https://steidhub.com/sitemap.xml

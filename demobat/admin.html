@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-base="/demobat">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Tour Manager — BAT</title>
+<meta name="theme-color" content="#050505">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/torn.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/v2.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page" data-no-popup>
+<header class="nav is-solid nav--simple" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="BAT — website"><img src="assets/img/logo-type.webp" alt="BAT" width="1200" height="858"></a>
+  <nav aria-label="Main">
+    <ul class="nav__list" id="menu">
+      <li><a href="index.html">Website</a></li>
+      <li><a href="tour.html">Tour page</a></li>
+    </ul>
+  </nav>
+  <span></span>
+</header>
+
+<main>
+  <div class="admin">
+
+    <!-- login -->
+    <section class="panel frame" id="login">
+      <h2>Tour Manager</h2>
+      <p>Enter the password to add, edit or remove tour dates. No coding needed.</p>
+      <form id="login-form" style="display:grid;gap:.9rem;margin-top:1rem;max-width:380px" autocomplete="off">
+        <div class="field">
+          <label for="pw">Password</label>
+          <input id="pw" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="btn-row"><button class="btn" type="submit">Enter</button></div>
+        <p class="status" id="login-status" role="status"></p>
+      </form>
+    </section>
+
+    <!-- editor -->
+    <section id="editor" hidden>
+      <div class="panel frame" id="popup-panel">
+        <h2>Pop-up</h2>
+        <p>A message that opens on top of the website: cancellations, refunds, venue changes or any notice. It saves on its own button below, separate from the tour dates.</p>
+        <div class="pop">
+          <label class="check pop__on"><input type="checkbox" id="pp-on"> Pop-up is on</label>
+          <div class="field pop__tpl"><label for="pp-tpl">Start from a template</label>
+            <select id="pp-tpl"><option value="">Choose one (optional)</option><option value="cancelled">Show cancelled</option><option value="postponed">Show postponed</option><option value="venue">Venue change</option><option value="refund">Refund information</option><option value="notice">General notice</option></select></div>
+          <div class="field pop__type"><label for="pp-type">Type</label>
+            <select id="pp-type"><option value="notice">Notice</option><option value="cancelled">Show cancelled</option><option value="postponed">Show postponed</option><option value="venue">Venue change</option><option value="refund">Refund information</option></select></div>
+          <div class="field pop__title"><label for="pp-title">Title</label><input id="pp-title" type="text" maxlength="90" placeholder="Baltimore show cancelled"></div>
+          <div class="field pop__msg"><label for="pp-msg">Message</label><textarea id="pp-msg" rows="5" maxlength="1200" placeholder="What happened, what to do next, how refunds work."></textarea></div>
+          <div class="field"><label for="pp-btn">Button text (optional)</label><input id="pp-btn" type="text" maxlength="40" placeholder="Refund details"></div>
+          <div class="field"><label for="pp-url">Button link (optional)</label><input id="pp-url" type="url" inputmode="url" placeholder="https://"></div>
+          <div class="field"><label for="pp-start">Show from (optional)</label><input id="pp-start" type="date"></div>
+          <div class="field"><label for="pp-end">Show until (optional)</label><input id="pp-end" type="date"></div>
+          <label class="check pop__rep"><input type="checkbox" id="pp-repeat"> Show on every visit (otherwise once per visitor)</label>
+        </div>
+        <div class="btn-row" style="margin-top:1rem">
+          <button class="btn btn--sm" type="button" id="pp-save">Save pop-up</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="pp-preview">Preview</button>
+        </div>
+        <p class="status" id="pp-status" role="status" style="margin-top:.6rem"></p>
+      </div>
+
+      <div class="panel frame">
+        <h2>Tour Dates</h2>
+        <ul class="help">
+          <li><b>Add show</b> creates a new row. Fill in the date, city and venue. Add a ticket link if you have one.</li>
+          <li>Nothing goes live until you press <b>Publish</b>. After that the website updates within a few seconds.</li>
+          <li>Past shows disappear from the site by themselves. Use <b>Remove past shows</b> to clean them out of this list.</li>
+          <li>No dates? Leave the list empty and the site shows a friendly “No dates scheduled” message.</li>
+          <li><b>Status</b> and <b>Update</b> let you mark a show as cancelled, postponed or moved and add a comment that shows under it on the website.</li>
+          <li><b>Show page for ads</b> (inside each show) makes a short page with the flyer, description and a ticket button. It is not linked from the website. Copy its link and use it in your ads.</li>
+        </ul>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar__left">
+          <button class="btn btn--sm" type="button" id="add">Add show</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="purge">Remove past shows</button>
+        </div>
+        <div class="toolbar__right">
+          <span class="status" id="status" role="status" aria-live="polite"></span>
+          <button class="btn btn--sm" type="button" id="publish">Publish</button>
+          <button class="btn-del" type="button" id="logout">Log out</button>
+        </div>
+      </div>
+
+      <div class="cards" id="cards"></div>
+      <p class="panel" id="empty" hidden style="text-align:center">No shows yet. Press “Add show” to create the first one.</p>
+
+      <div class="panel frame" style="margin-top:1.4rem">
+        <h2>Community</h2>
+        <p id="subs-count">Loading sign-ups</p>
+        <div class="btn-row" style="margin-top:.9rem"><button class="btn btn--sm" type="button" id="subs-csv">Download list (CSV)</button></div>
+        <p class="status" id="subs-status" role="status" style="margin-top:.6rem"></p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/admin.js" defer></script>
+</body>
+</html>
