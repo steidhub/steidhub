@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Tour Manager — BAT</title>
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#f6f0e2">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/torn.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/v2.css">
+<link rel="stylesheet" href="assets/css/admin.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="page" data-no-popup>
+<body class="page admin-page" data-no-popup>
 <header class="nav is-solid nav--simple" id="nav">
   <a class="nav__brand" href="index.html" aria-label="BAT — website"><img src="assets/img/logo-type.webp" alt="BAT" width="1200" height="858"></a>
   <nav aria-label="Main">
@@ -31,6 +32,7 @@
     <section class="panel frame" id="login">
       <h2>Tour Manager</h2>
       <p>Enter the password to add, edit or remove tour dates. No coding needed.</p>
+      <div class="guide"><h3>How to enter</h3><ol><li>Type the password you were given.</li><li>Press <b>Enter</b>.</li><li>If it says the password is wrong, check capital letters and try again.</li></ol></div>
       <form id="login-form" style="display:grid;gap:.9rem;margin-top:1rem;max-width:380px" autocomplete="off">
         <div class="field">
           <label for="pw">Password</label>
@@ -45,7 +47,8 @@
     <section id="editor" hidden>
       <div class="panel frame" id="popup-panel">
         <h2>Pop-up</h2>
-        <p>A message that opens on top of the website: cancellations, refunds, venue changes or any notice. It saves on its own button below, separate from the tour dates.</p>
+        <p>A message that opens on top of each show's own page (the page you share in ads). Use it for cancellations, refunds, venue changes or any notice. It has its own save button, separate from the tour dates.</p>
+        <div class="guide"><h3>How to use this section</h3><ol><li>Tick <b>Pop-up is on</b> to turn it on. Untick it to hide it.</li><li>Optional: pick a <b>template</b> and the title and message fill in for you.</li><li>Edit the <b>title</b> and <b>message</b> in plain words: what happened and what fans should do.</li><li>Optional: add a <b>button</b> (text and link), for example “Refund details”.</li><li>Optional: choose <b>dates</b> to show it only for a period.</li><li>Press <b>Save pop-up</b>. Use <b>Preview</b> to see it first.</li></ol></div>
         <div class="pop">
           <label class="check pop__on"><input type="checkbox" id="pp-on"> Pop-up is on</label>
           <div class="field pop__tpl"><label for="pp-tpl">Start from a template</label>
@@ -79,6 +82,7 @@
         </ul>
       </div>
 
+      <div class="guide"><h3>How to fill in a show</h3><ol><li><b>Date</b>: the day of the show.</li><li><b>City</b> and <b>Venue</b>: where it happens.</li><li><b>Tickets link</b>: the page where fans buy tickets (optional).</li><li><b>Note</b>: a short extra line, like “All ages” (optional).</li><li><b>Status</b>: leave as normal, or pick Cancelled, Postponed or Moved, and write what happened in <b>Update</b>.</li><li>Open <b>Show page for ads</b> to add a flyer and description and copy the link for your ads.</li><li>When you finish, press <b>Publish</b> at the top. Nothing goes live before that.</li></ol></div>
       <div class="toolbar">
         <div class="toolbar__left">
           <button class="btn btn--sm" type="button" id="add">Add show</button>
@@ -97,6 +101,7 @@
       <div class="panel frame" style="margin-top:1.4rem">
         <h2>Community</h2>
         <p id="subs-count">Loading sign-ups</p>
+        <div class="guide"><h3>How to use this section</h3><ol><li>This is the list of fans who signed up on the website.</li><li>Press <b>Download list (CSV)</b> to get a file you can open in Excel or Google Sheets.</li></ol></div>
         <div class="btn-row" style="margin-top:.9rem"><button class="btn btn--sm" type="button" id="subs-csv">Download list (CSV)</button></div>
         <p class="status" id="subs-status" role="status" style="margin-top:.6rem"></p>
       </div>

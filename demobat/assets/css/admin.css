@@ -1,0 +1,64 @@
+/* Tour Manager: light, plain, easy-to-read theme (admin only) */
+body.admin-page{
+  --bg:#f6f0e2; --bg2:#fffaf0; --surface:#efe7d3; --ink:#1f1b16; --ink2:#463f35; --line:#b9ad94; --paper:#1f1b16;
+  background:#f6f0e2;color:#1f1b16;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:17px;line-height:1.55;
+}
+html:has(body.admin-page){background:#f6f0e2}
+body.admin-page::before,body.admin-page::after{display:none!important}
+.admin-page .frame::before{display:none}
+.admin-page .nav{background:#fffaf0!important;border-bottom:1px solid #d8ccb0}
+.admin-page .nav::before,.admin-page .nav::after{display:none}
+.admin-page .nav__brand img{filter:invert(1)}
+.admin-page .nav__list a{color:#1f1b16;font-family:inherit;font-size:.95rem;letter-spacing:0;text-transform:none;font-weight:600}
+.admin-page main{padding-top:calc(var(--nav) + 1.4rem);padding-left:16px;padding-right:16px;padding-bottom:3rem}
+.admin-page .admin{max-width:960px}
+.admin-page .panel{background:#fffaf0;border:1px solid #d8ccb0;border-radius:12px;box-shadow:0 1px 3px rgba(60,40,10,.07)}
+.admin-page .panel h2{font-family:inherit;font-weight:700;font-size:1.6rem;letter-spacing:0;color:#1f1b16;margin-bottom:.35rem}
+.admin-page .panel p,.admin-page .help,.admin-page .hint{color:#3b352c;font-size:1rem;opacity:1}
+.admin-page .field label,.admin-page .check{font-family:inherit;text-transform:none;letter-spacing:0;font-size:.98rem;font-weight:600;color:#1f1b16}
+.admin-page .field input[type=text],.admin-page .field input[type=password],.admin-page .field input[type=url],.admin-page .field input[type=date],
+.admin-page .field textarea,.admin-page .field select,.admin-page .linkbox input{
+  background:#fff;color:#1f1b16;border:1.5px solid #a99c80;border-radius:8px;font-family:inherit;font-size:1rem;color-scheme:light;min-height:46px}
+.admin-page .field select{background-image:linear-gradient(45deg,transparent 50%,#463f35 50%),linear-gradient(135deg,#463f35 50%,transparent 50%)}
+.admin-page .field input:focus,.admin-page .field textarea:focus,.admin-page .field select:focus{outline:3px solid #2b6cb0;outline-offset:1px;border-color:#2b6cb0}
+.admin-page .check input{accent-color:#1f1b16}
+.admin-page .btn{background:#1f1b16;color:#fffaf0;border:0;border-radius:8px;font-family:inherit;font-size:1rem;font-weight:700;letter-spacing:0;text-transform:none;min-height:46px;padding:.7rem 1.3rem;box-shadow:none}
+.admin-page .btn:hover{background:#3a332a}
+.admin-page .btn--ghost,.admin-page .btn-del{background:#fff;color:#1f1b16;border:1.5px solid #8d8066;border-radius:8px;font-family:inherit;font-size:1rem;font-weight:600;letter-spacing:0;text-transform:none}
+.admin-page .btn--ghost:hover,.admin-page .btn-del:hover,.admin-page .btn-del[data-armed="true"]{background:#1f1b16;color:#fffaf0}
+.admin-page .status{font-family:inherit;text-transform:none;letter-spacing:0;font-size:.98rem;font-weight:600;color:#3b352c}
+.admin-page .status.ok{color:#1d6b3a}
+.admin-page .status.err{background:#fde8e6;color:#9b1c13;border-radius:6px}
+.admin-page .toolbar{background:rgba(246,240,226,.97);border-bottom:1px solid #d8ccb0}
+.admin-page .card{background:#fffaf0;border:1px solid #cfc2a3;border-radius:12px}
+.admin-page .adpage{border:1.5px dashed #a99c80;border-radius:10px;background:#fbf4e3}
+.admin-page .adpage summary{font-family:inherit;text-transform:none;letter-spacing:0;font-size:1rem;font-weight:700;color:#1f1b16}
+.admin-page .found{background:#fff;border-color:#cfc2a3;border-radius:8px}
+.admin-page .found__src{font-family:inherit;color:#1f1b16;font-weight:600}
+.admin-page .found__txt{color:#3b352c}
+.admin-page .flyerbox__img{border-color:#cfc2a3;background:#fff}
+.admin-page .flyerbox input[type=file]{color:#3b352c}
+.admin-page .help li::before{background:#1f1b16}
+.admin-page .guide{background:#eaf2fb;border:1px solid #b6cde8;border-radius:10px;padding:.9rem 1.1rem;margin-top:.9rem}
+.admin-page .guide h3{font-size:1.02rem;font-weight:700;color:#14395f;margin:0 0 .35rem}
+.admin-page .guide ol,.admin-page .guide ul{margin:0;padding-left:1.25rem;list-style:decimal;display:grid;gap:.3rem;color:#1f1b16;font-size:1rem}
+.admin-page .guide ul{list-style:disc}
+.admin-page .guide li{padding:0}
+.admin-page .guide li::before{display:none}
+@media (max-width:640px){
+  body.admin-page{font-size:16px}
+  .admin-page .panel h2{font-size:1.4rem}
+}
+/* flatten the fanzine button shapes */
+.admin-page .btn,.admin-page .btn--ghost,.admin-page .btn-del{clip-path:none!important;filter:none!important;transform:none!important;animation:none!important;position:relative;z-index:0;overflow:visible}
+.admin-page .btn::before,.admin-page .btn::after,.admin-page .btn--ghost::before,.admin-page .btn--ghost::after{display:none!important;content:none!important}
+.admin-page .btn{background:#1f1b16!important;color:#fffaf0!important}
+.admin-page .btn:hover{background:#3a332a!important}
+.admin-page .btn--ghost,.admin-page .btn-del{background:#fff!important;color:#1f1b16!important}
+.admin-page .btn--ghost:hover,.admin-page .btn-del:hover,.admin-page .btn-del[data-armed="true"]{background:#1f1b16!important;color:#fffaf0!important}
+.admin-page .field select,.admin-page select{background-color:#fff!important;color:#1f1b16!important;clip-path:none!important;filter:none!important}
+.admin-page .field select option{background:#fff;color:#1f1b16}
+.admin-page .field select::before,.admin-page .field::before,.admin-page .field::after{display:none}
+.admin-page .field select{background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%!important;background-size:6px 6px!important;background-repeat:no-repeat!important;padding-right:2.2rem}
