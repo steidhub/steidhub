@@ -72,7 +72,11 @@
   /* gentle auto-open once per visitor (home page only): after ~25 s, never again for 30 days once seen */
   var DEMO = d.documentElement.hasAttribute('data-demo');
   if (/[?&]preview=join\b/.test(location.search)) setTimeout(open, 500);
-  else if (DEMO && d.getElementById('home')) setTimeout(function () { if (!dlg.open) open(); }, 1800); /* review demo: the sign-up pop-up always opens */
+  else if (DEMO && d.getElementById('home')) { /* review demo: the sign-up pop-up opens on every load, after ~1.5 s or at the first scroll */
+    var fired = false, go2 = function () { if (fired) return; fired = true; if (!dlg.open) open(); };
+    setTimeout(go2, 1500);
+    ['scroll', 'wheel', 'touchmove', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { setTimeout(go2, 250); }, { once: true, passive: true }); d.addEventListener(ev, function () { setTimeout(go2, 250); }, { once: true, passive: true, capture: true }); });
+  }
   else if (d.getElementById('home')) {
     var seen = null; try { seen = localStorage.getItem(KEY); } catch (_) {}
     var recent = seen === 'done' || (seen && Date.now() - Number(seen) < 30 * 864e5);

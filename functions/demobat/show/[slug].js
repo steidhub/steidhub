@@ -75,7 +75,7 @@ function page({ show, origin, B }) {
     '<link rel="stylesheet" href="' + B + '/assets/css/torn.css"><link rel="stylesheet" href="' + B + '/assets/css/site.css"><link rel="stylesheet" href="' + B + '/assets/css/v2.css">\n' +
     '<script>document.documentElement.classList.add("js")</script>\n<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n</head>\n' +
     '<body class="page show-page">\n' +
-    '<header class="sp-head"><a class="sp-head__brand" href="' + B + '/" aria-label="BAT official website"><img src="' + B + '/assets/img/logo-type.webp" alt="BAT" width="1200" height="858"></a><button class="nav__join" type="button" data-join>Join the community</button></header>\n' +
+    '<header class="sp-head"><a class="sp-head__brand" href="' + B + '/" aria-label="BAT official website"><img src="' + B + '/assets/img/logo-type.webp" alt="BAT" width="1200" height="858"></a><div class="sp-head__right"><div class="lang" id="lang"><button class="lang__btn" type="button" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.7 3.9 5.8 3.9 9.2s-1.3 6.5-3.9 9.2c-2.6-2.7-3.9-5.8-3.9-9.2S9.4 5.5 12 2.8z"/></svg><span id="lang-cur">EN</span></button><ul class="lang__list" id="lang-list" hidden></ul></div><button class="nav__join" type="button" data-join>Join the community</button></div></header>\n' +
     '<main class="sp"' + (flyer ? ' style="--sp-bg:url(\'' + esc(flyer) + '\')"' : '') + '>\n  <div class="sp__bg" aria-hidden="true"></div>\n  <div class="sp__in">\n    ' + media + '\n    <section class="sp__info" aria-labelledby="sp-t">\n' +
     '      <p class="kicker">BAT live</p>\n      <h1 class="black sp__city" id="sp-t">' + esc(show.city) + '</h1>\n' +
     '      <p class="sp__date"><time datetime="' + esc(show.date) + '">' + esc(when) + '</time></p>\n' +
@@ -84,6 +84,7 @@ function page({ show, origin, B }) {
     '      <div class="sp__cta">' + cta + '</div>\n' +
     '      <p class="sp__fine">Tickets are sold by the venue. Dates and venues can change, so check the ticket page before you go.</p>\n' +
     '    </section>\n  </div>\n</main>\n' + foot(B) + '\n' + JOIN + '\n' +
+    '<script>(function(){var t=document.querySelector(".sp__date time");if(!t||!window.Intl)return;var iso=t.getAttribute("datetime").split("-");var dt=new Date(Date.UTC(+iso[0],+iso[1]-1,+iso[2]));function up(){var l=document.documentElement.lang||"en";try{t.textContent=new Intl.DateTimeFormat(l,{weekday:"long",year:"numeric",month:"long",day:"numeric",timeZone:"UTC"}).format(dt)}catch(e){}}window.addEventListener("load",up);new MutationObserver(up).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});})();</script>' +
     '<script src="' + B + '/assets/js/i18n.js"></script><script src="' + B + '/assets/js/main.js" defer></script><script src="' + B + '/assets/js/join.js" defer></script><script src="' + B + '/assets/js/popup.js" defer></script>\n</body>\n</html>\n';
 }
 

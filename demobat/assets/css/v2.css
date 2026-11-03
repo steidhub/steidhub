@@ -1117,3 +1117,7 @@ body.show-page .foot{margin:0;position:relative;z-index:1}
   body.show-page main.sp{padding-top:calc(var(--nav) + 10px + 3svh)}
 }
 body.show-page main.sp{flex:0 0 auto}
+.sp-head__right{display:flex;align-items:center;gap:.6rem}
+body.show-page .sp-head .lang__btn{min-height:0;padding:.55em .8em}
+@media (max-width:520px){body.show-page .sp-head .lang__list{top:62px}}
+@media (max-width:520px){body.show-page .sp-head .nav__join{white-space:nowrap;font-size:.68rem;letter-spacing:.06em;padding:.6em .8em}body.show-page .sp-head__right{gap:.4rem}}
