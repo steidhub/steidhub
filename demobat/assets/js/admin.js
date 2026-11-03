@@ -258,17 +258,108 @@
     return c;
   }
 
-  function render() {
-    cards.textContent = '';
-    shows.forEach(function (s) { cards.appendChild(card(s)); });
-    empty.hidden = shows.length > 0;
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var seg = 'up', edlg = $('edlg'), edBody = $('edlg-body'), editing = null, editingNew = false;
+  function isPast(s) { return !!s.date && s.date < today(); }
+  function chips(s) {
+    var out = [];
+    if (s.status === 'cancelled') out.push(['Cancelled', 'bad']);
+    else if (s.status === 'postponed') out.push(['Postponed', 'warn']);
+    else if (s.status === 'moved') out.push(['Venue changed', 'warn']);
+    if (s.soldOut) out.push(['Sold out', '']);
+    if (s.landing) out.push(['Ad page', 'ok']);
+    return out;
   }
+  function row(s) {
+    var r = el('div', 'row'); r.dataset.id = s.id;
+    var dt = el('div', 'row__date');
+    if (s.date) { var p = s.date.split('-'); dt.appendChild(el('b', null, String(+p[2]))); dt.appendChild(el('span', null, MON[+p[1] - 1] + ' ' + p[0])); }
+    else { dt.appendChild(el('b', null, '?')); dt.appendChild(el('span', null, 'No date')); }
+    var mn = el('div', 'row__main');
+    mn.appendChild(el('div', 'row__city', s.city || 'New show (no city yet)'));
+    if (s.venue) mn.appendChild(el('div', 'row__venue', s.venue));
+    var cs = chips(s); if (cs.length) { var cw = el('div', 'row__chips'); cs.forEach(function (c) { cw.appendChild(el('span', 'chip' + (c[1] ? ' chip--' + c[1] : ''), c[0])); }); mn.appendChild(cw); }
+    var bt = el('div', 'row__btns');
+    var ed = el('button', 'btn btn--ghost btn--sm', 'Edit'); ed.type = 'button';
+    var del = el('button', 'btn-del', 'Delete'); del.type = 'button';
+    bt.appendChild(ed); bt.appendChild(del);
+    r.appendChild(dt); r.appendChild(mn); r.appendChild(bt);
+    ed.addEventListener('click', function () { openEditor(s, false); });
+    r.addEventListener('click', function (e) { if (e.target === r || e.target === mn || e.target === dt) openEditor(s, false); });
+    var t;
+    del.addEventListener('click', function () {
+      if (del.dataset.armed === 'true') { shows = shows.filter(function (x) { return x.id !== s.id; }); render(); setDirty(true); return; }
+      del.dataset.armed = 'true'; del.textContent = 'Sure? Click again';
+      clearTimeout(t); t = setTimeout(function () { del.dataset.armed = 'false'; del.textContent = 'Delete'; }, 3000);
+    });
+    return r;
+  }
+  function render() {
+    if (edlg.open && editing && shows.indexOf(editing) < 0) closeDlg();
+    var up = shows.filter(function (s) { return !isPast(s); }).sort(function (a, b) { return !a.date ? -1 : !b.date ? 1 : a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    var past = shows.filter(isPast).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+    $('cnt-up').textContent = up.length; $('cnt-past').textContent = past.length;
+    var list = seg === 'up' ? up : past;
+    cards.textContent = '';
+    list.forEach(function (s) { cards.appendChild(row(s)); });
+    empty.hidden = list.length > 0;
+    empty.textContent = seg === 'up' ? 'No upcoming shows yet. Press “Add new date” to create one.' : 'No past shows.';
+    $('purge').hidden = !(seg === 'past' && past.length);
+    $('seg-up').classList.toggle('is-on', seg === 'up'); $('seg-past').classList.toggle('is-on', seg === 'past');
+  }
+  [].forEach.call(d.querySelectorAll('.seg__b'), function (b) { b.addEventListener('click', function () { seg = b.getAttribute('data-seg'); render(); }); });
+
+  /* ---------- edit / add form (opens in a window) ---------- */
+  function problem(s) {
+    if (!s.date) return 'Choose a date.';
+    if (!s.city) return 'Add the city.';
+    if (s.tickets) { try { new URL(normUrl(s.tickets)); } catch (_) { return 'The ticket link does not look right.'; } }
+    if (s.status === 'moved' && !s.update) return 'Venue changed: add the new venue in "Update shown under the show".';
+    return '';
+  }
+  function showErr(c, msg) {
+    var old = c.querySelector('.err-msg'); if (old) old.remove();
+    if (!msg) return;
+    var p = d.createElement('p'); p.className = 'err-msg status err'; p.textContent = msg; c.insertBefore(p, c.querySelector('.card__foot'));
+  }
+  function isBlank(s) { return !s.date && !s.city && !s.venue && !s.tickets && !s.note && !s.update && !s.desc && !s.flyerV; }
+  function openEditor(s, fresh) {
+    editing = s; editingNew = !!fresh;
+    $('edlg-t').textContent = fresh ? 'New show' : 'Edit show';
+    edBody.textContent = ''; var c = card(s); edBody.appendChild(c);
+    if (!edlg.open) edlg.showModal();
+    d.body.classList.add('no-scroll'); edBody.scrollTop = 0;
+    setTimeout(function () { if (fresh && c._first) c._first.focus(); }, 80);
+  }
+  function closeDlg() {
+    if (edlg.open) edlg.close();
+    d.body.classList.remove('no-scroll');
+    if (editing && editingNew && shows.indexOf(editing) > -1 && isBlank(editing)) shows = shows.filter(function (x) { return x !== editing; });
+    editing = null; editingNew = false; render();
+  }
+  $('edlg-done').addEventListener('click', function () {
+    var s = editing; if (!s) { closeDlg(); return; }
+    if (isBlank(s)) { closeDlg(); return; }
+    var m = problem(s); var c = edBody.firstChild;
+    if (m) { showErr(c, m); c.scrollIntoView({ block: 'start' }); return; }
+    closeDlg(); if (dirty) say('Unpublished changes. Press Publish to put them live.');
+  });
+  edlg.addEventListener('cancel', function (e) { e.preventDefault(); closeDlg(); });
+  edlg.addEventListener('click', function (e) { if (e.target === edlg) closeDlg(); });
+
+  /* ---------- tabs ---------- */
+  function showTab(n) {
+    ['dates', 'popup', 'community'].forEach(function (t) { var p = $('tab-' + t); if (p) p.hidden = t !== n; });
+    [].forEach.call(d.querySelectorAll('.tabs__b'), function (b) { var on = b.getAttribute('data-tab') === n; b.classList.toggle('is-on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+    try { sessionStorage.setItem('bat_admin_tab', n); } catch (_) {}
+  }
+  [].forEach.call(d.querySelectorAll('.tabs__b'), function (b) { b.addEventListener('click', function () { showTab(b.getAttribute('data-tab')); window.scrollTo(0, 0); }); });
+  try { var t0 = sessionStorage.getItem('bat_admin_tab'); if (t0) showTab(t0); } catch (_) {}
 
   /* ---------- actions ---------- */
   $('add').addEventListener('click', function () {
     var s = { id: uid(), date: '', city: '', venue: '', tickets: '', note: '', soldOut: false, status: '', update: '', landing: false, slug: '', time: '', desc: '', flyerV: '' };
-    shows.unshift(s); render(); setDirty(true);
-    var first = cards.firstChild; if (first && first._first) { first._first.focus(); first.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+    shows.unshift(s); seg = 'up'; render(); openEditor(s, true);
   });
 
   var purgeTimer;
@@ -291,17 +382,9 @@
   function normUrl(u) { return u && !/^https?:\/\//i.test(u) ? 'https://' + u : u; }
 
   $('publish').addEventListener('click', function () {
-    var bad = 0;
-    [].forEach.call(cards.children, function (c) {
-      var s = shows.filter(function (x) { return x.id === c.dataset.id; })[0];
-      var old = c.querySelector('.err-msg'); if (old) old.remove();
-      var msg = '';
-      if (!s.date) msg = 'Choose a date.'; else if (!s.city) msg = 'Add the city.';
-      else if (s.tickets) { try { new URL(normUrl(s.tickets)); } catch (_) { msg = 'The ticket link does not look right.'; } }
-      if (!msg && s.status === 'moved' && !s.update) msg = 'Venue changed: add the new venue in "Update shown under the show".';
-      if (msg) { bad++; var p = d.createElement('p'); p.className = 'err-msg status err'; p.textContent = msg; c.insertBefore(p, c.querySelector('.card__foot')); }
-    });
-    if (bad) { say('Fix the highlighted rows first.', 'err'); return; }
+    var bad = shows.filter(function (s) { return !(isBlank(s)) && problem(s); })[0];
+    shows = shows.filter(function (s) { return !isBlank(s); });
+    if (bad) { seg = isPast(bad) ? 'past' : 'up'; render(); openEditor(bad, false); showErr(edBody.firstChild, problem(bad)); say('Fix this show first, then press Publish again.', 'err'); return; }
     shows.forEach(function (s) { s.tickets = normUrl(s.tickets); if (s.landing) s.slug = uniqueSlug(s); });
     shows.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
     var btn = this; btn.disabled = true; say('Publishing');

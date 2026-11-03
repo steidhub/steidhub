@@ -22,8 +22,7 @@
       <li><a href="tour.html">Tour page</a></li>
     </ul>
   </nav>
-  <span></span>
-</header>
+  </header>
 
 <main>
   <div class="admin">
@@ -32,7 +31,7 @@
     <section class="panel frame" id="login">
       <h2>Tour Manager</h2>
       <p>Enter the password to add, edit or remove tour dates. No coding needed.</p>
-      <div class="guide"><h3>How to enter</h3><ol><li>Type the password you were given.</li><li>Press <b>Enter</b>.</li><li>If it says the password is wrong, check capital letters and try again.</li></ol></div>
+      <details class="guide" open><summary>How to enter</summary><ol><li>Type the password you were given.</li><li>Press <b>Enter</b>.</li><li>If it says the password is wrong, check capital letters and try again.</li></ol></details>
       <form id="login-form" style="display:grid;gap:.9rem;margin-top:1rem;max-width:380px" autocomplete="off">
         <div class="field">
           <label for="pw">Password</label>
@@ -53,10 +52,43 @@
         </div>
         <p class="status acct__msg" id="acct-msg" role="status"></p>
       </div>
-      <div class="panel frame" id="popup-panel">
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button type="button" class="tabs__b is-on" role="tab" data-tab="dates">Tour dates</button>
+        <button type="button" class="tabs__b" role="tab" data-tab="popup">Pop-up</button>
+        <button type="button" class="tabs__b" role="tab" data-tab="community">Community</button>
+      </nav>
+      <div class="tabpanel" id="tab-dates" role="tabpanel">
+        <div class="panel frame">
+          <h2>Tour Dates</h2>
+          <details class="guide"><summary>How to use this section</summary><ol>
+            <li>Press <b>Add new date</b> to create a show. A form opens: fill in the date, city and venue, then press <b>Done</b>.</li>
+            <li>To change a show, press <b>Edit</b> on its row. To remove it, press <b>Delete</b> and confirm.</li>
+            <li>Nothing goes live until you press <b>Publish</b>. The website updates within a few seconds.</li>
+            <li>Past shows disappear from the website by themselves. Open the <b>Past</b> list to review or clear them.</li>
+          </ol></details>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar__left">
+            <button class="btn btn--sm" type="button" id="add">Add new date</button>
+          </div>
+          <div class="toolbar__right">
+            <span class="status" id="status" role="status" aria-live="polite"></span>
+            <button class="btn btn--sm" type="button" id="publish">Publish</button>
+          </div>
+        </div>
+        <div class="seg" role="tablist" aria-label="Show list">
+          <button type="button" class="seg__b is-on" data-seg="up" id="seg-up">Upcoming <span id="cnt-up">0</span></button>
+          <button type="button" class="seg__b" data-seg="past" id="seg-past">Past <span id="cnt-past">0</span></button>
+          <button class="btn-del seg__clear" type="button" id="purge" hidden>Remove past shows</button>
+        </div>
+        <div class="cards" id="cards"></div>
+        <p class="panel" id="empty" hidden style="text-align:center">No shows here yet. Press “Add new date” to create one.</p>
+      </div>
+      <div class="tabpanel" id="tab-popup" role="tabpanel" hidden>
+        <div class="panel frame" id="popup-panel">
         <h2>Pop-up</h2>
         <p>A message that opens on top of each show's own page (the page you share in ads). Use it for cancellations, refunds, venue changes or any notice. It has its own save button, separate from the tour dates.</p>
-        <div class="guide"><h3>How to use this section</h3><ol><li>Tick <b>Pop-up is on</b> to turn it on. Untick it to hide it.</li><li>Optional: pick a <b>template</b> and the title and message fill in for you.</li><li>Edit the <b>title</b> and <b>message</b> in plain words: what happened and what fans should do.</li><li>Optional: add a <b>button</b> (text and link), for example “Refund details”.</li><li>Optional: choose <b>dates</b> to show it only for a period.</li><li>Press <b>Save pop-up</b>. Use <b>Preview this pop-up</b> to see it first. <b>Preview sign-up pop-up</b> opens the community form the way fans see it.</li></ol></div>
+        <details class="guide"><summary>How to use this section</summary><ol><li>Tick <b>Pop-up is on</b> to turn it on. Untick it to hide it.</li><li>Optional: pick a <b>template</b> and the title and message fill in for you.</li><li>Edit the <b>title</b> and <b>message</b> in plain words: what happened and what fans should do.</li><li>Optional: add a <b>button</b> (text and link), for example “Refund details”.</li><li>Optional: choose <b>dates</b> to show it only for a period.</li><li>Press <b>Save pop-up</b>. Use <b>Preview this pop-up</b> to see it first. <b>Preview sign-up pop-up</b> opens the community form the way fans see it.</li></ol></details>
         <div class="pop">
           <label class="check pop__on"><input type="checkbox" id="pp-on"> Pop-up is on</label>
           <div class="field pop__tpl"><label for="pp-tpl">Start from a template</label>
@@ -78,41 +110,20 @@
         </div>
         <p class="status" id="pp-status" role="status" style="margin-top:.6rem"></p>
       </div>
-
-      <div class="panel frame">
-        <h2>Tour Dates</h2>
-        <ul class="help">
-          <li><b>Add show</b> creates a new row. Fill in the date, city and venue. Add a ticket link if you have one.</li>
-          <li>Nothing goes live until you press <b>Publish</b>. After that the website updates within a few seconds.</li>
-          <li>Past shows disappear from the site by themselves. Use <b>Remove past shows</b> to clean them out of this list.</li>
-          <li>No dates? Leave the list empty and the site shows a friendly “No dates scheduled” message.</li>
-          <li><b>Status</b> and <b>Update</b> let you mark a show as cancelled, postponed or moved and add a comment that shows under it on the website.</li>
-          <li><b>Show page for ads</b> (inside each show) makes a short page with the flyer, description and a ticket button. It is not linked from the website. Copy its link and use it in your ads.</li>
-        </ul>
       </div>
-
-      <div class="guide"><h3>How to fill in a show</h3><ol><li><b>Date</b>: the day of the show.</li><li><b>City</b> and <b>Venue</b>: where it happens.</li><li><b>Tickets link</b>: the page where fans buy tickets (optional).</li><li><b>Note</b>: a short extra line, like “All ages” (optional).</li><li><b>Status</b>: leave as normal, or pick Cancelled, Postponed or Moved, and write what happened in <b>Update</b>.</li><li>Open <b>Show page for ads</b> to add a flyer and description and copy the link for your ads.</li><li>When you finish, press <b>Publish</b> at the top. Nothing goes live before that.</li></ol></div>
-      <div class="toolbar">
-        <div class="toolbar__left">
-          <button class="btn btn--sm" type="button" id="add">Add show</button>
-          <button class="btn btn--ghost btn--sm" type="button" id="purge">Remove past shows</button>
-        </div>
-        <div class="toolbar__right">
-          <span class="status" id="status" role="status" aria-live="polite"></span>
-          <button class="btn btn--sm" type="button" id="publish">Publish</button>
-        </div>
-      </div>
-
-      <div class="cards" id="cards"></div>
-      <p class="panel" id="empty" hidden style="text-align:center">No shows yet. Press “Add show” to create the first one.</p>
-
-      <div class="panel frame" style="margin-top:1.4rem">
+      <div class="tabpanel" id="tab-community" role="tabpanel" hidden>
+        <div class="panel frame" style="margin-top:1.4rem">
         <h2>Community</h2>
         <p id="subs-count">Loading sign-ups</p>
-        <div class="guide"><h3>How to use this section</h3><ol><li>This is the list of fans who signed up on the website.</li><li>Press <b>Download list (CSV)</b> to get a file you can open in Excel or Google Sheets.</li></ol></div>
+        <details class="guide"><summary>How to use this section</summary><ol><li>This is the list of fans who signed up on the website.</li><li>Press <b>Download list (CSV)</b> to get a file you can open in Excel or Google Sheets.</li></ol></details>
         <div class="btn-row" style="margin-top:.9rem"><button class="btn btn--sm" type="button" id="subs-csv">Download list (CSV)</button></div>
         <p class="status" id="subs-status" role="status" style="margin-top:.6rem"></p>
       </div>
+      </div>
+      <dialog class="edlg" id="edlg" aria-labelledby="edlg-t">
+        <div class="edlg__bar"><h2 id="edlg-t">Edit show</h2><button class="btn btn--sm" type="button" id="edlg-done">Done</button></div>
+        <div class="edlg__body" id="edlg-body"></div>
+      </dialog>
     </section>
 
   </div>
