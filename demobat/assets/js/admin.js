@@ -261,52 +261,69 @@
   var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var seg = 'up', edlg = $('edlg'), edBody = $('edlg-body'), editing = null, editingNew = false;
   function isPast(s) { return !!s.date && s.date < today(); }
-  function chips(s) {
-    var out = [];
-    if (s.status === 'cancelled') out.push(['Cancelled', 'bad']);
-    else if (s.status === 'postponed') out.push(['Postponed', 'warn']);
-    else if (s.status === 'moved') out.push(['Venue changed', 'warn']);
-    if (s.soldOut) out.push(['Sold out', '']);
-    if (s.landing) out.push(['Ad page', 'ok']);
-    return out;
+  var sel = {};
+  function statusOf(s) {
+    if (s.status === 'cancelled') return ['Cancelled', 'bad'];
+    if (s.status === 'postponed') return ['Postponed', 'warn'];
+    if (s.status === 'moved') return ['Venue changed', 'warn'];
+    if (s.soldOut) return ['Sold out', 'dark'];
+    return ['On sale', 'ok'];
+  }
+  var PENCIL = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
+  function nSel() { return Object.keys(sel).filter(function (k) { return sel[k]; }).length; }
+  function updBulk() {
+    var n = nSel(); $('bulk').hidden = !n;
+    $('bulk-n').textContent = n + (n === 1 ? ' date selected' : ' dates selected');
+    var all = $('sel-all'); if (all) { var vis = cards.querySelectorAll('.trow input[type=checkbox]'); var on = cards.querySelectorAll('.trow input[type=checkbox]:checked'); all.checked = vis.length > 0 && vis.length === on.length; all.indeterminate = on.length > 0 && on.length < vis.length; }
+    var b = $('bulk-del'); b.dataset.armed = 'false'; b.textContent = 'Delete selected';
   }
   function row(s) {
-    var r = el('div', 'row'); r.dataset.id = s.id;
-    var dt = el('div', 'row__date');
-    if (s.date) { var p = s.date.split('-'); dt.appendChild(el('b', null, String(+p[2]))); dt.appendChild(el('span', null, MON[+p[1] - 1] + ' ' + p[0])); }
+    var r = el('div', 'trow'); r.dataset.id = s.id;
+    var cb = el('input'); cb.type = 'checkbox'; cb.checked = !!sel[s.id]; cb.setAttribute('aria-label', 'Select ' + (s.city || 'show'));
+    cb.addEventListener('change', function () { sel[s.id] = cb.checked; r.classList.toggle('is-sel', cb.checked); updBulk(); });
+    var dt = el('div', 'trow__date');
+    if (s.date) { var p = s.date.split('-'); dt.appendChild(el('b', null, String(+p[2]))); dt.appendChild(el('span', null, MON[+p[1] - 1] + ' ' + String(p[0]).slice(2))); }
     else { dt.appendChild(el('b', null, '?')); dt.appendChild(el('span', null, 'No date')); }
-    var mn = el('div', 'row__main');
-    mn.appendChild(el('div', 'row__city', s.city || 'New show (no city yet)'));
-    if (s.venue) mn.appendChild(el('div', 'row__venue', s.venue));
-    var cs = chips(s); if (cs.length) { var cw = el('div', 'row__chips'); cs.forEach(function (c) { cw.appendChild(el('span', 'chip' + (c[1] ? ' chip--' + c[1] : ''), c[0])); }); mn.appendChild(cw); }
-    var bt = el('div', 'row__btns');
-    var ed = el('button', 'btn btn--ghost btn--sm', 'Edit'); ed.type = 'button';
-    var del = el('button', 'btn-del', 'Delete'); del.type = 'button';
-    bt.appendChild(ed); bt.appendChild(del);
-    r.appendChild(dt); r.appendChild(mn); r.appendChild(bt);
+    var mn = el('div', 'trow__main');
+    mn.appendChild(el('div', 'trow__city', s.city || 'New show (no city yet)'));
+    var vn = (s.venue || '') + (s.landing ? (s.venue ? ' · ' : '') + 'Ad page' : '');
+    if (vn) mn.appendChild(el('div', 'trow__venue', vn));
+    var st = statusOf(s); var sc = el('div', 'trow__status'); sc.appendChild(el('span', 'chip chip--' + st[1], st[0]));
+    var ed = el('button', 'pencil'); ed.type = 'button'; ed.innerHTML = PENCIL; ed.setAttribute('aria-label', 'Edit ' + (s.city || 'show')); ed.title = 'Edit';
     ed.addEventListener('click', function () { openEditor(s, false); });
-    r.addEventListener('click', function (e) { if (e.target === r || e.target === mn || e.target === dt) openEditor(s, false); });
-    var t;
-    del.addEventListener('click', function () {
-      if (del.dataset.armed === 'true') { shows = shows.filter(function (x) { return x.id !== s.id; }); render(); setDirty(true); return; }
-      del.dataset.armed = 'true'; del.textContent = 'Sure? Click again';
-      clearTimeout(t); t = setTimeout(function () { del.dataset.armed = 'false'; del.textContent = 'Delete'; }, 3000);
-    });
+    [cb, dt, mn, sc, ed].forEach(function (n) { r.appendChild(n); });
+    r.classList.toggle('is-sel', !!sel[s.id]);
     return r;
+  }
+  function head() {
+    var h = el('div', 'trow trow--head');
+    var all = el('input'); all.type = 'checkbox'; all.id = 'sel-all'; all.setAttribute('aria-label', 'Select all');
+    all.addEventListener('change', function () { [].forEach.call(cards.querySelectorAll('.trow[data-id]'), function (r) { sel[r.dataset.id] = all.checked; var c = r.querySelector('input'); c.checked = all.checked; r.classList.toggle('is-sel', all.checked); }); updBulk(); });
+    h.appendChild(all); h.appendChild(el('div', null, 'Date')); h.appendChild(el('div', null, 'Show')); h.appendChild(el('div', null, 'Status')); h.appendChild(el('div', null, ''));
+    return h;
   }
   function render() {
     if (edlg.open && editing && shows.indexOf(editing) < 0) closeDlg();
+    var ids = {}; shows.forEach(function (s) { ids[s.id] = 1; }); Object.keys(sel).forEach(function (k) { if (!ids[k]) delete sel[k]; });
     var up = shows.filter(function (s) { return !isPast(s); }).sort(function (a, b) { return !a.date ? -1 : !b.date ? 1 : a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
     var past = shows.filter(isPast).sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
     $('cnt-up').textContent = up.length; $('cnt-past').textContent = past.length;
     var list = seg === 'up' ? up : past;
     cards.textContent = '';
-    list.forEach(function (s) { cards.appendChild(row(s)); });
+    if (list.length) { cards.appendChild(head()); list.forEach(function (s) { cards.appendChild(row(s)); }); }
     empty.hidden = list.length > 0;
     empty.textContent = seg === 'up' ? 'No upcoming shows yet. Press “Add new date” to create one.' : 'No past shows.';
     $('purge').hidden = !(seg === 'past' && past.length);
     $('seg-up').classList.toggle('is-on', seg === 'up'); $('seg-past').classList.toggle('is-on', seg === 'past');
+    updBulk();
   }
+  $('bulk-clr').addEventListener('click', function () { sel = {}; render(); });
+  $('bulk-del').addEventListener('click', function () {
+    var b = this, n = nSel(); if (!n) return;
+    if (b.dataset.armed !== 'true') { b.dataset.armed = 'true'; b.textContent = 'Sure? Click again to delete ' + n; clearTimeout(b._t); b._t = setTimeout(function () { b.dataset.armed = 'false'; b.textContent = 'Delete selected'; }, 3500); return; }
+    shows = shows.filter(function (s) { return !sel[s.id]; }); sel = {}; render(); setDirty(true);
+    say(n + (n === 1 ? ' date deleted. Press Publish to save.' : ' dates deleted. Press Publish to save.'), 'ok');
+  });
   [].forEach.call(d.querySelectorAll('.seg__b'), function (b) { b.addEventListener('click', function () { seg = b.getAttribute('data-seg'); render(); }); });
 
   /* ---------- edit / add form (opens in a window) ---------- */

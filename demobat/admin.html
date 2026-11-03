@@ -62,7 +62,7 @@
           <h2>Tour Dates</h2>
           <details class="guide"><summary>How to use this section</summary><ol>
             <li>Press <b>Add new date</b> to create a show. A form opens: fill in the date, city and venue, then press <b>Done</b>.</li>
-            <li>To change a show, press <b>Edit</b> on its row. To remove it, press <b>Delete</b> and confirm.</li>
+            <li>To change a show, press the <b>pencil</b> next to it. To remove shows, tick the box on their rows (or the top box to pick all) and press <b>Delete selected</b>.</li>
             <li>Nothing goes live until you press <b>Publish</b>. The website updates within a few seconds.</li>
             <li>Past shows disappear from the website by themselves. Open the <b>Past</b> list to review or clear them.</li>
           </ol></details>
@@ -80,6 +80,10 @@
           <button type="button" class="seg__b is-on" data-seg="up" id="seg-up">Upcoming <span id="cnt-up">0</span></button>
           <button type="button" class="seg__b" data-seg="past" id="seg-past">Past <span id="cnt-past">0</span></button>
           <button class="btn-del seg__clear" type="button" id="purge" hidden>Remove past shows</button>
+        </div>
+        <div class="bulk" id="bulk" hidden>
+          <span id="bulk-n">0 dates selected</span>
+          <div class="bulk__btns"><button class="btn-del" type="button" id="bulk-del">Delete selected</button><button class="btn-del" type="button" id="bulk-clr">Clear</button></div>
         </div>
         <div class="cards" id="cards"></div>
         <p class="panel" id="empty" hidden style="text-align:center">No shows here yet. Press “Add new date” to create one.</p>
