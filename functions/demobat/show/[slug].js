@@ -9,6 +9,7 @@
  */
 import { read } from '../api/tour.js';
 import { JOIN } from '../_lib/join-html.js';
+import { foot } from '../_lib/foot-html.js';
 
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -75,14 +76,14 @@ function page({ show, origin, B }) {
     '<script>document.documentElement.classList.add("js")</script>\n<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n</head>\n' +
     '<body class="page show-page">\n' +
     '<header class="sp-head"><a class="sp-head__brand" href="' + B + '/" aria-label="BAT official website"><img src="' + B + '/assets/img/logo-type.webp" alt="BAT" width="1200" height="858"></a><button class="nav__join" type="button" data-join>Join the community</button></header>\n' +
-    '<main class="sp">\n  <div class="sp__in">\n    ' + media + '\n    <section class="sp__info" aria-labelledby="sp-t">\n' +
+    '<main class="sp"' + (flyer ? ' style="--sp-bg:url(\'' + esc(flyer) + '\')"' : '') + '>\n  <div class="sp__bg" aria-hidden="true"></div>\n  <div class="sp__in">\n    ' + media + '\n    <section class="sp__info" aria-labelledby="sp-t">\n' +
     '      <p class="kicker">BAT live</p>\n      <h1 class="black sp__city" id="sp-t">' + esc(show.city) + '</h1>\n' +
     '      <p class="sp__date"><time datetime="' + esc(show.date) + '">' + esc(when) + '</time></p>\n' +
     '      <p class="sp__venue">' + esc(show.venue || '') + (show.venue && show.time ? ' <i aria-hidden="true">·</i> ' : '') + esc(show.time || '') + '</p>\n' +
     '      ' + banner + '\n' + (show.desc ? '      <div class="sp__desc">' + paras(show.desc) + '</div>\n' : '') +
     '      <div class="sp__cta">' + cta + '</div>\n' +
     '      <p class="sp__fine">Tickets are sold by the venue. Dates and venues can change, so check the ticket page before you go.</p>\n' +
-    '    </section>\n  </div>\n</main>\n' + JOIN + '\n' +
+    '    </section>\n  </div>\n</main>\n' + foot(B) + '\n' + JOIN + '\n' +
     '<script src="' + B + '/assets/js/i18n.js"></script><script src="' + B + '/assets/js/main.js" defer></script><script src="' + B + '/assets/js/join.js" defer></script><script src="' + B + '/assets/js/popup.js" defer></script>\n</body>\n</html>\n';
 }
 
