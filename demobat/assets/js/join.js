@@ -22,9 +22,23 @@
   var bd = d.getElementById('j-bday'); var t = new Date();
   bd.max = t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2);
 
+  /* review demo only: pre-fill the form with a random name/email and the country detected from the visitor's connection */
+  function demoFill() {
+    var N = ['Alex Morgan', 'Sam Carter', 'Jamie Cole', 'Riley Hayes', 'Casey Brooks', 'Morgan Reyes', 'Jordan Blake', 'Taylor Quinn'];
+    var nm = N[Math.floor(Math.random() * N.length)];
+    var nameEl = d.getElementById('j-name'), mailEl = d.getElementById('j-email');
+    if (nameEl && !nameEl.value) nameEl.value = nm;
+    if (mailEl && !mailEl.value) mailEl.value = nm.toLowerCase().replace(/[^a-z]+/g, '.') + Math.floor(100 + Math.random() * 900) + '@example.com';
+    function pick(c) { if (c && sel.querySelector('option[value="' + c + '"]') && !sel.value) sel.value = c; }
+    fetch(BASE + '/api/geo', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) {
+      if (j && j.country) pick(j.country);
+      else { var m = /[-_]([A-Za-z]{2})$/.exec(navigator.language || ''); if (m) pick(m[1].toUpperCase()); }
+    }).catch(function () { var m = /[-_]([A-Za-z]{2})$/.exec(navigator.language || ''); if (m) pick(m[1].toUpperCase()); });
+  }
   function lock(on) { d.body.classList.toggle('no-scroll', on); }
   function open() {
     form.hidden = false; done.hidden = true; msg.textContent = ''; msg.className = 'join__msg';
+    if (d.documentElement.hasAttribute('data-demo')) demoFill();
     if (typeof dlg.showModal === 'function') { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute('open', '');
     lock(true);
     setTimeout(function () { var f = d.getElementById('j-name'); if (f) f.focus(); }, 60);
