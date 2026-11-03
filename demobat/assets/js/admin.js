@@ -362,3 +362,9 @@
     if (saved) { pw = saved; api('GET', null, '?verify=1').then(enter).catch(function () { pw = ''; }); }
   } catch (_) {}
 })();
+
+/* account bar: "Change password" is a placeholder until it is set up */
+(function () {
+  var b = document.getElementById('chpw'), m = document.getElementById('acct-msg');
+  if (b && m) b.addEventListener('click', function () { m.textContent = 'Changing the password from here is not set up yet. It will be available soon.'; m.className = 'status acct__msg'; });
+})();

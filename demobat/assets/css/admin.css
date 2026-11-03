@@ -70,3 +70,28 @@ body.admin-page::before,body.admin-page::after{display:none!important}
 .admin-page dialog .join__card p{color:#d9d5cb}
 .admin-page dialog .btn{background:#d9d5cb!important;color:#050505!important;font-family:"FellSC","IM Fell English SC",Georgia,serif;letter-spacing:.14em;text-transform:uppercase;border-radius:0}
 .admin-page dialog .btn.btn--sm{background:transparent!important;color:#e8e5df!important;box-shadow:inset 0 0 0 1px #a8a6a1}
+/* account bar */
+.admin-page .acct{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.7rem 1rem;padding:.9rem 1.2rem}
+.admin-page .acct__who{display:flex;flex-direction:column;line-height:1.3}
+.admin-page .acct__who b{font-size:1.05rem}
+.admin-page .acct__who span{color:#463f35;font-size:.92rem}
+.admin-page .acct__btns{display:flex;flex-wrap:wrap;gap:.6rem}
+.admin-page .acct__msg{flex:1 1 100%;margin:0;color:#14395f}
+.admin-page .acct__msg:empty{display:none}
+@media (max-width:640px){
+  .admin-page main{padding-left:12px;padding-right:12px}
+  .admin-page .acct__btns{width:100%}
+  .admin-page .acct__btns .btn{flex:1 1 0;padding-left:.6rem;padding-right:.6rem}
+  .admin-page .toolbar{gap:.5rem}
+  .admin-page .toolbar__left,.admin-page .toolbar__right{width:100%}
+  .admin-page .toolbar .btn{flex:1 1 auto}
+  .admin-page .nav__list{gap:.8rem}
+  .admin-page .nav__list a{font-size:.88rem}
+}
+@media (max-width:640px){
+  .admin-page .flyerbox{flex-direction:column;align-items:stretch}
+  .admin-page .flyerbox__col{width:100%;min-width:0}
+  .admin-page input[type=file]{width:100%;max-width:100%;min-width:0}
+  .admin-page .hint,.admin-page .found__txt,.admin-page .linkbox input{overflow-wrap:anywhere;min-width:0}
+  .admin-page .adpage,.admin-page .adpage__body,.admin-page .card{min-width:0;max-width:100%}
+}

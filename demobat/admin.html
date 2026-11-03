@@ -45,6 +45,14 @@
 
     <!-- editor -->
     <section id="editor" hidden>
+      <div class="acct panel">
+        <div class="acct__who"><b>Tour Manager</b><span>You are signed in.</span></div>
+        <div class="acct__btns">
+          <button class="btn btn--ghost btn--sm" type="button" id="chpw">Change password</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="logout">Log out</button>
+        </div>
+        <p class="status acct__msg" id="acct-msg" role="status"></p>
+      </div>
       <div class="panel frame" id="popup-panel">
         <h2>Pop-up</h2>
         <p>A message that opens on top of each show's own page (the page you share in ads). Use it for cancellations, refunds, venue changes or any notice. It has its own save button, separate from the tour dates.</p>
@@ -92,7 +100,6 @@
         <div class="toolbar__right">
           <span class="status" id="status" role="status" aria-live="polite"></span>
           <button class="btn btn--sm" type="button" id="publish">Publish</button>
-          <button class="btn-del" type="button" id="logout">Log out</button>
         </div>
       </div>
 
