@@ -102,7 +102,7 @@
   const track = document.getElementById('marqueeTrack');
   if (track) {
     const build = () => PARTNERS.map(([f, n]) =>
-      `<span class="marquee__item"><img src="assets/partners/${f}.png" alt="${n}" loading="lazy"></span>`).join('');
+      `<span class="marquee__item"><img src="assets/partners/${f}.png" alt="${n}" loading="eager" decoding="async"></span>`).join('');
     track.innerHTML = build() + build(); // duplicado para loop continuo
     const strip = track.parentElement;
     const mobilePartners = matchMedia('(max-width:767px)');
