@@ -121,7 +121,7 @@
     const movePartners = (now) => {
       const elapsed = previousFrame ? Math.min(now - previousFrame, 50) : 0;
       previousFrame = now;
-      if (mobilePartners.matches && !reduce.matches && !touching && now > resumeAt && !document.hidden) {
+      if (!strip.closest('[data-landing="google-ads"]') && mobilePartners.matches && !reduce.matches && !touching && now > resumeAt && !document.hidden) {
         const bounds = strip.getBoundingClientRect();
         if (bounds.bottom > 0 && bounds.top < innerHeight) {
           const cycle = track.children[PARTNERS.length].offsetLeft - track.children[0].offsetLeft;

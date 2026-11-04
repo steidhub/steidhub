@@ -111,3 +111,14 @@ body.lp-page .lp-kpi article{text-align:center}
   body.lp-page section .lp-kpi__note{font-size:13px!important}
 }
 body.lp-page .lp-kpi__n{justify-content:center!important;display:flex;align-items:baseline;gap:4px}
+
+/* google-ads: franja de colaboraciones siempre en movimiento (animación CSS, desktop y móvil, también con "reducir movimiento") */
+body.lp-page[data-landing="google-ads"] .marquee{overflow:hidden!important;touch-action:auto}
+body.lp-page[data-landing="google-ads"] .marquee__track{animation:slide 38s linear infinite!important;animation-duration:38s!important;animation-iteration-count:infinite!important;transform:none;will-change:transform}
+body.lp-page[data-landing="google-ads"] .marquee:hover .marquee__track{animation-play-state:running!important}
+@media(max-width:767px){body.lp-page[data-landing="google-ads"] .marquee__track{animation-duration:30s!important}}
+/* google-ads móvil: cada sección encaja exacta en la pantalla (lp-fit.js ajusta si el contenido es más alto) */
+@media(max-width:767px){
+ body.lp-page[data-landing="google-ads"] .lp-hero{min-height:100svh!important;padding-block:64px 24px!important}
+ body.lp-page[data-landing="google-ads"] main>section:not(.lp-hero),body.lp-page[data-landing="google-ads"] section.lp-section{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(12px,2.2svh,22px)!important;box-sizing:border-box}
+}
