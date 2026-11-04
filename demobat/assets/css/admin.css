@@ -211,3 +211,7 @@ body.admin-page::before,body.admin-page::after{display:none!important}
 .admin-page .tabs{position:static}
 .admin-page .bulk{top:calc(var(--nav) + 70px)}
 @media (min-width:641px){.admin-page .edlg .card .f-status{grid-column:span 6}.admin-page .edlg .card .f-upd{grid-column:span 6}}
+
+/* v12 — off-white admin */
+body.admin-page,html:has(body.admin-page){background:#ececea}
+.admin-page .toolbar{background:rgba(236,236,234,.97)}

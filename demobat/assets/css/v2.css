@@ -1138,3 +1138,7 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;bac
 .rule,.line{background:#fff!important;height:2px!important;-webkit-mask:none;mask:none}
 body.show-page,.sp,.sp-head{background-color:#000}
 .sp__bg{filter:grayscale(1) brightness(.35)!important}
+
+/* v12 — off-white instead of pure white */
+:root{--paper:#e9e9e7;--ink:#ececea}
+.s-merch,.s-tour,.tourpage{background:#e9e9e7!important}
