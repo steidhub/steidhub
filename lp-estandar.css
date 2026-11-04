@@ -122,3 +122,25 @@ body.lp-page[data-landing="google-ads"] .marquee:hover .marquee__track{animation
  body.lp-page[data-landing="google-ads"] .lp-hero{min-height:100svh!important;padding-block:64px 24px!important}
  body.lp-page[data-landing="google-ads"] main>section:not(.lp-hero),body.lp-page[data-landing="google-ads"] section.lp-section{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(12px,2.2svh,22px)!important;box-sizing:border-box}
 }
+
+/* google-ads #diagnostico: puntos clave + tarjeta más llena (sin flecha) */
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:1fr;width:100%}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:10px 14px;display:grid;grid-template-columns:40px 1fr;grid-template-areas:"i b" "i s";column-gap:12px;row-gap:0;text-align:left;color:#fff}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts i{grid-area:i;width:40px;height:40px;border-radius:50%;background:#fff;color:#A9562B;display:grid;place-items:center;align-self:center}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts svg{width:20px;height:20px}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts b{grid-area:b;align-self:end;font-size:.98rem;font-weight:700;color:#fff}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts span{grid-area:s;align-self:start;font-size:.82rem;line-height:1.3;color:#fff;opacity:.92}
+body.lp-page[data-landing="google-ads"] #diagnostico .dx-note{margin:0;color:#fff;opacity:.9;font-size:.86rem;font-weight:500;text-align:center}
+@media(min-width:768px){
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta{display:grid;grid-template-columns:1.15fr 1fr;grid-template-areas:"head pts" "head btn" "head note";column-gap:48px;row-gap:14px;align-items:center;text-align:left;padding:44px 48px}
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta .lp-head{grid-area:head;margin:0}
+ body.lp-page[data-landing="google-ads"] #diagnostico .dx-pts{grid-area:pts}
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta .btn{grid-area:btn;justify-self:stretch}
+ body.lp-page[data-landing="google-ads"] #diagnostico .dx-note{grid-area:note}
+}
+@media(max-width:767px){
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta{display:grid;justify-items:center;text-align:center;width:100%;padding:28px 18px 24px;gap:16px;border-radius:26px}
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta .h2{font-size:clamp(1.55rem,7.4vw,1.95rem)!important;line-height:1.1}
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta .lead{display:block!important;font-size:.95rem;line-height:1.45;color:#fff;opacity:.95;margin-top:10px}
+ body.lp-page[data-landing="google-ads"] #diagnostico .lp-cta .btn{width:100%}
+}
