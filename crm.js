@@ -10,7 +10,7 @@
   function upd(){
     var o=document.querySelector('.cr-opt.is-on'),m=+document.querySelector('.cr-seg .is-on').dataset.m,u=+rng.value;
     var p=+o.dataset.p,min=+o.dataset.min,bill=Math.max(u,min),mo=p*bill,tot=mo*m;
-    $('cr-nv').textContent=u;$('cr-oname').textContent=o.dataset.n+' · '+m+' meses';
+    $('cr-nv').textContent=u;$('cr-ologo').innerHTML=o.dataset.logo;$('cr-operiod').textContent=o.dataset.n+' · '+m+' meses';
     $('cr-omo').textContent=fmt(mo)+' al mes'+(min>u?' (mínimo '+min+' usuarios)':'');
     $('cr-obar').style.width='100%';$('cr-sbar').style.width='3%';
     tween($('cr-ototal'),tot);

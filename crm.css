@@ -76,9 +76,9 @@
 @media(prefers-reduced-motion:reduce){.cr-msg,.cr-new,.cr-int{opacity:1;transform:none;animation:none!important}.cr-trav{opacity:1;animation:none!important}.cr-stamp{opacity:1;transform:rotate(-8deg);animation:none!important}.cr-pay u{width:50%;animation:none!important}}
 
 /* cada sección = una pantalla (escritorio y móvil); lp-fit.js reduce proporcionalmente si el contenido es más alto */
-body.lp-page[data-landing="crm"] .lp-hero{min-height:100svh!important}
+body.lp-page[data-landing="crm"] .lp-hero{min-height:100dvh!important}
 @media(min-width:768px){
- body.lp-page[data-landing="crm"] main>section:not(.lp-hero){min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(28px,5svh,56px)!important;box-sizing:border-box}
+ body.lp-page[data-landing="crm"] main>section:not(.lp-hero){min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(28px,5svh,56px)!important;box-sizing:border-box}
  body.lp-page[data-landing="crm"] main>section:not(.lp-hero)>.wrap{width:min(1120px,100% - 48px)}
  .cr-bento{grid-auto-rows:minmax(clamp(150px,24svh,230px),auto)!important}
  .cr-col{min-height:clamp(170px,30svh,260px)}
@@ -208,3 +208,69 @@ body.lp-page[data-landing="crm"] .cr-hub__core b,body.lp-page[data-landing="crm"
 @media(max-width:767px){.cr-srcs{gap:6px;margin-top:8px}.cr-srcs>span{width:100%;text-align:center;font-size:10.5px}.cr-srcs i{padding:4px 10px 4px 6px;gap:6px}.cr-srcs b{font-size:11px}.cr-srcs .lg{width:18px;height:18px}}
 @media(max-width:767px){.cr-bc p{display:block!important;font-size:11px!important;line-height:1.3;margin:0}.cr-bc h3{margin:0 0 2px}.sx-disc{font-size:10.5px!important;line-height:1.35}}
 @media(min-width:900px){body.lp-page[data-landing="crm"] #faq>.wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,72px);align-items:center}body.lp-page[data-landing="crm"] #faq .lp-head{margin:0}body.lp-page[data-landing="crm"] #faq .lp-faq{max-width:none}}
+
+/* ===== v3: logos reales, captura, comparativo, línea del proceso, hero ===== */
+img.lg{object-fit:contain;display:block}
+.cr-eb-logo{display:flex!important;align-items:center;gap:8px}.cr-eb-logo .lg{width:22px;height:22px}
+.cr-msg{opacity:1;transform:none}
+.sx-scene.is-on .cr-msg{animation:crin2 .6s cubic-bezier(.2,.9,.3,1) backwards;animation-delay:calc(var(--d)*.45s + .2s)}
+@keyframes crin2{from{opacity:0;transform:translateY(14px)}}
+.cr-feed{gap:10px}
+.cr-av .lg{width:26px;height:26px}
+/* comparativo */
+.cr-cost{gap:clamp(18px,3vw,36px)}
+.cr-cost__in{padding:clamp(18px,3svh,28px) clamp(18px,2.6vw,28px)}
+.cr-cost__t{margin:0;font-size:15px;font-weight:700;color:#161411}
+.cr-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0 clamp(10px,2.4svh,20px)}
+.cr-opt{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:10px 8px;border:2px solid rgba(22,20,17,.1);background:#fff;border-radius:16px;transition:border-color .2s,box-shadow .2s}
+.cr-opt__l{height:26px;display:flex;align-items:center;justify-content:center;width:100%}
+.cr-lgo{height:22px;width:auto;max-width:100%;object-fit:contain;display:block}
+.cr-opt .cr-lgo{max-width:88%}
+.wm{font-family:Poppins,sans-serif;font-weight:800;font-size:21px;letter-spacing:-.04em;color:#2B59FF;line-height:1}
+.cr-cost .cr-opt b{font-size:12.5px;font-weight:700;color:#161411!important}
+.cr-cost .cr-opt small{font-size:11px;color:#4a4540!important}
+.cr-opt.is-on{background:#fff!important;border-color:#C46B3C;box-shadow:0 10px 24px rgba(196,107,60,.22)}
+.cr-opt.is-on::after{content:"";position:absolute;top:7px;right:7px;width:10px;height:10px;border-radius:50%;background:#C46B3C}
+.cr-opt.is-on b,.cr-opt.is-on small{color:inherit}
+.cr-cost .cr-seg button.is-on{color:#fff!important}
+.cr-bar__h{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:28px}
+.cr-bar__h .cr-lgo{height:24px}.cr-bar__h #cr-ologo{display:flex;align-items:center}
+.cr-bar--s .cr-bar__h small{display:none}
+.cr-bar--s .cr-lgo--sh{height:26px}
+.cr-bar--s *{color:#fff!important}
+.cr-bar--s .cr-bar__t u{background:#fff!important}
+.cr-cost__out{gap:clamp(12px,2vw,20px)}
+.cr-bar{gap:8px}
+/* línea del proceso */
+body.lp-page[data-landing="crm"] #metodo .sx-steps__nav{display:grid!important;grid-template-columns:repeat(4,1fr)!important;overflow:visible!important;margin:0 0 22px!important;padding:0!important;gap:8px}
+body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::before{display:block!important;left:12.5%!important;right:12.5%!important;top:29px!important;height:4px!important;background:rgba(255,255,255,.38)!important;z-index:0}
+body.lp-page[data-landing="crm"] #metodo .sx-steps__nav i.fill{display:block!important;left:12.5%!important;top:29px!important;height:4px!important;z-index:0;box-shadow:0 0 14px rgba(255,255,255,.9)}
+body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::after{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:8px;border-radius:8px;z-index:0;pointer-events:none;background:linear-gradient(90deg,transparent,#fff 50%,transparent) no-repeat;background-size:22% 100%;animation:crrun 2.6s linear infinite}
+@keyframes crrun{from{background-position:0 0}to{background-position:100% 0}}
+body.lp-page[data-landing="crm"] #metodo .sx-st{z-index:2}
+@media(max-width:767px){
+ body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::before,body.lp-page[data-landing="crm"] #metodo .sx-steps__nav i.fill{top:24px!important;height:3px!important}
+ body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::after{top:22px;height:7px}
+ body.lp-page[data-landing="crm"] #metodo .sx-st span{font-size:10.5px}
+ .cr-cost__in{padding:14px}.cr-opts{gap:6px;margin:8px 0 10px}.cr-opt{padding:7px 4px;border-radius:12px;gap:2px}.cr-opt__l{height:20px}.cr-lgo{height:17px}.wm{font-size:16px}.cr-cost .cr-opt b{font-size:9.5px}.cr-cost .cr-opt small{display:none}.cr-bar__h .cr-lgo{height:18px}.cr-bar--s .cr-lgo--sh{height:18px}.cr-bar__h{min-height:20px}
+ .cr-cost__out{gap:8px}
+}
+/* hero centrado y botones discretos */
+body.lp-page[data-landing="crm"] .lp-hero__grid{justify-items:center}
+body.lp-page[data-landing="crm"] .lp-hero__copy{margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;max-width:860px}
+body.lp-page[data-landing="crm"] .lp-hero .display{text-wrap:balance}
+body.lp-page[data-landing="crm"] .lp-hero__lead{margin-inline:auto;text-wrap:balance;text-align:center;max-width:54ch}
+body.lp-page[data-landing="crm"] .hero__actions{display:flex;justify-content:center;width:100%}
+body.lp-page[data-landing="crm"] .btn--primary{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+body.lp-page[data-landing="crm"] .btn--primary:hover{background:rgba(255,255,255,.26)!important}
+body.lp-page[data-landing="crm"] #diagnostico .btn--primary{background:#161411!important;border-color:#161411!important}
+body.lp-page[data-landing="crm"] #diagnostico .btn--primary:hover{background:#2c2824!important}
+/* encaje y snap */
+html:has(body[data-landing="crm"]){scroll-snap-type:y proximity}
+body[data-landing="crm"] main>section{scroll-snap-align:start}
+html body.lp-page[data-landing="crm"] .lp-hero a.btn.btn--primary,html body.lp-page[data-landing="crm"] a.lp-nav__cta{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+html body.lp-page[data-landing="crm"] .lp-hero a.btn.btn--primary:hover,html body.lp-page[data-landing="crm"] a.lp-nav__cta:hover{background:rgba(255,255,255,.28)!important}
+html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
+.cr-opt img[src*="zoho"]{height:26px}.cr-bar--s .cr-lgo--sh{height:32px}
+html body.lp-page[data-landing="crm"] a.btn.btn--primary.lp-nav__cta[href*="wa.me"]{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+@media(max-width:767px){.cr-bar__h{flex-direction:column;align-items:flex-start;gap:3px}.cr-bar--s strong{font-size:1.05rem}.cr-bar small{font-size:9.5px}}
