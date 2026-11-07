@@ -565,3 +565,8 @@ html body.lp-page[data-landing="crm"] .cr-made li{background:#fff!important;colo
  html body.lp-page[data-landing="crm"] .cr-imp__c h3.cr-imp__t{display:block!important;grid-area:t;margin:0!important;font-size:16px!important;font-weight:600!important;line-height:1.25!important;text-align:left!important;color:#161411}
  html body.lp-page[data-landing="crm"] .cr-imp__c p{grid-area:p;font-size:12.5px!important}
 }
+@media(max-width:767px){
+ html body.lp-page[data-landing="crm"] .cr-made ul{width:100%;flex-direction:column;flex-wrap:nowrap;gap:8px}
+ html body.lp-page[data-landing="crm"] .cr-made li{width:100%;text-align:left;border-radius:14px!important;padding:10px 14px 10px 38px!important;font-size:13px!important;position:relative}
+ html body.lp-page[data-landing="crm"] .cr-made li::before{content:"";position:absolute;left:14px;top:50%;width:12px;height:7px;margin-top:-6px;border-left:2.5px solid #C46B3C;border-bottom:2.5px solid #C46B3C;transform:rotate(-45deg)}
+}
