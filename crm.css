@@ -570,3 +570,20 @@ html body.lp-page[data-landing="crm"] .cr-made li{background:#fff!important;colo
  html body.lp-page[data-landing="crm"] .cr-made li{width:100%;text-align:left;border-radius:14px!important;padding:10px 14px 10px 38px!important;font-size:13px!important;position:relative}
  html body.lp-page[data-landing="crm"] .cr-made li::before{content:"";position:absolute;left:14px;top:50%;width:12px;height:7px;margin-top:-6px;border-left:2.5px solid #C46B3C;border-bottom:2.5px solid #C46B3C;transform:rotate(-45deg)}
 }
+
+/* ===== v15: chips sin negrita, integraciones en una línea ===== */
+html body.lp-page[data-landing="crm"] .cr-srcs b,html body.lp-page[data-landing="crm"] .cr-srcs i{font-weight:500!important}
+html body.lp-page[data-landing="crm"] .cr-srcs>span{font-weight:600}
+@media(max-width:767px){
+ html body.lp-page[data-landing="crm"] .cr-int{gap:10px!important;padding-inline:12px!important}
+ html body.lp-page[data-landing="crm"] .cr-int b{white-space:nowrap;font-size:12.5px!important;font-weight:500!important;letter-spacing:-.01em}
+ html body.lp-page[data-landing="crm"] .cr-int .lg{width:26px!important;height:26px!important}
+}
+html body.lp-page[data-landing="crm"] .cr-hub__ring{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+html body.lp-page[data-landing="crm"] .cr-int{min-width:0}
+@media(max-width:400px){
+ html body.lp-page[data-landing="crm"] .cr-int{gap:8px!important;padding-inline:9px!important}
+ html body.lp-page[data-landing="crm"] .cr-int b{font-size:11.5px!important;letter-spacing:-.015em}
+ html body.lp-page[data-landing="crm"] .cr-int .lg{width:22px!important;height:22px!important}
+}
+@media(max-width:370px){html body.lp-page[data-landing="crm"] .cr-int b{font-size:10.5px!important}html body.lp-page[data-landing="crm"] .cr-int{gap:6px!important;padding-inline:8px!important}}
