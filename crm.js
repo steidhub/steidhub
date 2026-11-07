@@ -13,7 +13,7 @@
     $('cr-nv').textContent=u;$('cr-ologo').innerHTML=o.dataset.logo;$('cr-operiod').textContent=o.dataset.n+' · '+m+' meses';
     $('cr-omo').textContent=fmt(mo)+' al mes'+(min>u?' (mínimo '+min+' usuarios)':'');
     $('cr-obar').style.width='100%';$('cr-sbar').style.width='3%';
-    tween($('cr-ototal'),tot);
+    tween($('cr-ototal'),tot);var sv=$('cr-save');if(sv){sv.textContent='Ahorras '+fmt(tot)+' en '+m+' meses';sv.classList.remove('pop');void sv.offsetWidth;sv.classList.add('pop')}
   }
   opts.forEach(function(b){b.addEventListener('click',function(){opts.forEach(function(x){x.classList.remove('is-on')});b.classList.add('is-on');upd()})});
   segs.forEach(function(b){b.addEventListener('click',function(){segs.forEach(function(x){x.classList.remove('is-on')});b.classList.add('is-on');upd()})});
