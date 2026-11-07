@@ -355,3 +355,9 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:
 @media(min-width:768px){body.lp-page[data-landing="crm"] .lp-hero__lead{width:0;min-width:100%}}
 /* v6: hero botón a la izquierda */
 html body.lp-page[data-landing="crm"] .hero__actions{justify-content:flex-start!important}
+/* v7: CTA destacado y disclaimer centrado */
+#resultados .cr-imp__cta{display:flex;justify-content:center}
+html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:18px 44px!important;font-size:17px!important;box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)!important;animation:crpulse 2.6s ease-in-out infinite}
+@keyframes crpulse{0%,100%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)}50%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 14px rgba(196,107,60,.06)}}
+#resultados .sx-disc{text-align:center!important;margin-left:auto;margin-right:auto}
+@media(max-width:767px){html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:14px 30px!important;font-size:15px!important}}
