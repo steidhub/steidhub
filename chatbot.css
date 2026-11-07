@@ -14,6 +14,7 @@ html body.lp-page[data-landing="chatbot"] #que-es .lead,html body.lp-page[data-l
 @keyframes cbhaloB{0%{box-shadow:0 0 0 0 rgba(255,170,120,.7)}70%,100%{box-shadow:0 0 0 22px rgba(255,170,120,0)}}
 @keyframes cbshine{0%{left:-60%}55%,100%{left:130%}}
 html body.lp-page[data-landing="chatbot"] .cb-cta,html body.lp-page[data-landing="chatbot"] .cb-cta *{color:#fff!important}
+html body.lp-page[data-landing="crm"] .cb-cta,html body.lp-page[data-landing="crm"] .cb-cta *{color:#fff!important}
 /* Hero */
 .cb-hero{display:grid!important;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,72px);align-items:center}
 .cb-hero__vis{position:relative;display:grid;place-items:center}
@@ -123,6 +124,7 @@ html body.lp-page[data-landing="chatbot"] .cb-seg button[aria-pressed="true"]{co
 /* CTA final */
 html body.lp-page[data-landing="chatbot"] #diagnostico .lp-cta .h2{font-size:clamp(2rem,4vw,3.6rem)!important}
 html body.lp-page[data-landing="chatbot"] #diagnostico .cb-cta--wa{width:100%;padding:clamp(20px,3dvh,28px) 24px;font-size:clamp(18px,2vw,24px)}
+html body.lp-page[data-landing="crm"] #diagnostico .cb-cta--wa{width:100%;padding:clamp(20px,3dvh,28px) 24px;font-size:clamp(18px,2vw,24px)}
 @media(max-width:900px){
  .cb-hero{grid-template-columns:1fr}.cb-chip{display:none}
  .cb-demo,.cb-res{grid-template-columns:1fr;gap:14px}
@@ -168,14 +170,22 @@ html body.lp-page[data-landing="chatbot"] .cb-row__a{color:#6b6359!important}
 /* ===== v3 ===== */
 /* Hero: fondo de color entero, título en 2 líneas */
 html body.lp-page[data-landing="chatbot"] .lp-hero{background:linear-gradient(135deg,#D4825A,#C46B3C 55%,#B05A2E)!important}
+html body.lp-page[data-landing="crm"] .lp-hero{background:linear-gradient(135deg,#D4825A,#C46B3C 55%,#B05A2E)!important}
 html body.lp-page[data-landing="chatbot"] .lp-hero .lp-hero__media,html body.lp-page[data-landing="chatbot"] .lp-hero::before,html body.lp-page[data-landing="chatbot"] .lp-hero::after{display:none!important}
+html body.lp-page[data-landing="crm"] .lp-hero .lp-hero__media,html body.lp-page[data-landing="crm"] .lp-hero::before,html body.lp-page[data-landing="crm"] .lp-hero::after{display:none!important}
 .cb-hero{grid-template-columns:1.4fr .6fr!important}
 html body.lp-page[data-landing="chatbot"] .cb-hero h1.display{font-size:clamp(1.7rem,2.75vw,3.3rem)!important;line-height:1.08!important;max-width:none}
+html body.lp-page[data-landing="crm"] .cb-hero h1.display{font-size:clamp(1.7rem,2.75vw,3.3rem)!important;line-height:1.08!important;max-width:none}
 html body.lp-page[data-landing="chatbot"] .cb-hero .cr-hl{background:#fff!important;color:#161411!important;-webkit-text-fill-color:#161411;box-shadow:0 8px 22px rgba(0,0,0,.2)}
+html body.lp-page[data-landing="crm"] .cb-hero .cr-hl{background:#fff!important;color:#161411!important;-webkit-text-fill-color:#161411;box-shadow:0 8px 22px rgba(0,0,0,.2)}
 html body.lp-page[data-landing="chatbot"] .cb-hero .lead{font-size:clamp(15px,1.5vw,20px)!important;max-width:52ch}
+html body.lp-page[data-landing="crm"] .cb-hero .lead{font-size:clamp(15px,1.5vw,20px)!important;max-width:52ch}
 html body.lp-page[data-landing="chatbot"] .cb-hero .cb-cta{background:#fff;box-shadow:0 14px 34px rgba(60,25,5,.35)}
+html body.lp-page[data-landing="crm"] .cb-hero .cb-cta{background:#fff;box-shadow:0 14px 34px rgba(60,25,5,.35)}
 html body.lp-page[data-landing="chatbot"] .cb-hero .cb-cta,html body.lp-page[data-landing="chatbot"] .cb-hero .cb-cta *{color:#161411!important}
+html body.lp-page[data-landing="crm"] .cb-hero .cb-cta,html body.lp-page[data-landing="crm"] .cb-hero .cb-cta *{color:#161411!important}
 html body.lp-page[data-landing="chatbot"] .cb-hero .cb-cta::after{background:linear-gradient(100deg,transparent,rgba(196,107,60,.35),transparent)}
+html body.lp-page[data-landing="crm"] .cb-hero .cb-cta::after{background:linear-gradient(100deg,transparent,rgba(196,107,60,.35),transparent)}
 .cb-hero__vis .cb-chat{width:min(340px,100%)}
 /* Escena animada del proceso */
 .cb-sc{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);margin-top:clamp(14px,3dvh,32px)}
@@ -276,6 +286,7 @@ html body.lp-page[data-landing="chatbot"] .cb-sc__col>p{color:#4a4540!important}
 @media(max-width:900px){
  .cb-hero{grid-template-columns:1fr!important}
  html body.lp-page[data-landing="chatbot"] .cb-hero h1.display{font-size:clamp(1.55rem,4.6vw,2.6rem)!important}
+ html body.lp-page[data-landing="crm"] .cb-hero h1.display{font-size:clamp(1.55rem,4.6vw,2.6rem)!important}
  .cb-sc{grid-template-columns:1fr 1fr}.cb-sc__ln{display:none}
  .cb-res{grid-template-columns:1fr}
 }
@@ -283,6 +294,7 @@ html body.lp-page[data-landing="chatbot"] .cb-sc__col>p{color:#4a4540!important}
  .cb-hero__vis{display:none!important}
  .cb-br{display:none}
  html body.lp-page[data-landing="chatbot"] .cb-hero h1.display{font-size:clamp(1.65rem,7.6vw,2.2rem)!important}
+ html body.lp-page[data-landing="crm"] .cb-hero h1.display{font-size:clamp(1.65rem,7.6vw,2.2rem)!important}
  .cb-sc{display:block}.cb-sc__col{display:none;min-height:0}
  .cb-sc[data-cur="1"] .c1,.cb-sc[data-cur="2"] .c2,.cb-sc[data-cur="3"] .c3,.cb-sc[data-cur="4"] .c4{display:flex;transform:none;outline-color:transparent;animation:cbin .4s}
  .cb-sc__dots{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
@@ -300,7 +312,9 @@ html body.lp-page[data-landing="chatbot"] .cb-sc__col>p{color:#4a4540!important}
 }
 @media(prefers-reduced-motion:reduce){.cb-sc__col .m,.cb-crm .r,.cb-crm .tg,.cb-ph .nt,.cb-ph .ok{opacity:1!important;transform:none!important;animation:none!important}.cb-mg *{animation:none!important}}
 html body.lp-page[data-landing="chatbot"] .cb-hero .hero__tag{background:rgba(255,255,255,.2)!important;border-color:rgba(255,255,255,.7)!important;color:#fff!important}
+html body.lp-page[data-landing="crm"] .cb-hero .hero__tag{background:rgba(255,255,255,.2)!important;border-color:rgba(255,255,255,.7)!important;color:#fff!important}
 html body.lp-page[data-landing="chatbot"] .cb-hero .hero__tag i{background:#fff!important}
+html body.lp-page[data-landing="crm"] .cb-hero .hero__tag i{background:#fff!important}
 html body.lp-page[data-landing="chatbot"] .cb-steps li.on,html body.lp-page[data-landing="chatbot"] .cb-steps li.on span{color:#161411!important}
 @media(min-width:768px){.cb-sc__col>p{padding-right:0}.cb-sc{padding-bottom:clamp(0px,3dvh,28px)}}
 .cb-ph__bar small{font-size:11px!important}
@@ -340,3 +354,11 @@ html body.lp-page[data-landing="chatbot"] .cb-steps li.on,html body.lp-page[data
  .cb-kpi__f small{display:none}.cb-mg{height:60px;width:90px}.mg-clk{width:62px;height:62px}.mg-sw{width:120px}
  .cb-kpi__f strong{font-size:12.5px;line-height:1.2}.cb-kpi__b small{display:none}
 }
+
+.cb-bg i{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important}.cb-bg i:nth-of-type(even){background:rgba(255,255,255,.09)!important}
+.cb-bg i::after{background:rgba(255,255,255,.18)!important;box-shadow:0 9px 0 rgba(255,255,255,.12)!important}
+.cb-bg span{border-color:rgba(255,255,255,.12)!important}
+
+html body.lp-page[data-landing="crm"] .cb-hero{grid-template-columns:1fr!important}
+html body.lp-page[data-landing="crm"] .cb-hero h1.display{font-size:clamp(1.7rem,2.6vw,3.1rem)!important}
+@media(max-width:767px){html body.lp-page[data-landing="crm"] .cb-hero h1.display{font-size:clamp(1.65rem,7.4vw,2.2rem)!important}}
