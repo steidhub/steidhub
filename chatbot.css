@@ -1,0 +1,53 @@
+/* Chatbot inmobiliario — demo, indicadores y resultados */
+.cb-demo{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,64px);align-items:center}
+.cb-demo__txt .lead{margin-top:10px;font-size:clamp(15px,1.5vw,18px)}
+.cb-lead{margin-top:clamp(14px,3svh,26px);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);border-radius:18px;padding:14px 18px}
+.cb-lead__t{margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.cb-lead dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.cb-lead dt{font-size:11.5px;font-weight:400;opacity:.85}
+.cb-lead dd{margin:1px 0 0;font-size:14.5px;font-weight:600;opacity:.55;transition:opacity .4s,transform .4s}
+.cb-lead dd.on{opacity:1;animation:cbpop .5s cubic-bezier(.2,.9,.3,1)}
+@keyframes cbpop{0%{transform:translateY(6px) scale(.96)}100%{transform:none}}
+.cb-chat{width:min(440px,100%);margin-inline:auto;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(70,30,10,.4);display:flex;flex-direction:column}
+.cb-chat__bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid rgba(22,20,17,.08)}
+.cb-chat__bar .lg{width:36px;height:36px}
+.cb-chat__bar b{display:block;font-size:14px;font-weight:600}
+.cb-chat__bar small{display:block;font-size:11.5px;font-weight:400}
+.cb-chat__body{display:flex;flex-direction:column;gap:8px;padding:14px 12px;background:#EDE5DC;height:clamp(220px,40dvh,350px);overflow-y:auto;scroll-behavior:smooth;overscroll-behavior:contain}
+.cb-b{max-width:84%;padding:9px 13px;border-radius:16px;font-size:14px;line-height:1.38;font-weight:400;animation:cbin .35s cubic-bezier(.2,.9,.3,1)}
+.cb-b--b{align-self:flex-start;background:#fff;border-bottom-left-radius:5px}
+.cb-b--u{align-self:flex-end;background:linear-gradient(135deg,#D4825A,#C46B3C);border-bottom-right-radius:5px}
+.cb-b--t{display:flex;gap:4px;padding:12px 14px}
+.cb-b--t i{width:7px;height:7px;border-radius:50%;background:#8a8178;animation:cbdot 1s infinite}
+.cb-b--t i:nth-child(2){animation-delay:.15s}.cb-b--t i:nth-child(3){animation-delay:.3s}
+@keyframes cbdot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+@keyframes cbin{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+.cb-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;background:#17773F;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500;animation:cbin .4s}
+.cb-chat__opts{display:flex;flex-wrap:wrap;gap:8px;padding:11px 12px;border-top:1px solid rgba(22,20,17,.08);min-height:58px;align-items:center;justify-content:center}
+.cb-o{border:0;cursor:pointer;font:500 13.5px/1 Poppins,sans-serif;padding:11px 16px;border-radius:999px;background:linear-gradient(135deg,#D4825A,#C46B3C);box-shadow:0 0 0 0 rgba(196,107,60,.5);animation:cbhalo 2.2s ease-out infinite;transition:transform .2s}
+.cb-o:active{transform:scale(.96)}
+.cb-o--r{background:#EDE5DC;animation:none;box-shadow:none}
+@keyframes cbhalo{0%{box-shadow:0 0 0 0 rgba(196,107,60,.5)}70%,100%{box-shadow:0 0 0 10px rgba(196,107,60,0)}}
+.cb-res{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,20px)}
+.cb-res li{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:center;background:#F5EFE7;border-radius:20px;padding:clamp(16px,2.6dvh,24px) clamp(16px,2vw,24px);text-align:left}
+.cb-res i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.cb-res i svg{width:26px;height:26px;stroke:#C46B3C;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cb-res b{display:block;font-size:16.5px;font-weight:600;color:#161411}
+.cb-res span{display:block;margin-top:2px;font-size:14px;font-weight:400;color:#4a4540;line-height:1.4}
+.cb-disc{text-align:center;margin:clamp(12px,2.4dvh,22px) auto 0;width:100%}
+html body.lp-page[data-landing="chatbot"] .cb-lead,html body.lp-page[data-landing="chatbot"] .cb-lead *,html body.lp-page[data-landing="chatbot"] .cb-demo__txt *{color:#fff!important}
+html body.lp-page[data-landing="chatbot"] #demo .cb-chat__bar b,html body.lp-page[data-landing="chatbot"] #demo .cb-b--b{color:#161411!important}
+html body.lp-page[data-landing="chatbot"] #demo .cb-chat__bar small{color:#4a4540!important}
+html body.lp-page[data-landing="chatbot"] #demo .cb-b--u,html body.lp-page[data-landing="chatbot"] #demo .cb-o,html body.lp-page[data-landing="chatbot"] #demo .cb-tag{color:#fff!important}
+html body.lp-page[data-landing="chatbot"] #demo .cb-o--r{color:#161411!important}
+html body.lp-page[data-landing="chatbot"] #resultados .cb-res b{color:#161411!important}
+html body.lp-page[data-landing="chatbot"] #resultados .cb-res span{color:#4a4540!important}
+@media(max-width:900px){.cb-demo{grid-template-columns:1fr;gap:14px}.cb-lead{display:none}.cb-demo__txt .lp-head{text-align:center}.cb-res{grid-template-columns:1fr}}
+@media(max-width:767px){
+ .cb-chat{width:100%;border-radius:20px}
+ .cb-chat__body{height:clamp(180px,32dvh,300px);padding:10px}
+ .cb-b{font-size:13.5px;padding:8px 12px}
+ .cb-o{font-size:13px;padding:10px 14px}
+ .cb-res{gap:9px}.cb-res li{grid-template-columns:44px 1fr;gap:12px;padding:11px 14px;border-radius:16px}.cb-res i{width:44px;height:44px}.cb-res i svg{width:21px;height:21px}.cb-res b{font-size:14.5px}.cb-res span{font-size:12.5px}
+}
+@media(prefers-reduced-motion:reduce){.cb-o,.cb-b,.cb-tag{animation:none!important}}

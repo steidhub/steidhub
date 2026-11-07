@@ -76,10 +76,10 @@
 @media(prefers-reduced-motion:reduce){.cr-msg,.cr-new,.cr-int{opacity:1;transform:none;animation:none!important}.cr-trav{opacity:1;animation:none!important}.cr-stamp{opacity:1;transform:rotate(-8deg);animation:none!important}.cr-pay u{width:50%;animation:none!important}}
 
 /* cada sección = una pantalla (escritorio y móvil); lp-fit.js reduce proporcionalmente si el contenido es más alto */
-body.lp-page[data-landing="crm"] .lp-hero{min-height:100dvh!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero{min-height:100dvh!important}
 @media(min-width:768px){
- body.lp-page[data-landing="crm"] main>section:not(.lp-hero){min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(28px,5svh,56px)!important;box-sizing:border-box}
- body.lp-page[data-landing="crm"] main>section:not(.lp-hero)>.wrap{width:min(1120px,100% - 48px)}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) main>section:not(.lp-hero){min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(28px,5svh,56px)!important;box-sizing:border-box}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) main>section:not(.lp-hero)>.wrap{width:min(1120px,100% - 48px)}
  .cr-bento{grid-auto-rows:minmax(clamp(150px,24svh,230px),auto)!important}
  .cr-col{min-height:clamp(170px,30svh,260px)}
  .cr-hub__core{max-width:clamp(200px,34svh,300px)}
@@ -91,19 +91,19 @@ body.lp-page[data-landing="crm"] .lp-hero{min-height:100dvh!important}
  .cr-int{padding-block:clamp(10px,2svh,18px)}
 }
 @media(max-width:767px){
- body.lp-page[data-landing="crm"] #resultados .sx-kpis{grid-template-columns:1fr!important;gap:8px!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi{display:grid!important;grid-template-columns:72px 1fr;grid-template-areas:"r h" "r p";align-items:center;column-gap:14px;row-gap:0;text-align:left!important;padding:8px 14px!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi .sx-ring{grid-area:r;width:72px!important;height:72px!important;margin:0!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi .sx-ring b{font-size:17px!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi h3{grid-area:h;align-self:end;margin:0!important;text-align:left!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi p{grid-area:p;align-self:start;margin:0!important;text-align:left!important}
- body.lp-page[data-landing="crm"] #resultados .sx-banner{padding:12px 16px!important;margin-top:10px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpis{grid-template-columns:1fr!important;gap:8px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi{display:grid!important;grid-template-columns:72px 1fr;grid-template-areas:"r h" "r p";align-items:center;column-gap:14px;row-gap:0;text-align:left!important;padding:8px 14px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi .sx-ring{grid-area:r;width:72px!important;height:72px!important;margin:0!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi .sx-ring b{font-size:17px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi h3{grid-area:h;align-self:end;margin:0!important;text-align:left!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi p{grid-area:p;align-self:start;margin:0!important;text-align:left!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-banner{padding:12px 16px!important;margin-top:10px!important}
 }
 @media(max-width:767px){
- body.lp-page[data-landing="crm"] #resultados .sx-kpi{justify-items:start!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi .sx-ring svg{width:100%!important;height:100%!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi p{display:block!important;font-size:12px!important}
- body.lp-page[data-landing="crm"] #resultados .sx-kpi h3{font-size:14px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi{justify-items:start!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi .sx-ring svg{width:100%!important;height:100%!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi p{display:block!important;font-size:12px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-kpi h3{font-size:14px!important}
 }
 
 /* ===== v2: logos, incluye interactivo, chatbot, costos ===== */
@@ -200,14 +200,14 @@ body.lp-page[data-landing="crm"] .lp-hero{min-height:100dvh!important}
 .cr-bub{font-size:14px}
 .cr-bar__t u{background:#C46B3C}
 @media(max-width:767px){.cr-phone{width:min(280px,100%)}.cr-bub{font-size:11px}.cr-phone__body{min-height:clamp(150px,27svh,230px)}}
-body.lp-page[data-landing="crm"] .cr-hub__core b,body.lp-page[data-landing="crm"] .cr-hub__core small{color:#fff!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub__core b,body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub__core small{color:#fff!important}
 .cr-srcs{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 14px;margin-top:clamp(12px,2.6svh,22px)}
 .cr-srcs>span{font-size:13px;font-weight:700;color:#161411;letter-spacing:.04em;text-transform:uppercase}
 .cr-srcs i{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(22,20,17,.08);border-radius:99px;padding:6px 14px 6px 8px;font-style:normal;box-shadow:0 8px 20px rgba(70,50,30,.08)}
 .cr-srcs b{font-size:13px;font-weight:700;color:#161411}.cr-srcs .lg{width:22px;height:22px}
 @media(max-width:767px){.cr-srcs{gap:6px;margin-top:8px}.cr-srcs>span{width:100%;text-align:center;font-size:10.5px}.cr-srcs i{padding:4px 10px 4px 6px;gap:6px}.cr-srcs b{font-size:11px}.cr-srcs .lg{width:18px;height:18px}}
 @media(max-width:767px){.cr-bc p{display:block!important;font-size:11px!important;line-height:1.3;margin:0}.cr-bc h3{margin:0 0 2px}.sx-disc{font-size:10.5px!important;line-height:1.35}}
-@media(min-width:900px){body.lp-page[data-landing="crm"] #faq>.wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,72px);align-items:center}body.lp-page[data-landing="crm"] #faq .lp-head{margin:0}body.lp-page[data-landing="crm"] #faq .lp-faq{max-width:none}}
+@media(min-width:900px){body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #faq>.wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,72px);align-items:center}body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #faq .lp-head{margin:0}body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #faq .lp-faq{max-width:none}}
 
 /* ===== v3: logos reales, captura, comparativo, línea del proceso, hero ===== */
 img.lg{object-fit:contain;display:block}
@@ -242,48 +242,48 @@ img.lg{object-fit:contain;display:block}
 .cr-cost__out{gap:clamp(12px,2vw,20px)}
 .cr-bar{gap:8px}
 /* línea del proceso */
-body.lp-page[data-landing="crm"] #metodo .sx-steps__nav{display:grid!important;grid-template-columns:repeat(4,1fr)!important;overflow:visible!important;margin:0 0 22px!important;padding:0!important;gap:8px}
-body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::before{display:block!important;left:12.5%!important;right:12.5%!important;top:29px!important;height:4px!important;background:rgba(255,255,255,.38)!important;z-index:0}
-body.lp-page[data-landing="crm"] #metodo .sx-steps__nav i.fill{display:block!important;left:12.5%!important;top:29px!important;height:4px!important;z-index:0;box-shadow:0 0 14px rgba(255,255,255,.9)}
-body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::after{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:8px;border-radius:8px;z-index:0;pointer-events:none;background:linear-gradient(90deg,transparent,#fff 50%,transparent) no-repeat;background-size:22% 100%;animation:crrun 2.6s linear infinite}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav{display:grid!important;grid-template-columns:repeat(4,1fr)!important;overflow:visible!important;margin:0 0 22px!important;padding:0!important;gap:8px}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav::before{display:block!important;left:12.5%!important;right:12.5%!important;top:29px!important;height:4px!important;background:rgba(255,255,255,.38)!important;z-index:0}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav i.fill{display:block!important;left:12.5%!important;top:29px!important;height:4px!important;z-index:0;box-shadow:0 0 14px rgba(255,255,255,.9)}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav::after{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;height:8px;border-radius:8px;z-index:0;pointer-events:none;background:linear-gradient(90deg,transparent,#fff 50%,transparent) no-repeat;background-size:22% 100%;animation:crrun 2.6s linear infinite}
 @keyframes crrun{from{background-position:0 0}to{background-position:100% 0}}
-body.lp-page[data-landing="crm"] #metodo .sx-st{z-index:2}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-st{z-index:2}
 @media(max-width:767px){
- body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::before,body.lp-page[data-landing="crm"] #metodo .sx-steps__nav i.fill{top:24px!important;height:3px!important}
- body.lp-page[data-landing="crm"] #metodo .sx-steps__nav::after{top:22px;height:7px}
- body.lp-page[data-landing="crm"] #metodo .sx-st span{font-size:10.5px}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav::before,body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav i.fill{top:24px!important;height:3px!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav::after{top:22px;height:7px}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-st span{font-size:10.5px}
  .cr-cost__in{padding:14px}.cr-opts{gap:6px;margin:8px 0 10px}.cr-opt{padding:7px 4px;border-radius:12px;gap:2px}.cr-opt__l{height:20px}.cr-lgo{height:17px}.wm{font-size:16px}.cr-cost .cr-opt b{font-size:9.5px}.cr-cost .cr-opt small{display:none}.cr-bar__h .cr-lgo{height:18px}.cr-bar--s .cr-lgo--sh{height:18px}.cr-bar__h{min-height:20px}
  .cr-cost__out{gap:8px}
 }
 /* hero centrado y botones discretos */
-body.lp-page[data-landing="crm"] .lp-hero__grid{justify-items:center}
-body.lp-page[data-landing="crm"] .lp-hero__copy{margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;max-width:860px}
-body.lp-page[data-landing="crm"] .lp-hero .display{text-wrap:balance}
-body.lp-page[data-landing="crm"] .lp-hero__lead{margin-inline:auto;text-wrap:balance;text-align:center;max-width:54ch}
-body.lp-page[data-landing="crm"] .hero__actions{display:flex;justify-content:center;width:100%}
-body.lp-page[data-landing="crm"] .btn--primary{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
-body.lp-page[data-landing="crm"] .btn--primary:hover{background:rgba(255,255,255,.26)!important}
-body.lp-page[data-landing="crm"] #diagnostico .btn--primary{background:#161411!important;border-color:#161411!important}
-body.lp-page[data-landing="crm"] #diagnostico .btn--primary:hover{background:#2c2824!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__grid{justify-items:center}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__copy{margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center;max-width:860px}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero .display{text-wrap:balance}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__lead{margin-inline:auto;text-wrap:balance;text-align:center;max-width:54ch}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions{display:flex;justify-content:center;width:100%}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .btn--primary{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .btn--primary:hover{background:rgba(255,255,255,.26)!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico .btn--primary{background:#161411!important;border-color:#161411!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico .btn--primary:hover{background:#2c2824!important}
 /* encaje y snap */
-html:has(body[data-landing="crm"]){scroll-snap-type:y proximity}
-body[data-landing="crm"] main>section{scroll-snap-align:start}
-html body.lp-page[data-landing="crm"] .lp-hero a.btn.btn--primary,html body.lp-page[data-landing="crm"] a.lp-nav__cta{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
-html body.lp-page[data-landing="crm"] .lp-hero a.btn.btn--primary:hover,html body.lp-page[data-landing="crm"] a.lp-nav__cta:hover{background:rgba(255,255,255,.28)!important}
-html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
+html:has(body:is([data-landing="crm"],[data-landing="chatbot"])){scroll-snap-type:y proximity}
+body:is([data-landing="crm"],[data-landing="chatbot"]) main>section{scroll-snap-align:start}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero a.btn.btn--primary,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.lp-nav__cta{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero a.btn.btn--primary:hover,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.lp-nav__cta:hover{background:rgba(255,255,255,.28)!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
 .cr-opt img[src*="zoho"]{height:26px}.cr-bar--s .cr-lgo--sh{height:32px}
-html body.lp-page[data-landing="crm"] a.btn.btn--primary.lp-nav__cta[href*="wa.me"]{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.btn.btn--primary.lp-nav__cta[href*="wa.me"]{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.6)!important;box-shadow:none!important;backdrop-filter:blur(6px)}
 @media(max-width:767px){.cr-bar__h{flex-direction:column;align-items:flex-start;gap:3px}.cr-bar--s strong{font-size:1.05rem}.cr-bar small{font-size:9.5px}}
 
 /* ===== v4 ===== */
 /* hero: texto a la izquierda, botón al centro del bloque de texto */
 @media(min-width:768px){
- body.lp-page[data-landing="crm"] .lp-hero__grid{justify-items:start}
- body.lp-page[data-landing="crm"] .lp-hero__copy{margin-inline:0;text-align:left;align-items:stretch;width:fit-content;max-width:min(880px,100%)}
- body.lp-page[data-landing="crm"] .lp-hero__lead{margin-inline:0;text-align:left;max-width:none}
- body.lp-page[data-landing="crm"] .lp-hero .display{text-align:left}
- body.lp-page[data-landing="crm"] .hero__tag{align-self:flex-start}
- body.lp-page[data-landing="crm"] .hero__actions{justify-content:center;width:100%;margin-top:28px}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__grid{justify-items:start}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__copy{margin-inline:0;text-align:left;align-items:stretch;width:fit-content;max-width:min(880px,100%)}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__lead{margin-inline:0;text-align:left;max-width:none}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero .display{text-align:left}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__tag{align-self:flex-start}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions{justify-content:center;width:100%;margin-top:28px}
 }
 /* indicadores */
 .cr-imp{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.8vw,22px)}
@@ -325,8 +325,8 @@ html body.lp-page[data-landing="crm"] a.btn.btn--primary.lp-nav__cta[href*="wa.m
 @keyframes crshake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
 @media(max-width:767px){.cr-save{font-size:10.5px;padding:4px 10px}}
 @media(prefers-reduced-motion:reduce){.cr-imp__c{opacity:1;transform:none;animation:none!important}.cr-imp__bar{transform:none;animation:none!important}}
-html body.lp-page[data-landing="crm"] .cr-imp .cr-imp__c--hot.sx-panel{background-color:#C46B3C!important;background-image:linear-gradient(135deg,#D4825A,#C46B3C)!important;backdrop-filter:none!important;border-color:transparent!important}
-html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp .cr-imp__c--hot.sx-panel{background-color:#C46B3C!important;background-image:linear-gradient(135deg,#D4825A,#C46B3C)!important;backdrop-filter:none!important;border-color:transparent!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
 
 /* ===== v5: tarjetas centradas y sutiles, card Steid limpia, hero ===== */
 .cr-imp__c{align-items:center;text-align:center;gap:6px;transition:transform .35s,box-shadow .35s}
@@ -352,77 +352,77 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:
 .cr-bar--s .cr-lgo--sh{height:24px;opacity:.95}
 .cr-bar--s{gap:10px}
 /* hero: botón al centro del título */
-@media(min-width:768px){body.lp-page[data-landing="crm"] .lp-hero__lead{width:0;min-width:100%}}
+@media(min-width:768px){body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero__lead{width:0;min-width:100%}}
 /* v6: hero botón a la izquierda */
-html body.lp-page[data-landing="crm"] .hero__actions{justify-content:flex-start!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions{justify-content:flex-start!important}
 /* v7: CTA destacado y disclaimer centrado */
 #resultados .cr-imp__cta{display:flex;justify-content:center}
-html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:18px 44px!important;font-size:17px!important;box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)!important;animation:crpulse 2.6s ease-in-out infinite}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary{padding:18px 44px!important;font-size:17px!important;box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)!important;animation:crpulse 2.6s ease-in-out infinite}
 @keyframes crpulse{0%,100%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)}50%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 14px rgba(196,107,60,.06)}}
 #resultados .sx-disc{text-align:center!important;margin-left:auto;margin-right:auto}
-@media(max-width:767px){html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:14px 30px!important;font-size:15px!important}}
+@media(max-width:767px){html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary{padding:14px 30px!important;font-size:15px!important}}
 .cr-bar--s em{line-height:1.4;max-width:46ch}
 #costos .sx-disc{max-width:min(100%,860px)}@media(max-width:767px){#costos .sx-disc{max-width:calc(100% - 60px)}}
 
 /* ===== v8: UX móvil ===== */
 @media(max-width:900px){
- body.lp-page[data-landing="crm"] .wa__label{display:none!important}
- body.lp-page[data-landing="crm"] .wa__btn{padding:9px!important;gap:0!important}
- body.lp-page[data-landing="crm"] .wa__dot{top:0;right:0}
- body.lp-page[data-landing="crm"] .wa{right:14px}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .wa__label{display:none!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .wa__btn{padding:9px!important;gap:0!important}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .wa__dot{top:0;right:0}
+ body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .wa{right:14px}
 }
 @media(max-width:767px){
  /* jerarquía: títulos 600, cuerpo 400 */
- html body.lp-page[data-landing="crm"] .cr-bc h3,html body.lp-page[data-landing="crm"] .cr-bot__pts b,html body.lp-page[data-landing="crm"] .dx-pts b{font-weight:600!important}
- html body.lp-page[data-landing="crm"] .cr-bc p,html body.lp-page[data-landing="crm"] .cr-bot__pts span,html body.lp-page[data-landing="crm"] .dx-pts span{font-weight:400!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bc h3,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bot__pts b,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .dx-pts b{font-weight:600!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bc p,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bot__pts span,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .dx-pts span{font-weight:400!important}
  /* recorrido: columnas del embudo aprovechan la altura */
- html body.lp-page[data-landing="crm"] .cr-col{min-height:clamp(170px,30dvh,300px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-col{min-height:clamp(170px,30dvh,300px)!important}
  /* chatbot: tarjeta de chat a lo ancho, sin marco de teléfono */
- html body.lp-page[data-landing="crm"] .cr-phone{width:100%!important;border:0!important;border-radius:20px!important;box-shadow:0 18px 44px rgba(70,30,10,.35)!important}
- html body.lp-page[data-landing="crm"] .cr-phone__body{min-height:clamp(220px,34dvh,340px)!important;padding:14px!important;gap:10px!important}
- html body.lp-page[data-landing="crm"] .cr-bub{font-size:12.5px!important;max-width:82%}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-phone{width:100%!important;border:0!important;border-radius:20px!important;box-shadow:0 18px 44px rgba(70,30,10,.35)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-phone__body{min-height:clamp(220px,34dvh,340px)!important;padding:14px!important;gap:10px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bub{font-size:12.5px!important;max-width:82%}
  /* costos: resultados apilados, jerarquía clara */
- html body.lp-page[data-landing="crm"] .cr-cost__out{grid-template-columns:1fr!important;grid-template-rows:auto auto!important;gap:12px!important}
- html body.lp-page[data-landing="crm"] .cr-bar{padding:16px 18px!important;gap:8px!important;align-items:flex-start;text-align:left}
- html body.lp-page[data-landing="crm"] .cr-bar__h{flex-direction:row!important;align-items:center!important;width:100%}
- html body.lp-page[data-landing="crm"] .cr-bar small{font-size:10.5px!important;font-weight:500!important}
- html body.lp-page[data-landing="crm"] .cr-bar strong{font-size:1.9rem!important;font-weight:600!important}
- html body.lp-page[data-landing="crm"] .cr-bar--s strong{font-weight:700!important;font-size:1.7rem!important}
- html body.lp-page[data-landing="crm"] .cr-bar em,html body.lp-page[data-landing="crm"] .cr-bar--s em{font-size:11.5px!important;line-height:1.45}
- html body.lp-page[data-landing="crm"] .cr-bar__t{width:100%}
- html body.lp-page[data-landing="crm"] .cr-cost .cr-opt b{font-weight:600!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-cost__out{grid-template-columns:1fr!important;grid-template-rows:auto auto!important;gap:12px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar{padding:16px 18px!important;gap:8px!important;align-items:flex-start;text-align:left}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar__h{flex-direction:row!important;align-items:center!important;width:100%}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar small{font-size:10.5px!important;font-weight:500!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar strong{font-size:1.9rem!important;font-weight:600!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s strong{font-weight:700!important;font-size:1.7rem!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar em,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s em{font-size:11.5px!important;line-height:1.45}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar__t{width:100%}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-cost .cr-opt b{font-weight:600!important}
  /* método: usa el alto disponible */
- html body.lp-page[data-landing="crm"] #metodo .sx-stp{padding:clamp(18px,3.4dvh,30px) 18px!important}
- html body.lp-page[data-landing="crm"] #metodo .sx-steps{gap:clamp(22px,5dvh,48px)!important}
- html body.lp-page[data-landing="crm"] #metodo .sx-stp h3{font-weight:600!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp{padding:clamp(18px,3.4dvh,30px) 18px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps{gap:clamp(22px,5dvh,48px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp h3{font-weight:600!important}
  /* resultados: filas a lo ancho, alineadas */
- html body.lp-page[data-landing="crm"] .cr-imp{grid-template-columns:1fr!important;gap:10px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c{display:grid!important;grid-template-columns:48px 1fr;grid-template-areas:"i n" "i h" "i p";column-gap:14px;row-gap:1px;align-items:center!important;text-align:left!important;padding:12px 16px!important;min-height:0}
- html body.lp-page[data-landing="crm"] .cr-imp__i{grid-area:i;margin:0!important;width:46px!important;height:46px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n{grid-area:n;font-size:1.55rem!important;font-weight:600!important;justify-self:start;line-height:1.1}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3{grid-area:h;font-size:13.5px!important;font-weight:600!important;margin:0!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c p{grid-area:p;font-size:12px!important;max-width:none!important;margin:0!important;text-align:left}
- html body.lp-page[data-landing="crm"] .cr-imp__bar{display:none!important}
- html body.lp-page[data-landing="crm"] #resultados .cr-imp__cta{margin-top:6px}
- html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{width:100%;max-width:340px;justify-content:center}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp{grid-template-columns:1fr!important;gap:10px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{display:grid!important;grid-template-columns:48px 1fr;grid-template-areas:"i n" "i h" "i p";column-gap:14px;row-gap:1px;align-items:center!important;text-align:left!important;padding:12px 16px!important;min-height:0}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__i{grid-area:i;margin:0!important;width:46px!important;height:46px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n{grid-area:n;font-size:1.55rem!important;font-weight:600!important;justify-self:start;line-height:1.1}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3{grid-area:h;font-size:13.5px!important;font-weight:600!important;margin:0!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c p{grid-area:p;font-size:12px!important;max-width:none!important;margin:0!important;text-align:left}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__bar{display:none!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .cr-imp__cta{margin-top:6px}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary{width:100%;max-width:340px;justify-content:center}
  /* integraciones */
- html body.lp-page[data-landing="crm"] .cr-hub{gap:clamp(14px,3dvh,28px)!important}
- html body.lp-page[data-landing="crm"] .cr-hub__core{max-width:clamp(110px,18dvh,170px)!important}
- html body.lp-page[data-landing="crm"] .cr-int{padding:clamp(12px,2.2dvh,20px) 14px!important;min-height:0}
- html body.lp-page[data-landing="crm"] .cr-int b{font-weight:600!important;font-size:13px!important}
- html body.lp-page[data-landing="crm"] .cr-hub__ring{gap:clamp(8px,1.6dvh,14px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub{gap:clamp(14px,3dvh,28px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub__core{max-width:clamp(110px,18dvh,170px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int{padding:clamp(12px,2.2dvh,20px) 14px!important;min-height:0}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int b{font-weight:600!important;font-size:13px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub__ring{gap:clamp(8px,1.6dvh,14px)!important}
  /* diagnóstico: distribución y CTA protagonista */
- html body.lp-page[data-landing="crm"] #diagnostico .lp-cta{display:flex;flex-direction:column;gap:clamp(14px,3dvh,26px);padding:clamp(22px,4dvh,36px) 20px}
- html body.lp-page[data-landing="crm"] #diagnostico .dx-pts{gap:clamp(8px,1.6dvh,14px)}
- html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary{background:#fff!important;color:#161411!important;font-size:16px!important;font-weight:600!important;padding:18px 24px!important;width:100%;justify-content:center;box-shadow:0 16px 36px rgba(0,0,0,.3),0 0 0 6px rgba(255,255,255,.22)!important;animation:crpulse 2.6s ease-in-out infinite}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico .lp-cta{display:flex;flex-direction:column;gap:clamp(14px,3dvh,26px);padding:clamp(22px,4dvh,36px) 20px}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico .dx-pts{gap:clamp(8px,1.6dvh,14px)}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico a.btn.btn--primary{background:#fff!important;color:#161411!important;font-size:16px!important;font-weight:600!important;padding:18px 24px!important;width:100%;justify-content:center;box-shadow:0 16px 36px rgba(0,0,0,.3),0 0 0 6px rgba(255,255,255,.22)!important;animation:crpulse 2.6s ease-in-out infinite}
 }
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .cr-phone__body{min-height:clamp(190px,27dvh,280px)!important}
- html body.lp-page[data-landing="crm"] #metodo .sx-stp{min-height:clamp(150px,25dvh,250px);align-items:center}
- html body.lp-page[data-landing="crm"] #metodo .sx-stp h3{font-size:clamp(18px,2.6dvh,22px)!important}
- html body.lp-page[data-landing="crm"] #metodo .sx-stp p{font-size:clamp(13px,1.8dvh,15px)!important;line-height:1.5}
- html body.lp-page[data-landing="crm"] #metodo .sx-stp__n{width:clamp(56px,8dvh,76px)!important;height:clamp(56px,8dvh,76px)!important;font-size:clamp(22px,3.2dvh,30px)!important}
- html body.lp-page[data-landing="crm"] #metodo .sx-steps__nav{margin-block:clamp(4px,2dvh,24px)}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-phone__body{min-height:clamp(190px,27dvh,280px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp{min-height:clamp(150px,25dvh,250px);align-items:center}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp h3{font-size:clamp(18px,2.6dvh,22px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp p{font-size:clamp(13px,1.8dvh,15px)!important;line-height:1.5}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-stp__n{width:clamp(56px,8dvh,76px)!important;height:clamp(56px,8dvh,76px)!important;font-size:clamp(22px,3.2dvh,30px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps__nav{margin-block:clamp(4px,2dvh,24px)}
 }
 /* v9: CRM destacado en hero y sección "qué es" */
 .cr-hl{display:inline-block;background:linear-gradient(135deg,#D4825A,#C46B3C);color:#fff;padding:0 .22em;border-radius:.18em;line-height:1.05;box-shadow:0 8px 24px rgba(196,107,60,.45)}
@@ -435,7 +435,7 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:18p
 #que-es .lead{max-width:60ch}
 @media(max-width:767px){.cr-what{grid-template-columns:1fr;gap:10px}.cr-what .sx-panel{display:grid;grid-template-columns:48px 1fr;grid-template-areas:"i h" "i p";column-gap:14px;text-align:left;align-items:center;padding:14px 16px}.cr-what .cr-imp__i{grid-area:i}.cr-what h3{grid-area:h;font-size:14px}.cr-what p{grid-area:p;font-size:12px;max-width:none}#que-es .lead{font-size:14px}}
 /* v10: nota Steid a todo el ancho y franja a medida */
-html body.lp-page[data-landing="crm"] .cr-bar--s em{max-width:none!important;width:100%;text-align:justify;text-justify:inter-word}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s em{max-width:none!important;width:100%;text-align:justify;text-justify:inter-word}
 .cr-made{margin-top:clamp(14px,2.4dvh,24px);display:flex;align-items:center;justify-content:space-between;gap:clamp(14px,2vw,28px);background:#161411;color:#fff;border-radius:22px;padding:clamp(14px,2.4dvh,22px) clamp(18px,2.4vw,30px)}
 .cr-made__t{display:grid;gap:3px;flex:0 1 38%}
 .cr-made__t b{font-size:clamp(17px,1.7vw,21px);font-weight:600;color:#fff}
@@ -443,16 +443,16 @@ html body.lp-page[data-landing="crm"] .cr-bar--s em{max-width:none!important;wid
 .cr-made ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;flex:1;justify-content:flex-end}
 .cr-made li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:99px;padding:8px 14px;font-size:13px;font-weight:500}
 @media(max-width:767px){.cr-made{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 16px}.cr-made__t{flex:none}.cr-made ul{justify-content:flex-start;gap:6px}.cr-made li{font-size:11.5px;padding:6px 11px}}
-html body.lp-page[data-landing="crm"] .cr-made .cr-made__t b{color:#fff!important}
-html body.lp-page[data-landing="crm"] .cr-made .cr-made__t span{color:rgba(255,255,255,.8)!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made .cr-made__t b{color:#fff!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made .cr-made__t span{color:rgba(255,255,255,.8)!important}
 @media(min-width:768px){.cr-made ul{flex-wrap:nowrap}.cr-made li{white-space:nowrap}.cr-made__t{flex:0 0 auto;max-width:30%}}
 
 /* ===== v11: avisos pequeños, pasos en tarjetas (móvil), indicadores en línea, CTAs animados ===== */
-html body.lp-page[data-landing="crm"] .sx-disc{font-size:10px!important;line-height:1.35!important;opacity:.8}
-@media(min-width:768px){html body.lp-page[data-landing="crm"] .sx-disc{font-size:10.5px!important}}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .sx-disc{font-size:10px!important;line-height:1.35!important;opacity:.8}
+@media(min-width:768px){html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .sx-disc{font-size:10.5px!important}}
 .cr-stl{display:none}
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] #metodo .sx-steps{display:none!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .sx-steps{display:none!important}
  .cr-stl{display:grid;list-style:none;margin:0;padding:0;gap:clamp(10px,2dvh,18px);position:relative}
  .cr-stl::before{content:"";position:absolute;left:29px;top:30px;bottom:30px;width:3px;border-radius:3px;background:rgba(255,255,255,.3);z-index:0}
  .cr-stl li{position:relative;z-index:1;display:grid;grid-template-columns:58px 1fr;gap:14px;align-items:center;background:#fff;border-radius:20px;padding:clamp(12px,2dvh,18px) 14px;box-shadow:0 14px 30px rgba(70,30,10,.25);opacity:0;transform:translateY(26px) scale(.96)}
@@ -465,32 +465,32 @@ html body.lp-page[data-landing="crm"] .sx-disc{font-size:10px!important;line-hei
  .cr-stl h3{margin:0 0 3px;font-size:clamp(15px,2.3dvh,18px);font-weight:600;color:#161411!important;line-height:1.25}
  .cr-stl p{margin:0;font-size:clamp(12px,1.75dvh,14px);font-weight:400;line-height:1.45;color:#4a4540!important}
  /* resultados: número y título en la misma línea */
- html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:48px auto 1fr!important;grid-template-areas:"i n h" "i p p"!important;column-gap:10px!important;row-gap:3px!important;align-items:center!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n{font-size:1.45rem!important;white-space:nowrap}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3{line-height:1.2!important}
- html body.lp-page[data-landing="crm"] #resultados .cr-imp__cta{margin-top:clamp(14px,3dvh,26px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{grid-template-columns:48px auto 1fr!important;grid-template-areas:"i n h" "i p p"!important;column-gap:10px!important;row-gap:3px!important;align-items:center!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n{font-size:1.45rem!important;white-space:nowrap}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3{line-height:1.2!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .cr-imp__cta{margin-top:clamp(14px,3dvh,26px)!important}
 }
 /* CTAs: más llamativos y animados */
 @keyframes crshine{0%{transform:translateX(-130%) skewX(-20deg)}55%,100%{transform:translateX(230%) skewX(-20deg)}}
 @keyframes crbtn{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.035)}}
 @keyframes crhalo{0%,100%{box-shadow:0 14px 34px rgba(196,107,60,.5),0 0 0 5px rgba(196,107,60,.22)}50%{box-shadow:0 18px 40px rgba(196,107,60,.6),0 0 0 15px rgba(196,107,60,.06)}}
 @keyframes crhalow{0%,100%{box-shadow:0 14px 34px rgba(0,0,0,.3),0 0 0 5px rgba(255,255,255,.28)}50%{box-shadow:0 18px 40px rgba(0,0,0,.35),0 0 0 15px rgba(255,255,255,.06)}}
-html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:linear-gradient(135deg,#E08B5E,#C46B3C)!important;color:#fff!important;border:0!important;position:relative;overflow:hidden;font-weight:600!important;animation:crbtn 2.2s ease-in-out infinite,crhalo 2.2s ease-in-out infinite!important}
-html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary{position:relative;overflow:hidden;animation:crbtn 2.2s ease-in-out infinite,crhalow 2.2s ease-in-out infinite!important}
-html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary::after,html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary::after,html body.lp-page[data-landing="crm"] a.btn.lp-nav__cta::after,html body.lp-page[data-landing="crm"] .hero__actions a.btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:crshine 3.2s ease-in-out infinite;pointer-events:none}
-html body.lp-page[data-landing="crm"] #diagnostico a.btn.btn--primary::after{background:linear-gradient(90deg,transparent,rgba(196,107,60,.35),transparent)}
-html body.lp-page[data-landing="crm"] a.btn.lp-nav__cta,html body.lp-page[data-landing="crm"] .hero__actions a.btn{position:relative;overflow:hidden}
-@media(prefers-reduced-motion:reduce){html body.lp-page[data-landing="crm"] a.btn{animation:none!important}html body.lp-page[data-landing="crm"] a.btn::after{display:none}.cr-stl li{opacity:1;transform:none;animation:none!important}}
-html body.lp-page[data-landing="crm"] #metodo .cr-stl li h3{color:#161411!important}
-html body.lp-page[data-landing="crm"] #metodo .cr-stl li p,html body.lp-page[data-landing="crm"] #metodo .cr-stl li small{color:#4a4540!important}
-html body.lp-page[data-landing="crm"] #metodo .cr-stl li .cr-stl__n svg{stroke:#fff!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary{background:linear-gradient(135deg,#E08B5E,#C46B3C)!important;color:#fff!important;border:0!important;position:relative;overflow:hidden;font-weight:600!important;animation:crbtn 2.2s ease-in-out infinite,crhalo 2.2s ease-in-out infinite!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico a.btn.btn--primary{position:relative;overflow:hidden;animation:crbtn 2.2s ease-in-out infinite,crhalow 2.2s ease-in-out infinite!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados a.btn.btn--primary::after,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico a.btn.btn--primary::after,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.btn.lp-nav__cta::after,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions a.btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:crshine 3.2s ease-in-out infinite;pointer-events:none}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #diagnostico a.btn.btn--primary::after{background:linear-gradient(90deg,transparent,rgba(196,107,60,.35),transparent)}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.btn.lp-nav__cta,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions a.btn{position:relative;overflow:hidden}
+@media(prefers-reduced-motion:reduce){html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.btn{animation:none!important}html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) a.btn::after{display:none}.cr-stl li{opacity:1;transform:none;animation:none!important}}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .cr-stl li h3{color:#161411!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .cr-stl li p,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .cr-stl li small{color:#4a4540!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #metodo .cr-stl li .cr-stl__n svg{stroke:#fff!important}
 @media(min-width:768px){#resultados .cr-imp__cta{margin-top:clamp(18px,3dvh,32px)!important}}
 
 /* ===== v12 ===== */
-html body.lp-page[data-landing="crm"] .sx-disc{font-size:9.5px!important;line-height:1.35!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .sx-disc{font-size:9.5px!important;line-height:1.35!important}
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .sx-disc{text-align:justify!important;text-justify:inter-word;font-size:9px!important;padding-right:56px}
- html body.lp-page[data-landing="crm"] #resultados .sx-disc{text-align:center!important;padding-right:0}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .sx-disc{text-align:justify!important;text-justify:inter-word;font-size:9px!important;padding-right:56px}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .sx-disc{text-align:center!important;padding-right:0}
  /* pasos: lectura 1→4 */
  .cr-stl li{transform:translateX(-34px) scale(.96)}
  .sx-on .cr-stl li,.cr-stl.sx-on li{animation:crstep .7s cubic-bezier(.2,1,.3,1) forwards,crfocus 9.6s ease-in-out infinite;animation-delay:calc(var(--d)*.55s + .2s),calc(var(--d)*2.4s + 3.2s)}
@@ -501,95 +501,101 @@ html body.lp-page[data-landing="crm"] .sx-disc{font-size:9.5px!important;line-he
  .cr-stl__n{font-size:0}
  .cr-stl__n::before{content:attr(data-n);position:absolute;right:-6px;top:-6px;width:20px;height:20px;border-radius:50%;background:#161411;color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center;line-height:1}
  /* resultados: tarjetas grandes */
- html body.lp-page[data-landing="crm"] .cr-imp{gap:12px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px auto 1fr!important;column-gap:12px!important;padding:clamp(14px,2.2dvh,20px) 16px!important;min-height:clamp(84px,11.5dvh,112px);border-radius:20px!important;align-content:center}
- html body.lp-page[data-landing="crm"] .cr-imp__i{width:58px!important;height:58px!important;border-radius:18px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n{font-size:1.75rem!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3{font-size:14.5px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c p{font-size:12.5px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp{gap:12px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{grid-template-columns:58px auto 1fr!important;column-gap:12px!important;padding:clamp(14px,2.2dvh,20px) 16px!important;min-height:clamp(84px,11.5dvh,112px);border-radius:20px!important;align-content:center}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__i{width:58px!important;height:58px!important;border-radius:18px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n{font-size:1.75rem!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3{font-size:14.5px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c p{font-size:12.5px!important}
  /* tarjeta 0 mensualidad en tinta para no confundirse con el CTA */
- html body.lp-page[data-landing="crm"] .cr-imp .cr-imp__c--hot.sx-panel{background-color:#161411!important;background-image:linear-gradient(135deg,#2a2622,#161411)!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c--hot .cr-imp__i{background:linear-gradient(135deg,#E08B5E,#C46B3C)!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c--hot .cr-imp__i svg{stroke:#fff!important}
- html body.lp-page[data-landing="crm"] #resultados .cr-imp__cta{margin-top:clamp(18px,3.4dvh,30px)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp .cr-imp__c--hot.sx-panel{background-color:#161411!important;background-image:linear-gradient(135deg,#2a2622,#161411)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot .cr-imp__i{background:linear-gradient(135deg,#E08B5E,#C46B3C)!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot .cr-imp__i svg{stroke:#fff!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #resultados .cr-imp__cta{margin-top:clamp(18px,3.4dvh,30px)!important}
 }
 
 /* ===== v13 ===== */
 /* avisos a todo el ancho */
-html body.lp-page[data-landing="crm"] #costos .sx-disc,html body.lp-page[data-landing="crm"] .sx-disc{max-width:none!important;width:100%}
-@media(max-width:767px){html body.lp-page[data-landing="crm"] #costos .sx-disc{padding-right:0!important;font-size:9.5px!important}}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #costos .sx-disc,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .sx-disc{max-width:none!important;width:100%}
+@media(max-width:767px){html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) #costos .sx-disc{padding-right:0!important;font-size:9.5px!important}}
 /* franja a medida: naranja, animada */
-html body.lp-page[data-landing="crm"] .cr-made{background:linear-gradient(120deg,#E08B5E,#C46B3C 55%,#B2582A)!important;position:relative;overflow:hidden;box-shadow:0 18px 44px rgba(196,107,60,.45);animation:crhalo 2.8s ease-in-out infinite}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made{background:linear-gradient(120deg,#E08B5E,#C46B3C 55%,#B2582A)!important;position:relative;overflow:hidden;box-shadow:0 18px 44px rgba(196,107,60,.45);animation:crhalo 2.8s ease-in-out infinite}
 .cr-made::after{content:"";position:absolute;top:0;bottom:0;left:0;width:34%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);animation:crshine 3.6s ease-in-out infinite;pointer-events:none}
-html body.lp-page[data-landing="crm"] .cr-made .cr-made__t b{font-size:clamp(19px,2vw,26px)!important;font-weight:700!important}
-html body.lp-page[data-landing="crm"] .cr-made li{background:#fff!important;color:#161411!important;border:0!important;font-weight:500;box-shadow:0 8px 18px rgba(80,30,10,.25);animation:crfloat 3s ease-in-out infinite;animation-delay:calc(var(--d)*.4s)}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made .cr-made__t b{font-size:clamp(19px,2vw,26px)!important;font-weight:700!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made li{background:#fff!important;color:#161411!important;border:0!important;font-weight:500;box-shadow:0 8px 18px rgba(80,30,10,.25);animation:crfloat 3s ease-in-out infinite;animation-delay:calc(var(--d)*.4s)}
 @keyframes crfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @media(prefers-reduced-motion:reduce){.cr-made,.cr-made li{animation:none!important}.cr-made::after{display:none}}
 @media(max-width:767px){
  /* hero: botón centrado y más delgado */
- html body.lp-page[data-landing="crm"] .hero__actions{justify-content:center!important}
- html body.lp-page[data-landing="crm"] .hero__actions a.btn{width:auto!important;min-width:190px;padding:12px 34px!important;font-size:14.5px!important;min-height:0!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions{justify-content:center!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .hero__actions a.btn{width:auto!important;min-width:190px;padding:12px 34px!important;font-size:14.5px!important;min-height:0!important}
  /* ¿qué es?: tarjetas con más aire */
  .cr-what .sx-panel{grid-template-columns:54px 1fr!important;column-gap:16px!important;padding:16px 18px!important}
  .cr-what .cr-imp__i{width:54px!important;height:54px!important;border-radius:16px!important;margin:0!important;justify-self:start}
  .cr-what h3{font-size:15.5px!important}
  .cr-what p{font-size:13px!important;line-height:1.5!important}
  /* costos: card Steid limpia */
- html body.lp-page[data-landing="crm"] .cr-bar--s .cr-bar__t{display:none!important}
- html body.lp-page[data-landing="crm"] .cr-bar--s em{font-size:11.5px!important;line-height:1.5;text-align:left!important}
- html body.lp-page[data-landing="crm"] .cr-bar--s .cr-lgo--sh{height:20px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s .cr-bar__t{display:none!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s em{font-size:11.5px!important;line-height:1.5;text-align:left!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-bar--s .cr-lgo--sh{height:20px!important}
  /* resultados: números alineados en columna */
- html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px 92px 1fr!important;grid-template-areas:"i n h" "i p p"!important;column-gap:12px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n{justify-self:start;text-align:left;font-size:1.7rem!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3{text-align:left!important;line-height:1.25!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c p{text-align:left!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{grid-template-columns:58px 92px 1fr!important;grid-template-areas:"i n h" "i p p"!important;column-gap:12px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n{justify-self:start;text-align:left;font-size:1.7rem!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3{text-align:left!important;line-height:1.25!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c p{text-align:left!important}
  /* sin recuadro negro: tarjeta blanca con icono naranja */
- html body.lp-page[data-landing="crm"] .cr-imp .cr-imp__c--hot.sx-panel{background-color:#fff!important;background-image:none!important;border:2px solid #C46B3C!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c--hot .cr-imp__n,html body.lp-page[data-landing="crm"] .cr-imp__c--hot h3{color:#161411!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c--hot p{color:#4a4540!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c--hot *{color:inherit}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp .cr-imp__c--hot.sx-panel{background-color:#fff!important;background-image:none!important;border:2px solid #C46B3C!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot .cr-imp__n,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot h3{color:#161411!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot p{color:#4a4540!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c--hot *{color:inherit}
 }
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px 74px 1fr!important;column-gap:10px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n{font-size:1.5rem!important}
- html body.lp-page[data-landing="crm"] .cr-imp__n small{font-size:.55em}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3{font-size:14px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{grid-template-columns:58px 74px 1fr!important;column-gap:10px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n{font-size:1.5rem!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n small{font-size:.55em}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3{font-size:14px!important}
 }
 
 /* ===== v14 ===== */
 .cr-made::after{display:none!important}
 .cr-imp__t{display:none}
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .cr-imp__n,html body.lp-page[data-landing="crm"] .cr-imp__c h3:not(.cr-imp__t){display:none!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px 1fr!important;grid-template-areas:"i t" "i p"!important;column-gap:14px!important;row-gap:3px!important}
- html body.lp-page[data-landing="crm"] .cr-imp__c h3.cr-imp__t{display:block!important;grid-area:t;margin:0!important;font-size:16px!important;font-weight:600!important;line-height:1.25!important;text-align:left!important;color:#161411}
- html body.lp-page[data-landing="crm"] .cr-imp__c p{grid-area:p;font-size:12.5px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__n,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3:not(.cr-imp__t){display:none!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c{grid-template-columns:58px 1fr!important;grid-template-areas:"i t" "i p"!important;column-gap:14px!important;row-gap:3px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c h3.cr-imp__t{display:block!important;grid-area:t;margin:0!important;font-size:16px!important;font-weight:600!important;line-height:1.25!important;text-align:left!important;color:#161411}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-imp__c p{grid-area:p;font-size:12.5px!important}
 }
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .cr-made ul{width:100%;flex-direction:column;flex-wrap:nowrap;gap:8px}
- html body.lp-page[data-landing="crm"] .cr-made li{width:100%;text-align:left;border-radius:14px!important;padding:10px 14px 10px 38px!important;font-size:13px!important;position:relative}
- html body.lp-page[data-landing="crm"] .cr-made li::before{content:"";position:absolute;left:14px;top:50%;width:12px;height:7px;margin-top:-6px;border-left:2.5px solid #C46B3C;border-bottom:2.5px solid #C46B3C;transform:rotate(-45deg)}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made ul{width:100%;flex-direction:column;flex-wrap:nowrap;gap:8px}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made li{width:100%;text-align:left;border-radius:14px!important;padding:10px 14px 10px 38px!important;font-size:13px!important;position:relative}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-made li::before{content:"";position:absolute;left:14px;top:50%;width:12px;height:7px;margin-top:-6px;border-left:2.5px solid #C46B3C;border-bottom:2.5px solid #C46B3C;transform:rotate(-45deg)}
 }
 
 /* ===== v15: chips sin negrita, integraciones en una línea ===== */
-html body.lp-page[data-landing="crm"] .cr-srcs b,html body.lp-page[data-landing="crm"] .cr-srcs i{font-weight:500!important}
-html body.lp-page[data-landing="crm"] .cr-srcs>span{font-weight:600}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-srcs b,html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-srcs i{font-weight:500!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-srcs>span{font-weight:600}
 @media(max-width:767px){
- html body.lp-page[data-landing="crm"] .cr-int{gap:10px!important;padding-inline:12px!important}
- html body.lp-page[data-landing="crm"] .cr-int b{white-space:nowrap;font-size:12.5px!important;font-weight:500!important;letter-spacing:-.01em}
- html body.lp-page[data-landing="crm"] .cr-int .lg{width:26px!important;height:26px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int{gap:10px!important;padding-inline:12px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int b{white-space:nowrap;font-size:12.5px!important;font-weight:500!important;letter-spacing:-.01em}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int .lg{width:26px!important;height:26px!important}
 }
-html body.lp-page[data-landing="crm"] .cr-hub__ring{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-html body.lp-page[data-landing="crm"] .cr-int{min-width:0}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-hub__ring{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int{min-width:0}
 @media(max-width:400px){
- html body.lp-page[data-landing="crm"] .cr-int{gap:8px!important;padding-inline:9px!important}
- html body.lp-page[data-landing="crm"] .cr-int b{font-size:11.5px!important;letter-spacing:-.015em}
- html body.lp-page[data-landing="crm"] .cr-int .lg{width:22px!important;height:22px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int{gap:8px!important;padding-inline:9px!important}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int b{font-size:11.5px!important;letter-spacing:-.015em}
+ html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int .lg{width:22px!important;height:22px!important}
 }
-@media(max-width:370px){html body.lp-page[data-landing="crm"] .cr-int b{font-size:10.5px!important}html body.lp-page[data-landing="crm"] .cr-int{gap:6px!important;padding-inline:8px!important}}
+@media(max-width:370px){html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int b{font-size:10.5px!important}html body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .cr-int{gap:6px!important;padding-inline:8px!important}}
 
 /* ===== v16: iPhone — sin imán de scroll y alto dinámico consistente ===== */
-html:has(body[data-landing="crm"]){scroll-snap-type:none!important}
-body[data-landing="crm"] main>section{scroll-snap-align:none!important}
-body.lp-page[data-landing="crm"] main>section:not(.lp-hero),body.lp-page[data-landing="crm"] section.lp-section{min-height:100vh;min-height:100dvh!important}
-body.lp-page[data-landing="crm"] .lp-hero{min-height:100vh;min-height:100dvh!important}
+html:has(body:is([data-landing="crm"],[data-landing="chatbot"])){scroll-snap-type:none!important}
+body:is([data-landing="crm"],[data-landing="chatbot"]) main>section{scroll-snap-align:none!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) main>section:not(.lp-hero),body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) section.lp-section{min-height:100vh;min-height:100dvh!important}
+body.lp-page:is([data-landing="crm"],[data-landing="chatbot"]) .lp-hero{min-height:100vh;min-height:100dvh!important}
+/* palabras clave en títulos */
+mark.hl{background:linear-gradient(transparent 58%,rgba(196,107,60,.32) 58%);color:inherit;padding:0 .1em;border-radius:3px;font-weight:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.sx-sec--or mark.hl,.lp-section--deep mark.hl{background:linear-gradient(transparent 58%,rgba(255,255,255,.4) 58%)}
+mark.hl.hl--x{background:linear-gradient(135deg,#D4825A,#C46B3C)!important;color:#fff!important;padding:.02em .28em .06em;border-radius:.28em;box-shadow:0 6px 18px rgba(196,107,60,.4);display:inline-block;transform:rotate(-1.5deg);animation:hlpulse 2.4s ease-in-out infinite}
+@keyframes hlpulse{0%,100%{box-shadow:0 6px 18px rgba(196,107,60,.4),0 0 0 0 rgba(196,107,60,.45)}50%{box-shadow:0 6px 18px rgba(196,107,60,.4),0 0 0 9px rgba(196,107,60,0)}}
+@media(prefers-reduced-motion:reduce){mark.hl.hl--x{animation:none}}

@@ -1,6 +1,6 @@
 /* Móvil: ajusta cada sección para que su contenido quepa exacto en una pantalla (zoom proporcional, mínimo .58). */
 (function(){
-  var crm=document.body.dataset.landing==='crm',mqm=matchMedia('(max-width:767px)'),mq={get matches(){return crm||mqm.matches}};
+  var crm=/^(crm|chatbot)$/.test(document.body.dataset.landing),mqm=matchMedia('(max-width:767px)'),mq={get matches(){return crm||mqm.matches}};
   var secs=[].slice.call(document.querySelectorAll('section.lp-section'));
   if(!secs.length) return;
   function fit(sec){
