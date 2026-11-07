@@ -599,3 +599,4 @@ mark.hl{background:linear-gradient(transparent 58%,rgba(196,107,60,.32) 58%);col
 mark.hl.hl--x{background:linear-gradient(135deg,#D4825A,#C46B3C)!important;color:#fff!important;padding:.02em .28em .06em;border-radius:.28em;box-shadow:0 6px 18px rgba(196,107,60,.4);display:inline-block;transform:rotate(-1.5deg);animation:hlpulse 2.4s ease-in-out infinite}
 @keyframes hlpulse{0%,100%{box-shadow:0 6px 18px rgba(196,107,60,.4),0 0 0 0 rgba(196,107,60,.45)}50%{box-shadow:0 6px 18px rgba(196,107,60,.4),0 0 0 9px rgba(196,107,60,0)}}
 @media(prefers-reduced-motion:reduce){mark.hl.hl--x{animation:none}}
+.sx-sec--or mark.hl,.lp-section--deep mark.hl,.lp-hero mark.hl{background:none!important;padding:0}
