@@ -361,3 +361,5 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:18p
 @keyframes crpulse{0%,100%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 6px rgba(196,107,60,.18)}50%{box-shadow:0 14px 34px rgba(22,20,17,.35),0 0 0 14px rgba(196,107,60,.06)}}
 #resultados .sx-disc{text-align:center!important;margin-left:auto;margin-right:auto}
 @media(max-width:767px){html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:14px 30px!important;font-size:15px!important}}
+.cr-bar--s em{line-height:1.4;max-width:46ch}
+#costos .sx-disc{max-width:min(100%,860px)}@media(max-width:767px){#costos .sx-disc{max-width:calc(100% - 60px)}}
