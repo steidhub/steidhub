@@ -424,3 +424,13 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{padding:18p
  html body.lp-page[data-landing="crm"] #metodo .sx-stp__n{width:clamp(56px,8dvh,76px)!important;height:clamp(56px,8dvh,76px)!important;font-size:clamp(22px,3.2dvh,30px)!important}
  html body.lp-page[data-landing="crm"] #metodo .sx-steps__nav{margin-block:clamp(4px,2dvh,24px)}
 }
+/* v9: CRM destacado en hero y sección "qué es" */
+.cr-hl{display:inline-block;background:linear-gradient(135deg,#D4825A,#C46B3C);color:#fff;padding:0 .22em;border-radius:.18em;line-height:1.05;box-shadow:0 8px 24px rgba(196,107,60,.45)}
+.cr-what{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,24px)}
+.cr-what .sx-panel{display:flex;flex-direction:column;gap:10px;padding:clamp(18px,3dvh,30px) clamp(16px,2vw,26px);background:#fff;border-radius:22px;text-align:center;align-items:center;transition:transform .35s}
+.cr-what .sx-panel:hover{transform:translateY(-6px)}
+.cr-what h3{margin:0;font-size:clamp(16px,1.5vw,19px);font-weight:600;color:#161411}
+.cr-what p{margin:0;font-size:14px;font-weight:400;line-height:1.5;color:#4a4540;max-width:30ch}
+.cr-what .cr-imp__i{margin:0}
+#que-es .lead{max-width:60ch}
+@media(max-width:767px){.cr-what{grid-template-columns:1fr;gap:10px}.cr-what .sx-panel{display:grid;grid-template-columns:48px 1fr;grid-template-areas:"i h" "i p";column-gap:14px;text-align:left;align-items:center;padding:14px 16px}.cr-what .cr-imp__i{grid-area:i}.cr-what h3{grid-area:h;font-size:14px}.cr-what p{grid-area:p;font-size:12px;max-width:none}#que-es .lead{font-size:14px}}
