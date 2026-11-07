@@ -587,3 +587,9 @@ html body.lp-page[data-landing="crm"] .cr-int{min-width:0}
  html body.lp-page[data-landing="crm"] .cr-int .lg{width:22px!important;height:22px!important}
 }
 @media(max-width:370px){html body.lp-page[data-landing="crm"] .cr-int b{font-size:10.5px!important}html body.lp-page[data-landing="crm"] .cr-int{gap:6px!important;padding-inline:8px!important}}
+
+/* ===== v16: iPhone — sin imán de scroll y alto dinámico consistente ===== */
+html:has(body[data-landing="crm"]){scroll-snap-type:none!important}
+body[data-landing="crm"] main>section{scroll-snap-align:none!important}
+body.lp-page[data-landing="crm"] main>section:not(.lp-hero),body.lp-page[data-landing="crm"] section.lp-section{min-height:100vh;min-height:100dvh!important}
+body.lp-page[data-landing="crm"] .lp-hero{min-height:100vh;min-height:100dvh!important}
