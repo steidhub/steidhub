@@ -405,3 +405,14 @@ html body.lp-page[data-landing="crm"] .cr-pn__ft .t2{color:#fff!important;backgr
 .cb-lane li.ok .mi::after{left:50%!important;top:50%!important;transform:translate(-50%,-62%) rotate(45deg)!important}
 .cb-lane li.bad .mi::after{display:flex!important;align-items:center;justify-content:center;line-height:1!important;padding-bottom:2px;font-size:20px!important}
 .cb-lane h3{text-align:center}
+
+/* chat acumulativo paso 2 */
+.c2 .m.me{align-self:flex-end;background:linear-gradient(135deg,#D4825A,#C46B3C);color:#fff;border-bottom-right-radius:13px;border-bottom-left-radius:13px;border-bottom-right-radius:4px}
+html body.lp-page[data-landing="chatbot"] .c2 .m.me{color:#fff!important}
+.cb-sc.s2 .c2 .m1{animation:cbm .5s .2s forwards}
+.cb-sc.s2 .c2 .t{animation:cbt 1.1s .7s forwards}
+.cb-sc.s2 .c2 .m2{animation:cbm .5s 1.9s forwards}
+.cb-sc.s3 .c2 .m1,.cb-sc.s3 .c2 .m2,.cb-sc.s4 .c2 .m1,.cb-sc.s4 .c2 .m2,.cb-sc.s4 .c2 .m3,.cb-sc.s4 .c2 .m4{opacity:1;transform:none;animation:none}
+.cb-sc.s3 .c2 .m2{animation:none}
+.cb-sc.s3 .c2 .m3{animation:cbm .5s .3s forwards}
+.cb-sc.s3 .c2 .m4{animation:cbm .5s 1.5s forwards}
