@@ -353,3 +353,5 @@ html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:
 .cr-bar--s{gap:10px}
 /* hero: botón al centro del título */
 @media(min-width:768px){body.lp-page[data-landing="crm"] .lp-hero__lead{width:0;min-width:100%}}
+/* v6: hero botón a la izquierda */
+html body.lp-page[data-landing="crm"] .hero__actions{justify-content:flex-start!important}
