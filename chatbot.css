@@ -396,3 +396,12 @@ html body.lp-page[data-landing="crm"] .cr-cd small{color:#6b5547!important}
 html body.lp-page[data-landing="crm"] .cr-pn__ft span{color:#4a3528!important}
 html body.lp-page[data-landing="crm"] .cr-pn__ft .t2{color:#fff!important;background:#25D366!important}
 .cr-pn__h{gap:10px}
+/* ajustes v5 */
+@media(max-width:767px){.cb-sc__col .m{opacity:1!important;transform:none!important;animation:none!important}.cb-sc__col .t{display:none!important}}
+.mg-sw em{white-space:nowrap}.mg-sw i{display:none!important}
+.mg-sw .b2{top:40px}
+.mg-db u{border-top-width:0!important;border-radius:0 0 14px 14px!important;height:30px!important;width:64px!important;margin-left:-32px!important}
+.mg-ck i::after{left:50%!important;top:50%!important;transform:translate(-50%,-62%) rotate(45deg)!important}
+.cb-lane li.ok .mi::after{left:50%!important;top:50%!important;transform:translate(-50%,-62%) rotate(45deg)!important}
+.cb-lane li.bad .mi::after{display:flex!important;align-items:center;justify-content:center;line-height:1!important;padding-bottom:2px;font-size:20px!important}
+.cb-lane h3{text-align:center}
