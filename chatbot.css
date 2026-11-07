@@ -416,3 +416,11 @@ html body.lp-page[data-landing="chatbot"] .c2 .m.me{color:#fff!important}
 .cb-sc.s3 .c2 .m2{animation:none}
 .cb-sc.s3 .c2 .m3{animation:cbm .5s .3s forwards}
 .cb-sc.s3 .c2 .m4{animation:cbm .5s 1.5s forwards}
+
+/* móvil: carrusel con scroll lateral */
+@media(max-width:767px){
+ .cb-sc{display:flex!important;overflow-x:auto;gap:12px;padding:2px 2px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .cb-sc::-webkit-scrollbar{display:none}
+ .cb-sc .cb-sc__col{display:flex!important;flex:0 0 86%;animation:none!important;transform:none!important}
+ .cb-sc .cb-sc__dots{display:none!important}
+}
