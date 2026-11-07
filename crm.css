@@ -327,3 +327,29 @@ html body.lp-page[data-landing="crm"] a.btn.btn--primary.lp-nav__cta[href*="wa.m
 @media(prefers-reduced-motion:reduce){.cr-imp__c{opacity:1;transform:none;animation:none!important}.cr-imp__bar{transform:none;animation:none!important}}
 html body.lp-page[data-landing="crm"] .cr-imp .cr-imp__c--hot.sx-panel{background-color:#C46B3C!important;background-image:linear-gradient(135deg,#D4825A,#C46B3C)!important;backdrop-filter:none!important;border-color:transparent!important}
 html body.lp-page[data-landing="crm"] #resultados a.btn.btn--primary{background:#161411!important;color:#fff!important;border:1px solid #161411!important;box-shadow:none!important}
+
+/* ===== v5: tarjetas centradas y sutiles, card Steid limpia, hero ===== */
+.cr-imp__c{align-items:center;text-align:center;gap:6px;transition:transform .35s,box-shadow .35s}
+.cr-imp__c:hover{transform:translateY(-6px)}
+.cr-imp__c::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);pointer-events:none}
+.sx-on .cr-imp__c::before{animation:crsweep 6s ease-in-out infinite;animation-delay:calc(var(--d)*.9s + 1.5s)}
+@keyframes crsweep{0%{transform:translateX(-120%)}25%,100%{transform:translateX(120%)}}
+.cr-imp__i{position:relative;width:50px;height:50px;border-radius:50%;margin-bottom:8px}
+.cr-imp__i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(196,107,60,.4);opacity:0}
+.sx-on .cr-imp__i::after{animation:crring 2.8s ease-out infinite;animation-delay:calc(var(--d)*.35s + 1s)}
+.cr-imp__c--hot .cr-imp__i::after{border-color:rgba(255,255,255,.7)}
+@keyframes crring{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.cr-imp__n{font-size:clamp(1.9rem,2.8vw,2.4rem);font-weight:600;letter-spacing:-.02em;margin-top:0}
+.cr-imp__n small{font-size:.5em;font-weight:500}
+.cr-imp__c h3{font-size:15px;font-weight:600}
+.cr-imp__c p{font-size:13px;font-weight:400;max-width:24ch}
+.cr-imp__bar{width:36%;align-self:center;height:3px}
+@media(max-width:767px){.cr-imp__i{width:38px;height:38px;margin-bottom:4px}.cr-imp__n{font-size:1.7rem}.cr-imp__c h3{font-size:13px}.cr-imp__c p{font-size:11px}}
+/* card Steid: una sola cosa en negrita */
+.cr-bar--s strong{font-weight:700;font-size:clamp(1.5rem,3.2vw,2.2rem)}
+.cr-bar--s .cr-save{font-weight:400;font-size:12.5px;padding:5px 13px}
+.cr-bar--s em{font-weight:400;font-size:12.5px}
+.cr-bar--s .cr-lgo--sh{height:24px;opacity:.95}
+.cr-bar--s{gap:10px}
+/* hero: botón al centro del título */
+@media(min-width:768px){body.lp-page[data-landing="crm"] .lp-hero__lead{width:0;min-width:100%}}
