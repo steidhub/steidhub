@@ -1,6 +1,6 @@
 /* Móvil: ajusta cada sección para que su contenido quepa exacto en una pantalla (zoom proporcional, mínimo .58). */
 (function(){
-  var mq=matchMedia('(max-width:767px)');
+  var crm=document.body.dataset.landing==='crm',mqm=matchMedia('(max-width:767px)'),mq={get matches(){return crm||mqm.matches}};
   var secs=[].slice.call(document.querySelectorAll('section.lp-section'));
   if(!secs.length) return;
   function fit(sec){
@@ -10,7 +10,7 @@
     var cs=getComputedStyle(sec);
     var avail=window.innerHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
     var nat=w.getBoundingClientRect().height;
-    if(nat>avail+1){ var z=Math.max(.58,avail/nat), ow=w.getBoundingClientRect().width; w.style.width=(ow/z).toFixed(1)+'px'; w.style.zoom=z.toFixed(3); }
+    if(nat>avail+1){ var z=Math.max(crm&&!mqm.matches?.7:.58,avail/nat), ow=w.getBoundingClientRect().width; w.style.width=(ow/z).toFixed(1)+'px'; w.style.zoom=z.toFixed(3); }
   }
   var raf=0;
   function all(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(function(){ secs.forEach(fit); }); }

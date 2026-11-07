@@ -412,7 +412,7 @@ body.lp-page .sx-sec{overflow-x:clip}
 }
 @media(max-width:767px){body.lp-page .sx-kpi h3{font-size:13px!important}}
 @media(min-width:768px){body.lp-page .sx-sec .lp-head .h2{font-size:clamp(1.7rem,3.4vw,2.6rem)!important}}
-@media(min-width:768px) and (max-width:1279px){body.lp-page:is([data-landing="google-ads"],[data-landing="meta-ads"],[data-landing="drone"]) .lp-hero h1{font-size:clamp(2.6rem,5.4vw,4.2rem)!important}}
+@media(min-width:768px) and (max-width:1279px){body.lp-page:is(:is([data-landing="google-ads"],[data-landing="crm"]),[data-landing="meta-ads"],[data-landing="drone"]) .lp-hero h1{font-size:clamp(2.6rem,5.4vw,4.2rem)!important}}
 @media(max-width:900px){.sx-leads{grid-template-columns:repeat(8,1fr)!important}.sx-leads i:nth-child(n+19){display:grid!important}}
 @media(max-width:767px){
   .sx-leads{gap:8px!important}
