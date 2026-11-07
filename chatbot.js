@@ -48,7 +48,7 @@
     var st=0,timer=null,seen=false;
     function setSt(n){sc.className=sc.className.replace(/\bs[1-4]\b/g,'').trim();for(var i=1;i<=n;i++)sc.classList.add('s'+i);if(n)sc.dataset.cur=n}
     function tick(){st++;if(st>5){st=0;setSt(0);sc.dataset.cur=1;timer=setTimeout(tick,500);return}
-      if(st<=4){setSt(st);timer=setTimeout(tick,[0,3400,6200,5200,4800][st])}else{timer=setTimeout(tick,2600)}}
+      if(st<=4){setSt(st);timer=setTimeout(tick,[0,1500,3800,3400,3400][st])}else{timer=setTimeout(tick,2600)}}
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;st=0;tick()}})},{threshold:.35}).observe(sc);else{setSt(4)}
     if(reduce){setSt(4)}
   }
