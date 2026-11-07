@@ -22,11 +22,11 @@
   if(chat){
     var body=document.getElementById('cb-body'),opts=document.getElementById('cb-opts'),lead=document.getElementById('cb-lead'),pg=document.getElementById('cb-pg'),stp=document.querySelectorAll('#cb-steps li'),started=false,run=0;
     var steps=[
-      {q:'¡Hola! Soy el asistente de Inmobiliaria Sol. ¿Qué buscas hoy?',k:'op',o:['Comprar','Alquilar','Vender mi propiedad']},
+      {q:'¡Hola! Soy el asistente de Inmobiliaria Sol. ¿Qué buscas hoy?',k:'op',o:['Comprar','Alquilar','Vender']},
       {q:'Perfecto. ¿En qué zona?',k:'zona',o:['Miraflores','San Isidro','Surco','Otra zona']},
       {q:'¿Cuántos dormitorios necesitas?',k:'dorm',o:['1','2','3 o más']},
-      {q:'¿Cuál es tu presupuesto aproximado?',k:'pres',o:['Hasta US$ 120 mil','US$ 120 a 200 mil','Más de US$ 200 mil']},
-      {q:'¿Cuándo te gustaría visitar?',k:'vis',o:['Esta semana','Este mes','Solo estoy mirando']}
+      {q:'¿Cuál es tu presupuesto aproximado?',k:'pres',o:['US$ 120 mil','US$ 200 mil','US$ 300+ mil']},
+      {q:'¿Cuándo te gustaría visitar?',k:'vis',o:['Esta semana','Este mes','Solo miro']}
     ],vals={};
     function setLead(k,v){var d=lead.querySelector('[data-k="'+k+'"]');if(d){d.textContent=v;d.classList.add('on')}}
     function prog(n){pg.style.width=(n/steps.length*100)+'%';stp.forEach(function(li,i){li.classList.toggle('on',i<n)})}
@@ -48,7 +48,7 @@
     var st=0,timer=null,seen=false;
     function setSt(n){sc.className=sc.className.replace(/\bs[1-4]\b/g,'').trim();for(var i=1;i<=n;i++)sc.classList.add('s'+i);if(n)sc.dataset.cur=n}
     function tick(){st++;if(st>5){st=0;setSt(0);sc.dataset.cur=1;timer=setTimeout(tick,500);return}
-      if(st<=4){setSt(st);timer=setTimeout(tick,st===1?2600:3600)}else{timer=setTimeout(tick,2200)}}
+      if(st<=4){setSt(st);timer=setTimeout(tick,[0,3400,6200,5200,4800][st])}else{timer=setTimeout(tick,2600)}}
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;st=0;tick()}})},{threshold:.35}).observe(sc);else{setSt(4)}
     if(reduce){setSt(4)}
   }
