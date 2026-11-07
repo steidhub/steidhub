@@ -513,3 +513,45 @@ html body.lp-page[data-landing="crm"] .sx-disc{font-size:9.5px!important;line-he
  html body.lp-page[data-landing="crm"] .cr-imp__c--hot .cr-imp__i svg{stroke:#fff!important}
  html body.lp-page[data-landing="crm"] #resultados .cr-imp__cta{margin-top:clamp(18px,3.4dvh,30px)!important}
 }
+
+/* ===== v13 ===== */
+/* avisos a todo el ancho */
+html body.lp-page[data-landing="crm"] #costos .sx-disc,html body.lp-page[data-landing="crm"] .sx-disc{max-width:none!important;width:100%}
+@media(max-width:767px){html body.lp-page[data-landing="crm"] #costos .sx-disc{padding-right:0!important;font-size:9.5px!important}}
+/* franja a medida: naranja, animada */
+html body.lp-page[data-landing="crm"] .cr-made{background:linear-gradient(120deg,#E08B5E,#C46B3C 55%,#B2582A)!important;position:relative;overflow:hidden;box-shadow:0 18px 44px rgba(196,107,60,.45);animation:crhalo 2.8s ease-in-out infinite}
+.cr-made::after{content:"";position:absolute;top:0;bottom:0;left:0;width:34%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent);animation:crshine 3.6s ease-in-out infinite;pointer-events:none}
+html body.lp-page[data-landing="crm"] .cr-made .cr-made__t b{font-size:clamp(19px,2vw,26px)!important;font-weight:700!important}
+html body.lp-page[data-landing="crm"] .cr-made li{background:#fff!important;color:#161411!important;border:0!important;font-weight:500;box-shadow:0 8px 18px rgba(80,30,10,.25);animation:crfloat 3s ease-in-out infinite;animation-delay:calc(var(--d)*.4s)}
+@keyframes crfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.cr-made,.cr-made li{animation:none!important}.cr-made::after{display:none}}
+@media(max-width:767px){
+ /* hero: botón centrado y más delgado */
+ html body.lp-page[data-landing="crm"] .hero__actions{justify-content:center!important}
+ html body.lp-page[data-landing="crm"] .hero__actions a.btn{width:auto!important;min-width:190px;padding:12px 34px!important;font-size:14.5px!important;min-height:0!important}
+ /* ¿qué es?: tarjetas con más aire */
+ .cr-what .sx-panel{grid-template-columns:54px 1fr!important;column-gap:16px!important;padding:16px 18px!important}
+ .cr-what .cr-imp__i{width:54px!important;height:54px!important;border-radius:16px!important;margin:0!important;justify-self:start}
+ .cr-what h3{font-size:15.5px!important}
+ .cr-what p{font-size:13px!important;line-height:1.5!important}
+ /* costos: card Steid limpia */
+ html body.lp-page[data-landing="crm"] .cr-bar--s .cr-bar__t{display:none!important}
+ html body.lp-page[data-landing="crm"] .cr-bar--s em{font-size:11.5px!important;line-height:1.5;text-align:left!important}
+ html body.lp-page[data-landing="crm"] .cr-bar--s .cr-lgo--sh{height:20px!important}
+ /* resultados: números alineados en columna */
+ html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px 92px 1fr!important;grid-template-areas:"i n h" "i p p"!important;column-gap:12px!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__n{justify-self:start;text-align:left;font-size:1.7rem!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__c h3{text-align:left!important;line-height:1.25!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__c p{text-align:left!important}
+ /* sin recuadro negro: tarjeta blanca con icono naranja */
+ html body.lp-page[data-landing="crm"] .cr-imp .cr-imp__c--hot.sx-panel{background-color:#fff!important;background-image:none!important;border:2px solid #C46B3C!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__c--hot .cr-imp__n,html body.lp-page[data-landing="crm"] .cr-imp__c--hot h3{color:#161411!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__c--hot p{color:#4a4540!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__c--hot *{color:inherit}
+}
+@media(max-width:767px){
+ html body.lp-page[data-landing="crm"] .cr-imp__c{grid-template-columns:58px 74px 1fr!important;column-gap:10px!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__n{font-size:1.5rem!important}
+ html body.lp-page[data-landing="crm"] .cr-imp__n small{font-size:.55em}
+ html body.lp-page[data-landing="crm"] .cr-imp__c h3{font-size:14px!important}
+}
