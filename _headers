@@ -40,3 +40,9 @@
   X-Robots-Tag: noindex, nofollow, noarchive
 /demobat/admin*
   Cache-Control: no-store
+
+# Atlantis demo (cotizacion 000128): private review copy, never in search engines
+/demo128-atlantis-pagina/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+/demo128-atlantis-pagina
+  X-Robots-Tag: noindex, nofollow, noarchive
