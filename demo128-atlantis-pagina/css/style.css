@@ -22,7 +22,7 @@ nav.main{display:flex;gap:26px}
 nav.main a{color:#fff;text-decoration:none;font:600 14px 'Manrope';padding:10px 2px;opacity:.9}
 nav.main a:hover{color:var(--cu-l);opacity:1}
 /* HERO */
-.hero{position:relative;min-height:calc(100dvh/var(--z) - 68px);display:flex;align-items:center;color:#fff;background:var(--ink);overflow:hidden}
+.hero{position:relative;min-height:min(calc(100dvh/var(--z) - 68px),1000px);display:flex;align-items:center;color:#fff;background:var(--ink);overflow:hidden}
 .hero:before{content:"";position:absolute;width:900px;height:900px;right:-200px;top:-260px;background:radial-gradient(circle,rgba(152,97,90,.42),transparent 62%)}
 .hero:after{content:"";position:absolute;width:700px;height:700px;left:-260px;bottom:-320px;background:radial-gradient(circle,rgba(180,20,90,.22),transparent 65%)}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-top:36px;padding-bottom:36px;width:100%}
