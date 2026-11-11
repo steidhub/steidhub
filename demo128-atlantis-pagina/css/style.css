@@ -199,7 +199,7 @@ footer .legal{margin-top:34px;border-top:1px solid #2a2830;padding-top:18px;font
 @keyframes sh{0%,55%{left:-60%}100%{left:130%}}
 @keyframes mq{to{transform:translateX(-50%)}}
 @keyframes gm{50%{background-position:100% 50%}}
-@keyframes rot{0%{opacity:0;transform:translateY(60%)}5%,30%{opacity:1;transform:none}35%,100%{opacity:0;transform:translateY(-60%)}}
+@keyframes rot{0%{opacity:0;transform:translateY(60%)}6%,31%{opacity:1;transform:none}37%,100%{opacity:0;transform:translateY(-60%)}}
 @media(prefers-reduced-motion:no-preference){
 .rot span{animation:rot 9s infinite}
 .rot span:nth-child(2){animation-delay:3s}.rot span:nth-child(3){animation-delay:6s}
