@@ -996,3 +996,4 @@ h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
 .gth{margin-top:.2rem}
 .ubl{padding-right:3.8rem}
 }
+@media(max-width:620px){.gls{height:56dvh}.gar{top:calc(1.3rem + 5.5rem + 28dvh)}}
