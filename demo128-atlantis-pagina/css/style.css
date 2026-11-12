@@ -863,3 +863,61 @@ summary{font-size:1.08rem}
 /* v27 */
 .orb{opacity:.35;border-color:rgba(230,198,187,.14)}
 .orb:after{opacity:.5;width:.5rem;height:.5rem;top:-.25rem}
+/* v29: auditoría móvil */
+@media(max-width:620px){
+:root{--hh:3.8rem}
+body{font-size:15px}
+.wrap{padding:0 1.25rem}
+section.s{padding:1.4rem 0;min-height:calc(100dvh - var(--hh));overflow:hidden}
+.kick{font-size:.62rem;letter-spacing:.22em}
+h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
+.hero h1{font-size:2.1rem}
+.lead,.sub{font-size:.92rem;line-height:1.5}
+/* hero */
+.hero{min-height:calc(100dvh - var(--hh) - 3rem);align-items:flex-start}
+.hero-grid{display:flex;flex-direction:column;gap:1.1rem;padding-top:1.1rem;padding-bottom:1.1rem}
+.hr{order:-1;display:block;height:11rem;width:100%}
+.hr .hf1,.hr .fl{display:none}
+.hr .hf2{position:relative;inset:auto;width:100%;height:100%;border-radius:.6rem;transform:none}
+.hero .lead{margin-top:.7rem}
+.search{padding:.7rem;gap:.5rem}.trust{margin-top:.9rem}
+/* proyectos */
+#proyectos .pn.on{height:16rem}
+/* pasos: lista vertical de una pantalla */
+#nosotros{padding:1.2rem 0}
+#nosotros .track{display:none}
+.ph4{display:flex;flex-direction:column;gap:.55rem;margin-top:.9rem}
+.ph4>.st,.ph4.run>.st{height:auto;min-height:0;display:grid;grid-template-columns:4.6rem 1fr;gap:.9rem;align-items:center;padding:.55rem;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:.5rem;filter:none!important;box-shadow:none;transform:none;overflow:visible;opacity:1}
+.ph4>.st:before{display:none}
+.ph4>.st>img,.ph4>.st>img.plan{position:static;width:4.6rem;height:4.6rem;border-radius:.4rem;object-fit:cover;padding:0;inset:auto;animation:none;grid-row:1}
+.ph4>.st>img.plan{object-fit:contain;background:#fff;border:1px solid var(--line)}
+.ph4>.st .n{position:absolute;left:.2rem;top:.2rem;width:1.5rem;height:1.5rem;font-size:.6rem;border-width:0;box-shadow:none;transform:none}
+.ph4>.st .n:after{display:none}
+.ph4>.st .tx,.ph4.run>.st.act .tx,.ph4.run>.st .tx{position:static;padding:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;min-height:0;animation:none}
+.ph4>.st h3,.ph4.run>.st.act .tx h3{font-size:.95rem;letter-spacing:.2em;color:var(--ink)}
+.ph4>.st p{display:block;font-size:.85rem;color:#5b5560;margin-top:.15rem;opacity:1}
+.ph4.run>.st:not(.act){opacity:.6}
+.ph4.run>.st.dn{opacity:.85}
+.ph4.run>.st.act{opacity:1;transform:scale(1.025);border-color:var(--pk);background:linear-gradient(135deg,#b5165f,#6d0b34);box-shadow:0 .9rem 1.6rem -.8rem rgba(168,19,79,.6);z-index:2}
+.ph4.run>.st.act h3,.ph4.run>.st.act p{color:#fff}
+/* financiamiento */
+.fin2{padding:1.2rem 0}
+.fin{display:flex;flex-direction:column;gap:.8rem}
+.fin .t{font-size:1.5rem}
+.donutw{display:flex;align-items:center;gap:1rem;margin-top:.5rem}
+.donut{width:7.2rem;height:7.2rem;flex:none}.dc b{font-size:1rem}.dc small{font-size:.5rem}
+.leg{gap:.4rem}.leg b{font-size:1rem}
+.fin2 .calc{padding:1rem;gap:.7rem}.calc label{font-size:.7rem}.fin2 .cimg{display:none}
+/* contacto */
+#contacto{padding:1rem 0}
+.contact2{gap:.8rem}
+.cv{min-height:0}.cvin{margin:0;padding:1.1rem}.cvin .sub,.cl{display:none}
+.cvin h2.t{font-size:1.5rem;margin:.3rem 0 .7rem}
+.contact2 form{padding:1.1rem;gap:.55rem}
+.contact2 form .two{grid-template-columns:1fr 1fr;gap:.55rem}
+.inp{height:2.6rem}.contact2 label{font-size:.72rem}.fine{font-size:.62rem}
+/* wa */
+.wa-float{width:3rem;height:3rem;right:.9rem;bottom:.9rem}
+/* agenda Maia */
+.wp span{font-size:0}.wp span.on{font-size:.56rem;letter-spacing:.14em}
+}
