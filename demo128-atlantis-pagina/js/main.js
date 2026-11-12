@@ -12,7 +12,17 @@ function fmt(n){return 'S/ '+n.toLocaleString('en-US')}
 function card(p){
  var tag=p.status==='build'?'<span class="tag">En construcción</span>':p.status==='sold'?'<span class="tag sold">100% vendido</span>':'<span class="tag last">Último dúplex</span>';
  var price=p.price?'Desde '+fmt(p.price):(p.status==='sold'?'Vendido':'Consultar precio');
- return '<article class="card rv'+(p.status==='sold'?' off':'')+'"><div class="ph"><img class="m" loading="lazy" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" loading="lazy" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'</div><div class="bd"><span class="dist">'+p.dist+'</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn gh sm" href="'+p.href+'">Ver proyecto</a></div></div></article>';
+ return '<article class="pn'+(p.status==='sold'?' off':'')+'" tabindex="0" aria-label="'+p.name+'"><img class="m" loading="lazy" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" loading="lazy" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'<span class="vt">'+p.name+'</span><div class="info"><span class="dist">'+p.dist+'</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn pk sm" href="'+p.href+'">Ver proyecto</a></div></div><i class="bar"></i></article>';
+}
+var accT=null;
+function accInit(el){
+ var ps=[].slice.call(el.querySelectorAll('.pn'));if(!ps.length)return;
+ var cur=0,hold=false;
+ function set(i){cur=i;ps.forEach(function(p,k){p.classList.toggle('on',k===i);var b=p.querySelector('.bar');if(b){b.style.animation='none';void b.offsetWidth;b.style.animation=''}})}
+ ps.forEach(function(p,k){p.addEventListener('mouseenter',function(){hold=true;set(k)});p.addEventListener('click',function(e){if(!p.classList.contains('on')){e.preventDefault();set(k)}});p.addEventListener('focus',function(){hold=true;set(k)})});
+ el.addEventListener('mouseleave',function(){hold=false});
+ set(0);clearInterval(accT);
+ if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches))accT=setInterval(function(){if(!hold)set((cur+1)%ps.length)},4500);
 }
 function render(){
  var el=document.getElementById('lista');if(!el)return;
@@ -20,7 +30,7 @@ function render(){
  var list=PROJECTS.filter(function(p){return (d==='all'||p.dist===d)&&(b==='all'||p.dorms.indexOf(+b)>-1)});
  list.sort(function(a,c){return (a.status==='sold')-(c.status==='sold')});
  el.innerHTML=list.length?list.map(card).join(''):'<p class="empty">No hay proyectos con ese filtro. Escríbenos y te avisamos de nuevos lanzamientos.</p>';
- reveal();
+ accInit(el);reveal();
 }
 function reveal(){
  var els=document.querySelectorAll('.rv:not(.in)');
@@ -28,12 +38,14 @@ function reveal(){
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
  els.forEach(function(e){io.observe(e)});
 }
-var qNow=0;function tweenQ(to){var el=document.getElementById('c-q'),from=qNow,t0=null;qNow=to;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/600,1);el.textContent=fmt(Math.round(from+(to-from)*(1-Math.pow(1-p,3))))+' al mes';if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+var qNow=0;function tweenQ(to){var el=document.getElementById('c-q'),from=qNow,t0=null;qNow=to;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/600,1);el.textContent=fmt(Math.round(from+(to-from)*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
 function calc(){
  var p=+document.getElementById('c-p').value||0,i=+document.getElementById('c-i').value||0,y=+document.getElementById('c-y').value||20,r=+document.getElementById('c-r').value||0;
  var ini=p*i/100,loan=p-ini,n=y*12,m=r/1200;
  var q=m?loan*m/(1-Math.pow(1+m,-n)):loan/n;
- document.getElementById('c-ini').textContent=fmt(Math.round(ini));
+ function set(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
+ set('c-ini',fmt(Math.round(ini)));set('c-loan',fmt(Math.round(loan)));set('o-p',fmt(p));set('o-i',i+'%');set('o-y',y+' años');set('o-r',r.toFixed(1)+'%');
+ var dn=document.getElementById('dn');if(dn)dn.style.strokeDasharray=(i/100*314.16)+' 314.16';
  tweenQ(Math.round(q));
 }
 function sendForm(e){
