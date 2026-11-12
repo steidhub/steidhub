@@ -779,3 +779,43 @@ summary{font-size:1.08rem}
 .glb{padding-right:0}
 .glr{margin-right:5.2rem}
 @media(max-width:960px){.glr{margin-right:4.2rem;width:auto}.gar button{width:2.4rem;height:2.4rem}.gl .glb{padding-right:0}}
+/* v21 */
+.ubl{grid-template-columns:1fr 1fr;gap:.35rem}
+.ubp{grid-template-columns:1.9rem 1fr;gap:.5rem;padding:.3rem .5rem .3rem .3rem;min-width:0}
+.ubp i{width:1.9rem;height:1.9rem}.ubp i svg{width:1rem;height:1rem}
+.ubp b{font:500 .74rem 'Jost';white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ubp small{font:400 .68rem 'Jost';color:var(--pk)}
+.ubp.on small{color:var(--ro)}
+.ubp em{display:none}
+.ubp.on{transform:none}
+.ubc{width:27rem;padding:1.4rem 1.5rem 1.2rem}.ubc h3{margin:.8rem 0 .45rem}
+.pin{width:1.9rem;height:1.9rem;background:#3a3342;border-color:#fff}
+.pin svg{width:.95rem;height:.95rem}
+.pin.on{transform:rotate(-45deg) scale(1.35)}
+.mepin{position:relative;display:flex;flex-direction:column;align-items:center;animation:mebob 2.2s ease-in-out infinite}
+.mepin>span{order:2;margin-top:.5rem;padding:.3rem .9rem;border-radius:99rem;background:linear-gradient(135deg,#b5165f,#6d0b34);color:#fff;font:500 .7rem 'Jost';letter-spacing:.28em;border:1px solid #fff;box-shadow:0 .5rem 1rem rgba(0,0,0,.35)}
+.pin.me{width:3.6rem;height:3.6rem;border-width:3px}
+.pin.me svg{width:1.7rem;height:1.7rem}
+@keyframes mebob{0%,100%{transform:translateY(0)}50%{transform:translateY(-.4rem)}}
+.ubm.act:after,.ubm:after{content:"Haz clic en el mapa para acercar con la rueda";position:absolute;left:50%;bottom:.8rem;transform:translateX(-50%);z-index:1000;padding:.35rem .9rem;border-radius:99rem;background:rgba(13,12,17,.75);color:#fff;font:400 .66rem 'Jost';letter-spacing:.1em;pointer-events:none;transition:opacity .4s}
+.ubm.act:after{opacity:0}
+.vls{list-style:none;padding:0;margin:1.6rem 0 1rem;display:grid;gap:.7rem;max-width:25rem}
+.vls li{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-radius:.4rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);transition:.5s;opacity:.7}
+.vls li i{flex:none;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;font:500 .85rem 'Jost';font-style:normal;color:#fff}
+.vls li b{display:block;font:500 1.05rem 'Jost';color:#fff}
+.vls li span{display:block;font:300 .85rem 'Jost';color:#e6e0ec;margin-top:.1rem}
+.vls li.on{opacity:1;background:rgba(255,255,255,.16);border-color:var(--ro);transform:translateX(.4rem)}
+.vls li.on i{background:linear-gradient(135deg,#b5165f,#6d0b34);border-color:transparent}
+.vls li.dn{opacity:.9}.vls li.dn i{background:#fff;color:var(--ink)}
+.vad{color:#e6e0ec}
+.wp{grid-template-columns:repeat(3,1fr)}
+.wnav{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:.8rem}
+.wnav .wb{position:static}
+.wnav #wnext{margin-left:auto;height:2.8rem;padding:0 2rem}
+.wd{grid-template-columns:repeat(6,1fr);gap:.4rem}
+.wd button{padding:.5rem .2rem}.wd b{font-size:1.4rem;margin:.05rem 0}
+.wh button{height:2.7rem;font-size:1.05rem}
+.wh{grid-template-columns:repeat(6,1fr);gap:.4rem;margin-bottom:0}
+.wre{font:300 1rem 'Jost';margin:-.4rem 0 1rem;padding:.7rem 1rem;border-radius:.4rem;background:#f4efe8}
+.wre b{font-weight:500}
+@media(max-width:960px){.vls{display:none}.wd,.wh{grid-template-columns:repeat(3,1fr)}.ubp b{font-size:.7rem}}

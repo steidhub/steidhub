@@ -177,21 +177,25 @@ var ME=[-12.10423,-77.02645],P=[
 function km(a,b){var r=Math.PI/180,x=(b[1]-a[1])*r*Math.cos((a[0]+b[0])/2*r),y=(b[0]-a[0])*r;return Math.sqrt(x*x+y*y)*6371}
 var el=document.getElementById('ubmap');
 if(el&&window.L){
- var map=L.map(el,{zoomControl:false,scrollWheelZoom:false,attributionControl:true}).setView(ME,15);
+ var map=L.map(el,{zoomControl:false,scrollWheelZoom:false,tap:true,attributionControl:true}).setView(ME,15);
  L.control.zoom({position:'bottomright'}).addTo(map);
  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
- function pin(c,cls){return L.divIcon({className:'',html:'<div class="pin '+cls+'">'+ic[c]+'</div>',iconSize:[38,38],iconAnchor:[19,38]})}
- var me=L.marker(ME,{icon:L.divIcon({className:'',html:'<div class="pin me">'+ic.home+'</div>',iconSize:[48,48],iconAnchor:[24,48]}),zIndexOffset:900}).addTo(map).bindTooltip('Maia',{permanent:true,direction:'top',offset:[0,-44],className:'pt'});
+ function pin(c,cls){return L.divIcon({className:'',html:'<div class="pin '+cls+'">'+ic[c]+'</div>',iconSize:[30,30],iconAnchor:[15,30]})}
+ var me=L.marker(ME,{icon:L.divIcon({className:'',html:'<div class="mepin"><span>MAIA</span><div class="pin me">'+ic.home+'</div></div>',iconSize:[70,90],iconAnchor:[35,86]}),zIndexOffset:2000}).addTo(map);
+ L.control.zoom({position:'bottomright'});
+ map.on('click',function(){map.scrollWheelZoom.enable();document.getElementById('ubmap').classList.add('act')});
+ el.addEventListener('mouseleave',function(){map.scrollWheelZoom.disable();el.classList.remove('act')});
+ ['mousedown','touchstart','wheel'].forEach(function(ev){el.addEventListener(ev,function(){paused=true;clearTimeout(tm)},{passive:true})});
  var list=document.getElementById('ubl'),mk=[],btn=[],cur=-1,tm,paused=false,vis=false;
  P.forEach(function(x,i){
   var d=km(ME,x.p),dt=d<1?Math.round(d*10)*100+' m':d.toFixed(1)+' km';
   var m=L.marker(x.p,{icon:pin(x.c,'')}).addTo(map).bindTooltip(x.n,{direction:'top',offset:[0,-34],className:'pt'});
   m.on('click',function(){paused=true;sel(i)});mk.push(m);
-  var b=document.createElement('button');b.type='button';b.className='ubp';b.innerHTML='<i>'+ic[x.c]+'</i><span><b>'+x.n+'</b><small>'+x.t+'</small></span><em>'+dt+'</em>';
+  var b=document.createElement('button');b.type='button';b.className='ubp';b.innerHTML='<i>'+ic[x.c]+'</i><span><b>'+x.n+'</b><small>'+dt+'</small></span>';
   b.addEventListener('click',function(){paused=true;sel(i)});list.appendChild(b);btn.push(b)});
  function sel(i){cur=i;btn.forEach(function(b,k){b.classList.toggle('on',k===i)});mk.forEach(function(m,k){var e=m.getElement();if(e)e.firstChild.classList.toggle('on',k===i)});
   var pad=innerWidth>960?[470,40]:[20,20];map.flyToBounds(L.latLngBounds([ME,P[i].p]),{paddingTopLeft:pad,paddingBottomRight:[40,40],maxZoom:16,duration:1.1});
-  mk[i].openTooltip();clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
+  mk.forEach(function(m,k){if(k!==i)m.closeTooltip()});mk[i].openTooltip();clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
  new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis){map.invalidateSize();if(!paused)sel(cur<0?0:cur)}else clearTimeout(tm)},{threshold:.5}).observe(document.getElementById('ubicacion'));
 }
 var wd=document.getElementById('wdays');
@@ -199,14 +203,14 @@ if(wd){
  var st={tipo:'Tipo 10',dia:'',hora:'10:00'},d=new Date(),n=0,mn=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],dn=['dom','lun','mar','mié','jue','vie','sáb'];
  d.setDate(d.getDate()+1);
  while(n<6){if(d.getDay()!==0){var b=document.createElement('button');b.type='button';b.dataset.v=dn[d.getDay()]+' '+d.getDate()+' '+mn[d.getMonth()];b.innerHTML='<small>'+dn[d.getDay()]+'</small><b>'+d.getDate()+'</b><span>'+mn[d.getMonth()]+'</span>';if(!n){b.className='on';st.dia=b.dataset.v}wd.appendChild(b);n++}d.setDate(d.getDate()+1)}
- var steps=[].slice.call(document.querySelectorAll('.wz')),pr=[].slice.call(document.querySelectorAll('.wp span')),bar=document.querySelector('.wp u'),back=document.getElementById('wback'),k=0;
- function show(i){k=i;steps.forEach(function(s,j){s.classList.toggle('on',j===i)});pr.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('dn',j<i)});bar.style.width=(i+1)*25+'%';back.hidden=i===0}
- function sync(){['tipo','dia','hora'].forEach(function(x){var e=document.getElementById('v-'+x);e.textContent=st[x];e.style.animation='none';void e.offsetWidth;e.style.animation=''})}
+ var steps=[].slice.call(document.querySelectorAll('.wz')),pr=[].slice.call(document.querySelectorAll('.wp span')),ls=[].slice.call(document.querySelectorAll('.vls li')),bar=document.querySelector('.wp u'),back=document.getElementById('wback'),nxt=document.getElementById('wnext'),k=0;
+ function show(i){k=i;steps.forEach(function(s,j){s.classList.toggle('on',j===i)});pr.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('dn',j<i)});ls.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('dn',j<i)});bar.style.width=(i+1)*33.34+'%';back.hidden=i===0;nxt.hidden=i===2;
+  document.getElementById('wrecap').innerHTML='<b>'+st.tipo+'</b> · <b>'+st.dia+'</b> · <b>'+st.hora+'</b>'}
  document.querySelectorAll('[data-k]').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.v)return;
-  document.querySelectorAll('[data-k="'+g.dataset.k+'"] button').forEach(function(x){x.classList.toggle('on',x===b)});st[g.dataset.k]=b.dataset.v;sync();setTimeout(function(){if(k<3)show(k+1)},380)})});
+  document.querySelectorAll('[data-k="'+g.dataset.k+'"] button').forEach(function(x){x.classList.toggle('on',x===b)});st[g.dataset.k]=b.dataset.v})});
  pr.forEach(function(p,j){p.style.cursor='pointer';p.addEventListener('click',function(){show(j)})});
- back.onclick=function(){show(Math.max(0,k-1))};
- sync();show(0);
+ back.onclick=function(){show(Math.max(0,k-1))};nxt.onclick=function(){show(Math.min(2,k+1))};
+ show(0);
  window.sendVisit=function(e){e.preventDefault();var f=e.target;window.open(waLink('Hola, soy '+f.nombre.value+' ('+f.celular.value+'). Quiero agendar una visita a Maia para ver el '+st.tipo+' el '+st.dia+' a las '+st.hora+'.'),'_blank','noopener')}
 }
 })();
