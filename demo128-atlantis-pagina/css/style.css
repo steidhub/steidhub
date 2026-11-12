@@ -860,3 +860,6 @@ summary{font-size:1.08rem}
 /* v26 */
 .gls img.out{opacity:0;animation:glkb 9s ease-out forwards}
 .gls img{will-change:opacity,transform;backface-visibility:hidden}
+/* v27 */
+.orb{opacity:.35;border-color:rgba(230,198,187,.14)}
+.orb:after{opacity:.5;width:.5rem;height:.5rem;top:-.25rem}
