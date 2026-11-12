@@ -1024,3 +1024,10 @@ section.s>.wrap:not(.vw):not(.ubw){min-height:calc(100dvh - var(--hh) - 2.8rem);
 .tpv{flex:1 1 auto}
 .wa-float{bottom:1.6rem}
 }
+/* v37: collage con ancho real y contacto a toda la altura */
+@media(max-width:620px){
+.coll{width:100%;align-self:stretch;min-height:22rem}
+#contacto .contact2{flex:1 1 auto;display:flex;flex-direction:column;align-self:stretch;width:100%}
+#contacto .cv{flex:1 1 40%;display:flex;flex-direction:column;justify-content:center;min-height:11rem}
+#contacto .contact2 form{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-evenly}
+}
