@@ -150,3 +150,18 @@ if(vd){
  window.sendVisit=function(e){e.preventDefault();var f=e.target;window.open(waLink('Hola, soy '+f.nombre.value+' ('+f.celular.value+'). Quiero agendar una visita a Maia para ver el '+st.tipo+' el '+st.dia+' a las '+st.hora+'.'),'_blank','noopener')}
 }
 })();
+/* v16 */
+(function(){
+var p=document.querySelector('.ph4');
+if(p){var st=[].slice.call(p.querySelectorAll('.st')),dots=[].slice.call(document.querySelectorAll('.track i')),k=-1,t;
+ function nx(){k=(k+1)%st.length;st.forEach(function(e,i){e.classList.toggle('act',i===k)});dots.forEach(function(e,i){e.classList.toggle('on',i===k)})}
+ new IntersectionObserver(function(e){clearInterval(t);if(e[0].isIntersecting){p.classList.add('run');nx();t=setInterval(nx,2400)}else{p.classList.remove('run')}},{threshold:.5}).observe(p);
+ st.forEach(function(e,i){e.addEventListener('mouseenter',function(){k=i-1;nx();clearInterval(t)})});}
+var gl=document.getElementById('galeria');
+if(gl){var bar=document.createElement('i');bar.className='glp';gl.appendChild(bar);
+ var go=function(){bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run')};
+ var obs=new MutationObserver(go);gl.querySelectorAll('.gls img').forEach(function(i){obs.observe(i,{attributes:true,attributeFilter:['class']})});
+ document.addEventListener('keydown',function(e){var r=gl.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5){if(e.key==='ArrowRight')document.getElementById('gx').click();if(e.key==='ArrowLeft')document.getElementById('gp').click()}});
+ var x0=null;gl.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+ gl.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)document.getElementById(d<0?'gx':'gp').click();x0=null});}
+})();
