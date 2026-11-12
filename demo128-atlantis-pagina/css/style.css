@@ -921,3 +921,4 @@ h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
 /* agenda Maia */
 .wp span{font-size:0}.wp span.on{font-size:.56rem;letter-spacing:.14em}
 }
+@media(max-width:620px){.hero{min-height:calc(100dvh - var(--hh));align-items:center}.hero-grid{padding-top:1rem;padding-bottom:1rem}.hr{height:12rem}}
