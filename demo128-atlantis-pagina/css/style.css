@@ -755,3 +755,27 @@ summary{font-size:1.08rem}
 .ubt{margin-top:.9rem}.ubt>div{padding:.65rem .9rem}.ubt b{font-size:1.9rem}.ubt span{font-size:.68rem}
 .ubp{padding:.35rem .7rem .35rem .4rem;grid-template-columns:2.2rem 1fr auto}.ubp i{width:2.2rem;height:2.2rem}
 .ubc h3{margin:.9rem 0 .5rem}
+/* v20: revert pn tweaks, simpler steps, gallery controls */
+.pn{will-change:auto;contain:none}
+.pn img{inset:0;width:100%;margin:0;height:100%;will-change:auto;backface-visibility:visible}
+.pn .info{background:linear-gradient(180deg,rgba(13,12,17,.25),rgba(13,12,17,.72));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pn:after{transition:opacity .6s}
+.pn:not(.on) .info{visibility:hidden;transition:opacity .3s,transform .3s,visibility 0s .3s}
+.pn.on .info{visibility:visible;transition:opacity .6s .3s,transform .7s .3s,visibility 0s}
+.ph4>.st{animation:none;opacity:0;transform:translateY(2.2rem);filter:none!important;box-shadow:none}
+.ph4.in>.st{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*.14s)}
+.ph4>.st:nth-child(2){--i:1}.ph4>.st:nth-child(3){--i:2}.ph4>.st:nth-child(4){--i:3}
+.ph4.run>.st{transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s;transition-delay:0s}
+.ph4.run>.st.act{transform:scale(1.06);box-shadow:0 1.8rem 3rem -1.4rem rgba(13,12,17,.55);z-index:2}
+.st.act .tx{background:rgba(13,12,17,.5);border-top-color:var(--ro)}
+.st.act .n{transform:none}
+.track i.on{transform:none;background:var(--pk);box-shadow:0 0 0 .4rem var(--ivory)}
+.ph4{padding:.8rem 0}
+.cv .gh{color:#fff;border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+.cv .gh:hover{background:#fff;color:var(--ink)}
+.gar button{position:absolute;top:50%;margin-top:-1.4rem;z-index:4}
+.gar{display:block}
+#gp{left:1.4rem}#gx{right:1.4rem}
+.glb{padding-right:0}
+.glr{margin-right:5.2rem}
+@media(max-width:960px){.glr{margin-right:4.2rem;width:auto}.gar button{width:2.4rem;height:2.4rem}.gl .glb{padding-right:0}}

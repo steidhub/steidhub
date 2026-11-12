@@ -12,7 +12,7 @@ function fmt(n){return 'S/ '+n.toLocaleString('en-US')}
 function card(p){
  var tag=p.status==='build'?'<span class="tag">En construcción</span>':p.status==='sold'?'<span class="tag sold">100% vendido</span>':'<span class="tag last">Último dúplex</span>';
  var price=p.price?'Desde '+fmt(p.price):(p.status==='sold'?'Vendido':'Consultar precio');
- return '<article class="pn'+(p.status==='sold'?' off':'')+'" tabindex="0" aria-label="'+p.name+'"><img class="m" loading="lazy" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" loading="lazy" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'<span class="vt">'+p.name+' · '+p.dist+'</span><div class="info"><span class="dist">'+p.dist+', Lima</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn pk sm" href="'+p.href+'">Ver proyecto</a></div></div><i class="bar"></i></article>';
+ return '<article class="pn'+(p.status==='sold'?' off':'')+'" tabindex="0" aria-label="'+p.name+'"><img class="m" decoding="async" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" decoding="async" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'<span class="vt">'+p.name+' · '+p.dist+'</span><div class="info"><span class="dist">'+p.dist+', Lima</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn pk sm" href="'+p.href+'">Ver proyecto</a></div></div><i class="bar"></i></article>';
 }
 var accT=null;
 function accInit(el){
@@ -153,10 +153,9 @@ if(vd){
 /* v16 */
 (function(){
 var p=document.querySelector('.ph4');
-if(p){var st=[].slice.call(p.querySelectorAll('.st')),dots=[].slice.call(document.querySelectorAll('.track i')),k=-1,t;
- function nx(){k=(k+1)%st.length;st.forEach(function(e,i){e.classList.toggle('act',i===k)});dots.forEach(function(e,i){e.classList.toggle('on',i===k)})}
- new IntersectionObserver(function(e){clearInterval(t);if(e[0].isIntersecting){p.classList.add('run');nx();t=setInterval(nx,2400)}else{p.classList.remove('run')}},{threshold:.5}).observe(p);
- st.forEach(function(e,i){e.addEventListener('mouseenter',function(){k=i-1;nx();clearInterval(t)})});}
+if(p){var st=[].slice.call(p.querySelectorAll('.st')),k=-1,t,done=false;
+ function nx(){k=(k+1)%st.length;st.forEach(function(e,i){e.classList.toggle('act',i===k)})}
+ new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!done){done=true;p.classList.add('in');setTimeout(function(){p.classList.add('run');nx();t=setInterval(nx,2600)},1100)}}},{threshold:.6}).observe(p);}
 var gl=document.getElementById('galeria');
 if(gl){var bar=document.createElement('i');bar.className='glp';gl.appendChild(bar);
  var go=function(){bar.classList.remove('run');void bar.offsetWidth;bar.classList.add('run')};
