@@ -748,3 +748,10 @@ summary{font-size:1.08rem}
 .vw{grid-template-columns:1fr;gap:1rem}.vl h2.t{font-size:1.7rem}.vl .sub,.vsm,.vad{display:none}
 .vc{height:auto;min-height:26rem;padding:1.2rem}.wp span{font-size:0}.wp span i{font-size:.7rem}.wtp img{aspect-ratio:1.3}.wd b{font-size:1.5rem}
 }
+.ubm .leaflet-tile-pane{filter:grayscale(.65) sepia(.15) contrast(1.02) brightness(1.03)}
+.ubm{z-index:0;isolation:isolate}
+.ubc .sub{display:none}
+.ubc{padding:1.5rem 1.7rem 1.3rem}.ubc h2.t{font-size:1.7rem}
+.ubt{margin-top:.9rem}.ubt>div{padding:.65rem .9rem}.ubt b{font-size:1.9rem}.ubt span{font-size:.68rem}
+.ubp{padding:.35rem .7rem .35rem .4rem;grid-template-columns:2.2rem 1fr auto}.ubp i{width:2.2rem;height:2.2rem}
+.ubc h3{margin:.9rem 0 .5rem}

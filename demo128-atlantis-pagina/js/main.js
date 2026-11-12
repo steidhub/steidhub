@@ -180,7 +180,7 @@ var el=document.getElementById('ubmap');
 if(el&&window.L){
  var map=L.map(el,{zoomControl:false,scrollWheelZoom:false,attributionControl:true}).setView(ME,15);
  L.control.zoom({position:'bottomright'}).addTo(map);
- L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
  function pin(c,cls){return L.divIcon({className:'',html:'<div class="pin '+cls+'">'+ic[c]+'</div>',iconSize:[38,38],iconAnchor:[19,38]})}
  var me=L.marker(ME,{icon:L.divIcon({className:'',html:'<div class="pin me">'+ic.home+'</div>',iconSize:[48,48],iconAnchor:[24,48]}),zIndexOffset:900}).addTo(map).bindTooltip('Maia',{permanent:true,direction:'top',offset:[0,-44],className:'pt'});
  var list=document.getElementById('ubl'),mk=[],btn=[],cur=-1,tm,paused=false,vis=false;
