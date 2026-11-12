@@ -848,3 +848,12 @@ summary{font-size:1.08rem}
 @keyframes cbf{0%,100%{transform:translateY(0);border-color:rgba(255,255,255,.3)}50%{transform:translateY(-.2rem);border-color:rgba(230,198,187,.75)}}
 @keyframes cbs{0%,55%{left:-60%}100%{left:130%}}
 @media(prefers-reduced-motion:reduce){.chipbar .cb,.chipbar .cb:after{animation:none}}
+/* v25 */
+.st img.plan{background:#fff;object-fit:contain;inset:0 0 38% 0;height:62%;animation:none;padding:.6rem}
+.st:has(img.plan):before{background:linear-gradient(0deg,rgba(13,12,17,.75) 0%,rgba(13,12,17,.05) 55%)}
+.hr .fl{overflow:hidden;animation:fl 6s ease-in-out infinite,flg 4s ease-in-out infinite,up .9s .7s backwards}
+.hr .fl2{animation-delay:-3s,-1.5s,.9s}
+.hr .fl:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:35%;background:linear-gradient(100deg,transparent,rgba(230,198,187,.28),transparent);transform:skewX(-18deg);animation:cbs 5s ease-in-out infinite}
+.hr .fl2:after{animation-delay:2s}
+@keyframes flg{0%,100%{border-color:rgba(255,255,255,.3);box-shadow:0 0 0 0 rgba(230,198,187,0)}50%{border-color:rgba(230,198,187,.8);box-shadow:0 0 1.4rem 0 rgba(230,198,187,.25)}}
+@media(prefers-reduced-motion:reduce){.hr .fl,.hr .fl:after{animation:none}}
