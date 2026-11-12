@@ -819,3 +819,10 @@ summary{font-size:1.08rem}
 .wre{font:300 1rem 'Jost';margin:-.4rem 0 1rem;padding:.7rem 1rem;border-radius:.4rem;background:#f4efe8}
 .wre b{font-weight:500}
 @media(max-width:960px){.vls{display:none}.wd,.wh{grid-template-columns:repeat(3,1fr)}.ubp b{font-size:.7rem}}
+/* v22 */
+.pn .vt{border:0;display:block}.pn .vt:before{display:none}
+.ph4.run>.st{filter:saturate(.35) brightness(.62);transition:transform .45s cubic-bezier(.3,1.4,.4,1),box-shadow .45s,filter .45s}
+.ph4.run>.st.act{transform:scale(1.12) translateY(-.5rem);filter:none;z-index:3;box-shadow:0 0 0 3px var(--pk),0 2.4rem 3.6rem -1rem rgba(168,19,79,.75)}
+.ph4.run>.st.act .tx{background:linear-gradient(135deg,rgba(181,22,95,.92),rgba(109,11,52,.92));border-top-color:#fff}
+.ph4.run>.st.act .tx h3{font-size:1.25rem}
+.ph4.run>.st.act .n{transform:scale(1.3);box-shadow:0 0 0 .5rem rgba(230,198,187,.45)}
