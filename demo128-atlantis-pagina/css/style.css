@@ -997,3 +997,30 @@ h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
 .ubl{padding-right:3.8rem}
 }
 @media(max-width:620px){.gls{height:56dvh}.gar{top:calc(1.3rem + 5.5rem + 28dvh)}}
+/* v36: aprovechar todo el alto en móviles altos */
+@media(max-width:620px){
+section.s>.wrap:not(.vw):not(.ubw){min-height:calc(100dvh - var(--hh) - 2.8rem);display:flex;flex-direction:column;justify-content:space-evenly;gap:.6rem}
+.hero.ficha .hero-grid{min-height:0}
+/* hero home: imagen flexible */
+.hero:not(.ficha) .hero-grid{min-height:calc(100dvh - var(--hh));justify-content:space-evenly}
+.hero:not(.ficha) .hr{flex:1 1 10rem;height:auto;min-height:10rem;max-height:22rem}
+/* proyectos: acordeón que llena */
+#proyectos .acc{flex:1 1 auto;min-height:24rem;display:flex;flex-direction:column;height:auto}
+#proyectos .pn,#proyectos .pn.on{height:auto;min-height:3.6rem;flex:1 1 0;transition:flex-grow .8s cubic-bezier(.2,.7,.2,1)}
+#proyectos .pn.on{flex-grow:5}
+/* feature collage */
+.coll{height:auto;flex:1 1 auto;min-height:15rem}
+/* pasos */
+.ph4{flex:1 1 auto;justify-content:space-evenly;max-height:34rem}
+.ph4>.st{flex:1 1 0;max-height:8.5rem}
+.ph4>.st>img,.ph4>.st>img.plan{width:auto;height:100%;max-height:7rem;aspect-ratio:1}
+.ph4>.st{grid-template-columns:auto 1fr}
+/* galería */
+.gl .gls{flex:1 1 auto;height:auto;min-height:30dvh}
+.gl .glb{flex:none}
+.gar{top:auto;bottom:auto}
+/* tipologías */
+.tpimg{height:auto;flex:1 1 auto;min-height:11rem;max-height:none}
+.tpv{flex:1 1 auto}
+.wa-float{bottom:1.6rem}
+}
