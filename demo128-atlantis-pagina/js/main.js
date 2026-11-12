@@ -185,18 +185,18 @@ if(el&&window.L){
  L.control.zoom({position:'bottomright'});
  map.on('click',function(){map.scrollWheelZoom.enable();document.getElementById('ubmap').classList.add('act')});
  el.addEventListener('mouseleave',function(){map.scrollWheelZoom.disable();el.classList.remove('act')});
- ['mousedown','touchstart','wheel'].forEach(function(ev){el.addEventListener(ev,function(){paused=true;clearTimeout(tm)},{passive:true})});
+ ['mousedown','touchstart','wheel'].forEach(function(ev){el.addEventListener(ev,function(){clearTimeout(tm);if(vis)tm=setTimeout(function(){sel((cur+1)%P.length)},7000)},{passive:true})});
  var list=document.getElementById('ubl'),mk=[],btn=[],cur=-1,tm,paused=false,vis=false;
  P.forEach(function(x,i){
   var d=km(ME,x.p),dt=d<1?Math.round(d*10)*100+' m':d.toFixed(1)+' km';
   var m=L.marker(x.p,{icon:pin(x.c,'')}).addTo(map).bindTooltip(x.n,{direction:'top',offset:[0,-34],className:'pt'});
-  m.on('click',function(){paused=true;sel(i)});mk.push(m);
+  m.on('click',function(){sel(i)});mk.push(m);
   var b=document.createElement('button');b.type='button';b.className='ubp';b.innerHTML='<i>'+ic[x.c]+'</i><span><b>'+x.n+'</b><small>'+dt+'</small></span>';
-  b.addEventListener('click',function(){paused=true;sel(i)});list.appendChild(b);btn.push(b)});
+  b.addEventListener('click',function(){sel(i)});list.appendChild(b);btn.push(b)});
  function sel(i){cur=i;btn.forEach(function(b,k){b.classList.toggle('on',k===i)});mk.forEach(function(m,k){var e=m.getElement();if(e)e.firstChild.classList.toggle('on',k===i)});
   var far=km(ME,P[i].p)>1.2,ex=far?150:0,pad=innerWidth>960?[470+ex,40+ex]:[20+ex,20+ex];map.flyToBounds(L.latLngBounds([ME,P[i].p]),{paddingTopLeft:pad,paddingBottomRight:[40+ex,40+ex],maxZoom:far?14:16,duration:1.1});
-  mk.forEach(function(m,k){if(k!==i)m.closeTooltip()});mk[i].openTooltip();clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
- new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis){map.invalidateSize();if(!paused)sel(cur<0?0:cur)}else clearTimeout(tm)},{threshold:.5}).observe(document.getElementById('ubicacion'));
+  mk.forEach(function(m,k){if(k!==i)m.closeTooltip()});mk[i].openTooltip();clearTimeout(tm);if(vis)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis){map.invalidateSize();sel(cur<0?0:cur)}else clearTimeout(tm)},{threshold:.5}).observe(document.getElementById('ubicacion'));
 }
 var wd=document.getElementById('wdays');
 if(wd){
