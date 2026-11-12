@@ -985,3 +985,5 @@ h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
 .wp span.on{font-size:.56rem}
 .wnav{padding-top:.6rem}
 }
+/* v33 */
+@media(max-width:620px){.gl .gls,.gl .glt,.gl .glb{width:100%;align-self:stretch}.gl .glt{align-items:flex-start}}
