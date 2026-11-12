@@ -107,3 +107,46 @@ document.addEventListener('DOMContentLoaded',function(){
   document.addEventListener('keydown',function(e){if(e.key==='Escape')toggle(false)});
  });
 })();
+/* v14 maia */
+(function(){
+function tw(el,to,dec){var from=parseFloat(el.dataset.v||0),t0=null;el.dataset.v=to;(function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/600,1),e=1-Math.pow(1-p,3),v=from+(to-from)*e;el.textContent=dec?v.toFixed(2):Math.round(v);if(p<1)requestAnimationFrame(f)})(performance.now())}
+var tp=document.querySelector('.tp');
+if(tp){
+ var bs=[].slice.call(tp.querySelectorAll('.tpb')),im=[].slice.call(tp.querySelectorAll('.tpimg img')),cur=0,tm,paused=false,vis=false;
+ function go(i){cur=i;bs.forEach(function(b,k){b.classList.toggle('on',k===i);if(k===i){b.classList.remove('on');void b.offsetWidth;b.classList.add('on')}});im.forEach(function(m,k){m.classList.toggle('on',k===i)});
+  var b=bs[i];document.getElementById('tpn').textContent=b.dataset.l;
+  tw(document.getElementById('s-d'),+b.dataset.d);tw(document.getElementById('s-b'),+b.dataset.b);tw(document.getElementById('s-a'),+b.dataset.a,1);
+  document.getElementById('s-p').textContent='S/ '+b.dataset.p;
+  document.getElementById('tpcta').href=waLink('Hola, quiero información de Maia '+b.dataset.n);
+  clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){go((cur+1)%bs.length)},5500)}
+ bs.forEach(function(b,k){b.addEventListener('click',function(){paused=true;tp.classList.add('paused');go(k)})});
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!paused)go(cur);else clearTimeout(tm)},{threshold:.4}).observe(tp);
+}
+var gl=document.getElementById('galeria');
+if(gl){
+ var S=[].slice.call(gl.querySelectorAll('.gls img')),T=[].slice.call(gl.querySelectorAll('.gth button')),tabs=[].slice.call(gl.querySelectorAll('.tabs button')),grp='Interiores',gi=0,gt,gv=false,gpaused=false;
+ function idxs(){return S.map(function(_,i){return i}).filter(function(i){return S[i].dataset.g===grp})}
+ function show(i){gi=i;S.forEach(function(m,k){m.classList.remove('on');if(k===i){void m.offsetWidth;m.classList.add('on')}});T.forEach(function(b,k){b.classList.toggle('on',k===i);b.hidden=S[k].dataset.g!==grp});
+  var l=idxs();document.getElementById('gn').textContent=('0'+(l.indexOf(i)+1)).slice(-2);document.getElementById('gt').textContent=('0'+l.length).slice(-2);
+  var t=document.getElementById('gtt');t.textContent=S[i].dataset.t;t.style.animation='none';void t.offsetWidth;t.style.animation='';
+  clearTimeout(gt);if(gv&&!gpaused)gt=setTimeout(function(){step(1)},5000)}
+ function step(d){var l=idxs(),p=l.indexOf(gi);show(l[(p+d+l.length)%l.length])}
+ tabs.forEach(function(b){b.addEventListener('click',function(){grp=b.dataset.f;tabs.forEach(function(x){x.setAttribute('aria-selected',x===b)});show(idxs()[0])})});
+ T.forEach(function(b,k){b.addEventListener('click',function(){gpaused=true;show(k)})});
+ document.getElementById('gp').onclick=function(){gpaused=true;step(-1)};document.getElementById('gx').onclick=function(){gpaused=true;step(1)};
+ document.getElementById('gz').onclick=function(){openLb(S[gi].src)};
+ gl.addEventListener('mousemove',function(e){var r=gl.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;gl.querySelector('.gls').style.transform='translate('+(-x*14)+'px,'+(-y*10)+'px)'});
+ new IntersectionObserver(function(e){gv=e[0].isIntersecting;if(gv&&!gpaused)show(gi);else clearTimeout(gt)},{threshold:.4}).observe(gl);
+ show(0);
+}
+var vd=document.getElementById('vdays');
+if(vd){
+ var st={tipo:'Tipo 10',dia:'',hora:'10:00'},d=new Date(),n=0,mn=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],dn=['dom','lun','mar','mié','jue','vie','sáb'];
+ d.setDate(d.getDate()+1);
+ while(n<6){if(d.getDay()!==0){var b=document.createElement('button');b.type='button';b.dataset.v=dn[d.getDay()]+' '+d.getDate()+' '+mn[d.getMonth()];b.innerHTML='<small>'+dn[d.getDay()]+'</small><b>'+d.getDate()+'</b>';if(!n){b.className='on';st.dia=b.dataset.v}vd.appendChild(b);n++}d.setDate(d.getDate()+1)}
+ function sync(){document.getElementById('v-tipo').textContent=st.tipo;document.getElementById('v-dia').textContent=st.dia;document.getElementById('v-hora').textContent=st.hora;['v-tipo','v-dia','v-hora'].forEach(function(id){var e=document.getElementById(id);e.style.animation='none';void e.offsetWidth;e.style.animation=''})}
+ document.querySelectorAll('.vch').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});st[g.dataset.k]=b.dataset.v;sync()})});
+ sync();
+ window.sendVisit=function(e){e.preventDefault();var f=e.target;window.open(waLink('Hola, soy '+f.nombre.value+' ('+f.celular.value+'). Quiero agendar una visita a Maia para ver el '+st.tipo+' el '+st.dia+' a las '+st.hora+'.'),'_blank','noopener')}
+}
+})();
