@@ -669,3 +669,82 @@ summary{font-size:1.08rem}
 .glp.run{animation:draw 5s linear forwards}
 @media(max-width:960px){.hf1{max-width:100%}.cvin{margin:1rem;padding:1.3rem}}
 @media(max-width:620px){.pn img{inset:0;width:100%;margin:0}}
+/* v18 */
+.gl{height:calc(100dvh - var(--hh));min-height:0}
+.glin{height:100%;min-height:0;padding-bottom:1.6rem}
+.glb{padding-right:5.5rem}
+/* ubicación con pines */
+.ubc{width:28rem;padding:1.8rem 1.9rem 1.6rem}
+.ubc h3{margin:1.1rem 0 .55rem}
+.ubl{display:grid;gap:.4rem}
+.ubp{display:grid;grid-template-columns:2.6rem 1fr auto;gap:.8rem;align-items:center;text-align:left;width:100%;padding:.5rem .7rem .5rem .5rem;border:1px solid var(--line);border-radius:.4rem;background:#fff;cursor:pointer;font-family:'Jost';color:var(--ink);transition:.35s;position:relative;overflow:hidden}
+.ubp i{width:2.6rem;height:2.6rem;border-radius:.3rem;background:linear-gradient(135deg,#1a1520,#3a1428);display:flex;align-items:center;justify-content:center}
+.ubp i svg,.pin svg{width:1.2rem;height:1.2rem;fill:none;stroke:var(--ro);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ubp b{display:block;font:500 .86rem 'Jost'}
+.ubp small{display:block;font:300 .72rem 'Jost';color:var(--mute)}
+.ubp em{font:400 .78rem 'Jost';font-style:normal;color:var(--pk);white-space:nowrap}
+.ubp:hover{border-color:var(--ro)}
+.ubp.on{background:linear-gradient(135deg,#1a1520,#2a1320);color:#fff;border-color:var(--ro);transform:translateX(.3rem);box-shadow:0 1rem 2rem -1rem rgba(109,11,52,.6)}
+.ubp.on small{color:#d8cfdc}.ubp.on em{color:var(--ro)}
+.ubp.on i{background:linear-gradient(135deg,#b5165f,#6d0b34)}
+.ubm .leaflet-container{width:100%;height:100%;background:#eee9e1;font-family:'Jost'}
+.pin{position:relative;width:2.4rem;height:2.4rem;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,#1a1520,#3a1428);border:2px solid var(--ro);box-shadow:0 .5rem 1rem rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:.4s}
+.pin svg{transform:rotate(45deg)}
+.pin.on{background:linear-gradient(135deg,#b5165f,#6d0b34);border-color:#fff;transform:rotate(-45deg) scale(1.3)}
+.pin.me{width:3rem;height:3rem;background:linear-gradient(135deg,#b5165f,#6d0b34);border-color:#fff}
+.pin.me:after{content:"";position:absolute;inset:-.7rem;border-radius:50%;border:1px solid var(--pk);animation:ring 2.4s infinite}
+.pin.me svg{width:1.4rem;height:1.4rem;stroke:#fff}
+.leaflet-tooltip.pt{background:#0d0c11;color:#fff;border:1px solid var(--ro);border-radius:.3rem;font:500 .72rem 'Jost';letter-spacing:.08em;padding:.35rem .7rem;box-shadow:0 .6rem 1.2rem rgba(0,0,0,.35)}
+.leaflet-tooltip.pt:before{display:none}
+/* visita */
+.vs2{position:relative;background:#0d0c11;color:#fff;overflow:hidden}
+.vbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;animation:kb 26s ease-in-out infinite alternate}
+.vs2:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,12,17,.92) 0%,rgba(13,12,17,.55) 55%,rgba(109,11,52,.35) 100%)}
+.vw{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.05fr;gap:3.5rem;align-items:center}
+.vl .kick{color:var(--ro)}.vl h2.t{color:#fff;font-size:3rem}.vl h2 em{color:var(--ro)}.vl .sub{color:#e6e0ec;max-width:24rem}
+.vsm{list-style:none;padding:0;margin:1.8rem 0 1rem;display:grid;gap:.6rem;max-width:22rem}
+.vsm li{display:flex;justify-content:space-between;align-items:baseline;padding:.8rem 1.1rem;border-radius:.4rem;background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18)}
+.vsm small{font:500 .58rem 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--ro)}
+.vsm b{font:400 1.05rem 'Jost';animation:up .5s both}
+.vad{font:300 .85rem 'Jost';letter-spacing:.12em;color:#cfc7d6}
+.vc{position:relative;background:rgba(255,252,248,.96);color:var(--ink);border-radius:.6rem;padding:1.6rem 1.8rem 1.4rem;height:27rem;display:flex;flex-direction:column;box-shadow:0 2.6rem 5rem -1.4rem rgba(0,0,0,.6)}
+.wp{position:relative;display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:1.3rem;padding-bottom:.9rem}
+.wp span{display:flex;align-items:center;gap:.5rem;font:500 .6rem 'Jost';letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:.4s}
+.wp span i{font-style:normal;width:1.7rem;height:1.7rem;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:500 .7rem 'Jost';background:#fff;transition:.4s}
+.wp span.on,.wp span.dn{color:var(--ink)}
+.wp span.on i{background:linear-gradient(135deg,#b5165f,#6d0b34);color:#fff;border-color:transparent;box-shadow:0 0 0 .3rem rgba(168,19,79,.15)}
+.wp span.dn i{background:var(--ink);color:#fff;border-color:var(--ink)}
+.wp u{position:absolute;left:0;bottom:0;height:2px;width:25%;background:linear-gradient(90deg,var(--pk),var(--ro));transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.wp:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--line);z-index:-1}
+.wz{display:none;flex:1;min-height:0}
+.wz.on{display:flex;flex-direction:column;animation:up .5s both}
+.wz h3{font:400 1.35rem 'Jost';margin-bottom:.9rem}
+.wtp{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.wtp button{display:flex;flex-direction:column;align-items:center;gap:.2rem;padding:.6rem .5rem .8rem;border:1px solid var(--line);border-radius:.4rem;background:#fff;cursor:pointer;font-family:'Jost';transition:.35s}
+.wtp img{width:100%;aspect-ratio:1;object-fit:contain}
+.wtp b{font:500 .8rem 'Jost';letter-spacing:.2em;text-transform:uppercase}
+.wtp small{font:300 .75rem 'Jost';color:var(--mute)}
+.wtp button:hover,.wd button:hover,.wh button:hover{border-color:var(--pk);transform:translateY(-.2rem)}
+.wtp button.on,.wd button.on,.wh button.on{background:linear-gradient(135deg,#1a1520,#2a1320);color:#fff;border-color:var(--ro);box-shadow:0 1rem 1.8rem -.8rem rgba(109,11,52,.7)}
+.wtp button.on small{color:#d8cfdc}
+.wlk{margin-top:auto;align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--cu);padding:.2rem 0;font:400 .82rem 'Jost';color:var(--cu);cursor:pointer}
+.wd{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.wd button{display:flex;flex-direction:column;align-items:center;padding:.9rem .4rem;border:1px solid var(--line);border-radius:.4rem;background:#fff;cursor:pointer;font-family:'Jost';transition:.35s;line-height:1.1}
+.wd small{font:500 .58rem 'Jost';letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.wd b{font:300 2rem 'Jost';margin:.15rem 0}
+.wd span{font:400 .7rem 'Jost';opacity:.75}
+.wg{font:500 .58rem 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--cu);margin:.3rem 0 .5rem}
+.wh{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.7rem}
+.wh button{height:3.2rem;border:1px solid var(--line);border-radius:.4rem;background:#fff;font:300 1.25rem 'Jost';cursor:pointer;transition:.35s}
+.wf{display:grid;gap:.6rem;margin-bottom:.9rem}
+.wz .btn{height:3.2rem}
+.wz .fine{margin-top:.6rem;font:300 .75rem 'Jost';color:var(--mute)}
+.wb{position:absolute;left:1.8rem;bottom:1.1rem;background:none;border:0;font:500 .62rem 'Jost';letter-spacing:.22em;text-transform:uppercase;color:var(--mute);cursor:pointer}
+.wz:nth-of-type(4) .fine{margin-bottom:1.2rem}
+@media(max-width:960px){
+.ubc{width:100%}.ubl{grid-template-columns:1fr 1fr}.ubp{grid-template-columns:2.2rem 1fr}.ubp em{display:none}.ubp i{width:2.2rem;height:2.2rem}.ubc h3{display:none}.ubt{display:none}.ubc .sub{display:none}.ubc h2.t{font-size:1.4rem}
+.ubm{height:calc((100dvh - var(--hh))*.5)}.ubw{margin-top:-2rem}
+.gl .glb{padding-right:4.4rem}.glt{gap:.5rem}.gl h2.t{font-size:1.5rem}
+.vw{grid-template-columns:1fr;gap:1rem}.vl h2.t{font-size:1.7rem}.vl .sub,.vsm,.vad{display:none}
+.vc{height:auto;min-height:26rem;padding:1.2rem}.wp span{font-size:0}.wp span i{font-size:.7rem}.wtp img{aspect-ratio:1.3}.wd b{font-size:1.5rem}
+}

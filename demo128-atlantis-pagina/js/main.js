@@ -165,3 +165,49 @@ if(gl){var bar=document.createElement('i');bar.className='glp';gl.appendChild(ba
  var x0=null;gl.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
  gl.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)document.getElementById(d<0?'gx':'gp').click();x0=null});}
 })();
+/* v18 */
+(function(){
+var ic={bus:'<svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="13" rx="2"/><path d="M5 11h14M8 20l1-3M16 20l-1-3"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/></svg>',cart:'<svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 10h9.4l2-7H6.5"/><circle cx="9" cy="19" r="1.2"/><circle cx="17" cy="19" r="1.2"/></svg>',med:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>',tree:'<svg viewBox="0 0 24 24"><path d="M12 21v-6"/><path d="M12 3a5 5 0 0 0-4 8 4.5 4.5 0 0 0 1 8h6a4.5 4.5 0 0 0 1-8 5 5 0 0 0-4-8z"/></svg>',home:'<svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4z"/><path d="M10 20v-5h4v5"/></svg>',bag:'<svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>'};
+var ME=[-12.10423,-77.02645],P=[
+{n:'Estación Aramburú',t:'Metropolitano',c:'bus',p:[-12.1023,-77.02725]},
+{n:'Plaza Vea San Isidro',t:'Supermercado',c:'cart',p:[-12.0974,-77.02625]},
+{n:'Tottus Angamos',t:'Supermercado',c:'cart',p:[-12.11216,-77.01119]},
+{n:'Plaza Santa Catalina',t:'Centro comercial',c:'bag',p:[-12.08954,-77.01999]},
+{n:'British American Clinic',t:'Clínica 24 h',c:'med',p:[-12.10912,-77.0394]},
+{n:'Parque Reducto N° 2',t:'Parque',c:'tree',p:[-12.12633,-77.0227]}];
+function km(a,b){var r=Math.PI/180,x=(b[1]-a[1])*r*Math.cos((a[0]+b[0])/2*r),y=(b[0]-a[0])*r;return Math.sqrt(x*x+y*y)*6371}
+var el=document.getElementById('ubmap');
+if(el&&window.L){
+ var map=L.map(el,{zoomControl:false,scrollWheelZoom:false,attributionControl:true}).setView(ME,15);
+ L.control.zoom({position:'bottomright'}).addTo(map);
+ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+ function pin(c,cls){return L.divIcon({className:'',html:'<div class="pin '+cls+'">'+ic[c]+'</div>',iconSize:[38,38],iconAnchor:[19,38]})}
+ var me=L.marker(ME,{icon:L.divIcon({className:'',html:'<div class="pin me">'+ic.home+'</div>',iconSize:[48,48],iconAnchor:[24,48]}),zIndexOffset:900}).addTo(map).bindTooltip('Maia',{permanent:true,direction:'top',offset:[0,-44],className:'pt'});
+ var list=document.getElementById('ubl'),mk=[],btn=[],cur=-1,tm,paused=false,vis=false;
+ P.forEach(function(x,i){
+  var d=km(ME,x.p),dt=d<1?Math.round(d*10)*100+' m':d.toFixed(1)+' km';
+  var m=L.marker(x.p,{icon:pin(x.c,'')}).addTo(map).bindTooltip(x.n,{direction:'top',offset:[0,-34],className:'pt'});
+  m.on('click',function(){paused=true;sel(i)});mk.push(m);
+  var b=document.createElement('button');b.type='button';b.className='ubp';b.innerHTML='<i>'+ic[x.c]+'</i><span><b>'+x.n+'</b><small>'+x.t+'</small></span><em>'+dt+'</em>';
+  b.addEventListener('click',function(){paused=true;sel(i)});list.appendChild(b);btn.push(b)});
+ function sel(i){cur=i;btn.forEach(function(b,k){b.classList.toggle('on',k===i)});mk.forEach(function(m,k){var e=m.getElement();if(e)e.firstChild.classList.toggle('on',k===i)});
+  var pad=innerWidth>960?[470,40]:[20,20];map.flyToBounds(L.latLngBounds([ME,P[i].p]),{paddingTopLeft:pad,paddingBottomRight:[40,40],maxZoom:16,duration:1.1});
+  mk[i].openTooltip();clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis){map.invalidateSize();if(!paused)sel(cur<0?0:cur)}else clearTimeout(tm)},{threshold:.5}).observe(document.getElementById('ubicacion'));
+}
+var wd=document.getElementById('wdays');
+if(wd){
+ var st={tipo:'Tipo 10',dia:'',hora:'10:00'},d=new Date(),n=0,mn=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],dn=['dom','lun','mar','mié','jue','vie','sáb'];
+ d.setDate(d.getDate()+1);
+ while(n<6){if(d.getDay()!==0){var b=document.createElement('button');b.type='button';b.dataset.v=dn[d.getDay()]+' '+d.getDate()+' '+mn[d.getMonth()];b.innerHTML='<small>'+dn[d.getDay()]+'</small><b>'+d.getDate()+'</b><span>'+mn[d.getMonth()]+'</span>';if(!n){b.className='on';st.dia=b.dataset.v}wd.appendChild(b);n++}d.setDate(d.getDate()+1)}
+ var steps=[].slice.call(document.querySelectorAll('.wz')),pr=[].slice.call(document.querySelectorAll('.wp span')),bar=document.querySelector('.wp u'),back=document.getElementById('wback'),k=0;
+ function show(i){k=i;steps.forEach(function(s,j){s.classList.toggle('on',j===i)});pr.forEach(function(p,j){p.classList.toggle('on',j===i);p.classList.toggle('dn',j<i)});bar.style.width=(i+1)*25+'%';back.hidden=i===0}
+ function sync(){['tipo','dia','hora'].forEach(function(x){var e=document.getElementById('v-'+x);e.textContent=st[x];e.style.animation='none';void e.offsetWidth;e.style.animation=''})}
+ document.querySelectorAll('[data-k]').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.v)return;
+  document.querySelectorAll('[data-k="'+g.dataset.k+'"] button').forEach(function(x){x.classList.toggle('on',x===b)});st[g.dataset.k]=b.dataset.v;sync();setTimeout(function(){if(k<3)show(k+1)},380)})});
+ pr.forEach(function(p,j){p.style.cursor='pointer';p.addEventListener('click',function(){show(j)})});
+ back.onclick=function(){show(Math.max(0,k-1))};
+ sync();show(0);
+ window.sendVisit=function(e){e.preventDefault();var f=e.target;window.open(waLink('Hola, soy '+f.nombre.value+' ('+f.celular.value+'). Quiero agendar una visita a Maia para ver el '+st.tipo+' el '+st.dia+' a las '+st.hora+'.'),'_blank','noopener')}
+}
+})();
