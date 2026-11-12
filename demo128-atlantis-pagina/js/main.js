@@ -215,3 +215,9 @@ if(wd){
  window.sendVisit=function(e){e.preventDefault();var f=e.target;window.open(waLink('Hola, soy '+f.nombre.value+' ('+f.celular.value+'). Quiero agendar una visita a Maia para ver el '+st.tipo+' el '+st.dia+' a las '+st.hora+'.'),'_blank','noopener')}
 }
 })();
+/* v28: precarga progresiva de imágenes para evitar saltos al hacer scroll */
+(function(){
+function warm(){var l=[].slice.call(document.querySelectorAll('img[loading=lazy]')),i=0;
+ (function nx(){if(i>=l.length)return;var m=l[i++];m.loading='eager';m.decoding='async';(window.requestIdleCallback||function(f){setTimeout(f,120)})(nx,{timeout:400})})()}
+if(document.readyState==='complete')setTimeout(warm,300);else addEventListener('load',function(){setTimeout(warm,300)});
+})();
