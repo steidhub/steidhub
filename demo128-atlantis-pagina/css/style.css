@@ -633,3 +633,5 @@ summary{font-size:1.08rem}
 .vbox{grid-template-columns:1fr}.vt{display:none}.vf{padding:1.3rem 1.2rem;gap:.7rem}.vh h2.t{font-size:1.5rem}
 .vch button{height:2.1rem;padding:0 .8rem;font-size:.72rem}.vd button{width:3rem;height:3rem}
 }
+.gth button[hidden]{display:none!important}
+.tps{grid-template-columns:.8fr .8fr 1fr 1.5fr}.tps>div:last-child b{white-space:nowrap;font-size:1.15rem}
