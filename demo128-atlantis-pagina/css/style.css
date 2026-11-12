@@ -987,3 +987,12 @@ h2.t,.sh h2{font-size:1.7rem;line-height:1.12}
 }
 /* v33 */
 @media(max-width:620px){.gl .gls,.gl .glt,.gl .glb{width:100%;align-self:stretch}.gl .glt{align-items:flex-start}}
+/* v34 */
+@media(max-width:620px){
+.gls{height:46dvh}
+.gar{top:calc(1.3rem + 5.5rem + 23dvh)}
+.glb{flex:none;justify-content:flex-start;gap:1rem}
+.glc{gap:.7rem}.gz{margin-left:0;height:2.3rem;padding:0 1rem;font-size:.58rem}
+.gth{margin-top:.2rem}
+.ubl{padding-right:3.8rem}
+}
