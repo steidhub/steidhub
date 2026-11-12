@@ -840,3 +840,11 @@ summary{font-size:1.08rem}
 .track i.on{transform:scale(1.9);background:var(--pk);box-shadow:0 0 0 .25rem #fff,0 0 0 .5rem var(--pk),0 0 0 1rem rgba(168,19,79,.2)}
 .ph4.run>.st:not(.act):not(.dn){filter:saturate(.3) brightness(.55)}
 .ph4.run>.st.dn{filter:saturate(.8) brightness(.85)}
+/* v24 */
+.chipbar .cb{position:relative;overflow:hidden;animation:cbf 4.5s ease-in-out infinite}
+.chipbar .cb:nth-child(2){animation-delay:.4s}.chipbar .cb:nth-child(3){animation-delay:.8s}
+.chipbar .cb:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(230,198,187,.35),transparent);transform:skewX(-18deg);animation:cbs 4.5s ease-in-out infinite}
+.chipbar .cb:nth-child(2):after{animation-delay:.4s}.chipbar .cb:nth-child(3):after{animation-delay:.8s}
+@keyframes cbf{0%,100%{transform:translateY(0);border-color:rgba(255,255,255,.3)}50%{transform:translateY(-.2rem);border-color:rgba(230,198,187,.75)}}
+@keyframes cbs{0%,55%{left:-60%}100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.chipbar .cb,.chipbar .cb:after{animation:none}}
