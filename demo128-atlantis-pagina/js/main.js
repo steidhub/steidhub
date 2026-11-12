@@ -12,7 +12,7 @@ function fmt(n){return 'S/ '+n.toLocaleString('en-US')}
 function card(p){
  var tag=p.status==='build'?'<span class="tag">En construcción</span>':p.status==='sold'?'<span class="tag sold">100% vendido</span>':'<span class="tag last">Último dúplex</span>';
  var price=p.price?'Desde '+fmt(p.price):(p.status==='sold'?'Vendido':'Consultar precio');
- return '<article class="pn'+(p.status==='sold'?' off':'')+'" tabindex="0" aria-label="'+p.name+'"><img class="m" loading="lazy" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" loading="lazy" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'<span class="vt">'+p.name+'</span><div class="info"><span class="dist">'+p.dist+'</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn pk sm" href="'+p.href+'">Ver proyecto</a></div></div><i class="bar"></i></article>';
+ return '<article class="pn'+(p.status==='sold'?' off':'')+'" tabindex="0" aria-label="'+p.name+'"><img class="m" loading="lazy" src="'+BASE+p.img+'" alt="Render del proyecto '+p.name+' en '+p.dist+'"><img class="h" loading="lazy" src="'+BASE+p.hov+'" alt="" aria-hidden="true">'+tag+'<span class="vt">'+p.name+' · '+p.dist+'</span><div class="info"><span class="dist">'+p.dist+', Lima</span><h3>'+p.name+'</h3><p class="meta">'+p.label+'</p><div class="ft"><span class="pr">'+price+'</span><a class="btn pk sm" href="'+p.href+'">Ver proyecto</a></div></div><i class="bar"></i></article>';
 }
 var accT=null;
 function accInit(el){

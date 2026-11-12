@@ -458,3 +458,60 @@ summary{font-size:1.08rem}
 }
 .pn:not(.on) .tag{opacity:0}
 .st:before{background:linear-gradient(0deg,rgba(13,12,17,.95) 0%,rgba(13,12,17,.55) 38%,rgba(13,12,17,.08) 70%,rgba(13,12,17,.3) 100%)}
+
+/* ===== v13 ===== */
+/* ubicación legible en paneles */
+.pn .info{left:1rem;right:1rem;bottom:1rem;padding:1.1rem 1.4rem 1.2rem;border-radius:.4rem;background:linear-gradient(180deg,rgba(13,12,17,.25),rgba(13,12,17,.72));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14)}
+.pn .dist{display:inline-flex;align-items:center;gap:.55rem;font:500 .7rem 'Jost';letter-spacing:.26em;color:#fff;margin-bottom:.1rem}
+.pn .dist:before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--ro);box-shadow:0 0 0 .25rem rgba(230,198,187,.25)}
+.pn h3{font-size:2rem;margin:.15rem 0 0}
+.pn .vt{font-size:.74rem;letter-spacing:.3em}
+.pn:after{background:linear-gradient(0deg,rgba(13,12,17,.9) 0%,rgba(13,12,17,.25) 55%,rgba(13,12,17,.3) 100%)}
+
+/* pasos: texto sobre cristal, número destacado */
+.st{padding:1rem}
+.st:before{background:linear-gradient(0deg,rgba(13,12,17,.7) 0%,rgba(13,12,17,.05) 55%,rgba(13,12,17,.25) 100%)}
+.st .n{left:1rem;top:1rem;width:3.2rem;height:3.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font:400 1.05rem 'Jost';letter-spacing:.06em;background:linear-gradient(135deg,#b5165f,#6d0b34);border:1px solid rgba(230,198,187,.6);box-shadow:0 .8rem 1.6rem -.6rem rgba(168,19,79,.9)}
+.st .n:after{content:"";position:absolute;inset:-.4rem;border-radius:50%;border:1px solid rgba(230,198,187,.5)}
+.st .tx{position:relative;padding:1.05rem 1.2rem 1.15rem;border-radius:.35rem;background:rgba(13,12,17,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-top:2px solid var(--ro)}
+.st h3{font:500 1.05rem 'Jost';letter-spacing:.24em;color:#fff}
+.st p{font-size:.95rem;font-weight:400;opacity:1;margin-top:.4rem;color:#f1ecf5}
+@media(prefers-reduced-motion:no-preference){
+.st .n:after{animation:pulse 2.6s infinite}
+.st:nth-child(2) .n:after{animation-delay:.6s}.st:nth-child(3) .n:after{animation-delay:1.2s}.st:nth-child(4) .n:after{animation-delay:1.8s}
+.st .tx{animation:up .9s .2s backwards}
+}
+@keyframes reveal{from{opacity:0;transform:translateY(2.2rem);clip-path:inset(14% 0 0 0 round .4rem)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round .4rem)}}
+@supports(animation-timeline:view()){@media(prefers-reduced-motion:no-preference){
+.ph4>.st{animation:reveal linear backwards;animation-timeline:view();animation-range:entry 0% entry 60%}
+.ph4>.st:nth-child(2){animation-range:entry 6% entry 66%}.ph4>.st:nth-child(3){animation-range:entry 12% entry 72%}.ph4>.st:nth-child(4){animation-range:entry 18% entry 78%}
+}}
+
+/* hero: formas curvas en lugar de rectángulos */
+.hf1{border-radius:15rem 15rem 3.5rem 3.5rem}
+.hf2{left:-2%;bottom:6%;width:13.5rem;height:13.5rem;border-radius:50%;outline:0;border:.35rem solid var(--ink);box-shadow:0 0 0 1px rgba(230,198,187,.5),0 1.6rem 3rem rgba(0,0,0,.5)}
+.fl{border-radius:99rem;padding:.75rem 1.8rem}
+.fl1{left:2%;top:10%}
+
+/* contacto: tarjeta unificada */
+.contact2{display:grid;grid-template-columns:1.05fr 1fr;border-radius:.5rem;overflow:hidden;box-shadow:0 2.4rem 5rem -1.6rem rgba(13,12,17,.4);min-height:32rem}
+.cv{position:relative;color:#fff;display:flex;align-items:flex-end}
+.cvimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cv:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,12,17,.92) 0%,rgba(13,12,17,.55) 55%,rgba(13,12,17,.25) 100%);z-index:1}
+.cvin{position:relative;z-index:2;padding:2.4rem 2.6rem;width:100%}
+.cv .kick{color:var(--ro)}
+.cv h2.t{color:#fff;font-size:2.2rem}
+.cv h2 em{color:var(--ro)}
+.cv .sub{color:#d6d0dc}
+.cl{list-style:none;padding:0;display:grid;gap:.8rem;margin:1.4rem 0}
+.cl li{display:flex;align-items:center;gap:.9rem}
+.cl i{flex:none;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid rgba(230,198,187,.55);display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08)}
+.cl svg{width:1.1rem;height:1.1rem;fill:none;stroke:var(--ro);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.cl svg[viewBox="0 0 24 24"] path[d^="M17.472"]{fill:var(--ro);stroke:none}
+.cl span{font:400 .98rem 'Jost'}
+.cl small{display:block;font:400 .56rem 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--ro)}
+.contact2 form{background:#fff;border:0;border-radius:0;padding:2.6rem;display:grid;align-content:center;gap:1.1rem}
+.contact2 form .two{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(prefers-reduced-motion:no-preference){.cvimg{animation:kb 24s ease-in-out infinite alternate}}
+@media(max-width:960px){.contact2{grid-template-columns:1fr}.cv{min-height:20rem}.cvin{padding:1.6rem}.contact2 form{padding:1.6rem}}
+@media(max-width:620px){.contact2 form .two{grid-template-columns:1fr}.cl span{font-size:.88rem}.st .tx{padding:.7rem .9rem}.st h3{font-size:.85rem}}
