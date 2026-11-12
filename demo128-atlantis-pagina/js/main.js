@@ -4,7 +4,7 @@ var BASE='https://admin.atlantisinmobiliaria.com/wp-content/uploads/';
 var PROJECTS=[
 {slug:'maia',name:'Maia',dist:'Surquillo',dorms:[3,4],label:'3 y 4 dormitorios',price:629000,status:'build',img:'2025/08/Imagen-Maia.png',hov:'2025/08/TERRAZA-01-1.jpg',href:'maia/'},
 {slug:'atenas',name:'Atenas',dist:'Surco',dorms:[2,3],label:'2 y 3 dormitorios',price:690000,status:'build',img:'2024/07/render_card_atenas.webp',hov:'2024/07/hover_terraza.jpg',href:'https://atlantisinmobiliaria.com/surco/atenas'},
-{slug:'monaco',name:'Monaco',dist:'Surquillo',dorms:[],label:'Consulta tipologías',price:0,status:'build',img:'2024/07/monaco_card.png',hov:'2024/07/monaco_hover.png',href:'https://atlantisinmobiliaria.com/surquillo/monaco'},
+{slug:'monaco',name:'Monaco',dist:'Surquillo',dorms:[],label:'',price:0,status:'build',img:'2024/07/monaco_card.png',hov:'2024/07/monaco_hover.png',href:'https://atlantisinmobiliaria.com/surquillo/monaco'},
 {slug:'mauren',name:'Mauren',dist:'Surquillo',dorms:[2,3],label:'2 y 3 dormitorios',price:0,status:'last',img:'2024/07/mauren_card.png',hov:'2024/07/interior-mauren.png',href:'https://atlantisinmobiliaria.com/surquillo/mauren'},
 {slug:'milan',name:'Milan',dist:'Surquillo',dorms:[1,2,3],label:'1, 2 y 3 dormitorios',price:0,status:'sold',img:'2024/07/milan_card.png',hov:'2024/07/milan_hover.png',href:'https://atlantisinmobiliaria.com/surquillo/milan'},
 {slug:'montecarlo',name:'Montecarlo',dist:'Surquillo',dorms:[1,2,3],label:'1, 2 y 3 dormitorios',price:0,status:'sold',img:'2024/07/montecarlo.png',hov:'2024/07/montecarlo.png',href:'https://atlantisinmobiliaria.com/surquillo/montecarlo'}];
@@ -154,7 +154,7 @@ if(vd){
 (function(){
 var p=document.querySelector('.ph4');
 if(p){var st=[].slice.call(p.querySelectorAll('.st')),k=-1,t,done=false;
- function nx(){k=(k+1)%st.length;st.forEach(function(e,i){e.classList.toggle('act',i===k)})}
+ var tk=[].slice.call(document.querySelectorAll('.track i'));function nx(){k=(k+1)%st.length;tk[0].parentNode.style.setProperty('--prog',k/(st.length-1));st.forEach(function(e,i){e.classList.toggle('act',i===k);e.classList.toggle('dn',i<k)});tk.forEach(function(e,i){e.classList.toggle('on',i===k);e.classList.toggle('dn',i<k)})}
  new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!done){done=true;p.classList.add('in');setTimeout(function(){p.classList.add('run');nx();t=setInterval(nx,2600)},1100)}}},{threshold:.6}).observe(p);}
 var gl=document.getElementById('galeria');
 if(gl){var bar=document.createElement('i');bar.className='glp';gl.appendChild(bar);
@@ -194,7 +194,7 @@ if(el&&window.L){
   var b=document.createElement('button');b.type='button';b.className='ubp';b.innerHTML='<i>'+ic[x.c]+'</i><span><b>'+x.n+'</b><small>'+dt+'</small></span>';
   b.addEventListener('click',function(){paused=true;sel(i)});list.appendChild(b);btn.push(b)});
  function sel(i){cur=i;btn.forEach(function(b,k){b.classList.toggle('on',k===i)});mk.forEach(function(m,k){var e=m.getElement();if(e)e.firstChild.classList.toggle('on',k===i)});
-  var pad=innerWidth>960?[470,40]:[20,20];map.flyToBounds(L.latLngBounds([ME,P[i].p]),{paddingTopLeft:pad,paddingBottomRight:[40,40],maxZoom:16,duration:1.1});
+  var far=km(ME,P[i].p)>1.2,ex=far?150:0,pad=innerWidth>960?[470+ex,40+ex]:[20+ex,20+ex];map.flyToBounds(L.latLngBounds([ME,P[i].p]),{paddingTopLeft:pad,paddingBottomRight:[40+ex,40+ex],maxZoom:far?14:16,duration:1.1});
   mk.forEach(function(m,k){if(k!==i)m.closeTooltip()});mk[i].openTooltip();clearTimeout(tm);if(vis&&!paused)tm=setTimeout(function(){sel((cur+1)%P.length)},3800)}
  new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis){map.invalidateSize();if(!paused)sel(cur<0?0:cur)}else clearTimeout(tm)},{threshold:.5}).observe(document.getElementById('ubicacion'));
 }
